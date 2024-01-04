@@ -96,90 +96,133 @@
         padding: 0 2px;
         background-color: white;
     }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
+    body.offcanvas-active {
+        overflow: hidden;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 300px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+
+    }
+
+    .dataTables_length {
+        margin-bottom: 10px;
+    }
+
+    .dataTables_length select {
+        width: auto;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_length label {
+        margin-right: 5px;
+        font-weight: bolder;
+    }
 </style>
 
 <body>
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">Home/
-        </a> Sales Invoice</h5>
+            <h5 style="float: left;">ChattingBirds/
+        </a> Manage SalesInvoice</h5>
         <br>
         <hr>
         <br>
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Sales Invoice
-                <i class="fa fa-plus"></i></button>
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa fa-plus"></i>
+                <b>Add SalesInvoice</b>
+            </button>
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-overlay"></div>
+
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Sales Invoice</h5>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add SalesInvoice</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+                <hr>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
 
                             <div class="input-field">
-                                <input type="text" required="required" spellcheck="false" id="po_no" >
-                                <label>Sales Oredr No</label>
+                                <input type="text" required="required" spellcheck="false" value="1234565CS" id="si_no">
+                                <label>Sales Invoice No</label>
                             </div>
                             <br>
                             <div class="col-md-12">
 
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_req_no">
-                                    <label>Quotation No</label>
+                                    <input type="text" required="required" spellcheck="false" value="1234565SDFS"
+                                        id="so_no">
+                                    <label>SalesOrder No</label>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
 
                                 <div class="input-field">
-                                    <div class="form-group">
-                                        <label for="selectCustomerName">Choose Customer</label>
-                                        <select style="width:100%" id="selectCustomerName" class="js-example-basic-single">
-                                         
-                                        </select>
-                                    </div>
+                                    <input type="text" required="required" spellcheck="false" value="1234565SDFS"
+                                        id="si_v_name">
+                                    <label>Customer Name</label>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectProductrName">Choose Product</label>
-                                    <select style="width:100%" id="selectProductrName" class="js-example-basic-single">
-                                     
-                                    </select>
+
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" value="1234565SDFS"
+                                        id="si_product">
+                                    <label>Product Name</label>
                                 </div>
                             </div><br>
 
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_quantity" spellcheck="false"
-                                    >
+                                    <input type="text" required="required" id="si_quantity" value="DFDJJXBVHD"
+                                        spellcheck="false">
                                     <label>Quantity</label>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_price" spellcheck="false" >
+                                    <input type="text" required="required" id="si_price" value="123" spellcheck="false">
                                     <label>Price</label>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_adress" spellcheck=" false">
+                                    <input type="text" required="required" id="si_adress" value="SFFHDJIFIWDVB"
+                                        spellcheck=" false">
                                     <label>Address</label>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_branch" spellcheck="false">
+                                    <input type="text" required="required" id="si_branch" value="XVNDJVNDJ"
+                                        spellcheck="false">
                                     <label>Branch</label>
                                 </div>
                             </div>
@@ -189,23 +232,28 @@
                                 <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
                                 class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_exp_date" spellcheck="false"
-                                        value="12/02/20323">
+                                    <input type="text" required="required" id="si_dly_date" value="12/2/2023"
+                                        spellcheck="false" value="12/02/20323">
                                 </div>
                             </div>
                             <br>
-                            <label class="form-label" for="formControlDisabled"><b>Grand Total</b></label>
-                            <div class="form-outline mb-3" data-mdb-input-init>
-                                <input class="form-control" id="po_total" type="text" placeholder="300"
-                                    aria-label="disabled input example" disabled />
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="si_total" value="XVNDJVNDJ"
+                                        spellcheck="false">
+                                    <label>Grand Total</label>
+                                </div>
                             </div>
+                            <br>
                         </div>
-                    </div><br> <button type="button" class="btn btn-success" onclick="addSalesInvoiceData()" style="
-                border-radius: 2px;
-            ">Save
-                        <i class="fa fa-check"></i>
-                    </button>
+                        <div class="row">
+                            <button type="button" style="margin-left: 12px;" class="btn btn-primary "
+                                onclick="addSalesInvoiceData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                        </div>
+                        </button>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -222,13 +270,13 @@
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Total</th>
                                 <th class="text-center">Delivery Date</th>
-                                <th class="text-center">Details</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody class="text-center" id="prodction_plan">
                         </tbody>
                     </table>
+                    <br>
                 </div>
             </div>
         </div>
@@ -250,7 +298,7 @@
     </div>
     <script>
         function addSalesInvoiceData() {
-            var fields = ["po_no", "p_req_no", "po_v_name", "po_product", "po_quantity", "po_price", "po_adress", "po_branch", "po_exp_date", "po_total"];
+            var fields = ["si_no", "so_no", "si_v_name", "si_product", "si_quantity", "si_price", "si_adress", "si_branch", "si_dly_date", "si_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -273,44 +321,44 @@
             }
 
 
-            var po_no = document.getElementById("po_no").value;
-            var p_req_no = document.getElementById("p_req_no").value;
-            var pi_v_name = document.getElementById("pi_v_name").value;
-            var pi_product = document.getElementById("pi_product").value;
-            var pi_quantity = document.getElementById("pi_quantity").value;
-            var pi_price = document.getElementById("pi_price").value;
-            var pi_adress = document.getElementById("pi_adress").value;
-            var pi_branch = document.getElementById("pi_branch").value;
-            var pi_exp_date = document.getElementById("pi_exp_date").value;
-            var pi_total = document.getElementById("pi_total").value;
+            var si_no = document.getElementById("si_no").value;
+            var so_no = document.getElementById("so_no").value;
+            var si_v_name = document.getElementById("si_v_name").value;
+            var si_product = document.getElementById("si_product").value;
+            var si_quantity = document.getElementById("si_quantity").value;
+            var si_price = document.getElementById("si_price").value;
+            var si_branch = document.getElementById("si_branch").value;
+            var si_dly_date = document.getElementById("si_dly_date").value;
+            var si_adress = document.getElementById("si_adress").value;
+            var si_total = document.getElementById("si_total").value;
 
             var JsonDataAddSalesInvoice =
             {
-                purchaseorder_number: po_no,
-                purchaserequest_number: p_req_no,
-                purchaseinvoice_vendor_name: pi_v_name,
-                purchaseinvoice_product: pi_product,
-                purchaseinvoice_quantity: pi_quantity,
-                purchaseinvoice_price: pi_price,
-                purchaseinvoice_adress: pi_adress,
-                purchaseinvoice_branch: pi_branch,
-                purchaseinvoice_exp_date: pi_exp_date,
-                purchaseinvoice_total: pi_total,
+                salesinvoice_number: si_no,
+                salesorder_no: so_no,
+                salesinvoice_vendor_name: si_v_name,
+                salesinvoice_product: si_product,
+                salesinvoice_quantity: si_quantity,
+                salesinvoice_price: si_price,
+                salesinvoice_adress: si_adress,
+                salesinvoice_branch: si_branch,
+                salesinvoice_exp_date: si_dly_date,
+                salesinvoice_total: si_total,
 
             };
 
             console.log(JsonDataAddSalesInvoice);
 
-            document.getElementById("po_no").value = "";
-            document.getElementById("p_req_no").value = "";
-            document.getElementById("pi_v_name").value = "";
-            document.getElementById("pi_product").value = "";
-            document.getElementById("pi_quantity").value = "";
-            document.getElementById("pi_price").value = "";
-            document.getElementById("pi_adress").value = "";
-            document.getElementById("pi_branch").value = "";
-            document.getElementById("pi_exp_date").value = "";
-            document.getElementById("pi_total").value = "";
+            document.getElementById("si_no").value = "";
+            document.getElementById("so_no").value = "";
+            document.getElementById("si_v_name").value = "";
+            document.getElementById("si_product").value = "";
+            document.getElementById("si_quantity").value = "";
+            document.getElementById("si_price").value = "";
+            document.getElementById("si_adress").value = "";
+            document.getElementById("si_branch").value = "";
+            document.getElementById("si_dly_date").value = "";
+            document.getElementById("si_total").value = "";
         }
 
     </script>
@@ -357,40 +405,33 @@
                 var table_row = document.createElement("tr")
 
                 var purchase_order_no = document.createElement("td");
-                purchase_order_no.textContent = datax.so_no;
+                purchase_order_no.textContent = datax.si_no;
                 table_row.appendChild(purchase_order_no);
 
                 var purchase_vendor_name = document.createElement("td");
-                purchase_vendor_name.textContent = datax.so_c_name
+                purchase_vendor_name.textContent = datax.si_v_name
                 table_row.appendChild(purchase_vendor_name);
 
                 var purchase_product = document.createElement("td");
-                purchase_product.textContent = datax.so_product
+                purchase_product.textContent = datax.si_product
                 table_row.appendChild(purchase_product);
 
                 var purchase_invoice_total = document.createElement("td");
-                purchase_invoice_total.textContent = datax.so_qu
+                purchase_invoice_total.textContent = datax.si_quantity
                 table_row.appendChild(purchase_invoice_total);
 
                 var purchase_invoice_total = document.createElement("td");
-                purchase_invoice_total.textContent = datax.so_total
+                purchase_invoice_total.textContent = datax.si_total
                 table_row.appendChild(purchase_invoice_total);
 
                 var purchase_invoice_total = document.createElement("td");
-                purchase_invoice_total.textContent = datax.so_dly_date
+                purchase_invoice_total.textContent = datax.si_dly_date
                 table_row.appendChild(purchase_invoice_total);
-
-
-
-
-                var view_details = document.createElement("td");
-                view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
-                table_row.appendChild(view_details);
 
                 var action = document.createElement("td");
-                action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                        <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
-                    </button>`
+                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                   <b>X
+                                        </button>`
                 table_row.appendChild(action);
 
                 tableBody.appendChild(table_row)
