@@ -1,0 +1,76 @@
+{
+    "add_item": [
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        },
+        {
+            "s_name": "1_x_item",
+            "s_no": "1278900",
+            "s_price": "2345",
+            "s_uom": "kg",
+            "s_subitem": "x_id",
+            "s_item": "x_id"
+        }
+    ]
+}

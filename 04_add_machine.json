@@ -1,0 +1,81 @@
+{
+    "add_machine": [
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        },
+        {
+            "m_name": "01_x_item",
+            "m_no": "0000",
+            "m_process": "x_kg",
+            "m_eff_hrs": "100",
+            "m_branch": "x_metal"
+        }
+    ]
+}

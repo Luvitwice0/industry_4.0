@@ -1,0 +1,88 @@
+{
+    "add_master_product": [
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        },
+        {
+            "i_name": "01_x_item",
+            "i_no": "0000",
+            "i_uom": "x_kg",
+            "i_hsn": "100",
+            "i_total": "1000"
+        }
+    ]
+}

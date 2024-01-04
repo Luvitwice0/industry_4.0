@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <!-- Select2 CSS -->
+    <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="assets/dist/js/select2.min.js"></script>
+
+    <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
+    <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+</head>
+<style>
+    body {
+        margin: auto;
+        /* padding: 20px; */
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    .main-container {
+        padding: 10px;
+    }
+
+    .select2-container {
+        z-index: 3060;
+    }
+
+    .input-field {
+        position: relative;
+    }
+
+    .input-field input {
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 0 15px;
+        border: 2px solid #bababa;
+        background: transparent;
+        color: #000000;
+        outline: none;
+    }
+
+    .input-field label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #212529;
+        font-size: 16px;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border: 2px solid #0d6efd;
+    }
+
+    input:focus~label {
+        color: #0d6efd;
+    }
+
+    input:focus~label,
+    input:valid~label {
+        top: 0;
+        left: 15px;
+        font-size: 16px;
+        padding: 0 2px;
+        background-color: white;
+    }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+</style>
+
+<body>
+    <div class="main-container">
+        <a href="home.html" style="text-decoration: none;">
+            <h5 style="float: left;">Home/
+        </a>Add Plants</h5>
+        <br>
+        <hr>
+        <br>
+
+        <div class="container">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Plannt
+                <i class="fa fa-plus"></i></button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Sub Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" spellcheck="false" id="p_name">
+                                <label for="p_name">Plant Name</label>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_tax_id">
+                                    <label for="p_tax_id">Plant Tax id</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_pin_code">
+                                    <label for="p_pin_code">Pin Code</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_city">
+                                    <label for="p_city">City</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_addrs">
+                                    <label for="p_addrs">Address</label>
+                                </div>
+                            </div> <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_ph_no">
+                                    <label for="p_ph_no">Phone Number</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_email">
+                                    <label for="p_email">Email id</label>
+                                </div>
+                            </div> <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_state">
+                                    <label for="p_state">State</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-success " onclick="addPlantData()">Save <i
+                                        class="fa fa-check"></i></button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
+                        <thead class="bg-gradient">
+                            <tr>
+                                <th class="text-center">Plant Name</th>
+                                <th class="text-center">Phone no</th>
+                                <th class="text-center">State</th>
+                                <th class="text-center">TAX Id</th>
+                                <th class="text-center">Details</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" id="prodction_plan">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model for create production plan -->
+    <div class="modal fade" id="create_production_plan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius: 2px;">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Plant's</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="addPlantData()" style="border-radius: 2px;">
+                        Save
+                        <i class="fa fa-check"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            ...
+        </div>
+    </div>
+
+    <script>
+        function addPlantData() {
+            var fields = ["p_name", "p_tax_id", "p_pin_code", "p_city", "p_addrs", "p_ph_no", "p_email", "p_state"];
+            var hasEmptyField = false;
+
+            for (var i = 0; i < fields.length; i++) {
+                var fieldId = fields[i];
+                var input = document.getElementById(fieldId);
+
+                var value = input.value.trim();
+
+                if (value === "") {
+                    input.classList.add("required-field");
+                    hasEmptyField = true;
+                }
+                else {
+                    input.classList.remove("required-field");
+                }
+            }
+
+            if (hasEmptyField) {
+                return;
+            }
+
+            var p_name = document.getElementById("p_name").value;
+            var p_tax_id = document.getElementById("p_tax_id").value;
+            var p_pin_code = document.getElementById("p_pin_code").value;
+            var p_city = document.getElementById("p_city").value;
+            var p_addrs = document.getElementById("p_addrs").value;
+            var p_ph_no = document.getElementById("p_ph_no").value;
+            var p_email = document.getElementById("p_email").value;
+            var p_state = document.getElementById("p_state").value;
+
+            var JsonDataAddPlant =
+            {
+                plant_name: p_name,
+                plant_taxID: p_tax_id,
+                plant_pinCode: p_pin_code,
+                plant_city: p_city,
+                plant_address: p_addrs,
+                plant_phoneNo: p_ph_no,
+                plant_email: p_email,
+                plant_state: p_state
+            };
+
+            console.log(JsonDataAddPlant);
+
+            document.getElementById("p_name").value = "";
+            document.getElementById("p_tax_id").value = "";
+            document.getElementById("p_pin_code").value = "";
+            document.getElementById("p_city").value = "";
+            document.getElementById("p_addrs").value = "";
+            document.getElementById("p_ph_no").value = "";
+            document.getElementById("p_email").value = "";
+            document.getElementById("p_state").value = "";
+        }
+
+    </script>
+
+    <script>
+
+        var dataTableInitialized = false;
+
+        function updateTableData() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        var response = xhr.responseText;
+                        var jsonData = JSON.parse(response);
+                        console.log(jsonData)
+                        updateDataToTable(jsonData.add_plant);
+                        // Initialize DataTables if it hasn't been initialized already
+                        if (!dataTableInitialized) {
+                            initDataTable();
+                            dataTableInitialized = true; // Set the flag to true
+                        }
+                    }
+                    else {
+                        console.error("failed to get the data from server")
+                    }
+
+                }
+
+            }
+            xhr.open("GET", "01_add_plant.json", true)
+            xhr.send();
+        }
+
+        function updateDataToTable(add_plant) {
+            var tableBody = document.getElementById("prodction_plan")
+            var data = add_plant;
+            for (var i = 0; i < data.length; i++) {
+                var datax = data[i];
+
+                var p_add_plant = document.createElement("tr")
+
+                var p_name = document.createElement("td");
+                p_name.textContent = datax.p_name;
+                p_add_plant.appendChild(p_name);
+
+                var p_phone_no = document.createElement("td");
+                p_phone_no.textContent = datax.p_ph;
+                p_add_plant.appendChild(p_phone_no);
+
+                var p_state = document.createElement("td");
+                p_state.textContent = datax.p_state;
+                p_add_plant.appendChild(p_state);
+
+                var tax_id = document.createElement("td");
+                tax_id.textContent = datax.p_tax_id
+                p_add_plant.appendChild(tax_id);
+
+                var view_details = document.createElement("td");
+                view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
+                p_add_plant.appendChild(view_details);
+
+                var action = document.createElement("td");
+                action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                                            <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
+                                        </button>`
+                p_add_plant.appendChild(action);
+
+                tableBody.appendChild(p_add_plant)
+            }
+        }
+        updateTableData()
+    </script>
+    <script>
+        function addRawItemData(rowIndex) {
+            var delectCellRow = rowIndex
+            console.log(delectCellRow);
+        }
+    </script>
+    <script>
+        function initDataTable() {
+            $('#example').DataTable({
+                language: {
+                    "searchPlaceholder": "Search records",
+                    "search": ""
+                },
+                lengthMenu: [10, 25, 50, 100],
+                fnDrawCallback: function () {
+                    $("input[type='search']").attr("class", "searchBox");
+                    $('div.dataTables_length select').attr("class", "selectBox");
+                }
+            });
+        }
+        // updateTableData();
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange span').html(
+                    start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
+                );
+            }
+
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [
+                        moment(), moment()
+                    ],
+                    'Last 7 Days': [
+                        moment().subtract(6, 'days'),
+                        moment()
+                    ],
+                    'Last 30 Days': [
+                        moment().subtract(29, 'days'),
+                        moment()
+                    ]
+                }
+            }, cb);
+
+            cb(start, end);
+
+        });
+    </script>
+
+</body>
+
+</html>

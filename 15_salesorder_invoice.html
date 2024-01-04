@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <!-- Select2 CSS -->
+    <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="assets/dist/js/select2.min.js"></script>
+
+    <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
+    <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+</head>
+<style>
+    body {
+        margin: auto;
+        /* padding: 20px; */
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    .main-container {
+        padding: 10px;
+    }
+
+    .select2-container {
+        z-index: 3060;
+    }
+
+    .input-field {
+        position: relative;
+    }
+
+    .input-field input {
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 0 15px;
+        border: 2px solid #bababa;
+        background: transparent;
+        color: #000000;
+        outline: none;
+    }
+
+    .input-field label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #212529;
+        font-size: 16px;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border: 2px solid #0d6efd;
+    }
+
+    input:focus~label {
+        color: #0d6efd;
+    }
+
+    input:focus~label,
+    input:valid~label {
+        top: 0;
+        left: 15px;
+        font-size: 16px;
+        padding: 0 2px;
+        background-color: white;
+    }
+</style>
+
+<body>
+    <div class="main-container">
+        <a href="home.html" style="text-decoration: none;">
+            <h5 style="float: left;">Home/
+        </a> Sales Invoice</h5>
+        <br>
+        <hr>
+        <br>
+        <div class="container">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Sales Invoice
+                <i class="fa fa-plus"></i></button>
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Sales Invoice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="input-field">
+                                <input type="text" required="required" spellcheck="false" id="po_no" value="SO-CB-001">
+                                <label>Sales Oredr No</label>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="p_req_no"
+                                        value="CB-QO-001">
+                                    <label>Purchase Request No</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="po_v_name"
+                                        value="Customer 1">
+                                    <label>Customer Name</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectcustomerName">Choose Product</label>
+                                    <select style="width:100%" id="po_product" class="js-example-basic-single">
+                                        <option>Product A</option>
+                                        <option>Product B</option>
+                                        <option>Product C</option>
+                                        <option>Product D</option>
+                                        <option>Product D</option>
+                                        <option>Product E</option>
+                                    </select>
+                                </div>
+                            </div><br>
+
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="po_quantity" spellcheck="false"
+                                        value="30">
+                                    <label>Quantity</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="po_price" spellcheck="false" value="10">
+                                    <label>Price</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="po_adress" spellcheck=" false">
+                                    <label>Address</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="po_branch" spellcheck="false">
+                                    <label>Branch</label>
+                                </div>
+                            </div>
+                            <br>
+                            <label class="form-label" for="formControlDisabled">Expected Delivery Date</label>
+                            <div class="col-md-12">
+                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                                class="form-control" id="orderNo"></input> </div> -->
+                                <div class="input-field">
+                                    <input type="text" required="required" id="po_exp_date" spellcheck="false"
+                                        value="12/02/20323">
+                                </div>
+                            </div>
+                            <br>
+                            <label class="form-label" for="formControlDisabled"><b>Grand Total</b></label>
+                            <div class="form-outline mb-3" data-mdb-input-init>
+                                <input class="form-control" id="po_total" type="text" placeholder="300"
+                                    aria-label="disabled input example" disabled />
+                            </div>
+                        </div>
+                    </div><br> <button type="button" class="btn btn-success" onclick="addSalesInvoiceData()" style="
+                border-radius: 2px;
+            ">Save
+                        <i class="fa fa-check"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
+                        <thead class="bg-gradient">
+                            <tr>
+                                <th class="text-center">SalesOrder No</th>
+                                <th class="text-center">Customer</th>
+                                <th class="text-center">Product</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Delivery Date</th>
+                                <th class="text-center">Details</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" id="prodction_plan">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model for create production plan -->
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+
+        <div class="offcanvas-body">
+            ...
+        </div>
+    </div>
+    <script>
+        function addSalesInvoiceData() {
+            var fields = ["po_no", "p_req_no", "po_v_name", "po_product", "po_quantity", "po_price", "po_adress", "po_branch", "po_exp_date", "po_total"];
+            var hasEmptyField = false;
+
+            for (var i = 0; i < fields.length; i++) {
+                var fieldId = fields[i];
+                var input = document.getElementById(fieldId);
+
+                var value = input.value.trim();
+
+                if (value === "") {
+                    input.classList.add("required-field");
+                    hasEmptyField = true;
+                }
+                else {
+                    input.classList.remove("required-field");
+                }
+            }
+
+            if (hasEmptyField) {
+                return;
+            }
+
+
+            var po_no = document.getElementById("po_no").value;
+            var p_req_no = document.getElementById("p_req_no").value;
+            var pi_v_name = document.getElementById("pi_v_name").value;
+            var pi_product = document.getElementById("pi_product").value;
+            var pi_quantity = document.getElementById("pi_quantity").value;
+            var pi_price = document.getElementById("pi_price").value;
+            var pi_adress = document.getElementById("pi_adress").value;
+            var pi_branch = document.getElementById("pi_branch").value;
+            var pi_exp_date = document.getElementById("pi_exp_date").value;
+            var pi_total = document.getElementById("pi_total").value;
+
+            var JsonDataAddSalesInvoice =
+            {
+                purchaseorder_number: po_no,
+                purchaserequest_number: p_req_no,
+                purchaseinvoice_vendor_name: pi_v_name,
+                purchaseinvoice_product: pi_product,
+                purchaseinvoice_quantity: pi_quantity,
+                purchaseinvoice_price: pi_price,
+                purchaseinvoice_adress: pi_adress,
+                purchaseinvoice_branch: pi_branch,
+                purchaseinvoice_exp_date: pi_exp_date,
+                purchaseinvoice_total: pi_total,
+
+            };
+
+            console.log(JsonDataAddSalesInvoice);
+
+            document.getElementById("po_no").value = "";
+            document.getElementById("p_req_no").value = "";
+            document.getElementById("pi_v_name").value = "";
+            document.getElementById("pi_product").value = "";
+            document.getElementById("pi_quantity").value = "";
+            document.getElementById("pi_price").value = "";
+            document.getElementById("pi_adress").value = "";
+            document.getElementById("pi_branch").value = "";
+            document.getElementById("pi_exp_date").value = "";
+            document.getElementById("pi_total").value = "";
+        }
+
+    </script>
+
+
+
+    <script>
+
+        var dataTableInitialized = false;
+
+        function updateTableData() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        var response = xhr.responseText;
+                        var jsonData = JSON.parse(response);
+                        console.log(jsonData)
+                        updateDataToTable(jsonData.add_sales_invoice);
+                        // Initialize DataTables if it hasn't been initialized already
+                        if (!dataTableInitialized) {
+                            initDataTable();
+                            dataTableInitialized = true; // Set the flag to true
+                        }
+                    }
+                    else {
+                        console.error("failed to get the data from server")
+                    }
+
+                }
+
+            }
+            xhr.open("GET", "15_salesorder_invoice.json", true)
+            xhr.send();
+        }
+
+        function updateDataToTable(add_sales_invoice) {
+            var tableBody = document.getElementById("prodction_plan")
+            var data = add_sales_invoice;
+            for (var i = 0; i < data.length; i++) {
+                var datax = data[i];
+
+                var table_row = document.createElement("tr")
+
+                var purchase_order_no = document.createElement("td");
+                purchase_order_no.textContent = datax.so_no;
+                table_row.appendChild(purchase_order_no);
+
+                var purchase_vendor_name = document.createElement("td");
+                purchase_vendor_name.textContent = datax.so_c_name
+                table_row.appendChild(purchase_vendor_name);
+
+                var purchase_product = document.createElement("td");
+                purchase_product.textContent = datax.so_product
+                table_row.appendChild(purchase_product);
+
+                var purchase_invoice_total = document.createElement("td");
+                purchase_invoice_total.textContent = datax.so_qu
+                table_row.appendChild(purchase_invoice_total);
+
+                var purchase_invoice_total = document.createElement("td");
+                purchase_invoice_total.textContent = datax.so_total
+                table_row.appendChild(purchase_invoice_total);
+
+                var purchase_invoice_total = document.createElement("td");
+                purchase_invoice_total.textContent = datax.so_dly_date
+                table_row.appendChild(purchase_invoice_total);
+
+
+
+
+                var view_details = document.createElement("td");
+                view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
+                table_row.appendChild(view_details);
+
+                var action = document.createElement("td");
+                action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                        <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
+                    </button>`
+                table_row.appendChild(action);
+
+                tableBody.appendChild(table_row)
+            }
+        }
+        updateTableData()
+    </script>
+    <script>
+        function addRawItemData(rowIndex) {
+            var delectCellRow = rowIndex
+            console.log(delectCellRow);
+        }
+    </script>
+    <script>
+        function initDataTable() {
+            $('#example').DataTable({
+                language: {
+                    "searchPlaceholder": "Search records",
+                    "search": ""
+                },
+                lengthMenu: [10, 25, 50, 100],
+                fnDrawCallback: function () {
+                    $("input[type='search']").attr("class", "searchBox");
+                    $('div.dataTables_length select').attr("class", "selectBox");
+                }
+            });
+        }
+        // updateTableData();
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange span').html(
+                    start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
+                );
+            }
+
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [
+                        moment(), moment()
+                    ],
+                    'Last 7 Days': [
+                        moment().subtract(6, 'days'),
+                        moment()
+                    ],
+                    'Last 30 Days': [
+                        moment().subtract(29, 'days'),
+                        moment()
+                    ]
+                }
+            }, cb);
+
+            cb(start, end);
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+{
+    "add_raw_items": [
+        {
+            "p_item_name": "01_x_item",
+            "p_item_no": "0000",
+            "p_uom": "x_kg",
+            "p_price": "100",
+            "type": "x_metal"
+        },
+        {
+            "p_item_name": "02_x_item",
+            "p_item_no": "0000",
+            "p_uom": "y_kg",
+            "p_price": "100",
+            "type": "y_metal"
+        },
+        {
+            "p_item_name": "03_x_item",
+            "p_item_no": "0000",
+            "p_uom": "z_kg",
+            "p_price": "100",
+            "type": "z_metal"
+        },
+        {
+            "p_item_name": "04_x_item",
+            "p_item_no": "0000",
+            "p_uom": "x_kg",
+            "p_price": "100",
+            "type": "x_metal"
+        },
+        {
+            "p_item_name": "05_x_item",
+            "p_item_no": "0000",
+            "p_uom": "y_kg",
+            "p_price": "100",
+            "type": "y_metal"
+        },
+        {
+            "p_item_name": "06_x_item",
+            "p_item_no": "0000",
+            "p_uom": "z_kg",
+            "p_price": "100",
+            "type": "z_metal"
+        },
+        {
+            "p_item_name": "07_x_item",
+            "p_item_no": "0000",
+            "p_uom": "x_kg",
+            "p_price": "100",
+            "type": "x_metal"
+        },
+        {
+            "p_item_name": "08_x_item",
+            "p_item_no": "0000",
+            "p_uom": "y_kg",
+            "p_price": "100",
+            "type": "y_metal"
+        },
+        {
+            "p_item_name": "09_x_item",
+            "p_item_no": "0000",
+            "p_uom": "z_kg",
+            "p_price": "100",
+            "type": "z_metal"
+        },
+        {
+            "p_item_name": "10_x_item",
+            "p_item_no": "0000",
+            "p_uom": "x_kg",
+            "p_price": "100",
+            "type": "x_metal"
+        },
+        {
+            "p_item_name": "11_x_item",
+            "p_item_no": "0000",
+            "p_uom": "y_kg",
+            "p_price": "100",
+            "type": "y_metal"
+        },
+        {
+            "p_item_name": "12_x_item",
+            "p_item_no": "0000",
+            "p_uom": "z_kg",
+            "p_price": "100",
+            "type": "z_metal"
+        }
+    ]
+}
