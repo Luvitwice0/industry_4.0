@@ -108,11 +108,146 @@
         <br>
 
         <div class="container">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#create_production_plan" style="border-radius: 2px;">
-                Add Master Product
-                <i class="fa fa-plus"></i>
-            </button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" style="border-radius: 2px;"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Master Product
+                <i class="fa fa-plus"></i></button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Master Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                            class="form-control" id="prodId"></input> </div> -->
+                            <div class="input-field">
+                                <input type="text" required="required" id="i_name" spellcheck="false">
+                                <label>Product Name</label>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                                class="form-control" id="orderNo"></input> </div> -->
+                                <div class="input-field">
+                                    <input type="text" required="required" id="i_no" spellcheck="false">
+                                    <label>Product No</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectMachineName">Machine Name</label>
+                                    <select style="width:100%" id="selectMachineName" class="js-example-basic-single">
+                                        <option>Select Drop Machine</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectProcessName">Process Name</label>
+                                    <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
+                                        <option>Select Drop Process</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <!-- <div class="form-group"> <label for="prodQuantity">Production
+                                Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
+                                -->
+                                <div class="input-field">
+                                    <input type="text" required="required" id="i_hsn" spellcheck="false">
+                                    <label>HSN Code</label>
+                                </div>
+                            </div> <br>
+                            <div class="col-md-12">
+                                <!-- <div class="form-group"> <label for="prodQuantity">Production
+                                Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
+                                -->
+                                <div class="input-field">
+                                    <input type="text" required="required" id="i_gst" spellcheck="false">
+                                    <label>GST %</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>UoM (Unit of Measure)</p>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="s_uom" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Kg</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="s_uom" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Liter</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="s_uom" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">mm</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="s_uom" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">cm</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectCategoryName">Choose Category</label>
+                                    <select style="width:100%" id="selectCategoryName" class="js-example-basic-single">
+                                        <option>Select Drop Category</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectSubitemName"> Choose SubItem</label>
+                                    <select style="width:100%" id="selectSubitemName" class="js-example-basic-single">
+                                        <option>Select Drop SubItem</option>
+
+                                    </select>
+                                </div>
+                            </div> <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectItemName">Choose Item</label>
+                                    <select style="width:100%" id="selectItemName" class="js-example-basic-single">
+                                        <option>Select Drop Item</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="i_total" spellcheck="false">
+                                    <label>Grand Total</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-success " onclick="addMasterProductData()">Save
+                                        <i class="fa fa-check"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <div class="container">
@@ -143,166 +278,7 @@
 
     <!-- model for create production plan -->
 
-    <div class="modal fade" id="create_production_plan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content" style="
-                border-radius: 2px;
-            ">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Items</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
-                                    class="form-control" id="prodId"></input> </div> -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="i_name" spellcheck="false">
-                                    <label>Item Name</label>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                        class="form-control" id="orderNo"></input> </div> -->
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="i_no" spellcheck="false">
-                                        <label>Item No</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="selectcustomerName">Process Name</label>
-                                        <select style="width:100%" id="selectcustomerName"
-                                            class="js-example-basic-single">
-                                            <option>Select Drop Customer</option>
 
-                                        </select>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <!-- <div class="form-group"> <label for="partNo">Part No</label> <input
-                                        class="form-control" id="partNo"></input> </div> -->
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="i_gst" spellcheck="false">
-                                        <label>GST %
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <!-- <div class="form-group"> <label for="partNo">Part No</label> <input
-                                        class="form-control" id="partNo"></input> </div> -->
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="i_price" spellcheck="false">
-                                        <label>Price
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <!-- <div class="form-group"> <label for="partName">Part Name</label> <input
-                                        class="form-control" id="partName"></input> </div> -->
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="i_machine" spellcheck="false">
-                                        <label>Machine Name</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <!-- <div class="form-group"> <label for="prodQuantity">Production
-                                        Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
-                                        -->
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="i_hsn" spellcheck="false">
-                                        <label>HSN Code</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p>UoM (Unit of Measure)</p>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="i_uom" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Kg</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="i_uom" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">Liter</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="i_uom" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">mm</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="i_uom" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">cm</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="selectcustomerNamex">CHoose a category</label>
-                                        <select style="width:100%" id="i_category" class="js-example-basic-single">
-                                            <option>Select Drop Customer</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="selectcustomerNamexy">CHoose a Raw item</label>
-                                        <select style="width:100%" id="i_raw_item" class="js-example-basic-single">
-                                            <option>Select Drop Customer</option>
-                                        </select>
-                                    </div>
-                                </div> <br>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="selectcustomerNamey">CHoose a sub item</label>
-                                        <select style="width:100%" id="i_sub_item" class="js-example-basic-single">
-                                            <option>Select Drop Customer</option>
-
-                                        </select>
-                                    </div>
-                                </div> <br>
-                                <div class="col-md-12">
-                                    <!-- <div class="form-group"> <label for="partNo">Part No</label> <input
-                                        class="form-control" id="partNo"></input> </div> -->
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="i_total" spellcheck="false">
-                                        <label>Grand Total
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-
-                                <!-- <div class="row"> <div class="col-md-12"> <label for="reportrange">Select
-                                    Date:</label> <input type="text" name="" class="form-control" id="reportrange">
-                                    </div> </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="addItemData()" style="
-                        border-radius: 2px;
-                    ">Save
-                        <i class="fa fa-check"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
@@ -315,8 +291,8 @@
         </div>
     </div>
     <script>
-        function addItemData() {
-            var fields = ["i_name", "i_no", "i_process", "i_gst", "i_price", "i_machine", "i_hsn", "i_uom", "i_category", "i_raw_item", "i_sub_item", "i_total"];
+        function addMasterProductData() {
+            var fields = ["i_name", "i_no", "i_gst", "i_hsn", "i_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -340,47 +316,30 @@
 
             var i_name = document.getElementById("i_name").value;
             var i_no = document.getElementById("i_no").value;
-            var i_process = document.getElementById("i_process").value;
             var i_gst = document.getElementById("i_gst").value;
-            var i_price = document.getElementById("i_price").value;
-            var i_machine = document.getElementById("i_machine").value;
             var i_hsn = document.getElementById("i_hsn").value;
-            var i_uom = document.getElementById("i_uom").value;
-            var i_category = document.getElementById("i_category").value;
-            var i_raw_item = document.getElementById("i_raw_item").value;
-            var i_sub_item = document.getElementById("i_sub_item").value;
-            var i_grand_total = document.getElementById("i_total").value;
+            var i_total = document.getElementById("i_total").value;
 
             var JsonDataAddItem =
             {
                 item_name: i_name,
                 item_number: i_no,
-                item_process: i_process,
                 item_process: i_gst,
-                item_price: i_price,
-                item_machine: i_machine,
                 item_hsn: i_hsn,
-                item_uom: i_uom,
-                item_category: i_category,
-                item_raw_item: i_raw_item,
-                item_sub_item: i_sub_item,
                 item_grand_total: i_total,
 
             };
 
             console.log(JsonDataAddItem);
-
+            $('#selectMachineName').val(null).trigger('change');
+            $('#selectProcessName').val(null).trigger('change');
+            $('#selectCategoryName').val(null).trigger('change');
+            $('#selectSubitemName').val(null).trigger('change');
+            $('#selectItemName').val(null).trigger('change');
             document.getElementById("i_name").value = "";
             document.getElementById("i_no").value = "";
-            document.getElementById("i_process").value = "";
             document.getElementById("i_gst").value = "";
-            document.getElementById("i_price").value = "";
-            document.getElementById("i_machine").value = "";
             document.getElementById("i_hsn").value = "";
-            document.getElementById("i_uom").value = "";
-            document.getElementById("i_category").value = "";
-            document.getElementById("i_raw_item").value = "";
-            document.getElementById("i_sub_item").value = "";
             document.getElementById("i_total").value = "";
         }
 
@@ -400,7 +359,11 @@
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
                         updateDataToTable(jsonData.add_master_product);
-                        // Initialize DataTables if it hasn't been initialized already
+                        updateMachineDropdown(jsonData.add_master_product)
+                        updateProcessDropdown(jsonData.add_master_product)
+                        updateCategoryDropdown(jsonData.add_master_product)
+                        updateSubitemDropdown(jsonData.add_master_product)
+                        updateItemDropdown(jsonData.add_master_product)
                         if (!dataTableInitialized) {
                             initDataTable();
                             dataTableInitialized = true; // Set the flag to true
@@ -459,6 +422,121 @@
             }
         }
         updateTableData()
+        function updateMachineDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectMachineName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
+                    employeeNames.push(entry.i_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.i_name;
+                    option.textContent = entry.i_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+        function updateProcessDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectProcessName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
+                    employeeNames.push(entry.i_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.i_name;
+                    option.textContent = entry.i_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+        function updateCategoryDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectCategoryName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
+                    employeeNames.push(entry.i_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.i_name;
+                    option.textContent = entry.i_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+        function updateSubitemDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectSubitemName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
+                    employeeNames.push(entry.i_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.i_name;
+                    option.textContent = entry.i_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+        function updateItemDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectItemName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
+                    employeeNames.push(entry.i_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.i_name;
+                    option.textContent = entry.i_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
     </script>
     <script>
         function addRawItemData(rowIndex) {

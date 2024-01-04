@@ -96,106 +96,119 @@
         padding: 0 2px;
         background-color: white;
     }
-
-    .required-field {
-        border: 2px solid #f80000 !important;
-    }
-
-    body.offcanvas-active {
-        overflow: hidden;
-    }
 </style>
 
 <body>
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">ChattingBirds/
-        </a>Manage Unit</h5>
+            <h5 style="float: left;">Home/
+        </a>Add purchase Order</h5>
         <br>
         <hr>
         <br>
 
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Unit
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Purchase Order
                 <i class="fa fa-plus"></i></button>
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <div class="offcanvas-overlay"></div>
-
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Unit</h5>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Purchase Order</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
+
                             <div class="input-field">
-                                <input type="text" required="required" spellcheck="false" id="p_name">
-                                <label for="p_name">Unit Name</label>
+                                <input type="text" required="required" spellcheck="false" value="12345676543"
+                                    id="po_no">
+                                <label>Purchase Oredr No</label>
                             </div>
                             <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" value="SDFGH5676543"
+                                        id="p_req_no">
+                                    <label>Purchase Request No</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="po_v_name"
+                                        value="Vendor-01">
+                                    <label>Vendor Name</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectProductName">Choose Product</label>
+                                    <select style="width:100%" id="selectProductName" class="js-example-basic-single">
+
+                                    </select>
+                                </div>
+                            </div><br>
 
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_ph_no">
-                                    <label for="p_ph_no">Phone Number</label>
+                                    <input type="text" required="required" id="po_quantity" value="10"
+                                        spellcheck="false">
+                                    <label>Quantity</label>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_email">
-                                    <label for="p_email">Email Id</label>
-                                </div>
-                            </div> <br>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_tax_id">
-                                    <label for="p_tax_id">GST</label>
-                                </div>
-                            </div>
-                            <br>
-
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_city">
-                                    <label for="p_city">City</label>
+                                    <input type="text" required="required" id="po_price" value="12" spellcheck="false">
+                                    <label>Price</label>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_state">
-                                    <label for="p_state">State</label>
+                                    <input type="text" required="required" id="po_adress"
+                                        value="1/122,ddfhsjcnjds,dwehfwc" spellcheck=" false">
+                                    <label>Address</label>
                                 </div>
                             </div>
                             <br>
-                            <div class="col-md-12">
+                            <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_addrs">
-                                    <label for="p_addrs">Address</label>
+                                    <input type="text" required="required" id="po_branch" value="hosur"
+                                        spellcheck="false">
+                                    <label>Branch</label>
                                 </div>
                             </div>
                             <br>
+                            <label class="form-label" for="formControlDisabled">Expected Delivery Date</label>
                             <div class="col-md-12">
+                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                                class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_pin_code">
-                                    <label for="p_pin_code">Pin Code</label>
+                                    <input type="text" required="required" id="po_exp_date" spellcheck="false"
+                                        value="12/02/20323">
                                 </div>
                             </div>
                             <br>
-                            <button type="button" class="btn btn-success " onclick="addPlantData()">Save <i
-                                    class="fa fa-check"></i></button>
+                            <label class="form-label" for="formControlDisabled"><b>Grand Total</b></label>
+                            <div class="form-outline mb-3" data-mdb-input-init>
+                                <input class="form-control" id="po_total" type="text" placeholder="300"
+                                    aria-label="disabled input example" disabled />
+                            </div>
                         </div>
-
-
-                    </div>
-                    <br>
+                    </div><br> <button type="button" class="btn btn-success" onclick="addPurchaseOrderData()" style="
+                border-radius: 2px;
+            ">Save
+                        <i class="fa fa-check"></i>
+                    </button>
                 </div>
             </div>
-
         </div>
     </div>
     <br>
@@ -204,16 +217,20 @@
             <div class="col-md-12">
                 <table id="example" class="table table-striped table-bordered table-responsive table-hover">
                     <thead class="bg-gradient">
+
                         <tr>
-                            <th class="text-center">Plant Name</th>
-                            <th class="text-center">Phone no</th>
-                            <th class="text-center">State</th>
-                            <th class="text-center">TAX Id</th>
+                            <th class="text-center">PurchaseOrder No</th>
+                            <th class="text-center">Vendor Name</th>
+                            <th class="text-center">Product</th>
+                            <th class="text-center">Delivery Date</th>
+                            <th class="text-center">Grand Total</th>
+                            <th class="text-center">Status</th>
                             <th class="text-center">Details</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="text-center" id="prodction_plan">
+                    <tbody class="text-cente4r" id="prodction_plan">
+
                     </tbody>
                 </table>
             </div>
@@ -223,19 +240,21 @@
 
     <!-- model for create production plan -->
 
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+
+
         <div class="offcanvas-body">
             ...
         </div>
     </div>
-
     <script>
-        function addPlantData() {
-            var fields = ["p_name", "p_tax_id", "p_pin_code", "p_city", "p_addrs", "p_ph_no", "p_email", "p_state"];
+        function addPurchaseOrderData() {
+            var fields = ["po_no", "p_req_no", "po_v_name", "po_quantity", "po_price", "po_adress", "po_branch", "po_exp_date", "po_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -257,40 +276,47 @@
                 return;
             }
 
-            var p_name = document.getElementById("p_name").value;
-            var p_tax_id = document.getElementById("p_tax_id").value;
-            var p_pin_code = document.getElementById("p_pin_code").value;
-            var p_city = document.getElementById("p_city").value;
-            var p_addrs = document.getElementById("p_addrs").value;
-            var p_ph_no = document.getElementById("p_ph_no").value;
-            var p_email = document.getElementById("p_email").value;
-            var p_state = document.getElementById("p_state").value;
 
-            var JsonDataAddPlant =
+            var po_no = document.getElementById("po_no").value;
+            var p_req_no = document.getElementById("p_req_no").value;
+            var po_v_name = document.getElementById("po_v_name").value;
+            var po_quantity = document.getElementById("po_quantity").value;
+            var po_price = document.getElementById("po_price").value;
+            var po_adress = document.getElementById("po_adress").value;
+            var po_branch = document.getElementById("po_branch").value;
+            var po_exp_date = document.getElementById("po_exp_date").value;
+            var po_total = document.getElementById("po_total").value;
+
+            var JsonDataAddPurchaseOrder =
             {
-                plant_name: p_name,
-                plant_taxID: p_tax_id,
-                plant_pinCode: p_pin_code,
-                plant_city: p_city,
-                plant_address: p_addrs,
-                plant_phoneNo: p_ph_no,
-                plant_email: p_email,
-                plant_state: p_state
+                purchaseorder_number: po_no,
+                purchaserequest_number: p_req_no,
+                purchaseorder_vendor_name: po_v_name,
+                purchaseorder_quantity: po_quantity,
+                purchaseorder_price: po_price,
+                purchaseorder_adress: po_adress,
+                purchaseorder_branch: po_branch,
+                purchaseorder_exp_date: po_exp_date,
+                purchaseorder_total: po_total,
+
             };
 
-            console.log(JsonDataAddPlant);
+            console.log(JsonDataAddPurchaseOrder);
 
-            document.getElementById("p_name").value = "";
-            document.getElementById("p_tax_id").value = "";
-            document.getElementById("p_pin_code").value = "";
-            document.getElementById("p_city").value = "";
-            document.getElementById("p_addrs").value = "";
-            document.getElementById("p_ph_no").value = "";
-            document.getElementById("p_email").value = "";
-            document.getElementById("p_state").value = "";
+            document.getElementById("po_no").value = "";
+            document.getElementById("p_req_no").value = "";
+            document.getElementById("po_v_name").value = "";
+            document.getElementById("po_quantity").value = "";
+            document.getElementById("po_price").value = "";
+            document.getElementById("po_adress").value = "";
+            document.getElementById("po_branch").value = "";
+            document.getElementById("po_exp_date").value = "";
+            document.getElementById("po_total").value = "";
         }
 
     </script>
+
+
 
     <script>
 
@@ -305,7 +331,8 @@
                         var response = xhr.responseText;
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
-                        updateDataToTable(jsonData.add_plant);
+                        updateDataToTable(jsonData.add_purchase_order);
+                        updateProductDropdown(jsonData.add_purchase_order);
                         // Initialize DataTables if it hasn't been initialized already
                         if (!dataTableInitialized) {
                             initDataTable();
@@ -319,48 +346,85 @@
                 }
 
             }
-            xhr.open("GET", "01_add_plant.json", true)
+            xhr.open("GET", "11_add_purchase_order.json", true)
             xhr.send();
         }
 
-        function updateDataToTable(add_plant) {
+        function updateDataToTable(add_purchase_order) {
             var tableBody = document.getElementById("prodction_plan")
-            var data = add_plant;
+            var data = add_purchase_order;
             for (var i = 0; i < data.length; i++) {
                 var datax = data[i];
 
-                var p_add_plant = document.createElement("tr")
+                var table_row = document.createElement("tr")
 
-                var p_name = document.createElement("td");
-                p_name.textContent = datax.p_name;
-                p_add_plant.appendChild(p_name);
+                var purchase_order_no = document.createElement("td");
+                purchase_order_no.textContent = datax.po_no;
+                table_row.appendChild(purchase_order_no);
 
-                var p_phone_no = document.createElement("td");
-                p_phone_no.textContent = datax.p_ph;
-                p_add_plant.appendChild(p_phone_no);
+                var purchase_vendor_name = document.createElement("td");
+                purchase_vendor_name.textContent = datax.po_v_name
+                table_row.appendChild(purchase_vendor_name);
 
-                var p_state = document.createElement("td");
-                p_state.textContent = datax.p_state;
-                p_add_plant.appendChild(p_state);
+                var purchase_product = document.createElement("td");
+                purchase_product.textContent = datax.po_product
+                table_row.appendChild(purchase_product);
 
-                var tax_id = document.createElement("td");
-                tax_id.textContent = datax.p_tax_id
-                p_add_plant.appendChild(tax_id);
+                var purchase_expectedDate = document.createElement("td");
+                purchase_expectedDate.textContent = datax.po_exp_date
+                table_row.appendChild(purchase_expectedDate);
+
+                var purchase_order_total = document.createElement("td");
+                purchase_order_total.textContent = datax.po_total
+                table_row.appendChild(purchase_order_total);
+
+                var status = document.createElement("td");
+                var statusSpan = document.createElement("span");
+                statusSpan.className = "badge text-bg-warning";
+                statusSpan.textContent = datax.po_status;
+                status.appendChild(statusSpan);
+                table_row.appendChild(status);
 
                 var view_details = document.createElement("td");
                 view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
-                p_add_plant.appendChild(view_details);
+                table_row.appendChild(view_details);
 
                 var action = document.createElement("td");
                 action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                                            <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
-                                        </button>`
-                p_add_plant.appendChild(action);
+                                <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
+                            </button>`
+                table_row.appendChild(action);
 
-                tableBody.appendChild(p_add_plant)
+                tableBody.appendChild(table_row)
             }
         }
         updateTableData()
+
+        function updateProductDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectProductName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.po_product && employeeNames.indexOf(entry.po_product) === -1) {
+                    employeeNames.push(entry.po_product);
+
+                    var option = document.createElement("option");
+                    option.value = entry.po_product;
+                    option.textContent = entry.po_product;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+        updateTableData();
+
+
     </script>
     <script>
         function addRawItemData(rowIndex) {
@@ -382,7 +446,6 @@
                 }
             });
         }
-        // updateTableData();
     </script>
     <script>
         $(document).ready(function () {
@@ -424,7 +487,6 @@
 
         });
     </script>
-
 </body>
 
 </html>

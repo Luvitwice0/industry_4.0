@@ -102,80 +102,104 @@
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
             <h5 style="float: left;">Home/
-        </a>Add Vendor</h5>
+        </a>Add Sales Order</h5>
         <br>
         <hr>
         <br>
 
         <div class="container">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" style="border-radius: 2px;"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Vendor
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Sales Order
                 <i class="fa fa-plus"></i></button>
+
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
                 id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Vendor</h5>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Sales Order</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
-                            class="form-control" id="prodId"></input> </div> -->
+                                class="form-control" id="prodId"></input> </div> -->
                             <div class="input-field">
-                                <input type="text" required="required" id="v_name" spellcheck="false">
-                                <label>Vendor Name</label>
+                                <input type="text" required="required" id="so_no" spellcheck="false" value="SO-CB-001">
+                                <label>SalesOrder No</label>
                             </div>
                             <br>
                             <div class="col-md-12">
                                 <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                class="form-control" id="orderNo"></input> </div> -->
+                                    class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" id="v_gst_no" spellcheck="false">
-                                    <label>Vendor GST No</label>
-                                </div>
-                            </div>
-                            <br>
-
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" id="v_email_id" spellcheck="false">
-                                    <label>Email Id
-                                    </label>
+                                    <input type="text" required="required" id="so_q_no" spellcheck="false"
+                                        value="CB-QO-001">
+                                    <label>Quotation No</label>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
-
+                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                                    class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" id="v_phone_no" spellcheck="false">
-                                    <label>Phone No</label>
+                                    <input type="text" required="required" id="so_c_name" spellcheck="false"
+                                        value="Customer 1">
+                                    <label>Customer Name</label>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" id="v_state" spellcheck="false">
-                                    <label>State</label>
+                                <div class="form-group">
+                                    <label for="selectcustomerName">Choose Product</label>
+                                    <select style="width:100%" id="so_product" class="js-example-basic-single">
+                                        <option>Product A</option>
+                                        <option>Product B</option>
+                                        <option>Product C</option>
+                                        <option>Product D</option>
+                                        <option>Product D</option>
+                                        <option>Product E</option>
+                                    </select>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="v_adress" spellcheck="false">
-                                    <label>Adress</label>
+                                    <input type="text" required="required" id="so_quantity" spellcheck="false"
+                                        value="30">
+                                    <label>Quantity</label>
                                 </div>
                             </div>
                             <br>
-                            <button type="button" class="btn btn-success" onclick="addVendor()" style="
-                        border-radius: 2px;
-                    ">Save
-                                <i class="fa fa-check"></i>
-                            </button>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="so_price" spellcheck="false" value="10">
+                                    <label>Price</label>
+                                </div>
+                            </div>
+                            <br>
+                            <label class="form-label" for="formControlDisabled">Delivery Date</label>
+                            <div class="col-md-12">
+                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                                    class="form-control" id="orderNo"></input> </div> -->
+                                <div class="input-field">
+                                    <input type="text" required="required" id="so_dly_date" spellcheck="false"
+                                        value="12/02/20323">
+                                </div>
+                            </div>
+                            <br>
+                            <label class="form-label" for="formControlDisabled"><b>Grand Total</b></label>
+                            <div class="form-outline mb-3" data-mdb-input-init>
+                                <input class="form-control" id="so_total" type="text" placeholder="300"
+                                    aria-label="disabled input example" disabled />
+                            </div>
                         </div>
                     </div>
+                    <button type="button" class="btn btn-success" ondblclick="addSalesOrderData()" style="
+                    border-radius: 2px;
+                ">Save
+                        <i class="fa fa-check"></i>
+                    </button>
+                    <br>
                 </div>
             </div>
         </div>
@@ -185,11 +209,14 @@
                 <div class="col-md-12">
                     <table id="example" class="table table-striped table-bordered table-responsive table-hover">
                         <thead class="bg-gradient">
+
                             <tr>
-                                <th class="text-center">Vendor Name</th>
-                                <th class="text-center">GST No</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">State</th>
+                                <th class="text-center">SalesOrder No</th>
+                                <th class="text-center">Item</th>
+                                <th class="text-center">Customer</th>
+                                <th class="text-center">Delivery Date</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Grand Total</th>
                                 <!-- <th class="text-center">Process Name</th> -->
                                 <th class="text-center">Details</th>
                                 <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
@@ -208,7 +235,27 @@
 
     <!-- model for create production plan -->
 
+    <div class="modal fade" id="create_production_plan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="
+                border-radius: 2px;
+            ">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add SalesOrder</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
 
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
@@ -221,8 +268,8 @@
         </div>
     </div>
     <script>
-        function addVendor() {
-            var fields = ["v_name", "v_gst_no", "v_email_id", "v_phone_no", "v_state", "v_adress"];
+        function addSalesOrderData() {
+            var fields = ["so_no", "so_q_no", "so_c_name", "so_product", "so_quantity", "so_price", "so_dly_date", "so_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -244,34 +291,41 @@
                 return;
             }
 
-            var v_name = document.getElementById("v_name").value;
-            var v_gst_no = document.getElementById("v_gst_no").value;
-            var v_email_id = document.getElementById("v_email_id").value;
-            var v_phone_no = document.getElementById("v_phone_no").value;
-            var v_state = document.getElementById("v_state").value;
-            var v_adress = document.getElementById("v_adress").value;
+
+            var so_no = document.getElementById("so_no").value;
+            var so_q_no = document.getElementById("so_q_no").value;
+            var so_c_name = document.getElementById("so_c_name").value;
+            var so_product = document.getElementById("so_product").value;
+            var so_quantity = document.getElementById("so_quantity").value;
+            var so_price = document.getElementById("so_price").value;
+            var so_dly_date = document.getElementById("so_dly_date").value;
+            var so_total = document.getElementById("so_total").value;
 
 
-
-            var JsonDataAddvendor =
+            var JsonDataAddSalesOrder =
             {
-                vendor_name: v_name,
-                vendor_gst_no: v_gst_no,
-                vendor_email_id: v_email_id,
-                vendor_phone_no: v_phone_no,
-                vendor_state: v_state,
-                vendor_adress: v_adress,
+                salesorder_number: so_no,
+                salesorder_quotation_number: so_q_no,
+                salesorder_customer_name: so_c_name,
+                salesorder_product: so_product,
+                salesorder_quantity: so_quantity,
+                salesorder_price: so_price,
+                salesorder_delivery_date: so_dly_date,
+                salesorder_total: so_total,
+
 
             };
 
-            console.log(JsonDataAddvendor);
+            console.log(JsonDataAddSalesOrder);
 
-            document.getElementById("v_name").value = "";
-            document.getElementById("v_gst_no").value = "";
-            document.getElementById("v_email_id").value = "";
-            document.getElementById("v_phone_no").value = "";
-            document.getElementById("v_state").value = "";
-            document.getElementById("v_adress").value = "";
+            document.getElementById("so_no").value = "";
+            document.getElementById("so_q_no").value = "";
+            document.getElementById("so_c_name").value = "";
+            document.getElementById("so_product").value = "";
+            document.getElementById("so_quantity").value = "";
+            document.getElementById("so_price").value = "";
+            document.getElementById("so_dly_date").value = "";
+            document.getElementById("so_total").value = "";
 
         }
 
@@ -291,7 +345,7 @@
                         var response = xhr.responseText;
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
-                        updateDataToTable(jsonData.add_vendor);
+                        updateDataToTable(jsonData.add_sales_order);
                         // Initialize DataTables if it hasn't been initialized already
                         if (!dataTableInitialized) {
                             initDataTable();
@@ -305,33 +359,44 @@
                 }
 
             }
-            xhr.open("GET", "08_add_vendor.json", true)
+            xhr.open("GET", "12_add_sales_order.json", true)
             xhr.send();
         }
 
-        function updateDataToTable(add_vendor) {
+        function updateDataToTable(add_sales_order) {
             var tableBody = document.getElementById("prodction_plan")
-            var data = add_vendor;
+            var data = add_sales_order;
             for (var i = 0; i < data.length; i++) {
                 var datax = data[i];
 
                 var table_row = document.createElement("tr")
 
-                var vendor_name = document.createElement("td");
-                vendor_name.textContent = datax.v_name;
-                table_row.appendChild(vendor_name);
+                var sales_order_no = document.createElement("td");
+                sales_order_no.textContent = datax.so_no;
+                table_row.appendChild(sales_order_no);
 
-                var vendor_gst_no = document.createElement("td");
-                vendor_gst_no.textContent = datax.v_gst_no
-                table_row.appendChild(vendor_gst_no);
+                var sales_order_item = document.createElement("td");
+                sales_order_item.textContent = datax.so_item
+                table_row.appendChild(sales_order_item);
 
-                var vendor_email = document.createElement("td");
-                vendor_email.textContent = datax.v_email_id
-                table_row.appendChild(vendor_email);
+                var sales_order_customer = document.createElement("td");
+                sales_order_customer.textContent = datax.so_customer
+                table_row.appendChild(sales_order_customer);
 
-                var vendor_state = document.createElement("td");
-                vendor_state.textContent = datax.v_state
-                table_row.appendChild(vendor_state);
+                var sales_order_deliveryDate = document.createElement("td");
+                sales_order_deliveryDate.textContent = datax.so_delivery_date
+                table_row.appendChild(sales_order_deliveryDate);
+
+                var status = document.createElement("td");
+                var statusSpan = document.createElement("span");
+                statusSpan.className = "badge text-bg-success";
+                statusSpan.textContent = datax.so_status;
+                status.appendChild(statusSpan);
+                table_row.appendChild(status);
+
+                var sales_order_total = document.createElement("td");
+                sales_order_total.textContent = datax.so_total
+                table_row.appendChild(sales_order_total);
 
                 var view_details = document.createElement("td");
                 view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
@@ -339,8 +404,8 @@
 
                 var action = document.createElement("td");
                 action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                                <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
-                            </button>`
+                    <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
+                </button>`
                 table_row.appendChild(action);
 
                 tableBody.appendChild(table_row)

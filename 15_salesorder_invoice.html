@@ -122,38 +122,35 @@
                         <div class="col-md-12">
 
                             <div class="input-field">
-                                <input type="text" required="required" spellcheck="false" id="po_no" value="SO-CB-001">
+                                <input type="text" required="required" spellcheck="false" id="po_no" >
                                 <label>Sales Oredr No</label>
                             </div>
                             <br>
                             <div class="col-md-12">
 
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_req_no"
-                                        value="CB-QO-001">
-                                    <label>Purchase Request No</label>
+                                    <input type="text" required="required" spellcheck="false" id="p_req_no">
+                                    <label>Quotation No</label>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
 
                                 <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="po_v_name"
-                                        value="Customer 1">
-                                    <label>Customer Name</label>
+                                    <div class="form-group">
+                                        <label for="selectCustomerName">Choose Customer</label>
+                                        <select style="width:100%" id="selectCustomerName" class="js-example-basic-single">
+                                         
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="selectcustomerName">Choose Product</label>
-                                    <select style="width:100%" id="po_product" class="js-example-basic-single">
-                                        <option>Product A</option>
-                                        <option>Product B</option>
-                                        <option>Product C</option>
-                                        <option>Product D</option>
-                                        <option>Product D</option>
-                                        <option>Product E</option>
+                                    <label for="selectProductrName">Choose Product</label>
+                                    <select style="width:100%" id="selectProductrName" class="js-example-basic-single">
+                                     
                                     </select>
                                 </div>
                             </div><br>
@@ -161,14 +158,14 @@
                             <div class="md-12">
                                 <div class="input-field">
                                     <input type="text" required="required" id="po_quantity" spellcheck="false"
-                                        value="30">
+                                    >
                                     <label>Quantity</label>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_price" spellcheck="false" value="10">
+                                    <input type="text" required="required" id="po_price" spellcheck="false" >
                                     <label>Price</label>
                                 </div>
                             </div>

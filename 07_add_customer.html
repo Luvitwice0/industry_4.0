@@ -108,11 +108,78 @@
         <br>
 
         <div class="container">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#create_production_plan" style="border-radius: 2px;">
-                Add Customer
-                <i class="fa fa-plus"></i>
-            </button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" style="border-radius: 2px;"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Customer
+                <i class="fa fa-plus"></i></button>
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                                class="form-control" id="prodId"></input> </div> -->
+                            <div class="input-field">
+                                <input type="text" required="required" id="c_name" spellcheck=" false">
+                                <label>Customer Name</label>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                                    class="form-control" id="orderNo"></input> </div> -->
+                                <div class="input-field">
+                                    <input type="text" required="required" id="c_gst_id" spellcheck="false">
+                                    <label>Customer GST No</label>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="c_email" spellcheck="false">
+                                    <label>Email id
+                                    </label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="c_state" spellcheck="false">
+                                    <label>State</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="c_ph_no" spellcheck="false">
+                                    <label>Phone no</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="c_adress" spellcheck="false">
+                                    <label>Address</label>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-success" onclick="addCustomerData()" style="
+                            border-radius: 2px;
+                        ">Save
+                                <i class="fa fa-check"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <div class="container">
@@ -143,85 +210,6 @@
 
     <!-- model for create production plan -->
 
-    <div class="modal fade" id="create_production_plan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content" style="
-                border-radius: 2px;
-            ">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Customer</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
-                                    class="form-control" id="prodId"></input> </div> -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="c_name" spellcheck=" false">
-                                    <label>Customer Name</label>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-                                    <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                        class="form-control" id="orderNo"></input> </div> -->
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="c_gst_id" spellcheck="false">
-                                        <label>Customer GST No</label>
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class="col-md-12">
-
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="c_email" spellcheck="false">
-                                        <label>Email id
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="c_state" spellcheck="false">
-                                        <label>State</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="c_ph_no" spellcheck="false">
-                                        <label>Phone no</label>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="col-md-12">
-
-                                    <div class="input-field">
-                                        <input type="text" required="required" id="c_adress" spellcheck="false">
-                                        <label>Address</label>
-                                    </div>
-                                </div>
-                                <br>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="addCustomerData()" style="
-                        border-radius: 2px;
-                    ">Save
-                        <i class="fa fa-check"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
@@ -282,7 +270,7 @@
             document.getElementById("c_gst_id").value = "";
             document.getElementById("c_email").value = "";
             document.getElementById("c_state").value = "";
-            document.getElementById("c_phone_no").value = "";
+            document.getElementById("c_ph_no").value = "";
             document.getElementById("c_adress").value = "";
         }
 
@@ -379,7 +367,7 @@
                 }
             });
         }
-        // updateTableData();
+        updateTableData();
     </script>
     <script>
         $(document).ready(function () {

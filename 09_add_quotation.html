@@ -96,6 +96,10 @@
         padding: 0 2px;
         background-color: white;
     }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
 </style>
 
 <body>
@@ -107,7 +111,7 @@
         <hr>
         <br>
         <div class="container">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" style="border-radius: 2px;"
                 data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Quotation
                 <i class="fa fa-plus"></i></button>
 
@@ -128,26 +132,19 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                    class="form-control" id="orderNo"></input> </div> -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_c_name" spellcheck="false">
-                                    <label>Customer Name</label>
+                                <div class="form-group">
+                                    <label for="selectCustomerName">Choose Customer</label>
+                                    <select style="width:100%" id="selectCustomerName" class="js-example-basic-single">
+                                        <option>Chooose Product</option>
+                                    </select>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="selectcustomerName">Choose Product</label>
-                                    <select style="width:100%" id="q_product" class="js-example-basic-single">
-
+                                    <label for="selectProductName">Choose Product</label>
+                                    <select style="width:100%" id="selectProductName" class="js-example-basic-single">
                                         <option>Chooose Product</option>
-                                        <option>Product A</option>
-                                        <option>Product B</option>
-                                        <option>Product C</option>
-                                        <option>Product D</option>
-                                        <option>Product D</option>
-                                        <option>Product E</option>
                                     </select>
                                 </div>
                             </div>
@@ -167,12 +164,45 @@
                                 </div>
                             </div>
                             <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="q_hsn" spellcheck="false">
+                                    <label>HSN code</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="q_gst" spellcheck="false">
+                                    <label>GST %</label>
+                                </div>
+                            </div>
+                            <br>
+                            <label class="form-label" for="formControlDisabled">Created Date</label>
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                    <input type="date" required="required" id="q_crt_date" spellcheck="false">
+                                </div>
+                            </div>
+                            <br>
                             <label class="form-label" for="formControlDisabled">Delivery Date</label>
                             <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                    class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
                                     <input type="date" required="required" id="q_dly_date" spellcheck="false">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="q_sh_ads" spellcheck="false">
+                                    <label>Ship to Address</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="q_bl_ads" spellcheck="false">
+                                    <label>Bill to Address</label>
                                 </div>
                             </div>
                             <br>
@@ -182,6 +212,22 @@
                                     <label>Grand Total</label>
                                 </div>
                             </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="form-outline">
+                                    <label>Terms of Payment</label>
+                                    <textarea class="form-control" id="q_tp" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- Textarea 2 rows height -->
+                            <div class="md-12">
+                                <div class="form-outline">
+                                    <label>Terms of Delivery</label>
+                                    <textarea class="form-control" id="q_td" rows="2"></textarea>
+                                </div>
+                            </div>
+
                             <br>
                         </div>
                     </div><br> <button type="button" class="btn btn-success" onclick="addQuotationData()" style="
@@ -226,31 +272,6 @@
 
     <!-- model for create production plan -->
 
-    <div class="modal fade" id="create_production_plan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content" style="
-                border-radius: 2px;
-            ">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Quotation</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="addQuotationData()" style="
-                        border-radius: 2px;
-                    ">Save
-                        <i class="fa fa-check"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
@@ -264,7 +285,7 @@
     </div>
     <script>
         function addQuotationData() {
-            var fields = ["q_no", "q_c_name", "q_product", "q_quantity", "q_price", "q_dly_date", "q_total"];
+            var fields = ["q_no", "q_quantity", "q_price", "q_hsn", "q_gst", "q_crt_date", "q_dly_date", "q_sh_ads", "q_bl_ads", "q_total", "q_tp", "q_td"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -288,23 +309,33 @@
 
 
             var q_no = document.getElementById("q_no").value;
-            var q_c_name = document.getElementById("q_c_name").value;
-            var q_product = document.getElementById("q_product").value;
             var q_quantity = document.getElementById("q_quantity").value;
             var q_price = document.getElementById("q_price").value;
+            var q_hsn = document.getElementById("q_hsn").value;
+            var q_gst = document.getElementById("q_gst").value;
+            var q_crt_date = document.getElementById("q_crt_date").value;
             var q_dly_date = document.getElementById("q_dly_date").value;
+            var q_sh_ads = document.getElementById("q_sh_ads").value;
+            var q_bl_ads = document.getElementById("q_bl_ads").value;
             var q_total = document.getElementById("q_total").value;
+            var q_tp = document.getElementById("q_tp").value;
+            var q_td = document.getElementById("q_td").value;
 
 
             var JsonDataAddQuotation =
             {
                 quotation_number: q_no,
-                quotation_customer: q_c_name,
-                quotation_product: q_product,
                 quotation_quantity: q_quantity,
                 quotation_pric: q_price,
+                quotation_hsn: q_hsn,
+                quotation_gst: q_gst,
+                quotation_crt_date: q_crt_date,
                 quotation_dly_date: q_dly_date,
+                quotation_ship_address: q_sh_ads,
+                quotation_bill_address: q_bl_ads,
                 quotation_total: q_total,
+                quotation_payment: q_tp,
+                quotation_delivery: q_td,
 
 
             };
@@ -312,12 +343,17 @@
             console.log(JsonDataAddQuotation);
 
             document.getElementById("q_no").value = "";
-            document.getElementById("q_c_name").value = "";
-            document.getElementById("q_product").value = "";
             document.getElementById("q_quantity").value = "";
             document.getElementById("q_price").value = "";
+            document.getElementById("q_hsn").value = "";
+            document.getElementById("q_gst").value = "";
+            document.getElementById("q_crt_date").value = "";
             document.getElementById("q_dly_date").value = "";
+            document.getElementById("q_sh_ads").value = "";
+            document.getElementById("q_bl_ads").value = "";
             document.getElementById("q_total").value = "";
+            document.getElementById("q_tp").value = "";
+            document.getElementById("q_td").value = "";
 
         }
 
@@ -338,6 +374,8 @@
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
                         updateDataToTable(jsonData.add_quotation);
+                        updateDropdownOption01(jsonData.add_quotation);
+                        updateDropdownOption02(jsonData.add_quotation);
                         // Initialize DataTables if it hasn't been initialized already
                         if (!dataTableInitialized) {
                             initDataTable();
@@ -351,7 +389,7 @@
                 }
 
             }
-            xhr.open("GET", "12_add_quotation.json", true)
+            xhr.open("GET", "09_add_quotation.json", true)
             xhr.send();
         }
 
@@ -385,7 +423,7 @@
 
                 var status = document.createElement("td");
                 var statusSpan = document.createElement("span");
-                statusSpan.className = "badge text-bg-success";
+                statusSpan.className = "badge text-bg-warning";
                 statusSpan.textContent = datax.q_status;
                 status.appendChild(statusSpan);
                 table_row.appendChild(status);
@@ -408,6 +446,56 @@
             }
         }
         updateTableData()
+
+        function updateDropdownOption01(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectProductName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.q_product && employeeNames.indexOf(entry.q_product) === -1) {
+                    employeeNames.push(entry.q_product);
+
+                    var option = document.createElement("option");
+                    option.value = entry.q_product;
+                    option.textContent = entry.q_product;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+        function updateDropdownOption02(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectCustomerName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.q_product && employeeNames.indexOf(entry.q_product) === -1) {
+                    employeeNames.push(entry.q_product);
+
+                    var option = document.createElement("option");
+                    option.value = entry.q_product;
+                    option.textContent = entry.q_product;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+
+
+
     </script>
     <script>
         function addRawItemData(rowIndex) {
@@ -429,7 +517,7 @@
                 }
             });
         }
-        // updateTableData();
+        updateTableData();
     </script>
     <script>
         $(document).ready(function () {

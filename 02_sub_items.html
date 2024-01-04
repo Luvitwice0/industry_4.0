@@ -112,16 +112,17 @@
 
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Sub Item
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add SubItem
                 <i class="fa fa-plus"></i></button>
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-overlay"></div>
+
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Sub Item</h5>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Unit</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <br>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -151,13 +152,19 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="partNo">Part No</label> <input
-                            class="form-control" id="partNo"></input> </div> -->
                                 <div class="input-field">
                                     <input type="text" required="required" spellcheck="false" id="R_iprice">
                                     <label for="R_iprice">Price</label>
                                 </div>
                             </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" spellcheck="false" id="R_gst">
+                                    <label for="R_gst">GST %</label>
+                                </div>
+                            </div>
+
                             <br>
                             <div class="row">
                                 <div class="col-md-12">
@@ -182,6 +189,13 @@
                                             id="inlineRadio2" value="cm">
                                         <label class="form-check-label" for="inlineRadio2">cm</label>
                                     </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="input-field">
+                                    <input type="text" spellcheck="false" required="required" id="R_total">
+                                    <label for="R_total">Grand Total</label>
                                 </div>
                             </div>
                             <br>
@@ -210,9 +224,6 @@
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Type</th>
                                 <th class="text-center">Details</th>
-                                <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
-                                    date</th> <th class="text-center">To date</th> <th
-                                    class="text-center">Production history</th> -->
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -242,7 +253,7 @@
 
     <script>
         function addSubItemData() {
-            var rawItemsData = ["R_iname", "R_ino", "selectcustomerName", "R_iprice"]
+            var rawItemsData = ["R_iname", "R_ino", "selectcustomerName", "R_iprice", "R_gst", "R_total"]
             var emptyData = false
 
             for (var i = 0; i < rawItemsData.length; i++) {
@@ -274,6 +285,8 @@
             var R_ino = document.getElementById("R_ino").value;
             var selectcustomerName = document.getElementById("selectcustomerName").value;
             var R_iprice = document.getElementById("R_iprice").value;
+            var R_gst = document.getElementById("R_gst").value;
+            var R_total = document.getElementById("R_total").value;
 
             var JsonDatax =
             {
@@ -281,7 +294,9 @@
                 Raw_Item_no: R_ino,
                 Raw_Item_cat: selectcustomerName,
                 Raw_item_price: R_iprice,
-                UoM: selected_values
+                UoM: selected_values,
+                gst_percent: R_gst,
+                grand_total: R_total,
             }
 
             console.log(JsonDatax)
@@ -289,6 +304,8 @@
             document.getElementById("R_ino").value = "";
             document.getElementById("selectcustomerName").value = "";
             document.getElementById("R_iprice").value = "";
+            document.getElementById("R_gst").value = "";
+            document.getElementById("R_total").value = "";
         }
     </script>
     <script>
@@ -328,8 +345,6 @@
                 var taleBody = document.getElementById("prodction_plan");
 
                 var datax = data[i];
-                // var uomx = datax.p_uom;
-                // console.log(uomx)
 
                 var tableRow = document.createElement("tr");
 

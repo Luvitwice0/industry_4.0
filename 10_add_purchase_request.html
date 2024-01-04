@@ -102,69 +102,62 @@
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
             <h5 style="float: left;">Home/
-        </a>Add Sales Order</h5>
+        </a>Add purchase Request</h5>
         <br>
         <hr>
         <br>
 
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Sales Order
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Purchase Request
                 <i class="fa fa-plus"></i></button>
-
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
                 id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Sales Order</h5>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Purchase Request</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
                             <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
-                                class="form-control" id="prodId"></input> </div> -->
+                            class="form-control" id="prodId"></input> </div> -->
                             <div class="input-field">
-                                <input type="text" required="required" id="so_no" spellcheck="false" value="SO-CB-001">
-                                <label>SalesOrder No</label>
+                                <input type="text" required="required" id="pr_no" spellcheck="false" value="SO-CB-001">
+                                <label>Purchase Reqquest No</label>
                             </div>
                             <br>
                             <div class="col-md-12">
                                 <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                    class="form-control" id="orderNo"></input> </div> -->
+                                class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" id="so_q_no" spellcheck="false"
+                                    <input type="text" required="required" id="so_no" spellcheck="false"
                                         value="CB-QO-001">
-                                    <label>Quotation No</label>
+                                    <label>Sales Order No</label>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
                                 <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                    class="form-control" id="orderNo"></input> </div> -->
+                                class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" id="so_c_name" spellcheck="false"
+                                    <input type="text" required="required" id="pr_v_name" spellcheck="false"
                                         value="Customer 1">
-                                    <label>Customer Name</label>
+                                    <label>Vendor Name</label>
                                 </div>
                             </div>
                             <br>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="selectcustomerName">Choose Product</label>
-                                    <select style="width:100%" id="so_product" class="js-example-basic-single">
-                                        <option>Product A</option>
-                                        <option>Product B</option>
-                                        <option>Product C</option>
-                                        <option>Product D</option>
-                                        <option>Product D</option>
-                                        <option>Product E</option>
+                                    <label for="selectProductName">Choose Product</label>
+                                    <select style="width:100%" id="selectProductName" class="js-example-basic-single">
                                     </select>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="so_quantity" spellcheck="false"
+                                    <input type="text" required="required" id="pr_quantity" spellcheck="false"
                                         value="30">
                                     <label>Quantity</label>
                                 </div>
@@ -172,34 +165,50 @@
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="so_price" spellcheck="false" value="10">
+                                    <input type="text" required="required" id="pr_price" spellcheck="false" value="10">
                                     <label>Price</label>
                                 </div>
                             </div>
                             <br>
-                            <label class="form-label" for="formControlDisabled">Delivery Date</label>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="pr_adress"
+                                        value="1/22,jckjsdhoadvnsj,fknofiahhfoua" spellcheck="false">
+                                    <label>Ship to Address</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="pr_branch" value="hosur"
+                                        spellcheck="false">
+                                    <label>Branch</label>
+                                </div>
+                            </div>
+                            <br>
+                            <label class="form-label" for="formControlDisabled">Expected Delivery Date</label>
                             <div class="col-md-12">
                                 <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                    class="form-control" id="orderNo"></input> </div> -->
+                                class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" id="so_dly_date" spellcheck="false"
+                                    <input type="text" required="required" id="pr_exp_date" spellcheck="false"
                                         value="12/02/20323">
                                 </div>
                             </div>
                             <br>
                             <label class="form-label" for="formControlDisabled"><b>Grand Total</b></label>
                             <div class="form-outline mb-3" data-mdb-input-init>
-                                <input class="form-control" id="so_total" type="text" placeholder="300"
+                                <input class="form-control" id="pr_total" type="text" placeholder="300"
                                     aria-label="disabled input example" disabled />
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-success" ondblclick="addSalesOrderData()" style="
-                    border-radius: 2px;
-                ">Save
+                    <br>
+                    <button type="button" class="btn btn-success" onclick="addPurchaseRequestrData()" style="
+                border-radius: 2px;
+            ">Save
                         <i class="fa fa-check"></i>
                     </button>
-                    <br>
                 </div>
             </div>
         </div>
@@ -211,17 +220,13 @@
                         <thead class="bg-gradient">
 
                             <tr>
-                                <th class="text-center">SalesOrder No</th>
-                                <th class="text-center">Item</th>
-                                <th class="text-center">Customer</th>
+                                <th class="text-center">PurchaseRequest No</th>
+                                <th class="text-center">Master Product</th>
+                                <th class="text-center">Vendor</th>
                                 <th class="text-center">Delivery Date</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Grand Total</th>
-                                <!-- <th class="text-center">Process Name</th> -->
                                 <th class="text-center">Details</th>
-                                <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
-                                    date</th> <th class="text-center">To date</th> <th
-                                    class="text-center">Production history</th> -->
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -235,27 +240,7 @@
 
     <!-- model for create production plan -->
 
-    <div class="modal fade" id="create_production_plan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content" style="
-                border-radius: 2px;
-            ">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add SalesOrder</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div>
 
-                    </div>
-                </div>
-                <div class="modal-footer">
-
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
@@ -268,8 +253,8 @@
         </div>
     </div>
     <script>
-        function addSalesOrderData() {
-            var fields = ["so_no", "so_q_no", "so_c_name", "so_product", "so_quantity", "so_price", "so_dly_date", "so_total"];
+        function addPurchaseRequestrData() {
+            var fields = ["pr_no", "so_no", "pr_v_name", "pr_quantity", "pr_price", "pr_adress", "pr_branch", "pr_exp_date", "pr_total", "pr_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -292,41 +277,43 @@
             }
 
 
+            var pr_no = document.getElementById("pr_no").value;
             var so_no = document.getElementById("so_no").value;
-            var so_q_no = document.getElementById("so_q_no").value;
-            var so_c_name = document.getElementById("so_c_name").value;
-            var so_product = document.getElementById("so_product").value;
-            var so_quantity = document.getElementById("so_quantity").value;
-            var so_price = document.getElementById("so_price").value;
-            var so_dly_date = document.getElementById("so_dly_date").value;
-            var so_total = document.getElementById("so_total").value;
+            var pr_v_name = document.getElementById("pr_v_name").value;
+            var pr_quantity = document.getElementById("pr_quantity").value;
+            var pr_price = document.getElementById("pr_price").value;
+            var pr_adress = document.getElementById("pr_adress").value;
+            var pr_branch = document.getElementById("pr_branch").value;
+            var pr_exp_date = document.getElementById("pr_exp_date").value;
+            var pr_total = document.getElementById("pr_total").value;
 
-
-            var JsonDataAddSalesOrder =
+            var JsonDataAddPurchaseRequest =
             {
+                purchaseorder_number: pr_no,
                 salesorder_number: so_no,
-                salesorder_quotation_number: so_q_no,
-                salesorder_customer_name: so_c_name,
-                salesorder_product: so_product,
-                salesorder_quantity: so_quantity,
-                salesorder_price: so_price,
-                salesorder_delivery_date: so_dly_date,
-                salesorder_total: so_total,
-
+                purchaseorder_vendor_name: pr_v_name,
+                purchaseorder_product: pr_product,
+                purchaseorder_quantity: pr_quantity,
+                purchaseorder_price: pr_price,
+                purchaseorder_adress: pr_adress,
+                purchaseorder_branch: pr_branch,
+                purchaseorder_exp_date: pr_exp_date,
+                purchaseorder_total: pr_total,
+                purchaseorder_status: pr_status,
 
             };
 
-            console.log(JsonDataAddSalesOrder);
+            console.log(JsonDataAddPurchaseRequest);
 
+            document.getElementById("pr_no").value = "";
             document.getElementById("so_no").value = "";
-            document.getElementById("so_q_no").value = "";
-            document.getElementById("so_c_name").value = "";
-            document.getElementById("so_product").value = "";
-            document.getElementById("so_quantity").value = "";
-            document.getElementById("so_price").value = "";
-            document.getElementById("so_dly_date").value = "";
-            document.getElementById("so_total").value = "";
-
+            document.getElementById("pr_v_name").value = "";
+            document.getElementById("pr_quantity").value = "";
+            document.getElementById("pr_price").value = "";
+            document.getElementById("pr_adress").value = "";
+            document.getElementById("pr_branch").value = "";
+            document.getElementById("pr_exp_date").value = "";
+            document.getElementById("pr_total").value = "";
         }
 
     </script>
@@ -345,7 +332,8 @@
                         var response = xhr.responseText;
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
-                        updateDataToTable(jsonData.add_sales_order);
+                        updateDataToTable(jsonData.add_purchase_request);
+                        updateProductDropdown(jsonData.add_purchase_request);
                         // Initialize DataTables if it hasn't been initialized already
                         if (!dataTableInitialized) {
                             initDataTable();
@@ -359,44 +347,44 @@
                 }
 
             }
-            xhr.open("GET", "11_add_sales_order.json", true)
+            xhr.open("GET", "10_add_purchase_request.json", true)
             xhr.send();
         }
 
-        function updateDataToTable(add_sales_order) {
+        function updateDataToTable(add_purchase_request) {
             var tableBody = document.getElementById("prodction_plan")
-            var data = add_sales_order;
+            var data = add_purchase_request;
             for (var i = 0; i < data.length; i++) {
                 var datax = data[i];
 
                 var table_row = document.createElement("tr")
 
-                var sales_order_no = document.createElement("td");
-                sales_order_no.textContent = datax.so_no;
-                table_row.appendChild(sales_order_no);
+                var purchaserquest_no = document.createElement("td");
+                purchaserquest_no.textContent = datax.pr_no;
+                table_row.appendChild(purchaserquest_no);
 
-                var sales_order_item = document.createElement("td");
-                sales_order_item.textContent = datax.so_item
-                table_row.appendChild(sales_order_item);
+                var master_product = document.createElement("td");
+                master_product.textContent = datax.pr_product
+                table_row.appendChild(master_product);
 
-                var sales_order_customer = document.createElement("td");
-                sales_order_customer.textContent = datax.so_customer
-                table_row.appendChild(sales_order_customer);
+                var vendor = document.createElement("td");
+                vendor.textContent = datax.pr_v_name
+                table_row.appendChild(vendor);
 
-                var sales_order_deliveryDate = document.createElement("td");
-                sales_order_deliveryDate.textContent = datax.so_delivery_date
-                table_row.appendChild(sales_order_deliveryDate);
+                var delivery_date = document.createElement("td");
+                delivery_date.textContent = datax.pr_exp_date
+                table_row.appendChild(delivery_date);
 
                 var status = document.createElement("td");
                 var statusSpan = document.createElement("span");
                 statusSpan.className = "badge text-bg-success";
-                statusSpan.textContent = datax.so_status;
+                statusSpan.textContent = datax.pr_status;
                 status.appendChild(statusSpan);
                 table_row.appendChild(status);
 
-                var sales_order_total = document.createElement("td");
-                sales_order_total.textContent = datax.so_total
-                table_row.appendChild(sales_order_total);
+                var grand_total = document.createElement("td");
+                grand_total.textContent = datax.pr_total
+                table_row.appendChild(grand_total);
 
                 var view_details = document.createElement("td");
                 view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
@@ -404,14 +392,39 @@
 
                 var action = document.createElement("td");
                 action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                    <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
-                </button>`
+                                    <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
+                                </button>`
                 table_row.appendChild(action);
 
                 tableBody.appendChild(table_row)
             }
         }
         updateTableData()
+
+        function updateProductDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectProductName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.pr_v_name && employeeNames.indexOf(entry.pr_v_name) === -1) {
+                    employeeNames.push(entry.pr_v_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.pr_v_name;
+                    option.textContent = entry.pr_v_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+
     </script>
     <script>
         function addRawItemData(rowIndex) {
@@ -433,7 +446,7 @@
                 }
             });
         }
-        // updateTableData();
+        updateTableData();
     </script>
     <script>
         $(document).ready(function () {

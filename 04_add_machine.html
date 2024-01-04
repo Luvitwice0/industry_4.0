@@ -105,12 +105,11 @@
         </a>Add Machine</h5>
         <br>
         <hr>
-        <br>
-
         <div class="container">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" style="border-radius: 2px;"
                 data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Machine
                 <i class="fa fa-plus"></i></button>
+            <br>
 
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
                 id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -135,8 +134,8 @@
                             <br>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="selectcustomerName">Process Name</label>
-                                    <select style="width:100%" id="m_process" class="js-example-basic-single">
+                                    <label for="selectProcessName">Process Name</label>
+                                    <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
                                         <option>Select Drop Customer</option>
                                     </select>
                                 </div>
@@ -153,11 +152,11 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="partName">Part Name</label> <input
-                                class="form-control" id="partName"></input> </div> -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="m_branch" spellcheck="false">
-                                    <label>Branch Name</label>
+                                <div class="form-group">
+                                    <label for="selectBranchName">Branch Name</label>
+                                    <select style="width:100%" id="selectBranchName" class="js-example-basic-single">
+                                        <option>Select Drop Customer</option>
+                                    </select>
                                 </div>
                             </div>
                             <br>
@@ -185,9 +184,6 @@
                                     <th class="text-center">Efficient Running Hours</th>
                                     <th class="text-center">Branch Name</th>
                                     <th class="text-center">Details</th>
-                                    <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
-                                    date</th> <th class="text-center">To date</th> <th
-                                    class="text-center">Production history</th> -->
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -217,7 +213,7 @@
 
             <script>
                 function addMachineData() {
-                    var fields = ["m_name", "m_no", "m_process", "m_eff_hrs", "m_branch"];
+                    var fields = ["m_name", "m_no", "m_eff_hrs"];
                     var hasEmptyField = false;
 
                     for (var i = 0; i < fields.length; i++) {
@@ -241,28 +237,23 @@
 
                     var m_name = document.getElementById("m_name").value;
                     var m_no = document.getElementById("m_no").value;
-                    var m_process = document.getElementById("m_process").value;
                     var m_eff_hrs = document.getElementById("m_eff_hrs").value;
-                    var m_branch = document.getElementById("m_branch").value;
 
 
                     var JsonDataAddMachine =
                     {
                         machine_name: m_name,
                         machine_no: m_no,
-                        machine_process: m_process,
                         machine_efficient_runnning_hours: m_eff_hrs,
-                        machinne_branch: m_branch,
 
                     };
 
                     console.log(JsonDataAddMachine);
-
+                    $('#selectProcessName').val(null).trigger('change');
+                    $('#selectBranchName').val(null).trigger('change');
                     document.getElementById("m_name").value = "";
                     document.getElementById("m_no").value = "";
-                    document.getElementById("m_process").value = "";
                     document.getElementById("m_eff_hrs").value = "";
-                    document.getElementById("m_branch").value = "";
 
                 }
 
@@ -280,7 +271,8 @@
                                 var jsonData = JSON.parse(response);
                                 console.log(jsonData)
                                 updateDataToTable(jsonData.add_machine);
-                                updateDropdownOptions(jsonData.add_machine)
+                                updateDropdownOptions(jsonData.add_machine);
+                                updateDropdownOption01(jsonData.add_machine);
                                 // Initialize DataTables if it hasn't been initialized already
                                 if (!dataTableInitialized) {
                                     initDataTable();
@@ -348,7 +340,7 @@
 
                 function updateDropdownOptions(data) {
                     console.log(1);
-                    var employeeSelect = document.getElementById("selectcustomerName");
+                    var employeeSelect = document.getElementById("selectBranchName");
                     employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
 
                     var employeeNames = [];
@@ -356,18 +348,42 @@
                     for (var i = 0; i < data.length; i++) {
                         var entry = data[i];
 
-                        if (entry.p_item_name && employeeNames.indexOf(entry.p_item_name) === -1) {
-                            employeeNames.push(entry.p_item_name);
+                        if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
+                            employeeNames.push(entry.m_name);
 
                             var option = document.createElement("option");
-                            option.value = entry.p_item_name;
-                            option.textContent = entry.p_item_name;
+                            option.value = entry.m_name;
+                            option.textContent = entry.m_name;
                             employeeSelect.appendChild(option);
 
                             console.log(employeeSelect.appendChild(option))
                         }
                     }
                 }
+
+                function updateDropdownOption01(data) {
+                    console.log(1);
+                    var employeeSelect = document.getElementById("selectProcessName");
+                    employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+                    var employeeNames = [];
+
+                    for (var i = 0; i < data.length; i++) {
+                        var entry = data[i];
+
+                        if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
+                            employeeNames.push(entry.m_name);
+
+                            var option = document.createElement("option");
+                            option.value = entry.m_name;
+                            option.textContent = entry.m_name;
+                            employeeSelect.appendChild(option);
+
+                            console.log(employeeSelect.appendChild(option))
+                        }
+                    }
+                }
+
             </script>
             <script>
                 function deleteRow(rowIndex) {
