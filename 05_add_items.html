@@ -96,25 +96,69 @@
         padding: 0 2px;
         background-color: white;
     }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
+    body.offcanvas-active {
+        overflow: hidden;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 300px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+
+    }
+
+    .dataTables_length {
+        margin-bottom: 10px;
+    }
+
+    .dataTables_length select {
+        width: auto;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_length label {
+        margin-right: 5px;
+        font-weight: bolder;
+    }
 </style>
 
 <body>
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">Home/
-        </a>Add Items</h5>
+            <h5 style="float: left;">ChattingBirds/
+        </a>Manage Items</h5>
         <br>
         <hr>
         <div class="container">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" style="border-radius: 2px;"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Item
-                <i class="fa fa-plus"></i></button>
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa fa-plus"></i>
+                <b>Add Item</b>
+            </button>
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-overlay"></div>
+
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Item</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+                <hr>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -235,19 +279,19 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button type="button" class="btn btn-success " onclick="addsubItemData()">Save <i
-                                            class="fa fa-check"></i></button>
-                                </div>
-                            </div>
                         </div>
-                        <br>
+
+                        <div class="row">
+
+                            <button type="button" class="btn btn-primary" style="margin-left: 12px;"
+                                onclick="addsubItemData()"> <i class="fa fa-check"></i> <b>Save</b></button>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
+
     </div>
     <br>
     <div class="container">
@@ -262,7 +306,6 @@
                             <th class="text-center">HSN Code</th>
                             <th class="text-center">Sub Items</th>
                             <th class="text-center">Items</th>
-                            <th class="text-center">Details</th>
                             <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
                                     date</th> <th class="text-center">To date</th> <th
                                     class="text-center">Production history</th> -->
@@ -272,6 +315,7 @@
                     <tbody class="text-center" id="prodction_plan">
                     </tbody>
                 </table>
+                <br>
             </div>
         </div>
     </div>
@@ -420,14 +464,10 @@
                 item_item.textContent = datax.s_item;
                 tableRow.append(item_item);
 
-                var view_details = document.createElement("td");
-                view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
-                tableRow.appendChild(view_details);
-
                 var action = document.createElement("td");
-                action.innerHTML = ` <button type="button" class="btn btn-danger" onclick="deleteRow('${i}')" style="border-radius: 2px;">
-                                                <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
-                                            </button>`
+                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                   <b>X
+                                        </button>`
                 tableRow.appendChild(action);
 
                 taleBody.appendChild(tableRow);

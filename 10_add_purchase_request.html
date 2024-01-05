@@ -96,27 +96,110 @@
         padding: 0 2px;
         background-color: white;
     }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
+    body.offcanvas-active {
+        overflow: hidden;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 300px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+
+    }
+
+    .dataTables_length {
+        margin-bottom: 10px;
+    }
+
+    .dataTables_length select {
+        width: auto;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_length label {
+        margin-right: 5px;
+        font-weight: bolder;
+    }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
+    body.offcanvas-active {
+        overflow: hidden;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 300px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+
+    }
+
+    .dataTables_length {
+        margin-bottom: 10px;
+    }
+
+    .dataTables_length select {
+        width: auto;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_length label {
+        margin-right: 5px;
+        font-weight: bolder;
+    }
 </style>
 
 <body>
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">Home/
-        </a>Add purchase Request</h5>
+            <h5 style="float: left;">ChattingBird/
+        </a>Manage Purchase Request</h5>
         <br>
         <hr>
         <br>
 
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Purchase Request
-                <i class="fa fa-plus"></i></button>
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa fa-plus"></i>
+                <b>Add Purchase Request</b>
+            </button>
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-overlay"></div>
+
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Purchase Request</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+                <hr>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -196,19 +279,24 @@
                                 </div>
                             </div>
                             <br>
-                            <label class="form-label" for="formControlDisabled"><b>Grand Total</b></label>
-                            <div class="form-outline mb-3" data-mdb-input-init>
-                                <input class="form-control" id="pr_total" type="text" placeholder="300"
-                                    aria-label="disabled input example" disabled />
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="pr_total" spellcheck="false">
+                                    <label>Grand Total</label>
+                                </div>
                             </div>
+                            <br>
+
                         </div>
+                        <div class="row">
+                            <button type="button" style="margin-left: 12px;" class="btn btn-primary"
+                                onclick="addPurchaseRequestrData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                        </div>
+                        <br>
                     </div>
-                    <br>
-                    <button type="button" class="btn btn-success" onclick="addPurchaseRequestrData()" style="
-                border-radius: 2px;
-            ">Save
-                        <i class="fa fa-check"></i>
-                    </button>
+
+
                 </div>
             </div>
         </div>
@@ -226,13 +314,13 @@
                                 <th class="text-center">Delivery Date</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Grand Total</th>
-                                <th class="text-center">Details</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody class="text-center" id="prodction_plan">
                         </tbody>
                     </table>
+                    <br>
                 </div>
             </div>
         </div>
@@ -254,7 +342,7 @@
     </div>
     <script>
         function addPurchaseRequestrData() {
-            var fields = ["pr_no", "so_no", "pr_v_name", "pr_quantity", "pr_price", "pr_adress", "pr_branch", "pr_exp_date", "pr_total", "pr_total"];
+            var fields = ["pr_no", "so_no", "pr_v_name", "pr_quantity", "pr_price", "pr_adress", "pr_branch", "pr_exp_date", "pr_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -292,14 +380,12 @@
                 purchaseorder_number: pr_no,
                 salesorder_number: so_no,
                 purchaseorder_vendor_name: pr_v_name,
-                purchaseorder_product: pr_product,
                 purchaseorder_quantity: pr_quantity,
                 purchaseorder_price: pr_price,
                 purchaseorder_adress: pr_adress,
                 purchaseorder_branch: pr_branch,
                 purchaseorder_exp_date: pr_exp_date,
                 purchaseorder_total: pr_total,
-                purchaseorder_status: pr_status,
 
             };
 
@@ -386,14 +472,12 @@
                 grand_total.textContent = datax.pr_total
                 table_row.appendChild(grand_total);
 
-                var view_details = document.createElement("td");
-                view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
-                table_row.appendChild(view_details);
+
 
                 var action = document.createElement("td");
-                action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                                    <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
-                                </button>`
+                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                   <b>X
+                                        </button>`
                 table_row.appendChild(action);
 
                 tableBody.appendChild(table_row)

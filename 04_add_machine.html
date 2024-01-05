@@ -96,27 +96,70 @@
         padding: 0 2px;
         background-color: white;
     }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
+    body.offcanvas-active {
+        overflow: hidden;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 300px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+
+    }
+
+    .dataTables_length {
+        margin-bottom: 10px;
+    }
+
+    .dataTables_length select {
+        width: auto;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_length label {
+        margin-right: 5px;
+        font-weight: bolder;
+    }
 </style>
 
 <body>
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">Home/
-        </a>Add Machine</h5>
+            <h5 style="float: left;">ChattingBirds/
+        </a>Manage Machine</h5>
         <br>
         <hr>
         <div class="container">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" style="border-radius: 2px;"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Machine
-                <i class="fa fa-plus"></i></button>
-            <br>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa fa-plus"></i>
+                <b>Add
+                    Machine</b>
+            </button>
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-overlay"></div>
+
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Machine</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+                <hr>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -133,12 +176,10 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectProcessName">Process Name</label>
-                                    <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
-                                        <option>Select Drop Customer</option>
-                                    </select>
-                                </div>
+                                <label for="selectProcessName">Process Name</label>
+                                <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
+                                    <option>Select Drop Customer</option>
+                                </select>
                             </div>
                             <br>
                             <div class="col-md-12">
@@ -152,301 +193,295 @@
                             </div>
                             <br>
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectBranchName">Branch Name</label>
-                                    <select style="width:100%" id="selectBranchName" class="js-example-basic-single">
-                                        <option>Select Drop Customer</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button type="button" class="btn btn-success " onclick="addMachineData()">Save <i
-                                            class="fa fa-check"></i></button>
-                                </div>
+                                <label for="selectBranchName">Unit Name</label>
+                                <select style="width:100%" id="selectBranchName" class="js-example-basic-single">
+                                    <option>Select Drop Customer</option>
+                                </select>
                             </div>
                             <br>
                         </div>
+                        <div class="row">
+
+                            <button type="button" style="margin-left: 12px;" class="btn btn-primary"
+                                onclick="addMachineData()"><i class="fa fa-check"></i> <b>Save</b></button>
+                        </div>
+
                     </div>
+                    <br>
                 </div>
             </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <table id="example" class="table table-striped table-bordered table-responsive table-hover">
-                            <thead class="bg-gradient">
-                                <tr>
-                                    <th class="text-center">Machine Name</th>
-                                    <th class="text-center">Machine no</th>
-                                    <th class="text-center">Process Name</th>
-                                    <th class="text-center">Efficient Running Hours</th>
-                                    <th class="text-center">Branch Name</th>
-                                    <th class="text-center">Details</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-center" id="prodction_plan">
-                            </tbody>
-                        </table>
-                    </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
+                        <thead class="bg-gradient">
+                            <tr>
+                                <th class="text-center">Machine Name</th>
+                                <th class="text-center">Machine no</th>
+                                <th class="text-center">Process Name</th>
+                                <th class="text-center">Efficient Running Hours</th>
+                                <th class="text-center">Branch Name</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" id="prodction_plan">
+                        </tbody>
+                    </table>
+                    <br>
                 </div>
+            </div>
+        </div>
+
+
+        <!-- model for create production plan -->
+
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
 
 
-            <!-- model for create production plan -->
-
-
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-
-
-                <div class="offcanvas-body">
-                    ...
-                </div>
+            <div class="offcanvas-body">
+                ...
             </div>
+        </div>
 
-            <script>
-                function addMachineData() {
-                    var fields = ["m_name", "m_no", "m_eff_hrs"];
-                    var hasEmptyField = false;
+        <script>
+            function addMachineData() {
+                var fields = ["m_name", "m_no", "m_eff_hrs"];
+                var hasEmptyField = false;
 
-                    for (var i = 0; i < fields.length; i++) {
-                        var fieldId = fields[i];
-                        var input = document.getElementById(fieldId);
+                for (var i = 0; i < fields.length; i++) {
+                    var fieldId = fields[i];
+                    var input = document.getElementById(fieldId);
 
-                        var value = input.value.trim();
+                    var value = input.value.trim();
 
-                        if (value === "") {
-                            input.classList.add("required-field");
-                            hasEmptyField = true;
+                    if (value === "") {
+                        input.classList.add("required-field");
+                        hasEmptyField = true;
+                    }
+                    else {
+                        input.classList.remove("required-field");
+                    }
+                }
+
+                if (hasEmptyField) {
+                    return;
+                }
+
+                var m_name = document.getElementById("m_name").value;
+                var m_no = document.getElementById("m_no").value;
+                var m_eff_hrs = document.getElementById("m_eff_hrs").value;
+
+
+                var JsonDataAddMachine =
+                {
+                    machine_name: m_name,
+                    machine_no: m_no,
+                    machine_efficient_runnning_hours: m_eff_hrs,
+
+                };
+
+                console.log(JsonDataAddMachine);
+                $('#selectProcessName').val(null).trigger('change');
+                $('#selectBranchName').val(null).trigger('change');
+                document.getElementById("m_name").value = "";
+                document.getElementById("m_no").value = "";
+                document.getElementById("m_eff_hrs").value = "";
+
+            }
+
+        </script>
+        <script>
+            var dataTableInitialized = false;
+
+            function updateTableData() {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status == 200) {
+                            var response = xhr.responseText;
+                            var jsonData = JSON.parse(response);
+                            console.log(jsonData)
+                            updateDataToTable(jsonData.add_machine);
+                            updateDropdownOptions(jsonData.add_machine);
+                            updateDropdownOption01(jsonData.add_machine);
+                            // Initialize DataTables if it hasn't been initialized already
+                            if (!dataTableInitialized) {
+                                initDataTable();
+                                dataTableInitialized = true; // Set the flag to true
+                            }
                         }
                         else {
-                            input.classList.remove("required-field");
-                        }
-                    }
-
-                    if (hasEmptyField) {
-                        return;
-                    }
-
-                    var m_name = document.getElementById("m_name").value;
-                    var m_no = document.getElementById("m_no").value;
-                    var m_eff_hrs = document.getElementById("m_eff_hrs").value;
-
-
-                    var JsonDataAddMachine =
-                    {
-                        machine_name: m_name,
-                        machine_no: m_no,
-                        machine_efficient_runnning_hours: m_eff_hrs,
-
-                    };
-
-                    console.log(JsonDataAddMachine);
-                    $('#selectProcessName').val(null).trigger('change');
-                    $('#selectBranchName').val(null).trigger('change');
-                    document.getElementById("m_name").value = "";
-                    document.getElementById("m_no").value = "";
-                    document.getElementById("m_eff_hrs").value = "";
-
-                }
-
-            </script>
-            <script>
-                var dataTableInitialized = false;
-
-                function updateTableData() {
-                    var xhr = new XMLHttpRequest();
-
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === XMLHttpRequest.DONE) {
-                            if (xhr.status == 200) {
-                                var response = xhr.responseText;
-                                var jsonData = JSON.parse(response);
-                                console.log(jsonData)
-                                updateDataToTable(jsonData.add_machine);
-                                updateDropdownOptions(jsonData.add_machine);
-                                updateDropdownOption01(jsonData.add_machine);
-                                // Initialize DataTables if it hasn't been initialized already
-                                if (!dataTableInitialized) {
-                                    initDataTable();
-                                    dataTableInitialized = true; // Set the flag to true
-                                }
-                            }
-                            else {
-                                console.error("failed to get the data from server")
-                            }
-
+                            console.error("failed to get the data from server")
                         }
 
                     }
-                    xhr.open("GET", "04_add_machine.json", true)
-                    xhr.send();
+
                 }
+                xhr.open("GET", "04_add_machine.json", true)
+                xhr.send();
+            }
 
-                function updateDataToTable(jsonDatax) {
-                    var data = jsonDatax
-                    for (var i = 0; i < data.length; i++) {
-                        var taleBody = document.getElementById("prodction_plan");
+            function updateDataToTable(jsonDatax) {
+                var data = jsonDatax
+                for (var i = 0; i < data.length; i++) {
+                    var taleBody = document.getElementById("prodction_plan");
 
-                        var datax = data[i];
-                        // var uomx = datax.p_uom;
-                        // console.log(uomx)
+                    var datax = data[i];
+                    // var uomx = datax.p_uom;
+                    // console.log(uomx)
 
-                        var tableRow = document.createElement("tr");
+                    var tableRow = document.createElement("tr");
 
-                        var machine_name = document.createElement("td");
-                        machine_name.textContent = datax.m_name;
-                        tableRow.appendChild(machine_name);
+                    var machine_name = document.createElement("td");
+                    machine_name.textContent = datax.m_name;
+                    tableRow.appendChild(machine_name);
 
-                        var machine_no = document.createElement("td");
-                        machine_no.textContent = datax.m_no;
-                        tableRow.appendChild(machine_no);
+                    var machine_no = document.createElement("td");
+                    machine_no.textContent = datax.m_no;
+                    tableRow.appendChild(machine_no);
 
-                        var machine_process = document.createElement("td");
-                        machine_process.textContent = datax.m_process;
-                        tableRow.appendChild(machine_process);
+                    var machine_process = document.createElement("td");
+                    machine_process.textContent = datax.m_process;
+                    tableRow.appendChild(machine_process);
 
-                        var efficient_runnning_hours = document.createElement("td");
-                        efficient_runnning_hours.textContent = datax.m_eff_hrs;
-                        tableRow.appendChild(efficient_runnning_hours);
+                    var efficient_runnning_hours = document.createElement("td");
+                    efficient_runnning_hours.textContent = datax.m_eff_hrs;
+                    tableRow.appendChild(efficient_runnning_hours);
 
-                        var branch = document.createElement("td");
-                        branch.textContent = datax.m_branch;
-                        tableRow.append(branch);
+                    var branch = document.createElement("td");
+                    branch.textContent = datax.m_branch;
+                    tableRow.append(branch);
 
-                        var view_details = document.createElement("td");
-                        view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
-                        tableRow.appendChild(view_details);
-
-                        var action = document.createElement("td");
-                        action.innerHTML = ` <button type="button" class="btn btn-danger" onclick="deleteRow('${i}')" style="border-radius: 2px;">
-                                            <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
+                    var action = document.createElement("td");
+                    action.innerHTML = ` <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                   <b>X
                                         </button>`
-                        tableRow.appendChild(action);
+                    tableRow.appendChild(action);
 
-                        taleBody.appendChild(tableRow);
+                    taleBody.appendChild(tableRow);
 
+                }
+            }
+
+            updateTableData();
+
+            function updateDropdownOptions(data) {
+                console.log(1);
+                var employeeSelect = document.getElementById("selectBranchName");
+                employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+                var employeeNames = [];
+
+                for (var i = 0; i < data.length; i++) {
+                    var entry = data[i];
+
+                    if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
+                        employeeNames.push(entry.m_name);
+
+                        var option = document.createElement("option");
+                        option.value = entry.m_name;
+                        option.textContent = entry.m_name;
+                        employeeSelect.appendChild(option);
+
+                        console.log(employeeSelect.appendChild(option))
                     }
                 }
+            }
 
-                updateTableData();
+            function updateDropdownOption01(data) {
+                console.log(1);
+                var employeeSelect = document.getElementById("selectProcessName");
+                employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
 
-                function updateDropdownOptions(data) {
-                    console.log(1);
-                    var employeeSelect = document.getElementById("selectBranchName");
-                    employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+                var employeeNames = [];
 
-                    var employeeNames = [];
+                for (var i = 0; i < data.length; i++) {
+                    var entry = data[i];
 
-                    for (var i = 0; i < data.length; i++) {
-                        var entry = data[i];
+                    if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
+                        employeeNames.push(entry.m_name);
 
-                        if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
-                            employeeNames.push(entry.m_name);
+                        var option = document.createElement("option");
+                        option.value = entry.m_name;
+                        option.textContent = entry.m_name;
+                        employeeSelect.appendChild(option);
 
-                            var option = document.createElement("option");
-                            option.value = entry.m_name;
-                            option.textContent = entry.m_name;
-                            employeeSelect.appendChild(option);
-
-                            console.log(employeeSelect.appendChild(option))
-                        }
+                        console.log(employeeSelect.appendChild(option))
                     }
                 }
+            }
 
-                function updateDropdownOption01(data) {
-                    console.log(1);
-                    var employeeSelect = document.getElementById("selectProcessName");
-                    employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+        </script>
+        <script>
+            function deleteRow(rowIndex) {
+                var clickedRow = rowIndex;
 
-                    var employeeNames = [];
-
-                    for (var i = 0; i < data.length; i++) {
-                        var entry = data[i];
-
-                        if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
-                            employeeNames.push(entry.m_name);
-
-                            var option = document.createElement("option");
-                            option.value = entry.m_name;
-                            option.textContent = entry.m_name;
-                            employeeSelect.appendChild(option);
-
-                            console.log(employeeSelect.appendChild(option))
-                        }
+                console.log(clickedRow)
+            }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.js-example-basic-single').select2();
+            });
+        </script>
+        <script>
+            function initDataTable() {
+                $('#example').DataTable({
+                    language: {
+                        "searchPlaceholder": "Search records",
+                        "search": ""
+                    },
+                    lengthMenu: [10, 25, 50, 100],
+                    fnDrawCallback: function () {
+                        $("input[type='search']").attr("class", "searchBox");
+                        $('div.dataTables_length select').attr("class", "selectBox");
                     }
-                }
-
-            </script>
-            <script>
-                function deleteRow(rowIndex) {
-                    var clickedRow = rowIndex;
-
-                    console.log(clickedRow)
-                }
-            </script>
-            <script>
-                $(document).ready(function () {
-                    $('.js-example-basic-single').select2();
                 });
-            </script>
-            <script>
-                function initDataTable() {
-                    $('#example').DataTable({
-                        language: {
-                            "searchPlaceholder": "Search records",
-                            "search": ""
-                        },
-                        lengthMenu: [10, 25, 50, 100],
-                        fnDrawCallback: function () {
-                            $("input[type='search']").attr("class", "searchBox");
-                            $('div.dataTables_length select').attr("class", "selectBox");
-                        }
-                    });
+            }
+            // updateTableData();
+        </script>
+        <script type="text/javascript">
+            $(function () {
+
+                var start = moment().subtract(29, 'days');
+                var end = moment();
+
+                function cb(start, end) {
+                    $('#reportrange span').html(
+                        start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
+                    );
                 }
-                // updateTableData();
-            </script>
-            <script type="text/javascript">
-                $(function () {
 
-                    var start = moment().subtract(29, 'days');
-                    var end = moment();
-
-                    function cb(start, end) {
-                        $('#reportrange span').html(
-                            start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
-                        );
+                $('#reportrange').daterangepicker({
+                    startDate: start,
+                    endDate: end,
+                    ranges: {
+                        'Today': [
+                            moment(), moment()
+                        ],
+                        'Last 7 Days': [
+                            moment().subtract(6, 'days'),
+                            moment()
+                        ],
+                        'Last 30 Days': [
+                            moment().subtract(29, 'days'),
+                            moment()
+                        ]
                     }
+                }, cb);
 
-                    $('#reportrange').daterangepicker({
-                        startDate: start,
-                        endDate: end,
-                        ranges: {
-                            'Today': [
-                                moment(), moment()
-                            ],
-                            'Last 7 Days': [
-                                moment().subtract(6, 'days'),
-                                moment()
-                            ],
-                            'Last 30 Days': [
-                                moment().subtract(29, 'days'),
-                                moment()
-                            ]
-                        }
-                    }, cb);
+                cb(start, end);
 
-                    cb(start, end);
-
-                });
-            </script>
+            });
+        </script>
 </body>
 
 </html>

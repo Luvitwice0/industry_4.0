@@ -89,6 +89,7 @@
     }
 
     input:focus~label,
+
     input:valid~label {
         top: 0;
         left: 15px;
@@ -96,12 +97,51 @@
         padding: 0 2px;
         background-color: white;
     }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
+    body.offcanvas-active {
+        overflow: hidden;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 300px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+
+    }
+
+    .dataTables_length {
+        margin-bottom: 10px;
+    }
+
+    .dataTables_length select {
+        width: auto;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_length label {
+        margin-right: 5px;
+        font-weight: bolder;
+    }
 </style>
 
 <body>
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">Home/
+            <h5 style="float: left;">ChattingBirds/
         </a>Add purchase Order</h5>
         <br>
         <hr>
@@ -109,15 +149,19 @@
 
         <div class="container">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Add Purchase Order
-                <i class="fa fa-plus"></i></button>
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa fa-plus"></i>
+                <b>Add Purchase Order</b>
+            </button>
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-overlay"></div>
+
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Purchase Order</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+                <hr>
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -173,7 +217,7 @@
                             <div class="md-12">
                                 <div class="input-field">
                                     <input type="text" required="required" id="po_adress"
-                                        value="1/122,ddfhsjcnjds,dwehfwc" spellcheck=" false">
+                                        value="1/122, ddfhsjcnjds, dwehfwc" spellcheck=" false">
                                     <label>Address</label>
                                 </div>
                             </div>
@@ -196,17 +240,21 @@
                                 </div>
                             </div>
                             <br>
-                            <label class="form-label" for="formControlDisabled"><b>Grand Total</b></label>
-                            <div class="form-outline mb-3" data-mdb-input-init>
-                                <input class="form-control" id="po_total" type="text" placeholder="300"
-                                    aria-label="disabled input example" disabled />
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="po_total" spellcheck="false">
+                                    <label>Grand Total</label>
+                                </div>
                             </div>
+                            <br>
                         </div>
-                    </div><br> <button type="button" class="btn btn-success" onclick="addPurchaseOrderData()" style="
-                border-radius: 2px;
-            ">Save
-                        <i class="fa fa-check"></i>
-                    </button>
+                        <div class="row">
+                            <button type="button" style="margin-left: 12px;" class="btn btn-primary"
+                                onclick="addPurchaseOrderData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                        </div>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
@@ -217,7 +265,6 @@
             <div class="col-md-12">
                 <table id="example" class="table table-striped table-bordered table-responsive table-hover">
                     <thead class="bg-gradient">
-
                         <tr>
                             <th class="text-center">PurchaseOrder No</th>
                             <th class="text-center">Vendor Name</th>
@@ -225,14 +272,13 @@
                             <th class="text-center">Delivery Date</th>
                             <th class="text-center">Grand Total</th>
                             <th class="text-center">Status</th>
-                            <th class="text-center">Details</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="text-cente4r" id="prodction_plan">
-
+                    <tbody class="text-center" id="prodction_plan">
                     </tbody>
                 </table>
+                <br>
             </div>
         </div>
     </div>
@@ -302,6 +348,7 @@
             };
 
             console.log(JsonDataAddPurchaseOrder);
+            $('#selectProductName').val(null).trigger('change');
 
             document.getElementById("po_no").value = "";
             document.getElementById("p_req_no").value = "";
@@ -385,14 +432,10 @@
                 status.appendChild(statusSpan);
                 table_row.appendChild(status);
 
-                var view_details = document.createElement("td");
-                view_details.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px;">View</button>`
-                table_row.appendChild(view_details);
-
                 var action = document.createElement("td");
-                action.innerHTML = ` <button type="button" class="btn btn-danger" style="border-radius: 2px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                                <i class="fa fa-trash" style=" font-size: smaller;" aria-hidden="true"></i>
-                            </button>`
+                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                   <b>X
+                                        </button>`
                 table_row.appendChild(action);
 
                 tableBody.appendChild(table_row)
