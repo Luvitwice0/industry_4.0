@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- Bootstrap CSS  -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -18,7 +18,6 @@
 
     <!-- Select2 CSS -->
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
-
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -38,8 +37,6 @@
     <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
     <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <style>
     body {
@@ -91,7 +88,7 @@
         color: #0d6efd;
     }
 
-
+    input:focus~label,
     input:valid~label {
         top: 0;
         left: 15px;
@@ -143,8 +140,8 @@
 <body>
     <div class="main-container">
         <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">ChattingBirds/
-        </a>Manage Manufacturing Plant</h5>
+            <h5 style="float: left;">ChatttingBirds/
+        </a>Manage Manufacturing Operators</h5>
         <br>
         <hr>
         <br>
@@ -153,7 +150,7 @@
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa fa-plus"></i>
                 <b>Add
-                    Plant</b>
+                    Operator</b>
             </button>
 
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
@@ -161,77 +158,52 @@
                 <div class="offcanvas-overlay"></div>
 
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Unit</h5>
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Operator</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <hr>
-                <div class=" offcanvas-body">
+                <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-md-12">
+                            <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                            class="form-control" id="prodId"></input> </div> -->
                             <div class="input-field">
-                                <input type="text" required="required" spellcheck="false" id="p_name">
-                                <label for="p_name">Plant Name</label>
+                                <input type="text" required="required" id="o_name" spellcheck="false">
+                                <label>Operator Name</label>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="o_ph_no" spellcheck="false">
+                                    <label>Phone No</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="o_state" spellcheck="false">
+                                    <label>State</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="o_adress" spellcheck="false">
+                                    <label>Adress</label>
+                                </div>
                             </div>
                             <br>
 
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_ph_no">
-                                    <label for="p_ph_no">Phone Number</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_email">
-                                    <label for="p_email">Email Id</label>
-                                </div>
-                            </div> <br>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_tax_id">
-                                    <label for="p_tax_id">GST No</label>
-                                </div>
-                            </div>
-                            <br>
-
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_city">
-                                    <label for="p_city">City</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_state">
-                                    <label for="p_state">State</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_addrs">
-                                    <label for="p_addrs">Address</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_pin_code">
-                                    <label for="p_pin_code">Pin Code</label>
-                                </div>
-                            </div>
-                            <br>
                         </div>
                         <div class="row">
                             <button type="button" style="margin-left: 12px;" class="btn btn-primary "
-                                onclick="addPlantData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                                onclick="addOperator()"><i class="fa fa-check"></i> <b>Save</b> </button>
                         </div>
                         <br>
                     </div>
                 </div>
-
             </div>
         </div>
         <br>
@@ -241,10 +213,9 @@
                     <table id="example" class="table table-striped table-bordered table-responsive table-hover">
                         <thead class="bg-gradient">
                             <tr>
-                                <th class="text-center">Unit Name</th>
-                                <th class="text-center">Phone no</th>
+                                <th class="text-center">Operator Name</th>
+                                <th class="text-center">Phone No</th>
                                 <th class="text-center">State</th>
-                                <th class="text-center">Tax Id</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -259,19 +230,21 @@
 
     <!-- model for create production plan -->
 
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+
+
         <div class="offcanvas-body">
             ...
         </div>
     </div>
-
     <script>
-        function addPlantData() {
-            var fields = ["p_name", "p_tax_id", "p_pin_code", "p_city", "p_addrs", "p_ph_no", "p_email", "p_state"];
+        function addOperator() {
+            var fields = ["o_name", "o_ph_no", "o_state", "o_adress"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -293,40 +266,33 @@
                 return;
             }
 
-            var p_name = document.getElementById("p_name").value;
-            var p_tax_id = document.getElementById("p_tax_id").value;
-            var p_pin_code = document.getElementById("p_pin_code").value;
-            var p_city = document.getElementById("p_city").value;
-            var p_addrs = document.getElementById("p_addrs").value;
-            var p_ph_no = document.getElementById("p_ph_no").value;
-            var p_email = document.getElementById("p_email").value;
-            var p_state = document.getElementById("p_state").value;
+            var o_name = document.getElementById("o_name").value;
+            var o_ph_no = document.getElementById("o_ph_no").value;
+            var o_state = document.getElementById("o_state").value;
+            var o_adress = document.getElementById("o_adress").value;
 
-            var JsonDataAddPlant =
+
+
+            var JsonDataAddvendor =
             {
-                plant_name: p_name,
-                plant_taxID: p_tax_id,
-                plant_pinCode: p_pin_code,
-                plant_city: p_city,
-                plant_address: p_addrs,
-                plant_phoneNo: p_ph_no,
-                plant_email: p_email,
-                plant_state: p_state
+                vendor_name: o_name,
+                vendor_phone_no: o_ph_no,
+                vendor_state: o_state,
+                vendor_adress: o_adress,
+
             };
 
-            console.log(JsonDataAddPlant);
+            console.log(JsonDataAddvendor);
 
-            document.getElementById("p_name").value = "";
-            document.getElementById("p_tax_id").value = "";
-            document.getElementById("p_pin_code").value = "";
-            document.getElementById("p_city").value = "";
-            document.getElementById("p_addrs").value = "";
-            document.getElementById("p_ph_no").value = "";
-            document.getElementById("p_email").value = "";
-            document.getElementById("p_state").value = "";
+            document.getElementById("o_name").value = "";
+            document.getElementById("o_ph_no").value = "";
+            document.getElementById("o_state").value = "";
+            document.getElementById("o_adress").value = "";
+
         }
 
     </script>
+
 
     <script>
 
@@ -341,7 +307,7 @@
                         var response = xhr.responseText;
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
-                        updateDataToTable(jsonData.add_plant);
+                        updateDataToTable(jsonData.add_operator);
                         // Initialize DataTables if it hasn't been initialized already
                         if (!dataTableInitialized) {
                             initDataTable();
@@ -355,39 +321,37 @@
                 }
 
             }
-            xhr.open("GET", "01_add_plant.json", true)
+            xhr.open("GET", "16_operators.json", true)
             xhr.send();
         }
 
-        function updateDataToTable(add_plant) {
+        function updateDataToTable(add_operator) {
             var tableBody = document.getElementById("prodction_plan")
-            var data = add_plant;
+            var data = add_operator;
             for (var i = 0; i < data.length; i++) {
                 var datax = data[i];
 
-                var p_add_plant = document.createElement("tr")
+                var table_row = document.createElement("tr")
 
-                var p_name = document.createElement("td");
-                p_name.textContent = datax.p_name;
-                p_add_plant.appendChild(p_name);
+                var operator_name = document.createElement("td");
+                operator_name.textContent = datax.o_name;
+                table_row.appendChild(operator_name);
 
-                var p_phone_no = document.createElement("td");
-                p_phone_no.textContent = datax.p_ph;
-                p_add_plant.appendChild(p_phone_no);
+                var operator_phone_no = document.createElement("td");
+                operator_phone_no.textContent = datax.o_ph_no;
+                table_row.appendChild(operator_phone_no);
 
-                var p_state = document.createElement("td");
-                p_state.textContent = datax.p_state;
-                p_add_plant.appendChild(p_state);
-
-                var tax_id = document.createElement("td");
-                tax_id.textContent = datax.p_tax_id
-                p_add_plant.appendChild(tax_id);
+                var Operator_state = document.createElement("td");
+                Operator_state.textContent = datax.o_state
+                table_row.appendChild(Operator_state);
 
                 var action = document.createElement("td");
-                action.innerHTML = `<i class="fa fa-eye"></i> <i class="fa-solid fa-trash"></i>`
-                p_add_plant.appendChild(action);
+                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
+                   <b>X
+                                        </button>`
+                table_row.appendChild(action);
 
-                tableBody.appendChild(p_add_plant)
+                tableBody.appendChild(table_row)
             }
         }
         updateTableData()
@@ -454,7 +418,6 @@
 
         });
     </script>
-
 </body>
 
 </html>

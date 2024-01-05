@@ -185,7 +185,7 @@
 
                                 <div class="input-field">
                                     <input type="text" required="required" value="lsskkm" spellcheck="false"
-                                        id="po_v_name" value="Customer 1">
+                                        id="pi_v_name" value="Customer 1">
                                     <label>Vendor Name</label>
                                 </div>
                             </div>
@@ -193,7 +193,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="selectcustomerName">Choose Product</label>
-                                    <select style="width:100%" id="po_product" class="js-example-basic-single">
+                                    <select style="width:100%" id="pi_product" class="js-example-basic-single">
                                         <option>Product A</option>
                                         <option>Product B</option>
                                         <option>Product C</option>
@@ -206,7 +206,7 @@
 
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_quantity" value="12"
+                                    <input type="text" required="required" id="pi_quantity" value="12"
                                         spellcheck="false" value="30">
                                     <label>Quantity</label>
                                 </div>
@@ -214,7 +214,7 @@
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_price" value="1234" spellcheck="false"
+                                    <input type="text" required="required" id="pi_price" value="1234" spellcheck="false"
                                         value="10">
                                     <label>Price</label>
                                 </div>
@@ -222,7 +222,7 @@
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_adress"
+                                    <input type="text" required="required" id="pi_adress"
                                         value="1/22,cskjcnsd nagear,sdihdxgsx(dt)" spellcheck=" false">
                                     <label>Address</label>
                                 </div>
@@ -230,7 +230,7 @@
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_branch" value="Hosur"
+                                    <input type="text" required="required" id="pi_branch" value="Hosur"
                                         spellcheck="false">
                                     <label>Unit</label>
                                 </div>
@@ -241,14 +241,14 @@
                                 <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
                                 class="form-control" id="orderNo"></input> </div> -->
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_exp_date" spellcheck="false"
+                                    <input type="text" required="required" id="pi_exp_date" spellcheck="false"
                                         value="12/02/20323">
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="po_total" spellcheck="false">
+                                    <input type="text" required="required" id="pi_total" spellcheck="false">
                                     <label>Grand Total</label>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@
         </div>
         <script>
             function addPurchaseInvoiceData() {
-                var fields = ["po_no", "p_req_no", "po_v_name", "po_product", "po_quantity", "po_price", "po_adress", "po_branch", "po_exp_date", "po_total"];
+                var fields = ["po_no", "p_req_no", "pi_v_name", "pi_product", "pi_quantity", "pi_price", "pi_adress", "pi_branch", "pi_exp_date", "pi_total"];
                 var hasEmptyField = false;
 
                 for (var i = 0; i < fields.length; i++) {
@@ -328,7 +328,7 @@
                 }
 
 
-                var po_no = document.getElementById("po_no").value;
+                var pi_no = document.getElementById("po_no").value;
                 var p_req_no = document.getElementById("p_req_no").value;
                 var pi_v_name = document.getElementById("pi_v_name").value;
                 var pi_product = document.getElementById("pi_product").value;
@@ -355,7 +355,7 @@
                 };
 
                 console.log(JsonDataAddPurchaseInvoice);
-
+                $("pi_product").val(null).trigger("value")
                 document.getElementById("po_no").value = "";
                 document.getElementById("p_req_no").value = "";
                 document.getElementById("pi_v_name").value = "";
