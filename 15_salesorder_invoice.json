@@ -1,84 +1,84 @@
 {
     "add_sales_invoice": [
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         },
         {
-            "so_no": "893475",
-            "so_c_name": "Prasanth",
-            "so_product": "Material 2",
-            "so_qu": "2",
-            "so_total": "500",
-            "so_dly_date": "12/12/2024"
+            "si_no": "893475",
+            "si_v_name": "Prasanth",
+            "si_product": "Material 2",
+            "si_quantity": "2",
+            "si_total": "500",
+            "si_dly_date": "12/12/2024"
         }
     ]
 }
