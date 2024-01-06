@@ -1,33 +1,24 @@
 {
-    "machine_resource":
-    [
+    "machine_resource": [
         {
-            "n_p":"Product1",
-            "n_plant":"Plant1"
+            "n_p": "Bending",
+            "n_plant": "Plant1"
         },
         {
-            "n_p":"Product2",
-            "n_plant":"Plant2"
+            "n_p": "welding",
+            "n_plant": "Plant2"
         },
         {
-            "n_p":"Product3",
-            "n_plant":"Plant3"
+            "n_p": "cutting",
+            "n_plant": "Plant3"
         },
         {
-            "n_p":"Product4",
-            "n_plant":"Plant4"
+            "n_p": "Powder coating",
+            "n_plant": "Plant4"
         },
         {
-            "n_p":"Product5",
-            "n_plant":"Plant5"
-        },
-        {
-            "n_p":"Product6",
-            "n_plant":"Plant6"
-        },
-        {
-            "n_p":"Product7",
-            "n_plant":"Plant7"
+            "n_p": "quality check",
+            "n_plant": "Plant5"
         }
     ]
 }
