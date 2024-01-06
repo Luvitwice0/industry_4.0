@@ -39,9 +39,10 @@
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
 </head>
 <style>
+    /* Your existing styles... */
+
     body {
         margin: auto;
-        /* padding: 20px; */
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     }
 
@@ -57,21 +58,15 @@
         position: relative;
     }
 
-
-
-    .dataTables_wrapper .dataTables_filter input {
+    .dataTables_wrapper .dataTables_filter input,
+    .select2-container,
+    .dataTables_length select {
         width: 300px;
         border: 2px solid #ced4da;
         border-radius: 5px;
         padding: 5px;
         margin-bottom: 10px;
         margin-right: 10px;
-    }
-
-
-    .select2-container {
-        width: 100% !important;
-
     }
 
     .dataTables_length {
@@ -98,35 +93,12 @@
         overflow: hidden;
     }
 
-    .dataTables_wrapper .dataTables_filter input {
-        width: 300px;
-        border: 2px solid #ced4da;
-        border-radius: 5px;
-        padding: 5px;
-        margin-bottom: 10px;
-        margin-right: 10px;
+    .popup {
+        display: none;
     }
 
-
-    .select2-container {
-        width: 100% !important;
-
-    }
-
-    .dataTables_length {
-        margin-bottom: 10px;
-    }
-
-    .dataTables_length select {
-        width: auto;
-        border: 2px solid #ced4da;
-        border-radius: 5px;
-        padding: 5px;
-    }
-
-    .dataTables_length label {
-        margin-right: 5px;
-        font-weight: bolder;
+    td {
+        cursor: pointer;
     }
 </style>
 
@@ -137,32 +109,80 @@
         </a>Manage Product Plan</h5>
         <br>
         <hr>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
-                        <thead class="bg-gradient">
+        <div class="dark-background" id="darkBackground"></div>
 
-                            <tr>
-                                <th class="text-center">SalesOrder</th>
-                                <th class="text-center">Delivery Date</th>
-                                <th class="text-center">Bending</th>
-                                <th class="text-center">Cutting</th>
-                                <th class="text-center">Welding</th>
-                                <th class="text-center">Powder coating</th>
-                                <th class="text-center">Quality check</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center" id="prodction_plan">
-                        </tbody>
-                    </table>
-
+        <!-- Bootstrap Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Job Card</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3 input-field">
+                                    <label for="operator-name" class="col-form-label">JobCard Number</label>
+                                    <input type="text" class="form-control" id="j_no">
+                                </div>
+                                <div class="mb-3 input-field">
+                                    <label for="operator-name" class="col-form-label">Operator Name</label>
+                                    <input type="text" class="form-control" id="o_name">
+                                </div>
+                                <div class="mb-3 input-field">
+                                    <label for="machine-number" class="col-form-label">Machine Number</label>
+                                    <input type="text" class="form-control" id="m_number">
+                                </div>
+                                <div class="mb-3 input-field">
+                                    <label for="plant-name" class="col-form-label">Plant Name</label>
+                                    <input type="text" class="form-control" id="plant_name">
+                                </div>
+                                <div class="mb-3 input-field">
+                                    <label for="quantity" class="col-form-label">Quantity</label>
+                                    <input type="text" class="form-control" id="quantity">
+                                </div>
+                                <div class="mb-3 input-field">
+                                    <label for="shift" class="col-form-label">Shift</label>
+                                    <input type="text" class="form-control" id="shift">
+                                </div>
+                                <br>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" onclick="addJobCardData()">Create
+                                        JobCard</button>
+                                </div>
+                            </form>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <script>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table id="example" class="table table-striped table-bordered table-responsive table-hover">
+                    <thead class="bg-gradient">
+                        <tr>
+                            <th class="text-center">SalesOrder</th>
+                            <th class="text-center">Delivery Date</th>
+                            <th class="text-center">Bending</th>
+                            <th class="text-center">Cutting</th>
+                            <th class="text-center">Welding</th>
+                            <th class="text-center">Powder coating</th>
+                            <th class="text-center">Quality check</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="prodction_plan">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
         var dataTableInitialized = false;
 
         function updateTableData() {
@@ -181,13 +201,10 @@
                             initDataTable();
                             dataTableInitialized = true; // Set the flag to true
                         }
-                    }
-                    else {
+                    } else {
                         console.error("failed to get the data from server")
                     }
-
                 }
-
             }
             xhr.open("GET", "production_plan.json", true)
             xhr.send();
@@ -203,6 +220,7 @@
 
                 var salesorder_no = document.createElement("td");
                 salesorder_no.textContent = datax.so_no;
+
                 table_row.appendChild(salesorder_no);
 
                 var delivery_date = document.createElement("td");
@@ -210,40 +228,115 @@
                 table_row.appendChild(delivery_date);
 
                 var so_bending = document.createElement("td");
-                so_bending.textContent = datax.bending
+                so_bending.textContent = datax.bending;
+                so_bending.addEventListener("click", function () {
+                    openPopup(datax.bending);
+                });
                 table_row.appendChild(so_bending);
 
                 var so_cutting = document.createElement("td");
-                so_cutting.textContent = datax.cutting
+                so_cutting.textContent = datax.cutting;
+                so_cutting.addEventListener("click", function () {
+                    openPopup(datax.so_cutting);
+                });
                 table_row.appendChild(so_cutting);
 
                 var so_welding = document.createElement("td");
-                so_welding.textContent = datax.welding
+                so_welding.textContent = datax.welding;
+                so_welding.addEventListener("click", function () {
+                    openPopup(datax.so_welding);
+                });
                 table_row.appendChild(so_welding);
 
-
                 var so_pc = document.createElement("td");
-                so_pc.textContent = datax.powder_coating
+                so_pc.textContent = datax.powder_coating;
+                so_pc.addEventListener("click", function () {
+                    openPopup(datax.so_pc);
+                });
                 table_row.appendChild(so_pc);
 
                 var quality_check = document.createElement("td");
-                quality_check.textContent = datax.qly_check
+                quality_check.textContent = datax.qly_check;
+                quality_check.addEventListener("click", function () {
+                    openPopup(datax.quality_check);
+                });
                 table_row.appendChild(quality_check);
 
                 tableBody.appendChild(table_row)
             }
         }
-        updateTableData()
+        function addJobCardData() {
+            var fields = ["j_no", "o_name", "m_number", "plant_name", "quantity", "shift"];
+            var hasEmptyField = false;
+
+            for (var i = 0; i < fields.length; i++) {
+                var fieldId = fields[i];
+                var input = document.getElementById(fieldId);
+
+                var value = input.value.trim();
+
+                if (value === "") {
+                    input.classList.add("required-field");
+                    hasEmptyField = true;
+                }
+                else {
+                    input.classList.remove("required-field");
+                }
+            }
+
+            if (hasEmptyField) {
+                return;
+            }
 
 
-    </script>
-    <script>
+            var o_name = document.getElementById("j_no").value;
+            var o_name = document.getElementById("o_name").value;
+            var machine_name = document.getElementById("m_number").value;
+            var plant_name = document.getElementById("plant_name").value;
+            var quantity = document.getElementById("quantity").value;
+            var shift = document.getElementById("shift").value;
+            var JsonDataAddGRN =
+            {
+                jobcard_no: j_no,
+                operator_name: o_name,
+                machine_name: m_number,
+                plant_name: plant_name,
+                quantity: quantity,
+                shift: shift,
+
+
+            };
+
+            console.log(JsonDataAddGRN);
+
+            document.getElementById("j_no").value = "";
+            document.getElementById("o_name").value = "";
+            document.getElementById("m_number").value = "";
+            document.getElementById("plant_name").value = "";
+            document.getElementById("quantity").value = "";
+            document.getElementById("shift").value = "";
+        }
+
+
+        function openPopup() {
+            $('#myModal').modal('show');
+        }
+
+        function closePopup() {
+            $('#myModal').modal('hide');
+        }
+
+        function submitForm() {
+            // Your form submission logic goes here
+            // You can add additional actions if needed
+            closePopup();
+        }
+
         function addRawItemData(rowIndex) {
             var delectCellRow = rowIndex
             console.log(delectCellRow);
         }
-    </script>
-    <script>
+
         function initDataTable() {
             $('#example').DataTable({
                 language: {
@@ -258,21 +351,17 @@
                 }
             });
         }
+
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
             updateTableData(); // Call initDataTable here
         });
 
-    </script>
-    <script>
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
-    </script>
 
-    <script type="text/javascript">
         $(function () {
-
             var start = moment().subtract(29, 'days');
             var end = moment();
 
@@ -301,7 +390,6 @@
             }, cb);
 
             cb(start, end);
-
         });
     </script>
 </body>
