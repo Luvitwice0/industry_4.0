@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <!-- Select2 CSS -->
+    <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="assets/dist/js/select2.min.js"></script>
+
+    <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
+    <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+</head>
+<style>
+    body {
+        margin: auto;
+        /* padding: 20px; */
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    .main-container {
+        padding: 10px;
+    }
+
+    .select2-container {
+        z-index: 3060;
+    }
+</style>
+
+<body>
+    <div class="main-container">
+        <a href="home.html" style="text-decoration: none;">
+            <h5 style="float: left;">ChattingBirds/
+        </a>Manage Machine Resource Management</h5>
+        <br>
+        <hr>
+        <div class="container">
+            <!-- Example single danger button -->
+            <div class="col-md-4">
+                <div class="d-flex">
+                    <div class="form-label">
+                        <select style="width:100%" id="selectProductName" class="js-example-basic-single">
+                            <option>Chooose Process</option>
+                        </select>
+                    </div>
+                    <div class="form-label">
+                        <select style="width:100%" id="selectCustomerName" class="js-example-basic-single"
+                            style="margin-right: 10px; border-radius: 10px;">
+                            <option>Chooose Plant</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
+                        <thead class="bg-gradient">
+                            <tr>
+                                <th class="text-center">Machine 1</th>
+                                <th class="text-center">Machine 2</th>
+                                <th class="text-center">Machine 3</th>
+                                <th class="text-center">Machine 4</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" id="prodction_plan">
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    var dataTableInitialized = false;
+
+    function updateTableData() {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status == 200) {
+                    var response = xhr.responseText;
+                    var jsonData = JSON.parse(response);
+                    console.log(jsonData)
+                    updateDropdownOption01(jsonData.add_quotation);
+                    updateDropdownOption02(jsonData.add_quotation);
+                    // Initialize DataTables if it hasn't been initialized already
+                    if (!dataTableInitialized) {
+                        initDataTable();
+                        dataTableInitialized = true; // Set the flag to true
+                    }
+                }
+                else {
+                    console.error("failed to get the data from server")
+                }
+
+            }
+
+        }
+        xhr.open("GET", "09_add_quotation.json", true)
+        xhr.send();
+    }
+
+
+    function updateDropdownOption01(data) {
+        console.log(1);
+        var employeeSelect = document.getElementById("selectProductName");
+        employeeSelect.innerHTML = '<option value="">Choose Process</option>';
+
+        var employeeNames = [];
+
+        for (var i = 0; i < data.length; i++) {
+            var entry = data[i];
+
+            if (entry.q_product && employeeNames.indexOf(entry.q_product) === -1) {
+                employeeNames.push(entry.q_product);
+
+                var option = document.createElement("option");
+                option.value = entry.q_product;
+                option.textContent = entry.q_product;
+                employeeSelect.appendChild(option);
+
+                console.log(employeeSelect.appendChild(option))
+            }
+        }
+    }
+
+    function updateDropdownOption02(data) {
+        console.log(1);
+        var employeeSelect = document.getElementById("selectCustomerName");
+        employeeSelect.innerHTML = '<option value="">Choose Plant</option>';
+
+        var employeeNames = [];
+
+        for (var i = 0; i < data.length; i++) {
+            var entry = data[i];
+
+            if (entry.q_product && employeeNames.indexOf(entry.q_product) === -1) {
+                employeeNames.push(entry.q_product);
+
+                var option = document.createElement("option");
+                option.value = entry.q_product;
+                option.textContent = entry.q_product;
+                employeeSelect.appendChild(option);
+
+                console.log(employeeSelect.appendChild(option))
+            }
+        }
+    }
+
+
+
+    updateTableData();
+</script>
+
+</html>
