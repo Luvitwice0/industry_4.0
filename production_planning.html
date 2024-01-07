@@ -53,11 +53,6 @@
     .select2-container {
         z-index: 3060;
     }
-
-    .input-field {
-        position: relative;
-    }
-
     .dataTables_wrapper .dataTables_filter input,
     .select2-container,
     .dataTables_length select {
@@ -84,6 +79,49 @@
         margin-right: 5px;
         font-weight: bolder;
     }
+    .input-field {
+        position: relative;
+    }
+
+    .input-field input {
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 0 15px;
+        border: 2px solid #bababa;
+        background: transparent;
+        color: #000000;
+        outline: none;
+    }
+
+    .input-field label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #212529;
+        font-size: 16px;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border: 2px solid #0d6efd;
+    }
+
+    input:focus~label {
+        color: #0d6efd;
+    }
+
+    input:focus~label,
+    input:valid~label {
+        top: 0;
+        left: 15px;
+        font-size: 16px;
+        padding: 0 2px;
+        background-color: white;
+    }
 
     .required-field {
         border: 2px solid #f80000 !important;
@@ -91,15 +129,14 @@
 
     body.offcanvas-active {
         overflow: hidden;
-    }
-
-    .popup {
+    }    .popup {
         display: none;
     }
 
     td {
         cursor: pointer;
     }
+    
 </style>
 
 <body>
@@ -112,7 +149,7 @@
         <div class="dark-background" id="darkBackground"></div>
 
         <!-- Bootstrap Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -158,7 +195,70 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-overlay"></div>
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Operator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <hr>
+                <div class="offcanvas-body">
+                    <div class="row">
+                        <div class="col-md-12 input-field">
+                            <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                            class="form-control" id="prodId"></input> </div> -->
+                            <div class="input-field">
+                                <label for="operator-name" >JobCard Number</label>
+                                <input type="text" class="form-control" id="j_no">
+                            </div>
+                            <br>
+                            <div class="col-md-12 input-field">
+                                    <label for="operator-name" >Operator Name</label>
+                                    <input type="text" class="form-control" id="o_name">
+                            </div>
+                            <br>
+                            <div class="col-md-12 input-field">
+
+                                
+                                    <label for="machine-number" >Machine Number</label>
+                                    <input type="text" class="form-control" id="m_number">
+                                
+                            </div>
+                            <br>
+                            <div class="col-md-12 input-field">
+                                
+                                    <label for="plant-name">Plant Name</label>
+                                    <input type="text" class="form-control" id="plant_name">
+                                
+                            </div>
+                            <br>
+                            <div class="col-md-12 input-field">
+                                
+                                    <label for="quantity">Quantity</label>
+                                    <input type="text" class="form-control" id="quantity">
+                                
+                            </div>
+                            <br>
+                            <div class="col-md-12 input-field">
+                               
+                                    <label for="shift">Shift</label>
+                                    <input type="text" class="form-control" id="shift">
+                              
+                            </div>
+                            <br>
+
+                        </div>
+                        <div class="row">
+                            <button type="button" style="margin-left: 12px;" class="btn btn-primary "
+                                onclick="addJobCardData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
 
     <div class="container">
         <div class="row">
@@ -319,17 +419,11 @@
 
 
         function openPopup() {
-            $('#myModal').modal('show');
+            $('#offcanvasScrolling').offcanvas('show');
         }
 
         function closePopup() {
-            $('#myModal').modal('hide');
-        }
-
-        function submitForm() {
-            // Your form submission logic goes here
-            // You can add additional actions if needed
-            closePopup();
+            $('#offcanvasScrolling').offcanvas('hide');
         }
 
         function addRawItemData(rowIndex) {
