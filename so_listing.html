@@ -13,12 +13,14 @@
         crossorigin="anonymous"></script>
     <title>SO Listing</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-		  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-		  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link href="css/bstreeview.css" rel="stylesheet">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="css/bstreeview.css" rel="stylesheet">
     <!-- FONTAWESOME LINK -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <style>
@@ -51,9 +53,9 @@
             word-wrap: break-word;
             background-color: #fff;
             background-clip: border-box;
-            border: 1px solid rgba(0,0,0,.125);
+            border: 1px solid rgba(0, 0, 0, .125);
             border-radius: 0.25rem;
-            
+
             padding: 0;
             overflow: hidden;
         }
@@ -71,10 +73,10 @@
         }
 
         .bstreeview .list-group-item:hover {
-            background-color:#dee2e6;
+            background-color: #dee2e6;
         }
 
-        .bstreeview > .list-group-item:first-child {
+        .bstreeview>.list-group-item:first-child {
             border-top-width: 0;
         }
 
@@ -83,8 +85,117 @@
             width: 12px;
             text-align: center;
         }
+
         .bstreeview .item-icon {
             margin-right: 10px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+
+        .modal-body {
+            overflow-y: auto;
+        }
+
+        ul,
+        #myUL {
+            list-style-type: none;
+        }
+
+        #myUL {
+            margin: 0;
+            padding: 0;
+        }
+
+        .caret {
+            cursor: pointer;
+            -webkit-user-select: none;
+            /* Safari 3.1+ */
+            -moz-user-select: none;
+            /* Firefox 2+ */
+            -ms-user-select: none;
+            /* IE 10+ */
+            user-select: none;
+        }
+
+        .caret::before {
+            content: "\25B6";
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .caret-down::before {
+            -ms-transform: rotate(90deg);
+            /* IE 9 */
+            -webkit-transform: rotate(90deg);
+            /* Safari */
+
+            transform: rotate(90deg);
+        }
+
+        .nested {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .tree-item {
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            /* Light gray background */
+            transition: background-color 0.3s;
+        }
+
+        .tree-item:hover {
+            background-color: #e9ecef;
+            /* Darker gray background on hover */
+        }
+
+        .tree-item span {
+            font-weight: bold;
+        }
+
+        .caret {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .caret::before {
+            content: "\25B6";
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+            transition: transform 0.3s;
+            /* Add smooth transition to caret rotation */
+        }
+
+        .caret-down::before {
+            transform: rotate(90deg);
+        }
+
+        .nested {
+            display: none;
+        }
+
+        .active {
+            display: block;
         }
     </style>
 
@@ -102,200 +213,319 @@
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    SalesOrder ID: AS23MA<p><i class="fa-solid fa-eye"></i></p>      
+                <button class="accordion-button collapsed d-flex align-items-center" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                    aria-controls="flush-collapseOne">
+                    <span class="me-2">SalesOrder ID: AS23MA</span>
+                    <span><i class="fa-solid fa-eye"></i></span>
                 </button>
             </h2>
+
             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <div class="card card-body" style="padding-top: 1px;">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-md-6 pt-5">
-                                        <h5>List of MasterProducts</h5>
-                                        <div id="tree">
-                    
-                                        </div>
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-6 pt-5">
+                                    <h5>List of MasterProducts</h5>
+                                    <div id="tree1">
+                                        <!-- Tree content goes here -->
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed d-flex align-items-center" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                    aria-controls="flush-collapseTwo">
+                    <span class="me-2">SalesOrder ID: AS24MA</span>
+                    <span><i class="fa-solid fa-eye"></i></span>
+                </button>
+            </h2>
+
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <div class="card card-body" style="padding-top: 1px;">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-6 pt-5">
+                                    <h5>List of MasterProducts</h5>
+                                    <div id="tree2">
+                                        <!-- Tree content goes here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
 
-    
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-			crossorigin="anonymous"></script>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Master Product 01</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="treeright">
+                        <ul id="myUL">
+                            <li class="tree-item"><span class="caret">Bending</span>
+                                <ul class="nested">
+                                    <li class="tree-item"><span class="caret"></span>workorder1
+                                        <ul class="nested">
+                                            <li class="tree-item">Jobcard01</li>
+                                            <li class="tree-item">Jobcard02</li>
+                                        </ul>
+                                    </li>
+                                    <li class="tree-item"><span class="caret"></span>workorder2
+                                        <ul class="nested">
+                                            <li class="tree-item">Jobcard01</li>
+                                            <li class="tree-item">Jobcard02</li>
 
-	<script src="js/bstreeview.js">
-	</script>
-	<script>
-		$(function () {
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tree-item"><span class="caret">cutting</span>
+                                <ul class="nested">
+                                    <li class="tree-item"><span class="caret"></span>workorder1
+                                        <ul class="nested">
+                                            <li class="tree-item">Jobcard01</li>
+                                            <li class="tree-item">Jobcard02</li>
+                                        </ul>
+                                    </li>
+                                    <li class="tree-item"><span class="caret"></span>workorder2
+                                        <ul class="nested">
+                                            <li class="tree-item">Jobcard01</li>
+                                            <li class="tree-item">Jobcard02</li>
 
-			var json = [
-				{
-					text: "MasterProduct1",
-					icon: "fa fa-inbox fa-fw",
-					nodes: [
-						{
-							text: "Item1",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						},
-                        {
-							text: "Item2",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						},
-                        {
-							text: "Item3",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						}
-					]
-				},
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="js/bstreeview.js">
+    </script>
+    <script>
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function () {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+    </script>
+    <script>
+        $(function () {
+
+            var json = [
                 {
-					text: "MasterProduct2",
-					icon: "fa fa-inbox fa-fw",
-					nodes: [
-						{
-							text: "Item1",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						},
-                        {
-							text: "Item2",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						},
-                        {
-							text: "Item3",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						}
-					]
-				},
-                {
-					text: "MasterProduct1",
-					icon: "fa fa-inbox fa-fw",
-					nodes: [
-						{
-							text: "Item1",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						},
-                        {
-							text: "Item2",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						},
-                        {
-							text: "Item3",
-							icon: "fa fa-inbox fa-fw",
-							nodes: [
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem1"
-								},
-								{
-									icon: "fa fa-inbox fa-fw",
-									text: "Subitem2"
-								}
-							]
-						}
-					]
-				}
-			];
+                    text: "MasterProduct1",
+                    icon: "fa fa-eye fa-fw",
 
-			$('#tree').bstreeview({
-				data: json,
+                    nodes: [
+                        {
+                            text: "Item1",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Item2",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Item3",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    text: "MasterProduct2",
+                    icon: "fa fa-eye fa-fw",
+                    nodes: [
+                        {
+                            text: "Item1",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Item2",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Item3",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    text: "MasterProduct1",
+                    icon: "fa fa-eye fa-fw",
+                    nodes: [
+                        {
+                            text: "Item1",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Item2",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Item3",
+                            icon: "fa fa-eye fa-fw",
+                            nodes: [
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem1"
+                                },
+                                {
+                                    icon: "fa fa-eye fa-fw",
+                                    text: "Subitem2"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+
+            $('#tree1').bstreeview({
+                data: json,
+                expandIcon: 'fa fa-angle-down fa-fw',
+                collapseIcon: 'fa fa-angle-right fa-fw',
+                indent: 1.25,
+                parentsMarginLeft: '5.25rem',
+                openNodeLinkOnNewTab: true
+            });
+
+            $('#tree2').bstreeview({
+                data: json,
                 expandIcon: 'fa fa-angle-down fa-fw',
                 collapseIcon: 'fa fa-angle-right fa-fw',
                 indent: 1.25,
                 parentsMarginLeft: '1.25rem',
                 openNodeLinkOnNewTab: true
-			});
-		});
-	</script>
+            });
+
+            $('.bstreeview .list-group-item').on('click', function (e) {
+                if ($(e.target).hasClass('fa-eye')) {
+                    // Eye icon is clicked, show the modal
+                    $('#exampleModalCenter').modal('show');
+                }
+            });
+
+
+        });
+    </script>
 
     <script>
         /*! @preserve
