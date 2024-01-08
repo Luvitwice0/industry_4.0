@@ -59,11 +59,57 @@
     }
 
     .main-container {
-        padding: 10px;
+        padding: 20px;
     }
 
     .select2-container {
         z-index: 3060;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 300px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+
+    }
+
+    .dataTables_length {
+        margin-bottom: 10px;
+    }
+
+    .dataTables_length select {
+        width: auto;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_length label {
+        margin-right: 5px;
+        font-weight: bolder;
+    }
+
+    .modal-body {
+        font-weight: 500;
+        font-size: larger;
+    }
+
+    .badge text-bg-success {
+        text-align: center;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
     }
 </style>
 
@@ -74,89 +120,129 @@
         </a>Manage Machine Resource Management</h5>
         <br>
         <hr>
-        <div class="container">
-            <!-- Example single danger button -->
-            <div class="col-md-4">
-                <div class="d-flex">
-                    <div class="form-label">
-                        <select style="width:100%; height: 30px;   border-radius: 5px; border-width: 2px;
+
+        <!--  Vertically Centered Modal Modal -->
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-2">
+                <div class="form-label">
+                    <select style="border-radius: 5px; border-width: 2px;
                         border-color: aliceblue," id="selectProductName" class="js-example-basic-single">
-                            <option>Chooose Process</option>
-                        </select>
-                    </div>
-                    <div class="form-label">
-                        <select style="width:100%; height: 30px;  margin-left: 30px; border-radius: 5px; border-width: 2px;
-                        border-color: aliceblue," id=" selectCustomerName" class="js-example-basic-single">
-                            <option>Chooose Plant</option>
-                        </select>
-                    </div>
+                        <option>Chooose Process</option>
+                    </select>
                 </div>
             </div>
-
-
-        </div>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
-                        <thead class="bg-gradient">
-                            <tr>
-                                <th class="text-center">Machine 1</th>
-                                <th class="text-center">Machine 2</th>
-                                <th class="text-center">Machine 3</th>
-                                <th class="text-center">Machine 4</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center" id="prodction_plan">
-                            <tr>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i> </button>
-                                    JB932C</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB170H</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB736S</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB638A</td>
-                            </tr>
-                            <tr>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB932C</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB170H</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB736S</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB638A</td>
-                            </tr>
-                            <tr>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB932C</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB170H</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB736S</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB638A</td>
-                            </tr>
-                            <tr>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB932C</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB170H</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB736S</td>
-                                <td><button style="border: none;"><i class="fa-solid fa-address-card"></i></button>
-                                    JB638A</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br>
+            <div class="col-md-4 col-lg-2">
+                <div class="form-label">
+                    <select style="border-radius: 5px; border-width: 2px;
+                        border-color: aliceblue," id="selectCustomerName" class="js-example-basic-single">
+                        <option>Chooose Plant</option>
+                    </select>
                 </div>
+            </div>
+        </div> <br>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="example" class="table table-striped table-bordered table-responsive table-hover"
+                    style="text-align: center;">
+                    <thead class="bg-gradient">
+                        <tr>
+                            <th class="text-center">Machine 1</th>
+                            <th class="text-center">Machine 2</th>
+                            <th class="text-center">Machine 3</th>
+                            <th class="text-center">Machine 4</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="prodction_plan">
+                    </tbody>
+                </table>
+                <br>
             </div>
         </div>
     </div>
 
+
+    <div tabindex="-1" class="modal pmd-modal fade" id="vertically-centered" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">JobCard Details</h2>
+                    <span class="glyphicon glyphicon-remove"></span>
+                </div>
+                <div class="modal-body">
+                    <table style="width: 100%;text-align: center;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Jobcard No
+                                </td>
+                                <td>
+                                    124234GHF
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Operator Name
+                                </td>
+                                <td>
+                                    Chintu
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Machine No
+                                </td>
+                                <td>
+                                    1123245WOK
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Quantity
+                                </td>
+                                <td>
+                                    500
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Shift
+                                </td>
+                                <td>
+                                    Shift 1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accepted Quantity
+                                </td>
+                                <td>
+                                    450
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Rejected Quantity
+                                </td>
+                                <td>
+                                    50
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    status
+                                </td>
+                                <td>
+                                    <div class="badge text-bg-success" style="padding: 5px;">Completed</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -175,6 +261,7 @@
                     var response = xhr.responseText;
                     var jsonData = JSON.parse(response);
                     console.log(jsonData)
+                    updateDataToTable(jsonData.machine_resource)
                     updateDropdownOption01(jsonData.machine_resource);
                     updateDropdownOption02(jsonData.machine_resource);
                     // Initialize DataTables if it hasn't been initialized already
@@ -193,6 +280,10 @@
         xhr.open("GET", "machine_resource.json", true)
         xhr.send();
     }
+    function openPopup() {
+        $('#vertically-centered').modal('show');
+    }
+
 
 
     function updateDropdownOption01(data) {
@@ -218,6 +309,7 @@
         }
     }
 
+
     function updateDropdownOption02(data) {
         console.log(1);
         var employeeSelect = document.getElementById("selectCustomerName");
@@ -240,10 +332,103 @@
             }
         }
     }
+    function updateDataToTable(machine_resource) {
+        var tableBody = document.getElementById("prodction_plan")
+        var data = machine_resource;
+        for (var i = 0; i < data.length; i++) {
+            var datax = data[i];
+
+            var table_row = document.createElement("tr")
+
+            var machine_1 = document.createElement("td");
+            machine_1.textContent = datax.m_1;
+            machine_1.addEventListener("click", function () {
+                openPopup(datax.machine_1);
+            });
+            table_row.appendChild(machine_1);
+
+            var machine_2 = document.createElement("td");
+            machine_2.textContent = datax.m_2
+            machine_2.addEventListener("click", function () {
+                openPopup(datax.machine_2);
+            });
+            table_row.appendChild(machine_2);
+
+            var machine_3 = document.createElement("td");
+            machine_3.textContent = datax.m_3
+            machine_3.addEventListener("click", function () {
+                openPopup(datax.machine_3);
+            });
+            table_row.appendChild(machine_3);
+
+            var machine_4 = document.createElement("td");
+            machine_4.textContent = datax.m_4
+            machine_4.addEventListener("click", function () {
+                openPopup(datax.machine_4);
+            });
+            table_row.appendChild(machine_4);
 
 
 
+            tableBody.appendChild(table_row)
+        }
+    }
+    function addRawItemData(rowIndex) {
+        var delectCellRow = rowIndex
+        console.log(delectCellRow);
+    }
+    function initDataTable() {
+        $('#example').DataTable({
+            language: {
+                "searchPlaceholder": "Search records",
+                "search": ""
+            },
+            lengthMenu: [10, 25, 50, 100],
+            fnDrawCallback: function () {
+                $("input[type='search']").attr("class", "searchBox");
+                $('div.dataTables_length select').attr("class", "selectBox");
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
     updateTableData();
+</script>
+<script type="text/javascript">
+    $(function () {
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        function cb(start, end) {
+            $('#reportrange span').html(
+                start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
+            );
+        }
+
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [
+                    moment(), moment()
+                ],
+                'Last 7 Days': [
+                    moment().subtract(6, 'days'),
+                    moment()
+                ],
+                'Last 30 Days': [
+                    moment().subtract(29, 'days'),
+                    moment()
+                ]
+            }
+        }, cb);
+
+        cb(start, end);
+
+    });
 </script>
 
 </html>
