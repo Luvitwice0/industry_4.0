@@ -53,6 +53,7 @@
     .select2-container {
         z-index: 3060;
     }
+
     .dataTables_wrapper .dataTables_filter input,
     .select2-container,
     .dataTables_length select {
@@ -79,6 +80,7 @@
         margin-right: 5px;
         font-weight: bolder;
     }
+
     .input-field {
         position: relative;
     }
@@ -114,7 +116,7 @@
         color: #0d6efd;
     }
 
-    
+
     input:focus~label,
     input:valid~label {
         top: 0;
@@ -130,113 +132,17 @@
 
     body.offcanvas-active {
         overflow: hidden;
-    }    .popup {
+    }
+
+    .popup {
         display: none;
     }
 
     td {
         cursor: pointer;
     }
-    
 </style>
-<style>
-    body {
-        margin: auto;
-        /* padding: 20px; */
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    }
 
-    .main-container {
-        padding: 10px;
-    }
-
-    .select2-container {
-        z-index: 3060;
-    }
-
-    .input-field {
-        position: relative;
-    }
-
-    .input-field input {
-        width: 100%;
-        height: 40px;
-        border-radius: 3px;
-        font-size: 18px;
-        padding: 0 15px;
-        border: 2px solid #bababa;
-        background: transparent;
-        color: #000000;
-        outline: none;
-    }
-
-    .input-field label {
-        position: absolute;
-        top: 50%;
-        left: 15px;
-        transform: translateY(-50%);
-        color: #212529;
-        font-size: 16px;
-        pointer-events: none;
-        transition: 0.3s;
-    }
-
-    input:focus {
-        border: 2px solid #0d6efd;
-    }
-
-    input:focus~label {
-        color: #0d6efd;
-    }
-
-    input:focus~label,
-    input:valid~label {
-        top: 0;
-        left: 15px;
-        font-size: 16px;
-        padding: 0 2px;
-        background-color: white;
-    }
-
-    .required-field {
-        border: 2px solid #f80000 !important;
-    }
-
-    body.offcanvas-active {
-        overflow: hidden;
-    }
-
-    .dataTables_wrapper .dataTables_filter input {
-        width: 300px;
-        border: 2px solid #ced4da;
-        border-radius: 5px;
-        padding: 5px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-    }
-
-
-    .select2-container {
-        width: 100% !important;
-
-    }
-
-    .dataTables_length {
-        margin-bottom: 10px;
-    }
-
-    .dataTables_length select {
-        width: auto;
-        border: 2px solid #ced4da;
-        border-radius: 5px;
-        padding: 5px;
-    }
-
-    .dataTables_length label {
-        margin-right: 5px;
-        font-weight: bolder;
-    }
-</style>
 
 <body>
     <div class="main-container">
@@ -296,73 +202,73 @@
         </div>
     </div> -->
 
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <div class="offcanvas-overlay"></div>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+            aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-overlay"></div>
 
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add JobCard</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <hr>
-                <div class="offcanvas-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add JobCard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <hr>
+            <div class="offcanvas-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
                             class="form-control" id="prodId"></input> </div> -->
-                            <div class="input-field">
-                                <input type="text" required="required" id="jc_number" spellcheck="false">
-                                <label>Jobcard Number</label>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" id="o_name" spellcheck="false">
-                                    <label>Operator Name</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" id="mac_no" spellcheck="false">
-                                    <label>Machine Number</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="p_name" spellcheck="false">
-                                    <label>Plant Name</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="quantity" spellcheck="false">
-                                    <label>Quantity</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="shift" spellcheck="false">
-                                    <label>Shift</label>
-                                </div>
-                            </div>
-                            <br>
-
-                        </div>
-                        <div class="row">
-                            <button type="button" style="margin-left: 12px;" class="btn btn-primary "
-                                onclick="addJobCardData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                        <div class="input-field">
+                            <input type="text" required="required" id="jc_number" spellcheck="false">
+                            <label>Jobcard Number</label>
                         </div>
                         <br>
+                        <div class="col-md-12">
+
+                            <div class="input-field">
+                                <input type="text" required="required" id="o_name" spellcheck="false">
+                                <label>Operator Name</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+
+                            <div class="input-field">
+                                <input type="text" required="required" id="mac_no" spellcheck="false">
+                                <label>Machine Number</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="p_name" spellcheck="false">
+                                <label>Plant Name</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="quantity" spellcheck="false">
+                                <label>Quantity</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="shift" spellcheck="false">
+                                <label>Shift</label>
+                            </div>
+                        </div>
+                        <br>
+
                     </div>
+                    <div class="row">
+                        <button type="button" style="margin-left: 12px;" class="btn btn-primary "
+                            onclick="addJobCardData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                    </div>
+                    <br>
                 </div>
             </div>
         </div>
+    </div>
 
     <div class="container">
         <div class="row">

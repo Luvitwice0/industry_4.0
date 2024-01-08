@@ -1,24 +1,132 @@
 {
     "machine_resource": [
         {
-            "n_p": "Bending",
-            "n_plant": "Plant1"
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
         },
         {
             "n_p": "welding",
-            "n_plant": "Plant2"
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
         },
         {
-            "n_p": "cutting",
-            "n_plant": "Plant3"
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
         },
         {
-            "n_p": "Powder coating",
-            "n_plant": "Plant4"
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
         },
         {
-            "n_p": "quality check",
-            "n_plant": "Plant5"
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
+        },
+        {
+            "n_p": "welding",
+            "n_plant": "Plant2",
+            "m_1": "JB001",
+            "m_2": "JB001",
+            "m_3": "JB001",
+            "m_4": "JB001"
         }
     ]
 }
