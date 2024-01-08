@@ -111,6 +111,16 @@
         border: 1px solid black;
         border-collapse: collapse;
     }
+
+    .select2-container,
+    .dataTables_wrapper .dataTables_filter input,
+    .dataTables_length select {
+        z-index: 1040; 
+    }
+
+    /* .modal {         
+        z-index: 1050;
+    } */
 </style>
 
 <body>
@@ -127,8 +137,8 @@
         <div class="row">
             <div class="col-md-4 col-lg-2">
                 <div class="form-label">
-                    <select style="border-radius: 5px; border-width: 2px;
-                        border-color: aliceblue," id="selectProductName" class="js-example-basic-single">
+                    <select style="border-radius: 5px; border-width: 2px;" id="selectProductName"
+                        class="js-example-basic-single">
                         <option>Chooose Process</option>
                     </select>
                 </div>
@@ -136,7 +146,7 @@
             <div class="col-md-4 col-lg-2">
                 <div class="form-label">
                     <select style="border-radius: 5px; border-width: 2px;
-                        border-color: aliceblue," id="selectCustomerName" class="js-example-basic-single">
+                        " id="selectCustomerName" class="js-example-basic-single">
                         <option>Chooose Plant</option>
                     </select>
                 </div>
@@ -161,8 +171,6 @@
             </div>
         </div>
     </div>
-
-
     <div tabindex="-1" class="modal pmd-modal fade" id="vertically-centered" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -280,10 +288,48 @@
         xhr.open("GET", "machine_resource.json", true)
         xhr.send();
     }
-    function openPopup() {
-        $('#vertically-centered').modal('show');
-    }
 
+    function updateDataToTable(machine_resource) {
+        var tableBody = document.getElementById("prodction_plan")
+        var data = machine_resource;
+        for (var i = 0; i < data.length; i++) {
+            var datax = data[i];
+
+            var table_row = document.createElement("tr")
+
+            var machine_1 = document.createElement("td");
+            machine_1.textContent = datax.m_1;
+            machine_1.addEventListener("click", function () {
+                openPopup(datax.machine_1);
+            });
+            table_row.appendChild(machine_1);
+
+            var machine_2 = document.createElement("td");
+            machine_2.textContent = datax.m_2
+            machine_2.addEventListener("click", function () {
+                openPopup(datax.machine_2);
+            });
+            table_row.appendChild(machine_2);
+
+            var machine_3 = document.createElement("td");
+            machine_3.textContent = datax.m_3
+            machine_3.addEventListener("click", function () {
+                openPopup(datax.machine_3);
+            });
+            table_row.appendChild(machine_3);
+
+            var machine_4 = document.createElement("td");
+            machine_4.textContent = datax.m_4
+            machine_4.addEventListener("click", function () {
+                openPopup(datax.machine_4);
+            });
+            table_row.appendChild(machine_4);
+
+
+
+            tableBody.appendChild(table_row)
+        }
+    }
 
 
     function updateDropdownOption01(data) {
@@ -332,51 +378,18 @@
             }
         }
     }
-    function updateDataToTable(machine_resource) {
-        var tableBody = document.getElementById("prodction_plan")
-        var data = machine_resource;
-        for (var i = 0; i < data.length; i++) {
-            var datax = data[i];
-
-            var table_row = document.createElement("tr")
-
-            var machine_1 = document.createElement("td");
-            machine_1.textContent = datax.m_1;
-            machine_1.addEventListener("click", function () {
-                openPopup(datax.machine_1);
-            });
-            table_row.appendChild(machine_1);
-
-            var machine_2 = document.createElement("td");
-            machine_2.textContent = datax.m_2
-            machine_2.addEventListener("click", function () {
-                openPopup(datax.machine_2);
-            });
-            table_row.appendChild(machine_2);
-
-            var machine_3 = document.createElement("td");
-            machine_3.textContent = datax.m_3
-            machine_3.addEventListener("click", function () {
-                openPopup(datax.machine_3);
-            });
-            table_row.appendChild(machine_3);
-
-            var machine_4 = document.createElement("td");
-            machine_4.textContent = datax.m_4
-            machine_4.addEventListener("click", function () {
-                openPopup(datax.machine_4);
-            });
-            table_row.appendChild(machine_4);
-
-
-
-            tableBody.appendChild(table_row)
-        }
+    function openPopup() {
+        $('#vertically-centered').modal('show');
     }
+    updateTableData()
+</script>
+<script>
     function addRawItemData(rowIndex) {
         var delectCellRow = rowIndex
         console.log(delectCellRow);
     }
+</script>
+<script>
     function initDataTable() {
         $('#example').DataTable({
             language: {
@@ -390,12 +403,14 @@
             }
         });
     }
-
+    // updateTableData();
+</script>
+<script>
     $(document).ready(function () {
         $('.js-example-basic-single').select2();
     });
-    updateTableData();
 </script>
+
 <script type="text/javascript">
     $(function () {
 
