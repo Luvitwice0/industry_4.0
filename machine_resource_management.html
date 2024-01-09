@@ -118,9 +118,9 @@
         z-index: 1040;
     }
 
-    /* .modal {         
-        z-index: 1050;
-    } */
+    td {
+        cursor: pointer;
+    }
 </style>
 
 <body>
@@ -401,7 +401,7 @@
             fnDrawCallback: function () {
                 $("input[type='search']").attr("class", "searchBox");
                 $('div.dataTables_length select').attr("class", "selectBox");
-                $("input[type='search']").before('<i class="fa-solid fa-magnifying-glass"></i>');
+                $("input[type='search']").after('<i class="fa-solid fa-magnifying-glass"></i>');
             }
         });
     }
