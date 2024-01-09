@@ -47,7 +47,7 @@
     }
 
     .main-container {
-        padding: 10px;
+        padding: 20px;
     }
 
     .select2-container {
@@ -141,6 +141,11 @@
     td {
         cursor: pointer;
     }
+
+    .offcanvas-title {
+        padding-top: 10px;
+        font-weight: 500;
+    }
 </style>
 
 
@@ -152,55 +157,6 @@
         <br>
         <hr>
         <div class="dark-background" id="darkBackground"></div>
-
-        <!-- Bootstrap Modal -->
-        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Create Job Card</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3 input-field">
-                                    <label for="operator-name" class="col-form-label">JobCard Number</label>
-                                    <input type="text" class="form-control" id="j_no">
-                                </div>
-                                <div class="mb-3 input-field">
-                                    <label for="operator-name" class="col-form-label">Operator Name</label>
-                                    <input type="text" class="form-control" id="o_name">
-                                </div>
-                                <div class="mb-3 input-field">
-                                    <label for="machine-number" class="col-form-label">Machine Number</label>
-                                    <input type="text" class="form-control" id="m_number">
-                                </div>
-                                <div class="mb-3 input-field">
-                                    <label for="plant-name" class="col-form-label">Plant Name</label>
-                                    <input type="text" class="form-control" id="plant_name">
-                                </div>
-                                <div class="mb-3 input-field">
-                                    <label for="quantity" class="col-form-label">Quantity</label>
-                                    <input type="text" class="form-control" id="quantity">
-                                </div>
-                                <div class="mb-3 input-field">
-                                    <label for="shift" class="col-form-label">Shift</label>
-                                    <input type="text" class="form-control" id="shift">
-                                </div>
-                                <br>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" onclick="addJobCardData()">Create
-                                        JobCard</button>
-                                </div>
-                            </form>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
             aria-labelledby="offcanvasScrollingLabel">
@@ -258,7 +214,6 @@
                             </div>
                         </div>
                         <br>
-
                     </div>
                     <div class="row">
                         <button type="button" style="margin-left: 12px;" class="btn btn-primary "
