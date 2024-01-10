@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabulator Example</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.2.0/css/tabulator.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-d56yE0tfrqxxqj5j9K3tgNQA9R2eHgHg9N6pKI3PmAK6gYUpGG3jYFJF3aCb7bZv" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6e6e6;
+            overflow: hidden;
+        }
+
+        #example-table {
+            margin: 20px;
+            max-width: 95vw;
+            /* Adjusted the width */
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nested-row {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.2.0/js/tabulator.min.js"></script>
+</head>
+
+<body>
+    <div id="example-table"></div>
+
+    <script>
+        var tableDataNested = [
+            {
+                salesorder: "salesorder001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "welding"], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending",] },
+                                    { salesorder: "SubItem002", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+        ];
+
+        var table = new Tabulator("#example-table", {
+            height: "calc(100vh - 50px)",
+            data: tableDataNested,
+            dataTree: true,
+            dataTreeStartExpanded: true,
+            layout: "fitColumns",
+            columns: [
+                { title: "SalesOrder ID", field: "salesorder", hozAlign: "left", width: 350 },
+                { title: "Customer Name", field: "customer", hozAlign: "left", width: 220 },
+                { title: "Delivery Date", field: "deliveryDate", hozAlign: "center", width: 220 },
+                { title: "Quantity", field: "quantity", hozAlign: "center", width: 220 },
+                { title: "Processes", field: "processes", hozAlign: "left", width: 420, formatter: processFormatter },
+            ],
+            rowFormatter: function (row) {
+                var data = row.getData();
+
+                if (data._children) {
+                    // Add a class to the row to make it clickable
+                    row.getElement().classList.add("nested-row");
+                }
+            },
+            rowClick: function (e, row) {
+                var data = row.getData();
+
+                if (data._children) {
+                    row.toggleData();
+                }
+            },
+            dataLoaded: function () {
+                var rows = table.getRows();
+            },
+        });
+
+        function processFormatter(cell, formatterParams, onRendered) {
+            // Custom formatter for the "Processes" column
+            var processes = cell.getValue();
+            var buttons = processes.map(process => `<button class="primary-btn" onclick="processClicked('${process}')">${process}</button>`);
+            var el = document.createElement("div");
+            el.innerHTML = buttons.join(" ");
+            return el;
+        }
+
+        function processClicked(process) {
+            alert("Process clicked: " + process);
+            // Add your custom logic for the "Process" click here
+        }
+    </script>
+</body>
+
+</html>
