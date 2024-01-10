@@ -117,7 +117,23 @@
         </div>
       </nav>
     <div id="example-table"></div>
-
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title">Modal Title</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                 <p>Modal content goes here.</p>
+              </div>
+              <div class="modal-footer">
+                 <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              </div>
+           </div>
+        </div>
+     </div>
+     
     <script>
         $(function() {
           $('input[name="daterange"]').daterangepicker({
@@ -190,16 +206,11 @@
         }
 
         function processClicked(process) {
-            // Get the modal element
             var modal = new bootstrap.Modal(document.querySelector('.modal'), {
-                centered: true // Center-align the modal
+                centered: true
             });
-
-            // Set the modal title and body content
             document.querySelector('.modal-title').innerText = 'Process Clicked';
             document.querySelector('.modal-body p').innerText = `Process clicked: ${process}`;
-
-            // Show the modal
             modal.show();
         }
         var uniqueCustomers = Array.from(new Set(tableDataNested.map(item => item.customer)));
