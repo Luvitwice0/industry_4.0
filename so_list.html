@@ -29,15 +29,19 @@
                 font-family: 'Arial', sans-serif;
                 margin: 0;
                 padding: 0;
-                overflow: hidden;
             }
         
             #example-table {
-                margin: 10px; /* Remove the margin */
-                max-width: 100vw; /* Use 100vw to make it full width */
+                margin: 10px;
+                max-width: 100vw;
                 background-color: #fff;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                overflow-x: hidden;
+                /* overflow-x: hidden; */
+            }
+
+            .table-container {
+                max-height: 1000px;
+                overflow-y: auto;
             }
         
             .tabulator-row {
@@ -69,18 +73,39 @@
                 border-radius: 4px;
                 cursor: pointer;
             }
+        
             .workorder-card {
                 border: 1px solid #ccc;
                 padding: 10px;
                 margin-bottom: 10px;
                 cursor: pointer;
             }
-
+        
             .jobcard {
                 padding: 5px;
                 margin-left: 20px;
             }
+        
+            /* Add this style for table borders in the modal */
+            #vertically-centered table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+        
+            #vertically-centered th,
+            #vertically-centered td {
+                border: 1px solid black;
+                padding: 10px;
+            }
+        
+            .tabulator-pagination .tabulator-page[data-page="first"],
+            .tabulator-pagination .tabulator-page[data-page="last"],
+            .tabulator-pagination .tabulator-page[data-page="first"] + .tabulator-page,
+            .tabulator-pagination .tabulator-page[data-page="last"] + .tabulator-page {
+                display: none;
+            }
         </style>
+        
         
         
         
@@ -93,9 +118,10 @@
         <div class="container-fluid" style="margin-top: 12px;">
             <div>
                 <!-- <label for="customerFilter">Filter by Customer:</label> -->
-                <select style="width: 150%; height: 36px; color: gray;" id="customerFilter" onchange="filterByCustomer()">
+                <select style="width: 100%; height: 36px; color: gray;" id="customerFilter" onchange="filterByCustomer()">
                     <option value="">Fiter by Customers</option>
                 </select>
+                
             </div>
           <a class="navbar-brand" href="#"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,13 +130,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+                <select style="width: 110%; height: 36px; color: gray;" id="processFilter" onchange="filterByProcess()">
+                    <option value="">Filter by Process</option>
+                </select>
               </li>
             </ul>
             <form class="d-flex">
-                <input style="margin-right: 10px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;" type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
-                <button style="margin-right: 35px; border: none; background-color: white; font-size: larger;"><i class="fas fa-filter"></i></button>
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;" type="text" name="daterange" value="01/01/2024 - 01/15/2024" />
+                <button style="border: none; background-color: white; font-size: larger;"><i class="fas fa-filter"></i></button>
+                <!-- <input class="form-control me-2" style="width: 40%;" type="search" placeholder="Search" aria-label="Search"> -->
+                <input type="text" id="table-search" placeholder="Search" class="form-control me-2" style="width: 40%;" >
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
@@ -125,7 +154,10 @@
                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                 <p>Modal content goes here.</p>
+                 <p>WorkOrder1 <i style="cursor: pointer;" class="fas fa-eye" onclick="openPopup()"></i></p>
+                 <p>WorkOrder2 <i style="cursor: pointer;" class="fas fa-eye" onclick="openPopup()"></i></p>
+                 <p>WorkOrder3 <i style="cursor: pointer;" class="fas fa-eye" onclick="openPopup()"></i></p>
+                 <p>WorkOrder3 <i style="cursor: pointer;" class="fas fa-eye" onclick="openPopup()"></i></p>
               </div>
               <div class="modal-footer">
                  <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
@@ -133,7 +165,124 @@
            </div>
         </div>
      </div>
-     
+    <!-- JC DETAILS -->
+    <div tabindex="-1" class="modal pmd-modal fade" id="vertically-centered" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">JobCard Details</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <span class="glyphicon glyphicon-remove"></span>
+                </div>
+                <div class="modal-body">
+                    <table style="width: 100%;text-align: center; border: 1px solid black; padding: 10px;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Jobcard No
+                                </td>
+                                <td>
+                                    124234GHF
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Operator Name
+                                </td>
+                                <td>
+                                    Chintu
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Machine No
+                                </td>
+                                <td>
+                                    1123245WOK
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Quantity
+                                </td>
+                                <td>
+                                    500
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Shift
+                                </td>
+                                <td>
+                                    Shift 1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Accepted Quantity
+                                </td>
+                                <td>
+                                    450
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Rejected Quantity
+                                </td>
+                                <td>
+                                    50
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    status
+                                </td>
+                                <td>
+                                    <div class="badge bg-success" style="padding: 5px;">Completed</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var table;
+
+        $(document).ready(function () {
+            var customerOptions = getUniqueValues(tableDataNested, 'customer');
+            populateDropdown('customerFilter', customerOptions);
+            $("#table-search").on("input", function () {
+                var searchString = $(this).val();
+                table.setFilter("salesorder", "like", searchString);
+            });
+        });
+
+
+        function getUniqueValues(data, field) {
+            return [...new Set(data.map(item => item[field]))];
+        }
+
+        function populateDropdown(dropdownId, options) {
+            var dropdown = document.getElementById(dropdownId);
+            dropdown.innerHTML = "<option value=''>Filter by Customers</option>";
+
+            options.forEach(function (option) {
+                var newOption = document.createElement('option');
+                newOption.value = option;
+                newOption.text = option;
+                dropdown.add(newOption);
+            });
+        }
+        
+    </script>
+
+    <script>
+        function openPopup() {
+            $('#vertically-centered').modal('show');
+        }
+    </script>
     <script>
         $(function() {
           $('input[name="daterange"]').daterangepicker({
@@ -146,87 +295,97 @@
     <script>
         var tableDataNested = [
             {
-                salesorder: "salesorder001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "welding"], _children: [
+                salesorder: "Salesorder001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
                     {
-                        salesorder: "MasterProduct001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "assembly"], _children: [
+                        salesorder: "MasterProduct001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "SubItem001", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending",] },
-                                    { salesorder: "SubItem002", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["bending", "cutting"] }
+                                salesorder: "Item001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
                             },
-                            { salesorder: "Item002", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["welding"] }
+                            { salesorder: "Item002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
                         ]
                     },
-                    { salesorder: "MasterProduct002", customer: "customer001", deliveryDate: "20/10/0223", quantity: 450, processes: ["assembly", "Powder coating"] }
+                    { salesorder: "MasterProduct002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
                 ]
             },
+            {
+                salesorder: "Salesorder002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            }
         ];
 
+        
         var table = new Tabulator("#example-table", {
-            height: "100%",
-            data: tableDataNested,
-            dataTree: true,
-            dataTreeStartExpanded: true,
-            layout: "fitColumns",
-            columns: [
-                { title: "SalesOrder ID", field: "salesorder", hozAlign: "left", width: 350 },
-                { title: "Customer Name", field: "customer", hozAlign: "left", width: 220 },
-                { title: "Delivery Date", field: "deliveryDate", hozAlign: "center", width: 220 },
-                { title: "Quantity", field: "quantity", hozAlign: "center", width: 220 },
-                { title: "Processes", field: "processes", hozAlign: "left", width: "550", widthShrink: 1, formatter: processFormatter },
-            ],
-            rowFormatter: function (row) {
-                var data = row.getData();
+        height: "100%",
+        data: tableDataNested,
+        dataTree: true,
+        dataTreeStartExpanded: true,
+        layout: "fitColumns",
+        pagination: "local",
+        paginationSize: 10, 
+        paginationButtonSource: ["<<", "<", ">", ">>"],
+        columns: [
+            { title: "SalesOrder ID", field: "salesorder", hozAlign: "left", width: 350 },
+            { title: "Customer Name", field: "customer", hozAlign: "left", width: 220 },
+            { title: "Delivery Date", field: "deliveryDate", hozAlign: "center", width: 220 },
+            { title: "Quantity", field: "quantity", hozAlign: "center", width: 220 },
+            { title: "Processes", field: "processes", hozAlign: "left", width: "550", widthShrink: 1, formatter: processFormatter },
+        ],
+        rowFormatter: function (row) {
+            var data = row.getData();
 
-                if (data._children) {
-                    // Add a class to the row to make it clickable
-                    row.getElement().classList.add("nested-row");
-                }
-            },
-            rowClick: function (e, row) {
-                var data = row.getData();
+            if (data._children) {
+                row.getElement().classList.add("nested-row");
+            }
+        },
+        rowClick: function (e, row) {
+            var data = row.getData();
 
-                if (data._children) {
-                    row.toggleData();
-                }
-            },
-            dataLoaded: function () {
-                var rows = table.getRows();
-            },
+            if (data._children) {
+                row.toggleData();
+            }
+        },
+        dataLoaded: function () {
+            var rows = table.getRows();
+        },
+    });
+
+    function processFormatter(cell, formatterParams, onRendered) {
+        var processes = cell.getValue();
+        var buttons = processes.map(process => `<button class="primary-btn" onclick="processClicked('${process}')">${process}</button>`);
+        var el = document.createElement("div");
+        el.innerHTML = buttons.join(" ");
+        return el;
+    }
+
+    function processClicked(process) {
+        var modal = new bootstrap.Modal(document.querySelector('.modal'), {
+            centered: true
         });
 
-        function processFormatter(cell, formatterParams, onRendered) {
-            // Custom formatter for the "Processes" column
-            var processes = cell.getValue();
-            var buttons = processes.map(process => `<button class="primary-btn" onclick="processClicked('${process}')">${process}</button>`);
-            var el = document.createElement("div");
-            el.innerHTML = buttons.join(" ");
-            return el;
-        }
+        document.querySelector('.modal-title').innerText = 'Process Clicked: ' + process;
 
-        function processClicked(process) {
-            var modal = new bootstrap.Modal(document.querySelector('.modal'), {
-                centered: true
-            });
-            document.querySelector('.modal-title').innerText = 'Process Clicked';
-            document.querySelector('.modal-body p').innerText = `Process clicked: ${process}`;
-            modal.show();
-        }
-        var uniqueCustomers = Array.from(new Set(tableDataNested.map(item => item.customer)));
-        var customerFilterDropdown = document.getElementById('customerFilter');
+        modal.show();
+    }
 
-        uniqueCustomers.forEach(customer => {
-            var option = document.createElement('option');
-            option.value = customer;
-            option.text = customer;
-            customerFilterDropdown.appendChild(option);
-        });
+    
 
-        function filterByCustomer() {
-            var selectedCustomer = customerFilterDropdown.value;
-            table.setFilter("customer", "=", selectedCustomer);
-        }
+
+        
         
         
     </script>
