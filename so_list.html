@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tabulator Example</title>
+    <title>SO Listing</title>
     <!-- DATE PICKER -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -29,6 +29,12 @@
                 font-family: 'Arial', sans-serif;
                 margin: 0;
                 padding: 0;
+                /* background: linear-gradient(109.6deg, rgb(180, 214, 242) 11.2%, rgba(72, 67, 221, 0.72) 100.2%); */
+                /* background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%); */
+                /* background: radial-gradient(circle at 10% 20%, rgb(145, 217, 243) 0%, rgb(147, 164, 243) 90%); */
+
+
+
             }
         
             #example-table {
@@ -36,12 +42,14 @@
                 max-width: 100vw;
                 background-color: #fff;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                /* overflow-x: hidden; */
+                /* overflow: auto; */
+                
             }
 
             .table-container {
-                max-height: 1000px;
+                /* max-height: 1000px; */
                 overflow-y: auto;
+                
             }
         
             .tabulator-row {
@@ -51,6 +59,7 @@
         
             .tabulator-col {
                 height: 40px;
+                
             }
         
             .tabulator-col-title {
@@ -104,6 +113,19 @@
             .tabulator-pagination .tabulator-page[data-page="last"] + .tabulator-page {
                 display: none;
             }
+
+            @media (max-width: 768px) {
+                .container-fluid select{ 
+                    margin-left: 40px;
+                 }
+                 .container-fluid .nav-item{
+                    width: 34%;
+                 }
+                 .container-fluid .d-flex{
+                    margin-top: 20px;
+                 }
+            }
+            
         </style>
         
         
@@ -118,7 +140,7 @@
         <i style="font-size: larger; padding-top: 11px; margin-left: 12px;" class="fa-solid fa-user"></i>
         <div class="container-fluid" style="margin-top: 12px;">
             <div>
-                <select style="width: 100%; height: 36px; color: gray;" id="customerFilter" onchange="filterByCustomer()" >
+                <select style="width: 100%; height: 36px; color: gray; border-radius: 4px;" id="customerFilter" onchange="filterByCustomer()" >
                     <option value="">Fiter by Customers</option>
                 </select>
                 
@@ -128,21 +150,21 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <i  style="font-size: larger;     margin-left: 5px; margin-right: 10px;" class="fa-solid fa-rotate"></i>
+            <i  style="font-size: larger;     margin-left: 2px; margin-right: 10px;" class="fa-solid fa-rotate"></i>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <select style="width: 110%; height: 36px; color: gray;" id="processFilter" onchange="filterByProcess()">
+                <select style="width: 110%; height: 36px; color: gray; border-radius: 4px;" id="processFilter" onchange="filterByProcess()">
                     <option value="">Filter by Process </option>
                 </select>
               </li>
             </ul>
             <form class="d-flex">
-                <input style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;" type="text" name="daterange" value="01/01/2024 - 01/15/2024" />
-                <button style="margin-right: 10px; border: none; background-color: white; font-size: larger;"><i class="fas fa-filter"></i></button>
-                <!-- <input class="form-control me-2" style="width: 40%;" type="search" placeholder="Search" aria-label="Search"> -->
-                <input type="text" id="table-search" placeholder="Search" class="form-control me-2" style="width: 40%;" >
-                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px; width: 50%;" type="text" name="daterange" value="01/01/2024 - 01/15/2024" />
+                <i style="margin-right: 20px; border: none; font-size: larger; margin-top: 12px; margin-left: 6px" class="fas fa-filter"></i>
+                
+                <input type="text" id="table-search" placeholder="Search" class="form-control me-2" style="width: 50%;" >
+                <button style="background-color: white; color: black;" class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
           </div>
         </div>
@@ -339,32 +361,226 @@
                 ]
             },
             {
-                salesorder: "Salesorder002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                salesorder: "Salesorder002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
                     {
-                        salesorder: "MasterProduct001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "SubItem001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
-                                    { salesorder: "SubItem002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
                             },
-                            { salesorder: "Item002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
                         ]
                     },
-                    { salesorder: "MasterProduct002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder003", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder004", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder005", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder006", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder007", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder008", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder009", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder010", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder011", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder012", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder013", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
+                ]
+            },
+            {
+                salesorder: "Salesorder014", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: [], _children: [
+                    {
+                        salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
+                            {
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
+                                    { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Item002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
                 ]
             }
+            
         ];
 
         
         var table = new Tabulator("#example-table", {
-        height: "100%",
+        height: "571px",
         data: tableDataNested,
         dataTree: true,
-        dataTreeStartExpanded: true,
+        dataTreeStartExpanded: false,
         layout: "fitColumns",
         pagination: "local",
-        paginationSize: 10, 
+        // paginationSize:7,
+        // paginationSizeSelector:[7, 11, 23], 
         paginationButtonSource: ["<<", "<", ">", ">>"],
         columns: [
             
