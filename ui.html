@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/TableDnD/0.9.1/jquery.tablednd.js"
+            integrity="sha256-d3rtug+Hg1GZPB7Y/yTcRixO/wlI78+2m08tosoRn7A="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <table id="table-1" cellspacing="0" cellpadding="2">
+            <tr>
+                <td id="1">1</td>
+                <td>One</td>
+                <td> text</td>
+            </tr>
+            <tr >
+                <td id="2">2</td>
+                <td>Two</td>
+                <td>some text</td>
+            </tr>
+            <tr >
+                <td id="3">3</td>
+                <td>Three</td>
+                <td>some text</td>
+            </tr>
+            <tr >
+                <td id="4">4</td>
+                <td>Four</td>
+                <td>some text</td>
+            </tr>
+            <tr >
+                <td id="5">5</td>
+                <td>Five</td>
+                <td>some text</td>
+            </tr>
+            <tr >
+                <td id="6">6</td>
+                <td>Six</td>
+                <td>some text</td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#table-1").tableDnD();
+            });
+        </script>
+    </body>
+</html>
