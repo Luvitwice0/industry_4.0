@@ -4,17 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Monthly Production Plan</title>
+
+        <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
         <!-- Bootstrap Library -->
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <link
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-            href="assets/daterangepicker-master/daterangepicker.css">
+        
+        <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
         <script src="assets/lib/jquery/jquery.min.js"></script>
         <style>
             table,
@@ -34,7 +33,7 @@
             .table-container {
                 overflow: auto;
                 /* Enable both horizontal and vertical scroll, without showing scrollbars */
-                height: 100vh;
+                height: 655px;
             }
 
             table {
@@ -43,13 +42,46 @@
             }
 
             /* Hide the scrollbar for webkit browsers (Chrome, Safari) */
-            ::-webkit-scrollbar {
+            /* ::-webkit-scrollbar {
                 width: 0;
+            } */
+
+            /* width */
+            ::-webkit-scrollbar 
+            {
+                width: 10px;
             }
 
-            table.some_style td:hover {
+            /* Track */
+            ::-webkit-scrollbar-track 
+            {
+                box-shadow: inset 0 0 5px grey; 
+                border-radius: 10px;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb 
+            {
+                background: #8E8E8E; 
+                border-radius: 10px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover 
+            {
+                background: #686565; 
+            }
+
+            table.some_style td:hover 
+            {
                 background-color: rgb(165, 165, 165);
             }
+
+            /* div.table-container 
+            {
+                overflow-y: auto;
+            } */
+
         </style>
     </head>
     <body>
@@ -64,7 +96,28 @@
                     value=""
                     id="validationDefault04"
                     required="required"
-                    name="birthday">
+                    name="selectYear">
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 8px;">
+                <div class="form-group">
+                    <label for="selectcustomerName">Select Plant</label>
+                    <select style="width: 100%;" id="selectcustomerName" class="js-example-basic-single">
+                        <option><-- Select Plant --></option>
+                        <option>Select Drop Customer</option>
+
+                        <option>Select Drop Customer</option>
+
+                        <option>Select Drop Customer</option>
+
+                        <option>Select Drop Customer</option>
+
+                        <option>Select Drop Customer</option>
+
+                        <option>Select Drop Customer</option>
+
+
+                    </select>
+                </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
                 <input
@@ -102,109 +155,100 @@
                     <tr>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-secondary"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-primary-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
                                         class="btn btn-primary"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                                                        <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                                                        <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -213,109 +257,200 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                                                        <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                                                        <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                                                        <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                                                        <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -324,109 +459,207 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -435,219 +668,105 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -656,109 +775,109 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -767,109 +886,207 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
+                                        href="#"
+                                        class="btn btn-success"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -878,219 +1095,109 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -1099,109 +1206,109 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -1210,220 +1317,105 @@
 
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
 
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                                                        <div
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
+                                style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!--<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+                                class="card shadow  bg-body-tertiary rounded text-primary-emphasis  bg-success-subtle border border-primary-subtle rounded-3"
                                 style="width: 18rem;">
-                                
+
                                 <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
+                                    <i class="fa fa-clipboard"  data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" style="float: right;cursor: pointer;"></i><h5 class="card-title" style="margin: 1px;">WO-001</h5> 
+                                    <p class="card-text" style="margin: 1px;">Item Name</p>
+                                    <p class="card-text" style="margin: 1px;">Item No</p> 
+                                    <!-- <a
                                         href="#"
-                                        class="btn btn-primary"
+                                        class="btn btn-success"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div
-                                class="card shadow p-3  bg-body-tertiary rounded p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                                style="width: 18rem;">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">WO-001</h5>
-                                    <p class="card-text">Company Name</p>
-                                    <p class="card-text">Item Name</p>
-                                    <p class="card-text">Item No</p>
-                                    <a
-                                        href="#"
-                                        class="btn btn-primary"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">View Details</a>
+                                        data-bs-target="#staticBackdrop">View Details</a> -->
                                 </div>
                             </div>
                         </td>
@@ -1466,20 +1458,24 @@
                                 <td>&nbsp;&nbsp;&nbsp;PLM47</td>
                             </tr>
                             <tr>
-                                <td>Change Delivery Date</td>
-                                <td><input
+                                <td>Quantity</td>
+                                <td>&nbsp;&nbsp;&nbsp;498</td>
+                            </tr>
+                            <tr>
+                                <td>Delivery Date <i class="fa fa-edit"></i></td>
+                                <td> 
+                                    <input
                                     type="text"
                                     class="form-control"
                                     placeholder="Select Month"
                                     value=""
                                     id="validationDefault04"
                                     required="required"
-                                    name="birthday"></td>
+                                    name="birthday" >
+                                    
+                                      </td>
                             </tr>
-                            <tr>
-                                <td>Quantity</td>
-                                <td>&nbsp;&nbsp;&nbsp;498</td>
-                            </tr>
+
                         </table>
                     </div>
                     <div class="modal-footer">
@@ -1492,13 +1488,44 @@
         </div>
         <!-- <div class="scrollable" style="overflow: auto;overflow-y: auto;"> <div
         class="row"> <div class="col-lg-12"> </div> </div> </div> -->
+        <script>
+            function searchTable() 
+            {
+                var input = document.getElementById("myInput").value.toLowerCase();
+                var rows = document.querySelectorAll("#responsiveTable tbody tr");
 
+                var found = false; 
+
+                for (var i = 0; i < rows.length; i++) 
+                {
+                    var row = rows[i];
+                    var rollNumberCell = row.cells[1]? row.cells[1].textContent.toLowerCase(): '';
+                    var selectDeviceCell = row.cells[5]? row.cells[5].textContent.toLowerCase(): '';
+
+                    if (rollNumberCell.includes(input) || selectDeviceCell.includes(input)) 
+                    {
+                        row.style.display = "";
+                        // displayTableRows();
+                        found = true;
+                    } 
+                    else 
+                    {
+                        row.style.display = "none";
+
+                    }
+                }
+
+            }
+            var searchInput = document.getElementById("myInput");
+            searchInput.addEventListener("keyup", searchTable);
+        </script>
         <script
             type="text/javascript"
             src="assets/daterangepicker-master/moment.min.js"></script>
         <script
             type="text/javascript"
             src="assets/daterangepicker-master/daterangepicker.js"></script>
+            
         <script>
             $(function () {
                 $('input[name="birthday"]').daterangepicker({
@@ -1511,6 +1538,19 @@
                 });
             });
         </script>
+        <script>
+            $(function () {
+                $('input[name="selectYear"]').daterangepicker({
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                    minYear: 1901,
+                    maxYear: parseInt(moment().format('YYYY'), 10)
+                }, function (start, end, label) {
+                    var years = moment().diff(start, 'years');
+                });
+            });
+        </script>
+        
         <script>
             // Get the screen width and height
             var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -1525,6 +1565,13 @@
                 .getElementById("responsiveTable")
                 .style
                 .height = screenHeight + "px";
+        </script>
+        
+        <script src="assets/dist/js/select2.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.js-example-basic-single').select2();
+            });
         </script>
     </body>
 </html>
