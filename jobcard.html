@@ -1,0 +1,323 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link href="assets/dist/css/select2.min.css" rel="stylesheet"/>
+        <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="assets/lib/jquery/jquery.min.js"></script>
+    <title>Jobcard</title>
+ </head>
+ <style>
+    body{
+        padding: 30px;
+    }
+    .input-field {
+        position: relative;
+    }
+
+    .input-field input {
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 0 15px;
+        border: 2px solid #bababa;
+        background: transparent;
+        color: #000000;
+        outline: none;
+    }
+
+    .input-field label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #212529;
+        font-size: 16px;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border: 2px solid #0d6efd;
+    }
+
+    input:focus~label {
+        color: #0d6efd;
+    }
+
+
+    input:focus~label,
+    input:valid~label {
+        top: 0;
+        left: 15px;
+        font-size: 16px;
+        padding: 0 2px;
+        background-color: white;
+    }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
+    body.offcanvas-active {
+        overflow: hidden;
+    }
+
+    .popup {
+        display: none;
+    }
+
+    td {
+        cursor: pointer;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    .offcanvas-title {
+        padding-top: 10px;
+        font-weight: 500;
+    }
+
+    </style>
+    </head>
+    <body>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="form-group">
+                <label for="selectcustomerName">Select Process</label>
+                <select
+                    style="width: 100%;"
+                    id="selectcustomerName"
+                    class="js-example-basic-single">
+                    <option >
+                        Select Process</option>
+                        <option>Bending</option>
+
+                        <option>Welding</option>
+
+                        <option>Cutting</option>
+
+                        <option>Powder Coating</option>
+
+                    </select>
+                </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+
+            <table class="table table-hover" style="width:100%; ">
+                <tr>
+                  <th>WorkOrder No</th>
+                  <th>Part no</th> 
+                  <th>Part Name</th>
+                  <th>Total Quantity</th>
+                  <th>Completed Quantity</th>
+                  <th>Pending Quantity</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td>WO001</td>
+                  <td>1234</td>
+                  <td>SamplePart</td>
+                  <td>213</td>
+                  <td>100</td>
+                  <td>113</td>
+                  <td><button type="button" class="btn btn-primary"  data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasScrolling"><i class="fa fa-plus"></i> Create JobCard</button></td>
+                </tr>
+                <tr>
+                  <td>WO001</td>
+                  <td>1234</td>
+                  <td>SamplePart</td>
+                  <td>213</td>
+                  <td>100</td>
+                  <td>113</td>
+                  <td><button type="button" class="btn btn-primary"  data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasScrolling"><i class="fa fa-plus"></i> Create JobCard</button></td>
+                </tr>
+                <tr>
+                  <td>WO001</td>
+                  <td>1234</td>
+                  <td>SamplePart</td>
+                  <td>213</td>
+                  <td>100</td>
+                  <td>113</td>
+                  <td><button type="button" class="btn btn-primary"  data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasScrolling"><i class="fa fa-plus"></i> Create JobCard</button></td>
+                </tr>
+              </table>
+        </div>
+    </div>
+
+      
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add JobCard</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                        class="form-control" id="prodId"></input> </div> -->
+                    <div class="input-field">
+                        <input type="text" required="required" id="jc_number" spellcheck="false">
+                        <label>Jobcard Number</label>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+    
+                        <div class="input-field">
+                            <input type="text" required="required" id="o_name" spellcheck="false">
+                            <label>Operator Name</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+    
+                        <div class="input-field">
+                            <input type="text" required="required" id="mac_no" spellcheck="false">
+                            <label>Machine Number</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="md-12">
+                      <div class="form-group">
+                    <label for="selectcustomerName1">Select Process</label>
+                    <select
+                        style="width: 100%;"
+                        id="selectcustomerName1"
+                        class="js-example-basic-single">
+                        <option >
+                            Select Process</option>
+                            <option>Bending</option>
+    
+                            <option>Welding</option>
+    
+                            <option>Cutting</option>
+    
+                            <option>Powder Coating</option>
+    
+                        </select>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" id="shift" spellcheck="false">
+                            <label>Part Name</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" id="quantity" spellcheck="false">
+                            <label>Quantity</label>
+                        </div>
+                    </div>
+                    <br>
+                 
+                </div>
+                <div class="row">
+                    <button type="button" style="margin-left: 12px;" class="btn btn-primary "
+                        onclick="addJobCardData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                </div>
+                <br>
+            </div>
+        </div>
+      </div>
+
+
+
+
+<script>
+           function addJobCardData() {
+            var fields = ["jc_number", "o_name", "mac_no", "p_name", "quantity", "shift"];
+            var hasEmptyField = false;
+
+            for (var i = 0; i < fields.length; i++) {
+                var fieldId = fields[i];
+                var input = document.getElementById(fieldId);
+
+                var value = input.value.trim();
+
+                if (value === "") {
+                    input.classList.add("required-field");
+                    hasEmptyField = true;
+                }
+                else {
+                    input.classList.remove("required-field");
+                }
+            }
+
+            if (hasEmptyField) {
+                return;
+            }
+
+
+            var o_name = document.getElementById("jc_number").value;
+            var o_name = document.getElementById("o_name").value;
+            var machine_name = document.getElementById("mac_no").value;
+            var plant_name = document.getElementById("p_name").value;
+            var quantity = document.getElementById("quantity").value;
+            var shift = document.getElementById("shift").value;
+            var JsonDataAddGRN =
+            {
+                jobcard_no: jc_number,
+                operator_name: o_name,
+                machine_name: mac_no,
+                plant_name: p_name,
+                quantity: quantity,
+                shift: shift,
+
+
+            };
+
+            console.log(JsonDataAddGRN);
+
+            document.getElementById("jc_number").value = "";
+            document.getElementById("o_name").value = "";
+            document.getElementById("mac_no").value = "";
+            document.getElementById("p_name").value = "";
+            document.getElementById("quantity").value = "";
+            document.getElementById("shift").value = "";
+        }
+
+
+      
+</script>
+
+    <script src="assets/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+
+<!-- <script>
+    $(document).ready(function () {
+    $('.js-example-basic-single001').select2({
+
+    });
+});
+
+</script> -->
+
+    
+    </body>
+ </html>
+
