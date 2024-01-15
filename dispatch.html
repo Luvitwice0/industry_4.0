@@ -22,21 +22,58 @@
             href="assets/daterangepicker-master/daterangepicker.css">
         <script src="assets/lib/jquery/jquery.min.js"></script>
         <style>
-            table,
-            td,
-            th {
+            /* .modal-01
+            #table01
+            {
                 border: 1px solid rgb(136, 136, 136);
                 border-collapse: collapse;
                 width: fit-content;
                 text-align: center;
 
-            }
+            } */
             body {
 
                 padding: 10px;
                 margin: 0;
 
             }
+            .vl {
+                border-left: 2px solid rgb(232 228 228);
+                height: 80vh;
+            }
+            /* Important part */
+            .modal-l {
+                overflow-y: initial !important;
+            }
+            .model-01 {
+                height: 80vh;
+                overflow-y: auto;
+            }
+            ::-webkit-scrollbar 
+            {
+                width: 10px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track 
+            {
+                box-shadow: inset 0 0 5px grey; 
+                border-radius: 10px;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb 
+            {
+                background: #8E8E8E; 
+                border-radius: 10px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover 
+            {
+                background: #686565; 
+            }
+
         </style>
     </head>
     <body>
@@ -88,6 +125,7 @@
                     </select>
                 </div>
             </div>
+
             <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
                 <input
                     class="form-control mr-sm-2"
@@ -104,13 +142,37 @@
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
             </div>
+
+            <div class="col-lg-1 col-md-4 col-sm-6" style="padding-top: 25px;border-color: black;">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                    checked="checked">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Pending
+                </label>
+                <br>
+            </div>
+            <div class="col-lg-1 col-md-4 col-sm-6" style="padding-top: 25px;border-color: black;">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Delivered
+                </label>
+                <br>
+            </div>
         </div>
 
         <br>
 
         <div class="table-container">
 
-            <table class="table table-hover" id="so-table" style="width:100%; ">
+            <table class="table table-hover text-center" id="so-table" style="width:100%; ">
                 <thead>
                     <tr>
                         <th scope="col">Customer Name</th>
@@ -124,58 +186,102 @@
 
                 <tbody>
                     <tr>
-                        <td
-                            data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop002"
-                            style="cursor: pointer;">SO001</td>
-                        <td>1234</td>
+                        <td >ABC pvt ltd</td>
+                        <td>SO001</td>
+                        <td>PO001</td>
+                        <td>12/03/2023</td>
+                        <td>
+
+                            <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop002"
+                                class="btn btn-secondary">View
+                                <i class="fa
+                     fa-eye"></i>
+                            </button>
+                        </td>
                         <td>
 
                             <button
                                 type="button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop003"
-                                class="btn btn-success">Ship
+                                class="btn btn-primary">Share
                                 <i class="fa
-                    fa-truck"></i>
-                            </button>
+                     fa-share"></i>
+                            </button> <button
+                            type="button"
+                            class="btn btn-success" onclick="openPrompt()">Delivered
+                            <i class="fa
+                 fa-check"></i>
+                        </button>
                         </td>
                     </tr>
                     <tr>
-                        <td
-                            data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop002"
-                            style="cursor: pointer;">SO001</td>
+                        <td >ABC pvt ltd</td>
+                        <td>SO001</td>
+                        <td>PO001</td>
+                        <td>12/03/2023</td>
+                        <td>
 
-                        <td>1234</td>
+                            <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop002"
+                                class="btn btn-secondary">View
+                                <i class="fa
+                     fa-eye"></i>
+                            </button>
+                        </td>
                         <td>
 
                             <button
                                 type="button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop003"
-                                class="btn btn-success">Ship
+                                class="btn btn-primary">Share
                                 <i class="fa
-                    fa-truck"></i>
-                            </button>
+                     fa-share"></i>
+                            </button> <button
+                            type="button"
+                            class="btn btn-success" onclick="openPrompt()">Delivered
+                            <i class="fa
+                 fa-check"></i>
+                        </button>
                         </td>
                     </tr>
                     <tr>
-                        <td
-                            data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop002"
-                            style="cursor: pointer;">SO001</td>
-
-                        <td>1234</td>
+                        <td >ABC pvt ltd</td>
+                        <td>SO001</td>
+                        <td>PO001</td>
+                        <td>12/03/2023</td>
                         <td>
 
                             <button
                                 type="button"
                                 data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop"
-                                class="btn btn-success">Ship
+                                data-bs-target="#staticBackdrop002"
+                                class="btn btn-secondary">View
                                 <i class="fa
-                    fa-truck"></i>
+                     fa-eye"></i>
+                            </button> 
+                        </td>
+                        <td>
+
+                            <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop003"
+                                class="btn btn-primary">Share
+                                <i class="fa
+                     fa-share"></i>
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-success" onclick="openPrompt()">Delivered
+                                <i class="fa
+                     fa-check"></i>
                             </button>
                         </td>
                     </tr>
@@ -204,7 +310,7 @@
             tabindex="-1"
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-dialog modal-dialog-centered modal-xl model-1">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">SO001-details
@@ -215,63 +321,126 @@
                             data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body model-01">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <table style="text-align: center;">
-                                    <thead>
-                                        <td>Product Name</td>
-                                        <td>Quantity</td>
-        
-                                    </thead>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-                                    <tr>
-                                        <td>Master Product001</td>
-                                        <td>150</td>
-        
-                                    </tr>
-        
-                                </table>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-4">
+                                <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                                    <table
+                                        id="table-01"
+                                        style="text-align: center; width: 100%; height: 50vh; ; border: 1px solid black;">
+                                        <thead style="border: 1px solid black;">
+                                            <td style="border: 1px solid black;">Product Name</td>
+                                            <td style="border: 1px solid black;">Quantity</td>
+
+                                        </thead>
+                                        <tbody style="border: 1px solid black;">
+                                            <tr >
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+
+                                            </tr>
+                                            <tr >
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid black;">Master Product001</td>
+                                                <td style="border: 1px solid black;">150</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
-                            <div class="col-lg-6">
-                                
+                            <div class="col-lg-1"></div>
+
+                            <div class="col-lg-1 vl"></div>
+                            <div class="col-lg-4">
+                                <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Live Location</h5>
+                                        <hr>
+                                        <iframe
+                                            src="https://sishya.ioft.pro/bus/index.php?id=cb4g0001a "
+                                            style="border:0;"
+                                            allowfullscreen=""
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                                <!-- <div class="hl"></div> -->
+                                <hr
+                                    style="  border: 1.5px solid rgb(190, 190, 190);
+                               ">
+                                <br>
+
+                                <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tracking Details</h5>
+                                        <hr>
+                                        <p class="card-text">
+                                            <table class="table  border-none">
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Driver Name</th>
+                                                        <td>Kumar M</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pick Up</th>
+                                                        <td>10:42:54 11-01-2024</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Delivery
+                                                        </th>
+                                                        <td>11:42:54 11-01-2024</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="col-lg-1"></div>
+                            <!-- <div class="col-lg-5"> </div> -->
+                            <!-- <div class="col-lg-2"></div> <div class="col-lg-5"> <div class="card
+                            shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"> <div
+                            class="card-body"> <h5 class="card-title">Card title</h5> <p
+                            class="card-text">Some quick example text to build on the card title and make up
+                            the bulk of the card's content.</p> </div> </div> </div> -->
+
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -290,7 +459,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">SO001 | Shiped Details
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">SO001 | Tracking Note
                         </h1>
                         <button
                             type="button"
@@ -321,12 +490,20 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-success">
-                            Send Mail</button>
+                        <button class="btn btn-primary">
+                            Send Mail
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            function openPrompt()
+            {
+                let person = prompt("Please enter the Delivered Date");
+            }
+        </script>
         <script>
             function searchTable() {
                 var inputx = document
@@ -451,15 +628,15 @@
             var currentPage = 1;
             var rowsPerPage = 10;
             var pagesToShow = 5; // Number of pages to display in the pagination
-        
+
             function displayTableRows() {
                 var tableRows = document.querySelectorAll('#so-table tr');
                 var totalPages = Math.ceil(tableRows.length / rowsPerPage);
-        
+
                 // Update the pagination based on the total number of pages
                 var paginationList = document.querySelector('.pagination');
                 paginationList.innerHTML = ''; // Clear existing items
-        
+
                 // Add Previous button
                 var previousButton = document.createElement('li');
                 previousButton.className = 'page-item';
@@ -467,17 +644,19 @@
                 previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
                 previousButton.addEventListener('click', previousPage); // Add event listener
                 paginationList.appendChild(previousButton);
-        
+
                 // Calculate the start and end page numbers to display
                 var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
                 var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
-        
+
                 // Add page items dynamically
                 for (var i = startPage; i <= endPage; i++) {
                     var pageItem = document.createElement('li');
                     pageItem.className = 'page-item';
                     if (i === currentPage) {
-                        pageItem.classList.add('active');
+                        pageItem
+                            .classList
+                            .add('active');
                     }
                     var pageLink = document.createElement('a');
                     pageLink.className = 'page-link';
@@ -489,7 +668,7 @@
                     pageItem.appendChild(pageLink);
                     paginationList.appendChild(pageItem);
                 }
-        
+
                 // Add Next button
                 var nextButton = document.createElement('li');
                 nextButton.className = 'page-item';
@@ -497,7 +676,7 @@
                 nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
                 nextButton.addEventListener('click', nextPage); // Add event listener
                 paginationList.appendChild(nextButton);
-        
+
                 // Show/hide table rows based on current page
                 var startIndex = (currentPage - 1) * rowsPerPage;
                 var endIndex = startIndex + rowsPerPage;
@@ -509,29 +688,29 @@
                     }
                 }
             }
-        
+
             function goToPage(pageNumber) {
                 currentPage = pageNumber;
                 displayTableRows();
             }
-        
+
             function previousPage() {
                 if (currentPage > 1) {
                     currentPage--;
                     displayTableRows();
                 }
             }
-        
+
             function nextPage() {
                 var tableRows = document.querySelectorAll('#so-table tr');
                 var totalPages = Math.ceil(tableRows.length / rowsPerPage);
-        
+
                 if (currentPage < totalPages) {
                     currentPage++;
                     displayTableRows();
                 }
             }
-        
+
             // Call displayTableRows() after defining the functions
             displayTableRows();
         </script>
