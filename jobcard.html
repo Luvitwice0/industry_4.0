@@ -11,6 +11,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
         <script src="assets/lib/jquery/jquery.min.js"></script>
+        
         <title>Jobcard</title>
     </head>
     <style>
@@ -145,6 +146,7 @@
                             <th class="col-md-2">Completed Quantity</th>
                             <th class="col-md-2">Pending Quantity</th>
                             <th class="col-md-2">Action</th>
+
                         </tr>
                     </thead>
                     <tbody style="vertical-align: middle;">
@@ -162,8 +164,11 @@
                             <td>100</td>
                             <td>113</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
+                                 view JobCard
                                 </button>
                             </td>
                         </tr>
@@ -181,9 +186,12 @@
                             <td>100</td>
                             <td>113</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
+                                    view JobCard
+                                   </button>
                             </td>
                         </tr>
                         <tr>
@@ -200,9 +208,12 @@
                             <td>100</td>
                             <td>113</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
+                                    view JobCard
+                                   </button>
                             </td>
                         </tr>
                         <tr>
@@ -219,9 +230,12 @@
                             <td>100</td>
                             <td>113</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
+                                    view JobCard
+                                   </button>
                             </td>
                         </tr>
                     </tbody>
@@ -231,97 +245,97 @@
             
         </div>
     </div>
-
-    <div
-        class="offcanvas offcanvas-start"
-        tabindex="-1"
-        id="offcanvasScrolling"
-        aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Add JobCard</h5>
-            <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
+    <!-- Modal -->
+<div class="modal fade" id="staticBackdrop002" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Create PO</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
-                    class="form-control" id="prodId"></input> </div> -->
-                    <div class="input-field">
-                        <input type="text" required="required" id="jc_number" spellcheck="false">
-                        <label>Jobcard Number</label>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-
-                        <div class="input-field">
-                            <input type="text" required="required" id="o_name" spellcheck="false">
-                            <label>Operator Name</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-
-                        <div class="input-field">
-                            <input type="text" required="required" id="mac_no" spellcheck="false">
-                            <label>Machine Number</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="md-12">
-                        <div class="form-group">
-                            <label for="selectcustomerName1">Select Plant</label>
-                            <select
-                                style="width: 100%;"
-                                id="selectcustomerName1"
-                                class="js-example-basic-single">
-                                <option >
-                                    Select Plant</option>
-                                <option>Plant 1</option>
-
-                                <option>Plant 2</option>
-
-                                <option>Plant 3</option>
-
-                                <option>Plant 4</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="md-12">
-                        <div class="input-field">
-                            <input type="text" required="required" id="shift" spellcheck="false">
-                            <label>Part Name</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="md-12">
-                        <div class="input-field">
-                            <input type="text" required="required" id="quantity" spellcheck="false">
-                            <label>Quantity</label>
-                        </div>
-                    </div>
-                    <br>
-
-                </div>
-                <div class="row">
-                    <button
-                        type="button"
-                        style="margin-left: 12px;"
-                        class="btn btn-primary "
-                        onclick="addJobCardData()">
-                        <i class="fa fa-check"></i>
-                        <b>Save</b>
-                    </button>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+                <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                class="form-control" id="prodId"></input> </div> -->
+                <div class="input-field">
+                    <input type="text" required="required" id="jc_number" spellcheck="false">
+                    <label>Jobcard Number</label>
                 </div>
                 <br>
+                <div class="col-md-12">
+
+                    <div class="input-field">
+                        <input type="text" required="required" id="o_name" spellcheck="false">
+                        <label>Operator Name</label>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+
+                    <div class="input-field">
+                        <input type="text" required="required" id="mac_no" spellcheck="false">
+                        <label>Machine Number</label>
+                    </div>
+                </div>
+                <br>
+                <div class="md-12">
+                    <div class="form-group">
+                        <label for="selectcustomerName1">Select Plant</label>
+                        <select
+                            style="width: 100%;"
+                            id="selectcustomerName1"
+                            class="js-example-basic-single">
+                            <option >
+                                Select Plant</option>
+                            <option>Plant 1</option>
+
+                            <option>Plant 2</option>
+
+                            <option>Plant 3</option>
+
+                            <option>Plant 4</option>
+
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="md-12">
+                    <div class="input-field">
+                        <input type="text" required="required" id="shift" spellcheck="false">
+                        <label>Part Name</label>
+                    </div>
+                </div>
+                <br>
+                <div class="md-12">
+                    <div class="input-field">
+                        <input type="text" required="required" id="quantity" spellcheck="false">
+                        <label>Quantity</label>
+                    </div>
+                </div>
+                <br>
+
             </div>
+            <!-- <div class="row">
+                <button
+                    type="button"
+                    style="margin-left: 12px;"
+                    class="btn btn-primary "
+                    onclick="addJobCardData()">
+                    <i class="fa fa-check"></i>
+                    <b>Save</b>
+                </button>
+            </div> -->
+            <br>
         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"  onclick="addJobCardData()"> Create JC</button>
+        </div>
+      </div>
     </div>
+  </div>
+
 
     <script>
         function addJobCardData() {
@@ -412,8 +426,22 @@
     <script src="assets/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
+          // Initialize modal
+          $('#staticBackdrop002').modal();
+      
+          // Initialize other components if needed
+          // e.g., $('.js-example-basic-single').select2();
+        });
+      </script>
+      
+    <!-- <script>
+        $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
+    </script> -->
+
+    <script>
+        
     </script>
 
     <!-- <script> $(document).ready(function () {

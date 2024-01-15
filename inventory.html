@@ -44,7 +44,6 @@
                     </div>
                 </div>
             </div>
-            
 
             <!-- Search Input and Search Icon -->
             <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top: 15px;">
@@ -376,286 +375,287 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <!--DATE PICKER-->
-                                            <script
-                                                type="text/javascript"
-                                                src="assets/daterangepicker-master/moment.min.js"></script>
-                                            <script
-                                                type="text/javascript"
-                                                src="assets/daterangepicker-master/daterangepicker.js"></script>
-                                            <script>
-                                                $(function () {
-                                                    $('input[name="daterange"]').daterangepicker({
-                                                        opens: 'left'
-                                                    }, function (start, end, label) {
-                                                        console.log(
-                                                            "A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
-                                                        );
-                                                    });
+                                        <!--DATE PICKER-->
+                                        <script
+                                            type="text/javascript"
+                                            src="assets/daterangepicker-master/moment.min.js"></script>
+                                        <script
+                                            type="text/javascript"
+                                            src="assets/daterangepicker-master/daterangepicker.js"></script>
+                                        <script>
+                                            $(function () {
+                                                $('input[name="daterange"]').daterangepicker({
+                                                    opens: 'left'
+                                                }, function (start, end, label) {
+                                                    console.log(
+                                                        "A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
+                                                    );
                                                 });
-                                            </script>
-                                            <!-- pop-up search function -->
-                                            <script>
-                                                function searchTable() {
-                                                    var input = document
-                                                        .getElementById("myInput")
-                                                        .value
-                                                        .toLowerCase();
-                                                    var rows = document.querySelectorAll("#so_details tbody tr");
-
-                                                    var found = false; // Variable to track if any matching rows are found
-
-                                                    for (var i = 0; i < rows.length; i++) {
-                                                        var row = rows[i];
-                                                        var rollNumberCell = row.cells[1]
-                                                            ? row
-                                                                .cells[1]
-                                                                .textContent
-                                                                .toLowerCase()
-                                                            : '';
-                                                        var selectDeviceCell = row.cells[5]
-                                                            ? row
-                                                                .cells[5]
-                                                                .textContent
-                                                                .toLowerCase()
-                                                            : '';
-
-                                                        if (rollNumberCell.includes(input) || selectDeviceCell.includes(input)) {
-                                                            row.style.display = "";
-                                                            // displayTableRows();
-                                                            found = true;
-                                                        } else {
-                                                            row.style.display = "none";
-
-                                                        }
-                                                    }
-                                                    if (input === '') {
-                                                        currentPage = 1;
-                                                        displayTableRows(
-                                                            'so_details',
-                                                            'pagination2',
-                                                            currentPageTable2,
-                                                            rowsPerPageTable2
-                                                        );
-                                                    }
-
-                                                    var existingNoDataRow = document.getElementById("noDataRow");
-                                                    if (existingNoDataRow) {
-                                                        existingNoDataRow.remove();
-                                                    }
-
-                                                    // Create a new row for the "No data found" message
-                                                    if (!found) {
-
-                                                        var tableBody = document.querySelector("#so_details tbody");
-                                                        var noDataRow = tableBody.insertRow();
-                                                        var cell = noDataRow.insertCell(0);
-                                                        cell.colSpan = 7;
-                                                        cell.textContent = "No data found.";
-                                                        noDataRow.id = "noDataRow";
-                                                    }
-
-                                                }
-                                                var searchInput = document.getElementById("myInput");
-                                                searchInput.addEventListener("keyup", searchTable);
-                                            </script>
-
-                                            <!-- main table search -->
-                                            <script>
-                                                function searchTablex() {
-                                                    var inputx = document
-                                                        .getElementById("myInputx")
-                                                        .value
-                                                        .toLowerCase();
-                                                    var rowsx = document.querySelectorAll("#main_table tbody tr");
-
-                                                    var found = false; // Variable to track if any matching rows are found
-
-                                                    for (var i = 0; i < rowsx.length; i++) {
-                                                        var rowx = rowsx[i];
-                                                        var rollNumberCellx = rowx.cells[1]
-                                                            ? rowx
-                                                                .cells[1]
-                                                                .textContent
-                                                                .toLowerCase()
-                                                            : '';
-                                                        var customerNameCell = rowx.cells[3]
-                                                            ? rowx
-                                                                .cells[3]
-                                                                .textContent
-                                                                .toLowerCase()
-                                                            : '';
-
-                                                        var selectDeviceCellx = rowx.cells[2]
-                                                            ? rowx
-                                                                .cells[2]
-                                                                .textContent
-                                                                .toLowerCase()
-                                                            : '';
-
-                                                        if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
-                                                            rowx.style.display = "";
-                                                            // displayTableRows();
-                                                            found = true;
-                                                        } else {
-                                                            rowx.style.display = "none";
-
-                                                        }
-                                                    }
-                                                    if (inputx === '') {
-                                                        currentPage = 1;
-                                                        displayTableRows(
-                                                            'main_table',
-                                                            'pagination1',
-                                                            currentPageTable1,
-                                                            rowsPerPageTable1
-                                                        );
-                                                    }
-
-                                                    var existingNoDataRow = document.getElementById("noDataRow");
-                                                    if (existingNoDataRow) {
-                                                        existingNoDataRow.remove();
-                                                    }
-
-                                                    // Create a new row for the "No data found" message
-                                                    if (!found) {
-
-                                                        var tableBody = document.querySelector("#main_table tbody");
-                                                        var noDataRow = tableBody.insertRow();
-                                                        var cell = noDataRow.insertCell(0);
-                                                        cell.colSpan = 7;
-                                                        cell.textContent = "No data found.";
-                                                        noDataRow.id = "noDataRow";
-                                                    }
-
-                                                }
-                                                var searchInput = document.getElementById("myInputx");
-                                                searchInput.addEventListener("keyup", searchTablex);
-                                            </script>
-                                            <script>
-                                                var currentPageTable1 = 1;
-                                                var currentPageTable2 = 1;
-                                                var rowsPerPageTable1 = 10;
-                                                var rowsPerPageTable2 = 5;
-                                                var pagesToShow = 5;
-
-                                                function displayTableRows(tableId, paginationId, currentPage, rowsPerPage) {
-                                                    var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
-                                                    var totalPages = Math.ceil(tableRows.length / rowsPerPage);
-
-                                                    var paginationList = document.querySelector('#' + paginationId);
-                                                    paginationList.innerHTML = '';
-
-                                                    var previousButton = document.createElement('li');
-                                                    previousButton.className = 'page-item';
-                                                    previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
-                                                    previousButton.addEventListener('click', function () {
-                                                        previousPage(tableId, paginationId, rowsPerPage);
-                                                    });
-                                                    paginationList.appendChild(previousButton);
-
-                                                    var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
-                                                    var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
-
-                                                    for (var i = startPage; i <= endPage; i++) {
-                                                        var pageItem = document.createElement('li');
-                                                        pageItem.className = 'page-item';
-                                                        if (i === currentPage) {
-                                                            pageItem
-                                                                .classList
-                                                                .add('active');
-                                                        }
-                                                        var pageLink = document.createElement('a');
-                                                        pageLink.className = 'page-link';
-                                                        pageLink.href = '#';
-                                                        pageLink.textContent = i;
-                                                        pageLink.onclick = function () {
-                                                            goToPage(tableId, paginationId, parseInt(this.textContent), rowsPerPage);
-                                                        };
-                                                        pageItem.appendChild(pageLink);
-                                                        paginationList.appendChild(pageItem);
-                                                    }
-
-                                                    var nextButton = document.createElement('li');
-                                                    nextButton.className = 'page-item';
-                                                    nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
-                                                    nextButton.addEventListener('click', function () {
-                                                        nextPage(tableId, paginationId, rowsPerPage);
-                                                    });
-                                                    paginationList.appendChild(nextButton);
-
-                                                    var startIndex = (currentPage - 1) * rowsPerPage;
-                                                    var endIndex = startIndex + rowsPerPage;
-                                                    for (var i = 0; i < tableRows.length; i++) {
-                                                        if (i >= startIndex && i < endIndex) {
-                                                            tableRows[i].style.display = 'table-row';
-                                                        } else {
-                                                            tableRows[i].style.display = 'none';
-                                                        }
-                                                    }
-                                                }
-
-                                                function goToPage(tableId, paginationId, pageNumber, rowsPerPage) {
-                                                    if (tableId === 'main_table') {
-                                                        currentPageTable1 = pageNumber;
-                                                    } else if (tableId === 'so_details') {
-                                                        currentPageTable2 = pageNumber;
-                                                    }
-                                                    displayTableRows(tableId, paginationId, pageNumber, rowsPerPage);
-                                                }
-
-                                                function previousPage(tableId, paginationId, rowsPerPage) {
-                                                    if (tableId === 'main_table' && currentPageTable1 > 1) {
-                                                        currentPageTable1--;
-                                                    } else if (tableId === 'so_details' && currentPageTable2 > 1) {
-                                                        currentPageTable2--;
-                                                    }
-                                                    displayTableRows(
-                                                        tableId,
-                                                        paginationId,
-                                                        tableId === 'main_table'
-                                                            ? currentPageTable1
-                                                            : currentPageTable2,
-                                                        rowsPerPage
-                                                    );
-                                                }
-
-                                                function nextPage(tableId, paginationId, rowsPerPage) {
-                                                    var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
-                                                    var totalPages = Math.ceil(tableRows.length / rowsPerPage);
-
-                                                    if (tableId === 'main_table' && currentPageTable1 < totalPages) {
-                                                        currentPageTable1++;
-                                                    } else if (tableId === 'so_details' && currentPageTable2 < totalPages) {
-                                                        currentPageTable2++;
-                                                    }
-
-                                                    displayTableRows(
-                                                        tableId,
-                                                        paginationId,
-                                                        tableId === 'main_table'
-                                                            ? currentPageTable1
-                                                            : currentPageTable2,
-                                                        rowsPerPage
-                                                    );
-                                                }
-
-                                                // Call displayTableRows for both tables after defining the functions
-                                                displayTableRows(
-                                                    'main_table',
-                                                    'pagination1',
-                                                    currentPageTable1,
-                                                    rowsPerPageTable1
-                                                );
-                                                displayTableRows(
-                                                    'so_details',
-                                                    'pagination2',
-                                                    currentPageTable2,
-                                                    rowsPerPageTable2
-                                                );
-                                            </script>
-
+                                            });
                                         </script>
-                                    </body>
-                                </html>
+                                        <!-- pop-up search function -->
+                                        <script>
+                                            function searchTable() {
+                                                var input = document
+                                                    .getElementById("myInput")
+                                                    .value
+                                                    .toLowerCase();
+                                                var rows = document.querySelectorAll("#so_details tbody tr");
+
+                                                var found = false; // Variable to track if any matching rows are found
+
+                                                for (var i = 0; i < rows.length; i++) {
+                                                    var row = rows[i];
+                                                    var rollNumberCell = row.cells[1]
+                                                        ? row
+                                                            .cells[1]
+                                                            .textContent
+                                                            .toLowerCase()
+                                                        : '';
+                                                    var selectDeviceCell = row.cells[5]
+                                                        ? row
+                                                            .cells[5]
+                                                            .textContent
+                                                            .toLowerCase()
+                                                        : '';
+
+                                                    if (rollNumberCell.includes(input) || selectDeviceCell.includes(input)) {
+                                                        row.style.display = "";
+                                                        // displayTableRows();
+                                                        found = true;
+                                                    } else {
+                                                        row.style.display = "none";
+
+                                                    }
+                                                }
+                                                if (input === '') {
+                                                    currentPage = 1;
+                                                    displayTableRows(
+                                                        'so_details',
+                                                        'pagination2',
+                                                        currentPageTable2,
+                                                        rowsPerPageTable2
+                                                    );
+                                                }
+
+                                                var existingNoDataRow = document.getElementById("noDataRow");
+                                                if (existingNoDataRow) {
+                                                    existingNoDataRow.remove();
+                                                }
+
+                                                // Create a new row for the "No data found" message
+                                                if (!found) {
+
+                                                    var tableBody = document.querySelector("#so_details tbody");
+                                                    var noDataRow = tableBody.insertRow();
+                                                    var cell = noDataRow.insertCell(0);
+                                                    cell.colSpan = 7;
+                                                    cell.textContent = "No data found.";
+                                                    noDataRow.id = "noDataRow";
+                                                }
+
+                                            }
+                                            var searchInput = document.getElementById("myInput");
+                                            searchInput.addEventListener("keyup", searchTable);
+                                        </script>
+
+                                        <!-- main table search -->
+                                        <script>
+                                            function searchTablex() {
+                                                var inputx = document
+                                                    .getElementById("myInputx")
+                                                    .value
+                                                    .toLowerCase();
+                                                var rowsx = document.querySelectorAll("#main_table tbody tr");
+
+                                                var found = false; // Variable to track if any matching rows are found
+
+                                                for (var i = 0; i < rowsx.length; i++) {
+                                                    var rowx = rowsx[i];
+                                                    var rollNumberCellx = rowx.cells[1]
+                                                        ? rowx
+                                                            .cells[1]
+                                                            .textContent
+                                                            .toLowerCase()
+                                                        : '';
+                                                    var customerNameCell = rowx.cells[3]
+                                                        ? rowx
+                                                            .cells[3]
+                                                            .textContent
+                                                            .toLowerCase()
+                                                        : '';
+
+                                                    var selectDeviceCellx = rowx.cells[2]
+                                                        ? rowx
+                                                            .cells[2]
+                                                            .textContent
+                                                            .toLowerCase()
+                                                        : '';
+
+                                                    if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                                                        rowx.style.display = "";
+                                                        // displayTableRows();
+                                                        found = true;
+                                                    } else {
+                                                        rowx.style.display = "none";
+
+                                                    }
+                                                }
+                                                if (inputx === '') {
+                                                    currentPage = 1;
+                                                    displayTableRows(
+                                                        'main_table',
+                                                        'pagination1',
+                                                        currentPageTable1,
+                                                        rowsPerPageTable1
+                                                    );
+                                                }
+
+                                                var existingNoDataRow = document.getElementById("noDataRow");
+                                                if (existingNoDataRow) {
+                                                    existingNoDataRow.remove();
+                                                }
+
+                                                // Create a new row for the "No data found" message
+                                                if (!found) {
+
+                                                    var tableBody = document.querySelector("#main_table tbody");
+                                                    var noDataRow = tableBody.insertRow();
+                                                    var cell = noDataRow.insertCell(0);
+                                                    cell.colSpan = 7;
+                                                    cell.textContent = "No data found.";
+                                                    noDataRow.id = "noDataRow";
+                                                }
+
+                                            }
+                                            var searchInput = document.getElementById("myInputx");
+                                            searchInput.addEventListener("keyup", searchTablex);
+                                        </script>
+                                        <script>
+                                            var currentPageTable1 = 1;
+                                            var currentPageTable2 = 1;
+                                            var rowsPerPageTable1 = 10;
+                                            var rowsPerPageTable2 = 5;
+                                            var pagesToShow = 5;
+
+                                            function displayTableRows(tableId, paginationId, currentPage, rowsPerPage) {
+                                                var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
+                                                var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+                                                var paginationList = document.querySelector('#' + paginationId);
+                                                paginationList.innerHTML = '';
+
+                                                var previousButton = document.createElement('li');
+                                                previousButton.className = 'page-item';
+                                                previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+                                                previousButton.addEventListener('click', function () {
+                                                    previousPage(tableId, paginationId, rowsPerPage);
+                                                });
+                                                paginationList.appendChild(previousButton);
+
+                                                var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+                                                var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
+
+                                                for (var i = startPage; i <= endPage; i++) {
+                                                    var pageItem = document.createElement('li');
+                                                    pageItem.className = 'page-item';
+                                                    if (i === currentPage) {
+                                                        pageItem
+                                                            .classList
+                                                            .add('active');
+                                                    }
+                                                    var pageLink = document.createElement('a');
+                                                    pageLink.className = 'page-link';
+                                                    pageLink.href = '#';
+                                                    pageLink.textContent = i;
+                                                    pageLink.onclick = function () {
+                                                        goToPage(tableId, paginationId, parseInt(this.textContent), rowsPerPage);
+                                                    };
+                                                    pageItem.appendChild(pageLink);
+                                                    paginationList.appendChild(pageItem);
+                                                }
+
+                                                var nextButton = document.createElement('li');
+                                                nextButton.className = 'page-item';
+                                                nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
+                                                nextButton.addEventListener('click', function () {
+                                                    nextPage(tableId, paginationId, rowsPerPage);
+                                                });
+                                                paginationList.appendChild(nextButton);
+
+                                                var startIndex = (currentPage - 1) * rowsPerPage;
+                                                var endIndex = startIndex + rowsPerPage;
+                                                for (var i = 0; i < tableRows.length; i++) {
+                                                    if (i >= startIndex && i < endIndex) {
+                                                        tableRows[i].style.display = 'table-row';
+                                                    } else {
+                                                        tableRows[i].style.display = 'none';
+                                                    }
+                                                }
+                                            }
+
+                                            function goToPage(tableId, paginationId, pageNumber, rowsPerPage) {
+                                                if (tableId === 'main_table') {
+                                                    currentPageTable1 = pageNumber;
+                                                } else if (tableId === 'so_details') {
+                                                    currentPageTable2 = pageNumber;
+                                                }
+                                                displayTableRows(tableId, paginationId, pageNumber, rowsPerPage);
+                                            }
+
+                                            function previousPage(tableId, paginationId, rowsPerPage) {
+                                                if (tableId === 'main_table' && currentPageTable1 > 1) {
+                                                    currentPageTable1--;
+                                                } else if (tableId === 'so_details' && currentPageTable2 > 1) {
+                                                    currentPageTable2--;
+                                                }
+                                                displayTableRows(
+                                                    tableId,
+                                                    paginationId,
+                                                    tableId === 'main_table'
+                                                        ? currentPageTable1
+                                                        : currentPageTable2,
+                                                    rowsPerPage
+                                                );
+                                            }
+
+                                            function nextPage(tableId, paginationId, rowsPerPage) {
+                                                var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
+                                                var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+                                                if (tableId === 'main_table' && currentPageTable1 < totalPages) {
+                                                    currentPageTable1++;
+                                                } else if (tableId === 'so_details' && currentPageTable2 < totalPages) {
+                                                    currentPageTable2++;
+                                                }
+
+                                                displayTableRows(
+                                                    tableId,
+                                                    paginationId,
+                                                    tableId === 'main_table'
+                                                        ? currentPageTable1
+                                                        : currentPageTable2,
+                                                    rowsPerPage
+                                                );
+                                            }
+
+                                            // Call displayTableRows for both tables after defining the functions
+                                            displayTableRows(
+                                                'main_table',
+                                                'pagination1',
+                                                currentPageTable1,
+                                                rowsPerPageTable1
+                                            );
+                                            displayTableRows(
+                                                'so_details',
+                                                'pagination2',
+                                                currentPageTable2,
+                                                rowsPerPageTable2
+                                            );
+                                        </script>
+
+                                    </script>
+                                </body>
+                            </html>
