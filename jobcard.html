@@ -11,7 +11,6 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
         <script src="assets/lib/jquery/jquery.min.js"></script>
-        
         <title>Jobcard</title>
     </head>
     <style>
@@ -74,17 +73,6 @@
             display: none;
         }
 
-        /* td {
-            cursor: pointer;
-        } */
-
-        table,
-        td,
-        th {
-            border: 1px solid black;
-            border-collapse: collapse;
-            text-align: center;
-        }
 
         .offcanvas-title {
             padding-top: 10px;
@@ -167,7 +155,7 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#view_jc">
                                  view JobCard
                                 </button>
                             </td>
@@ -189,7 +177,7 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#view_jc">
                                     view JobCard
                                    </button>
                             </td>
@@ -211,7 +199,7 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#view_jc">
                                     view JobCard
                                    </button>
                             </td>
@@ -233,9 +221,9 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop002">
-                                    view JobCard
-                                   </button>
+                                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#view_jc">
+                                 view JobCard
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -247,7 +235,7 @@
     </div>
     <!-- Modal -->
 <div class="modal fade" id="staticBackdrop002" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Create PO</h1>
@@ -331,6 +319,70 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary"  onclick="addJobCardData()"> Create JC</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="view_jc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">JobCard Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center" style="width:100%; " >
+                            <thead>
+                                <tr>
+                                    <th class="col-md-2">JobCard No</th>
+                                    <th class="col-md-2">Operator Name</th>
+                                    <th class="col-md-2">Part Name</th>
+                                    <th class="col-md-2">Quantity</th>
+                                    <th class="col-md-2">Action</th>        
+                                </tr>
+                            </thead>
+                            <tbody style="vertical-align: middle;">
+                                <tr>
+                                    <td>JC001</td>
+                                    <td>Siva</td>
+                                    <td>Nickle</td>
+                                    <td>289</td>
+                                    <td><button type="button" class="btn btn-danger">X</button></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>JC001</td>
+                                    <td>Siva</td>
+                                    <td>Nickle</td>
+                                    <td>289</td>
+                                    <td><button type="button" class="btn btn-danger">X</button></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>JC001</td>
+                                    <td>Siva</td>
+                                    <td>Nickle</td>
+                                    <td>289</td>
+                                    <td><button type="button" class="btn btn-danger">X</button></td>
+                                </tr>
+
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"  onclick="addJobCardData()"> save</button>
         </div>
       </div>
     </div>
@@ -426,22 +478,8 @@
     <script src="assets/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
-          // Initialize modal
-          $('#staticBackdrop002').modal();
-      
-          // Initialize other components if needed
-          // e.g., $('.js-example-basic-single').select2();
-        });
-      </script>
-      
-    <!-- <script>
-        $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
-    </script> -->
-
-    <script>
-        
     </script>
 
     <!-- <script> $(document).ready(function () {
