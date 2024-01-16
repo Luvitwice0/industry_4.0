@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Invoice</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+    <!-- Select2 CSS -->
+    <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="assets/dist/js/select2.min.js"></script>
+
+    <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
+    <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+</head>
+<style>
+    body {
+        margin: auto;
+        /* padding: 20px; */
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        padding: 10px;
+    }
+
+    .main-container {
+        padding: 10px;
+    }
+
+    .select2-container {
+        z-index: 3060;
+    }
+</style>
+
+<body>
+    <div class="main-container">
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <label for="f_date">From Date</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Select Month"
+                    value=""
+                    id="f_date"
+                    required="required"
+                    name="selectYear">
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <label for="t_date">To date</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Select Month"
+                    value=""
+                    id="t_date"
+                    required="required"
+                    name="selectYear">
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 8px;">
+                <div class="form-group">
+                    <label for="selectProductName">Select Plant</label>
+                    <select
+                        id="selectProductName"
+                        class="js-example-basic-single">
+                        <option>Select Plant</option>
+
+                    </select>
+                </div>
+            </div>
+            <div
+                class="col-lg-2 col-md-4 col-sm-6"
+                style="padding-top: 30px;border-color: black;">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                    checked="checked">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Payment Pending
+                </label>
+                <br>
+            </div>
+            <div
+                class="col-lg-2 col-md-4 col-sm-6"
+                style="padding-top: 30px;border-color: black;">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Payment Completed
+                </label>
+                <br>
+            </div>
+            
+            <div class="col-lg-1 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
+                <input
+                    class="form-control mr-sm-2"
+                    type="text"
+                    id="myInputx"
+                    placeholder="Search"
+                    aria-label="Search "
+                    name="search">
+            </div>
+            <div
+                class="col-lg-1 col-md-4 mt-3 mt-md-0"
+                style="padding-left: 0px;padding-top: 25px;">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="add_pr" class="table table-responsive table-hover">
+                    <thead class="bg-gradient">
+
+                        <tr>
+                            <th class="text-center">Purchuse Invoice</th>
+                            <th class="text-center">Purchase No</th>
+                            <th class="text-center">Delivery date</th>
+                            <th class="text-center">Vendor Name</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="prodction_plan">
+                    </tbody>
+                </table>
+
+                <br>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-2"></div>
+                <div class="col-lg-4 col-md-12 mb-2">
+                    <nav aria-label="..." id="page1">
+                        <ul class="pagination justify-content-center" id="pagination1"></ul>
+                    </nav>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model for create production plan -->
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+
+        <div class="offcanvas-body">
+            ...
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('input[name="birthday"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'), 10)
+            }, function (start, end, label) {
+                var years = moment().diff(start, 'years');
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('input[name="selectYear"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'), 10)
+            }, function (start, end, label) {
+                var years = moment().diff(start, 'years');
+            });
+        });
+    </script>
+    <script>
+        function searchTable() {
+            var inputx = document.getElementById("myInputx").value.toLowerCase();
+            var rowsx = document.querySelectorAll("#add_pr tbody tr");
+
+            var found = false; // Variable to track if any matching rows are found
+
+            for (var i = 0; i < rowsx.length; i++) {
+                var rowx = rowsx[i];
+                var rollNumberCellx = rowx.cells[1] ? rowx.cells[1].textContent.toLowerCase() : '';
+                var customerNameCell = rowx.cells[3] ? rowx.cells[3].textContent.toLowerCase() : '';
+
+                var selectDeviceCellx = rowx.cells[2] ? rowx.cells[2].textContent.toLowerCase() : '';
+
+                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                    rowx.style.display = "";
+                    // displayTableRows();
+                    found = true;
+                } else {
+                    rowx.style.display = "none";
+
+                }
+            }
+            if (inputx === '') {
+                currentPage = 1;
+                displayTableRows();
+            }
+
+            var existingNoDataRow = document.getElementById("noDataRow");
+            if (existingNoDataRow) {
+                existingNoDataRow.remove();
+            }
+
+            // Create a new row for the "No data found" message
+            if (!found) {
+
+                var tableBody = document.querySelector("#add_pr tbody");
+                var noDataRow = tableBody.insertRow();
+                var cell = noDataRow.insertCell(0);
+                cell.colSpan = 7;
+                cell.textContent = "No data found.";
+                noDataRow.id = "noDataRow";
+            }
+
+        }
+        var searchInput = document.getElementById("myInputx");
+        searchInput.addEventListener("keyup", searchTable);
+    </script>
+
+
+    <script>
+
+        var dataTableInitialized = false;
+
+        function updateTableData() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        var response = xhr.responseText;
+                        var jsonData = JSON.parse(response);
+                        console.log(jsonData)
+                        updateDataToTable(jsonData.add_purchase_request);
+                        updateProductDropdown(jsonData.add_purchase_request);
+                        displayTableRows();
+                    }
+                    else {
+                        console.error("failed to get the data from server")
+                    }
+
+                }
+
+            }
+            xhr.open("GET", "10_add_purchase_request.json", true)
+            xhr.send();
+        }
+
+        function updateDataToTable(add_purchase_request) {
+            var tableBody = document.getElementById("prodction_plan")
+            var data = add_purchase_request;
+            for (var i = 0; i < data.length; i++) {
+                var datax = data[i];
+
+                var table_row = document.createElement("tr");
+
+
+
+                var purchaserquest_no = document.createElement("td");
+                purchaserquest_no.textContent = datax.pr_no;
+                table_row.appendChild(purchaserquest_no);
+
+                var master_product = document.createElement("td");
+                master_product.textContent = datax.pr_product
+                table_row.appendChild(master_product);
+
+                var vendor = document.createElement("td");
+                vendor.textContent = datax.pr_v_name
+                table_row.appendChild(vendor);
+
+                var delivery_date = document.createElement("td");
+                delivery_date.textContent = datax.pr_exp_date
+                table_row.appendChild(delivery_date);
+
+
+                tableBody.appendChild(table_row)
+            }
+        }
+        updateTableData()
+
+        function updateProductDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectProductName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.pr_v_name && employeeNames.indexOf(entry.pr_v_name) === -1) {
+                    employeeNames.push(entry.pr_v_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.pr_v_name;
+                    option.textContent = entry.pr_v_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
+
+    </script>
+    <script>
+        function addRawItemData(rowIndex) {
+            var delectCellRow = rowIndex
+            console.log(delectCellRow);
+        }
+    </script>
+    <!-- <script>
+        function initDataTable() {
+            $('#example').DataTable({
+                language: {
+                    "searchPlaceholder": "Search records",
+                    "search": ""
+                },
+                lengthMenu: [10, 25, 50, 100],
+                fnDrawCallback: function () {
+                    $("input[type='search']").attr("class", "searchBox");
+                    $('div.dataTables_length select').attr("class", "selectBox");
+                }
+            });
+        }
+        updateTableData();
+    </script> -->
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange span').html(
+                    start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
+                );
+            }
+
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [
+                        moment(), moment()
+                    ],
+                    'Last 7 Days': [
+                        moment().subtract(6, 'days'),
+                        moment()
+                    ],
+                    'Last 30 Days': [
+                        moment().subtract(29, 'days'),
+                        moment()
+                    ]
+                }
+            }, cb);
+
+            cb(start, end);
+
+        });
+    </script>
+    <script>
+        var currentPage = 1;
+        var rowsPerPage = 10;
+        var pagesToShow = 5; // Number of pages to display in the pagination
+
+        function displayTableRows() {
+            var tableRows = document.querySelectorAll('#prodction_plan tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+            // Update the pagination based on the total number of pages
+            var paginationList = document.querySelector('.pagination');
+            paginationList.innerHTML = ''; // Clear existing items
+
+            // Add Previous button
+            var previousButton = document.createElement('li');
+            previousButton.className = 'page-item';
+            previousButton.id = 'previousButton';
+            previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+            previousButton.addEventListener('click', previousPage); // Add event listener
+            paginationList.appendChild(previousButton);
+
+            // Calculate the start and end page numbers to display
+            var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+            var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
+
+            // Add page items dynamically
+            for (var i = startPage; i <= endPage; i++) {
+                var pageItem = document.createElement('li');
+                pageItem.className = 'page-item';
+                if (i === currentPage) {
+                    pageItem
+                        .classList
+                        .add('active');
+                }
+                var pageLink = document.createElement('a');
+                pageLink.className = 'page-link';
+                pageLink.href = '#';
+                pageLink.textContent = i;
+                pageLink.onclick = function () {
+                    goToPage(parseInt(this.textContent));
+                };
+                pageItem.appendChild(pageLink);
+                paginationList.appendChild(pageItem);
+            }
+
+            // Add Next button
+            var nextButton = document.createElement('li');
+            nextButton.className = 'page-item';
+            nextButton.id = 'nextButton';
+            nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
+            nextButton.addEventListener('click', nextPage); // Add event listener
+            paginationList.appendChild(nextButton);
+
+            // Show/hide table rows based on current page
+            var startIndex = (currentPage - 1) * rowsPerPage;
+            var endIndex = startIndex + rowsPerPage;
+            for (var i = 0; i < tableRows.length; i++) {
+                if (i >= startIndex && i < endIndex) {
+                    tableRows[i].style.display = 'table-row';
+                } else {
+                    tableRows[i].style.display = 'none';
+                }
+            }
+        }
+
+        function goToPage(pageNumber) {
+            currentPage = pageNumber;
+            displayTableRows();
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayTableRows();
+            }
+        }
+
+        function nextPage() {
+            var tableRows = document.querySelectorAll('#prodction_plan tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayTableRows();
+            }
+        }
+
+        // Call displayTableRows() after defining the functions
+        displayTableRows();
+    </script>
+</body>
+
+</html>
