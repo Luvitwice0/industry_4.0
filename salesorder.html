@@ -145,209 +145,207 @@
         <br>
         <hr>
 
-        <div class="container">           
-
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
-                        <thead class="bg-gradient">
-                            <tr>
-                                <th class="text-center">SO ID</th>
-                                <th class="text-center">SO Name</th>
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center" id="salesorder">
-                        </tbody>
-                    </table>
-                    <br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="example" class="table table-striped table-bordered table-responsive table-hover">
+                            <thead class="bg-gradient">
+                                <tr>
+                                    <th class="text-center">SO ID</th>
+                                    <th class="text-center">SO Name</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center" id="salesorder">
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- model for create production plan -->
+        <!-- model for create production plan -->
 
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+
+            <div class="offcanvas-body">
+                ...
+            </div>
         </div>
+        <script>
+            function addSalesInvoiceData() {
+                var fields = ["s_id", "s_name"];
+                var hasEmptyField = false;
 
+                for (var i = 0; i < fields.length; i++) {
+                    var fieldId = fields[i];
+                    var input = document.getElementById(fieldId);
 
-        <div class="offcanvas-body">
-            ...
-        </div>
-    </div>
-    <script>
-        function addSalesInvoiceData() {
-            var fields = ["s_id", "s_name"];
-            var hasEmptyField = false;
+                    var value = input.value.trim();
 
-            for (var i = 0; i < fields.length; i++) {
-                var fieldId = fields[i];
-                var input = document.getElementById(fieldId);
-
-                var value = input.value.trim();
-
-                if (value === "") {
-                    input.classList.add("required-field");
-                    hasEmptyField = true;
-                }
-                else {
-                    input.classList.remove("required-field");
-                }
-            }
-
-            if (hasEmptyField) {
-                return;
-            }
-
-
-            var si_no = document.getElementById("s_id").value;
-            var so_no = document.getElementById("s_name").value;
-
-            var JsonDataAddSalesInvoice =
-            {
-                salesinvoice_number: s_id,
-                salesorder_no: s_name,
-
-
-            };
-
-            console.log(JsonDataAddSalesInvoice);
-
-            document.getElementById("s_id").value = "";
-            document.getElementById("s_name").value = "";
-        }
-
-    </script>
-
-
-
-    <script>
-
-        var dataTableInitialized = false;
-
-        function updateTableData() {
-            var xhr = new XMLHttpRequest();
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status == 200) {
-                        var response = xhr.responseText;
-                        var jsonData = JSON.parse(response);
-                        console.log(jsonData)
-                        updateDataToTable(jsonData.salesorder);
-                        // Initialize DataTables if it hasn't been initialized already
-                        if (!dataTableInitialized) {
-                            initDataTable();
-                            dataTableInitialized = true; // Set the flag to true
-                        }
+                    if (value === "") {
+                        input.classList.add("required-field");
+                        hasEmptyField = true;
                     }
                     else {
-                        console.error("failed to get the data from server")
+                        input.classList.remove("required-field");
+                    }
+                }
+
+                if (hasEmptyField) {
+                    return;
+                }
+
+
+                var si_no = document.getElementById("s_id").value;
+                var so_no = document.getElementById("s_name").value;
+
+                var JsonDataAddSalesInvoice =
+                {
+                    salesinvoice_number: s_id,
+                    salesorder_no: s_name,
+
+
+                };
+
+                console.log(JsonDataAddSalesInvoice);
+
+                document.getElementById("s_id").value = "";
+                document.getElementById("s_name").value = "";
+            }
+
+        </script>
+
+
+
+        <script>
+
+            var dataTableInitialized = false;
+
+            function updateTableData() {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status == 200) {
+                            var response = xhr.responseText;
+                            var jsonData = JSON.parse(response);
+                            console.log(jsonData)
+                            updateDataToTable(jsonData.salesorder);
+                            // Initialize DataTables if it hasn't been initialized already
+                            if (!dataTableInitialized) {
+                                initDataTable();
+                                dataTableInitialized = true; // Set the flag to true
+                            }
+                        }
+                        else {
+                            console.error("failed to get the data from server")
+                        }
+
                     }
 
                 }
-
+                xhr.open("GET", "salesorder.json", true)
+                xhr.send();
             }
-            xhr.open("GET", "salesorder.json", true)
-            xhr.send();
-        }
 
-        function updateDataToTable(add_sales_invoice) {
-            var tableBody = document.getElementById("salesorder")
-            var data = add_sales_invoice;
-            for (var i = 0; i < data.length; i++) {
-                var datax = data[i];
+            function updateDataToTable(add_sales_invoice) {
+                var tableBody = document.getElementById("salesorder")
+                var data = add_sales_invoice;
+                for (var i = 0; i < data.length; i++) {
+                    var datax = data[i];
 
-                var table_row = document.createElement("tr")
+                    var table_row = document.createElement("tr")
 
-                var sales_id = document.createElement("td");
-                sales_id.textContent = datax.s_id;
-                table_row.appendChild(sales_id);
+                    var sales_id = document.createElement("td");
+                    sales_id.textContent = datax.s_id;
+                    table_row.appendChild(sales_id);
 
-                var sales_name = document.createElement("td");
-                sales_name.textContent = datax.s_name
-                table_row.appendChild(sales_name);
+                    var sales_name = document.createElement("td");
+                    sales_name.textContent = datax.s_name
+                    table_row.appendChild(sales_name);
 
- 
-                var action = document.createElement("td");
-                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                   <b>X
-                                        </button>`
-                table_row.appendChild(action);
 
-                tableBody.appendChild(table_row)
-            }
-        }
-        updateTableData()
-    </script>
-    <script>
-        function addRawItemData(rowIndex) {
-            var delectCellRow = rowIndex
-            console.log(delectCellRow);
-        }
-    </script>
-    <script>
-        function initDataTable() {
-            $('#example').DataTable({
-                language: {
-                    "searchPlaceholder": "Search SO",
-                    "search": ""
-                },
-                lengthMenu: [10, 25, 50, 100],
-                fnDrawCallback: function () {
-                    $("input[type='search']").attr("class", "searchBox");
-                    $('div.dataTables_length select').attr("class", "selectBox");
+                    var action = document.createElement("td");
+                    action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
+                    table_row.appendChild(action);
+
+                    tableBody.appendChild(table_row)
                 }
+            }
+            updateTableData()
+        </script>
+        <script>
+            function addRawItemData(rowIndex) {
+                var delectCellRow = rowIndex
+                console.log(delectCellRow);
+            }
+        </script>
+        <script>
+            function initDataTable() {
+                $('#example').DataTable({
+                    language: {
+                        "searchPlaceholder": "Search SO",
+                        "search": ""
+                    },
+                    lengthMenu: [10, 25, 50, 100],
+                    fnDrawCallback: function () {
+                        $("input[type='search']").attr("class", "searchBox");
+                        $('div.dataTables_length select').attr("class", "selectBox");
+                    }
+                });
+            }
+            // updateTableData();
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.js-example-basic-single').select2();
             });
-        }
-        // updateTableData();
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('.js-example-basic-single').select2();
-        });
-    </script>
+        </script>
 
-    <script type="text/javascript">
-        $(function () {
+        <script type="text/javascript">
+            $(function () {
 
-            var start = moment().subtract(29, 'days');
-            var end = moment();
+                var start = moment().subtract(29, 'days');
+                var end = moment();
 
-            function cb(start, end) {
-                $('#reportrange span').html(
-                    start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
-                );
-            }
-
-            $('#reportrange').daterangepicker({
-                startDate: start,
-                endDate: end,
-                ranges: {
-                    'Today': [
-                        moment(), moment()
-                    ],
-                    'Last 7 Days': [
-                        moment().subtract(6, 'days'),
-                        moment()
-                    ],
-                    'Last 30 Days': [
-                        moment().subtract(29, 'days'),
-                        moment()
-                    ]
+                function cb(start, end) {
+                    $('#reportrange span').html(
+                        start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
+                    );
                 }
-            }, cb);
 
-            cb(start, end);
+                $('#reportrange').daterangepicker({
+                    startDate: start,
+                    endDate: end,
+                    ranges: {
+                        'Today': [
+                            moment(), moment()
+                        ],
+                        'Last 7 Days': [
+                            moment().subtract(6, 'days'),
+                            moment()
+                        ],
+                        'Last 30 Days': [
+                            moment().subtract(29, 'days'),
+                            moment()
+                        ]
+                    }
+                }, cb);
 
-        });
-    </script>
+                cb(start, end);
+
+            });
+        </script>
 </body>
 
 </html>

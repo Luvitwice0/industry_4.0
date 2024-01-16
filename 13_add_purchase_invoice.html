@@ -140,7 +140,7 @@
 
 <body>
     <div class="main-container">
-     
+
         <hr>
         <br>
 
@@ -427,9 +427,7 @@
                     table_row.appendChild(purchase_invoice_total);
 
                     var action = document.createElement("td");
-                    action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                   <b>X
-                                        </button>`
+                    action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
                     table_row.appendChild(action);
 
                     tableBody.appendChild(table_row)

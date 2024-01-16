@@ -140,7 +140,7 @@
 
 <body>
     <div class="main-container">
-      
+
         <br>
 
         <div class="container">
@@ -438,9 +438,7 @@
 
 
                 var action = document.createElement("td");
-                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                   <b>X
-                                        </button>`
+                action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
                 table_row.appendChild(action);
 
                 tableBody.appendChild(table_row)
@@ -454,22 +452,7 @@
             console.log(delectCellRow);
         }
     </script>
-    <script>
-        function initDataTable() {
-            $('#example').DataTable({
-                language: {
-                    "searchPlaceholder": "Search records",
-                    "search": ""
-                },
-                lengthMenu: [10, 25, 50, 100],
-                fnDrawCallback: function () {
-                    $("input[type='search']").attr("class", "searchBox");
-                    $('div.dataTables_length select').attr("class", "selectBox");
-                }
-            });
-        }
-        // updateTableData();
-    </script>
+
     <script>
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
