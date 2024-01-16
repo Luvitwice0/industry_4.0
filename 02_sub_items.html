@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
 
     <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"> -->
     <!-- Select2 CSS -->
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
 
@@ -27,8 +27,8 @@
         crossorigin="anonymous"></script>
 
     <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> -->
 
     <!-- Select2 JS -->
     <script src="assets/dist/js/select2.min.js"></script>
@@ -119,7 +119,7 @@
 
     }
 
-    .dataTables_length {
+    /* .dataTables_length {
         margin-bottom: 10px;
     }
 
@@ -133,7 +133,7 @@
     .dataTables_length label {
         margin-right: 5px;
         font-weight: bolder;
-    }
+    } */
 </style>
 
 <body>
@@ -250,8 +250,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
-                        <thead class="bg-gradient">
+                    <table id="" class="table table-responsive table-hover">
+                        <thead class="">
                             <tr>
                                 <th class="text-center">Item Name</th>
                                 <th class="text-center">Item no</th>
@@ -393,10 +393,10 @@
                         updateDataToTable(jsonData.add_raw_items);
                         updateDropdownOptions(jsonData.add_raw_items)
                         // Initialize DataTables if it hasn't been initialized already
-                        if (!dataTableInitialized) {
-                            initDataTable();
-                            dataTableInitialized = true; // Set the flag to true
-                        }
+                        // if (!dataTableInitialized) {
+                        //     initDataTable();
+                        //     dataTableInitialized = true; // Set the flag to true
+                        // }
                     }
                     else {
                         console.error("failed to get the data from server")
@@ -487,7 +487,7 @@
             $('.js-example-basic-single').select2();
         });
     </script>
-    <script>
+    <!-- <script>
         function initDataTable() {
             $('#example').DataTable({
                 language: {
@@ -501,8 +501,8 @@
                 }
             });
         }
-        // updateTableData();
-    </script>
+        updateTableData();
+    </script> -->
     <script type="text/javascript">
         $(function () {
 
