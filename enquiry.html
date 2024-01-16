@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="Create Purchase Requestport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Management</title>
+    <meta name="Create Purchase Orderport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry Management</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap Library -->
+    <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -18,8 +19,13 @@
             padding: 20px;
         }
 
-        #table002 td {
-            border: 1px solid black;
+        #table002 td,
+        th {
+            border: 1px solid rgb(235, 235, 235);
+        }
+
+        .select2-container {
+            z-index: 1060;
         }
     </style>
 </head>
@@ -44,9 +50,8 @@
             <table class="table table-hover text-center" id="main_table">
                 <thead>
                     <tr>
-                        <th>Sub Item</th>
-                        <th>Unit of Measure</th>
-                        <th>Quantity</th>
+                        <th>Enquiries</th>
+                        <th>Created Date</th>
                         <th>Action</th>
 
                     </tr>
@@ -54,12 +59,11 @@
                 <tbody id="main_pp">
                     <tr>
 
-                        <td>Subitem001</td>
-                        <td>Kg</td>
-                        <td>456</td>
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
                         <td>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                                class="btn btn-primary">Create Purchase Request
+                                class="btn btn-primary">Create Purchase Order
 
                             </button>
                         </td>
@@ -67,12 +71,11 @@
                     </tr>
                     <tr>
 
-                        <td>Subitem001</td>
-                        <td>Mm</td>
-                        <td>467</td>
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
                         <td>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                                class="btn btn-primary">Create Purchase Request
+                                class="btn btn-primary">Create Purchase Order
 
                             </button>
                         </td>
@@ -80,13 +83,11 @@
                     </tr>
                     <tr>
 
-                        <td>Subitem001</td>
-                        <td>Cm</td>
-                        <td>
-                            467</td>
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
                         <td>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                                class="btn btn-primary">Create Purchase Request
+                                class="btn btn-primary">Create Purchase Order
 
                             </button>
                         </td>
@@ -94,13 +95,11 @@
                     </tr>
                     <tr>
 
-                        <td>Subitem001</td>
-                        <td>ltr</td>
-                        <td>
-                            467</td>
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
                         <td>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                                class="btn btn-primary">Create Purchase Request
+                                class="btn btn-primary">Create Purchase Order
 
                             </button>
                         </td>
@@ -108,13 +107,11 @@
                     </tr>
                     <tr>
 
-                        <td>Subitem001</td>
-                        <td>Kg</td>
-                        <td>
-                            467</td>
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
                         <td>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                                class="btn btn-primary">Create Purchase Request
+                                class="btn btn-primary">Create Purchase Order
 
                             </button>
                         </td>
@@ -122,13 +119,11 @@
                     </tr>
                     <tr>
 
-                        <td>Subitem001</td>
-                        <td>Mm</td>
-                        <td>
-                            467</td>
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
                         <td>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                                class="btn btn-primary">Create Purchase Request
+                                class="btn btn-primary">Create Purchase Order
 
                             </button>
                         </td>
@@ -136,13 +131,23 @@
                     </tr>
                     <tr>
 
-                        <td>Subitem001</td>
-                        <td>ltr</td>
-                        <td>
-                            467</td>
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
                         <td>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                                class="btn btn-primary">Create Purchase Request
+                                class="btn btn-primary">Create Purchase Order
+
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Enquiry001</td>
+                        <td>12/03/2023</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Order
 
                             </button>
                         </td>
@@ -166,44 +171,115 @@
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop002" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Pending Purchase Request History
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Purchase Order
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" style="padding: 30px  ;">
-                    <table id="table002" style="margin: auto;">
+                <div class="modal-body" style="padding: 20px  ;">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-4" style="padding-top: 8px;">
+                            <div class="form-group">
+                                <select style="width: 100%;" id="selectVendorName" class="js-example-basic-single">
+                                    <option>Select Vendor</option>
+                                    <option>Select Drop Vendor</option>
+
+                                    <option>Select Drop Vendor</option>
+
+                                    <option>Select Drop Vendor</option>
+
+                                    <option>Select Drop Vendor</option>
+
+                                    <option>Select Drop Vendor</option>
+
+                                    <option>Select Drop Vendor</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <table id="table002" style="margin: auto; width: 100%;">
+                        <thead class="text-center">
+                            <tr>
+                                <th>#</th>
+                                <th>Item Name</th>
+                                <th>Item No</th>
+                                <th style="width: 102px;">Quantity</th>
+                                <th>Expected Delivery Date</th>
+                            </tr>
+                        </thead>
                         <tr style="text-align: center;">
-                            <td>12/02/2023</td>
-                            <td>500</td>
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I501</td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
                         </tr>
                         <tr style="text-align: center;">
-                            <td>12/02/2023</td>
-                            <td>500</td>
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+
+                            <td>12/04/2023</td>
                         </tr>
                         <tr style="text-align: center;">
-                            <td>12/02/2023</td>
-                            <td>500</td>
-                        </tr>
-                        <tr style="text-align: center;">
-                            <td>12/02/2023</td>
-                            <td>500</td>
-                        </tr>
-                        <tr style="text-align: center;">
-                            <td>12/02/2023</td>
-                            <td>500</td>
-                        </tr>
-                        <tr style="text-align: center;">
-                            <td>12/02/2023</td>
-                            <td>500</td>
-                        </tr>
-                        <tr style="text-align: center;">
-                            <td>12/02/2023</td>
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
                             <td class="text-center">
                                 <input type="text" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Quantity">
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
                 </div>
             </div>
 
@@ -215,9 +291,9 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary">
-            <i class="fa fa-paper-plane"></i>
+            <i class="fa fa-check"></i>
             &nbsp;
-            Send Request
+            Save
         </button>
     </div>
     </div>
@@ -323,7 +399,7 @@
                         .textContent
                         .toLowerCase()
                     : '';
-                var customerNameCell = rowx.cells[3]
+                var VendorNameCell = rowx.cells[3]
                     ? rowx
                         .cells[3]
                         .textContent
@@ -337,7 +413,7 @@
                         .toLowerCase()
                     : '';
 
-                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || VendorNameCell.includes(inputx)) {
                     rowx.style.display = "";
                     // displayTableRows();
                     found = true;
@@ -499,6 +575,11 @@
         );
     </script>
 
+    <script src="assets/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
     </script>
 </body>
 
