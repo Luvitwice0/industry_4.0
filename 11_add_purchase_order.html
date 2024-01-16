@@ -4,527 +4,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Purchase Order</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- Font Awesome Kit -->
-    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
-
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-
-    <!-- Select2 CSS -->
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Library -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
-    <!-- Select2 JS -->
-    <script src="assets/dist/js/select2.min.js"></script>
-
-    <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
-    <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+    <script src="assets/lib/jquery/jquery.min.js"></script>
+    <style>
+        body {
+
+            padding: 10px;
+            margin: 0;
+
+        }
+
+        #table002 td,
+        #table002 th {
+            border: 1px solid rgb(235, 235, 235);
+        }
+    </style>
 </head>
-<style>
-    body {
-        margin: auto;
-        /* padding: 20px; */
-        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    }
-
-    .main-container {
-        padding: 10px;
-    }
-
-    .select2-container {
-        z-index: 3060;
-    }
-
-    .input-field {
-        position: relative;
-    }
-
-    .input-field input {
-        width: 100%;
-        height: 40px;
-        border-radius: 3px;
-        font-size: 18px;
-        padding: 0 15px;
-        border: 2px solid #bababa;
-        background: transparent;
-        color: #000000;
-        outline: none;
-    }
-
-    .input-field label {
-        position: absolute;
-        top: 50%;
-        left: 15px;
-        transform: translateY(-50%);
-        color: #212529;
-        font-size: 16px;
-        pointer-events: none;
-        transition: 0.3s;
-    }
-
-    input:focus {
-        border: 2px solid #0d6efd;
-    }
-
-    input:focus~label {
-        color: #0d6efd;
-    }
-
-    input:focus~label,
-
-    input:valid~label {
-        top: 0;
-        left: 15px;
-        font-size: 16px;
-        padding: 0 2px;
-        background-color: white;
-    }
-
-    .required-field {
-        border: 2px solid #f80000 !important;
-    }
-
-    body.offcanvas-active {
-        overflow: hidden;
-    }
-
-    .dataTables_wrapper .dataTables_filter input {
-        width: 300px;
-        border: 2px solid #ced4da;
-        border-radius: 5px;
-        padding: 5px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-    }
-
-
-    .select2-container {
-        width: 100% !important;
-
-    }
-
-    .dataTables_length {
-        margin-bottom: 10px;
-    }
-
-    .dataTables_length select {
-        width: auto;
-        border: 2px solid #ced4da;
-        border-radius: 5px;
-        padding: 5px;
-    }
-
-    .dataTables_length label {
-        margin-right: 5px;
-        font-weight: bolder;
-    }
-</style>
 
 <body>
-    <div class="main-container">
-      
-        <br>
 
-        <div class="container">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa fa-plus"></i>
-                <b>Add Purchase Order</b>
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <label for="f_date">From Date</label>
+            <input type="text" class="form-control" placeholder="Select Month" value="" id="f_date" required="required"
+                name="selectYear">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <label for="t_date">To date</label>
+            <input type="text" class="form-control" placeholder="Select Month" value="" id="t_date" required="required"
+                name="selectYear">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 8px;">
+            <div class="form-group">
+                <label for="selectcustomerName">Select Plant</label>
+                <select style="width: 100%;" id="selectcustomerName" class="js-example-basic-single">
+                    <option>
+                        Select </option>
+                    <option>Select Drop Customer</option>
+
+                    <option>Select Drop Customer</option>
+
+                    <option>Select Drop Customer</option>
+
+                    <option>Select Drop Customer</option>
+
+                    <option>Select Drop Customer</option>
+
+                    <option>Select Drop Customer</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-4 col-sm-6" style="padding-top: 30px;border-color: black;">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                checked="checked">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Pending
+            </label>
+            <br>
+        </div>
+        <div class="col-lg-1 col-md-4 col-sm-6" style="padding-top: 30px;border-color: black;">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Completed
+            </label>
+            <br>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
+            <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search" aria-label="Search "
+                name="search">
+        </div>
+        <div class="col-lg-1 col-md-4 mt-3 mt-md-0" style="padding-left: 0px;padding-top: 25px;">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
             </button>
-
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <div class="offcanvas-overlay"></div>
-
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Purchase Order</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <hr>
-                <div class="offcanvas-body">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="input-field">
-                                <input type="text" required="required" spellcheck="false" value="12345676543"
-                                    id="po_no">
-                                <label>Purchase Oredr No</label>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" value="SDFGH5676543"
-                                        id="p_req_no">
-                                    <label>Purchase Request No</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="po_v_name"
-                                        value="Vendor-01">
-                                    <label>Vendor Name</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectProductName">Choose Product</label>
-                                    <select style="width:100%" id="selectProductName" class="js-example-basic-single">
-
-                                    </select>
-                                </div>
-                            </div><br>
-
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="po_quantity" value="10"
-                                        spellcheck="false">
-                                    <label>Quantity</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="po_price" value="12" spellcheck="false">
-                                    <label>Price</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="po_adress"
-                                        value="1/122, ddfhsjcnjds, dwehfwc" spellcheck=" false">
-                                    <label>Address</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="po_branch" value="hosur"
-                                        spellcheck="false">
-                                    <label>Branch</label>
-                                </div>
-                            </div>
-                            <br>
-                            <label class="form-label" for="formControlDisabled">Expected Delivery Date</label>
-                            <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                class="form-control" id="orderNo"></input> </div> -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="po_exp_date" spellcheck="false"
-                                        value="12/02/20323">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" id="po_total" spellcheck="false">
-                                    <label>Grand Total</label>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                        <div class="row">
-                            <button type="button" style="margin-left: 12px;" class="btn btn-primary"
-                                onclick="addPurchaseOrderData()"><i class="fa fa-check"></i> <b>Save</b> </button>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
         </div>
+
     </div>
+
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <table id="example" class="table table-striped table-bordered table-responsive table-hover">
-                    <thead class="bg-gradient">
-                        <tr>
-                            <th class="text-center">PurchaseOrder No</th>
-                            <th class="text-center">Vendor Name</th>
-                            <th class="text-center">Product</th>
-                            <th class="text-center">Delivery Date</th>
-                            <th class="text-center">Grand Total</th>
-                            <th class="text-center">Status</th>
-                            <th class="text-center">Action</th>
+
+    <table class="table table-hover text-center" id="main_table">
+        <thead>
+            <tr>
+                <th>PurchaseOrder No</th>
+                <th>Enquiry No</th>
+                <th>Requested Date</th>
+                <th>Vendor Name</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody id="main_pp">
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>PO001</td>
+                <td>Enquiry001</td>
+                <td>12/03/2023</td>
+                <td>Vendor001</td>
+
+                <td>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <!--Modal Master product details-->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop002" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Purchase Invoice
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="padding: 20px  ;">
+                    <br>
+                    <table id="table002" style="margin: auto; width: 100%;">
+                        <thead class="text-center">
+                            <tr>
+                                <th>#</th>
+                                <th>Item Name</th>
+                                <th>Item No</th>
+                                <th style="width: 102px;">Quantity</th>
+                                <th>Requested Date</th>
+                            </tr>
+                        </thead>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I501</td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
                         </tr>
-                    </thead>
-                    <tbody class="text-center" id="prodction_plan">
-                    </tbody>
-                </table>
-                <br>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+
+                            <td>12/04/2023</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                            <td><input class="form-check-input" type="checkbox" value="" style="border-color: black;"
+                                    id="flexCheckDefault"></td>
+                            <td>Item001</td>
+                            <td>I500</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Quantity" value="300">
+                            </td>
+                            <td>12/04/2023</td>
+                        </tr>
+                </div>
             </div>
+
+
         </div>
+        </td>
+        </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary">
+            <i class="fa fa-check"></i>
+            &nbsp;
+            Save
+        </button>
     </div>
     </div>
-
-    <!-- model for create production plan -->
-
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-
-        <div class="offcanvas-body">
-            ...
-        </div>
+    </div>
     </div>
     <script>
-        function addPurchaseOrderData() {
-            var fields = ["po_no", "p_req_no", "po_v_name", "po_quantity", "po_price", "po_adress", "po_branch", "po_exp_date", "po_total"];
-            var hasEmptyField = false;
-
-            for (var i = 0; i < fields.length; i++) {
-                var fieldId = fields[i];
-                var input = document.getElementById(fieldId);
-
-                var value = input.value.trim();
-
-                if (value === "") {
-                    input.classList.add("required-field");
-                    hasEmptyField = true;
-                }
-                else {
-                    input.classList.remove("required-field");
-                }
-            }
-
-            if (hasEmptyField) {
-                return;
-            }
-
-
-            var po_no = document.getElementById("po_no").value;
-            var p_req_no = document.getElementById("p_req_no").value;
-            var po_v_name = document.getElementById("po_v_name").value;
-            var po_quantity = document.getElementById("po_quantity").value;
-            var po_price = document.getElementById("po_price").value;
-            var po_adress = document.getElementById("po_adress").value;
-            var po_branch = document.getElementById("po_branch").value;
-            var po_exp_date = document.getElementById("po_exp_date").value;
-            var po_total = document.getElementById("po_total").value;
-
-            var JsonDataAddPurchaseOrder =
-            {
-                purchaseorder_number: po_no,
-                purchaserequest_number: p_req_no,
-                purchaseorder_vendor_name: po_v_name,
-                purchaseorder_quantity: po_quantity,
-                purchaseorder_price: po_price,
-                purchaseorder_adress: po_adress,
-                purchaseorder_branch: po_branch,
-                purchaseorder_exp_date: po_exp_date,
-                purchaseorder_total: po_total,
-
-            };
-
-            console.log(JsonDataAddPurchaseOrder);
-            $('#selectProductName').val(null).trigger('change');
-
-            document.getElementById("po_no").value = "";
-            document.getElementById("p_req_no").value = "";
-            document.getElementById("po_v_name").value = "";
-            document.getElementById("po_quantity").value = "";
-            document.getElementById("po_price").value = "";
-            document.getElementById("po_adress").value = "";
-            document.getElementById("po_branch").value = "";
-            document.getElementById("po_exp_date").value = "";
-            document.getElementById("po_total").value = "";
-        }
-
-    </script>
-
-
-
-    <script>
-
-        var dataTableInitialized = false;
-
-        function updateTableData() {
-            var xhr = new XMLHttpRequest();
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status == 200) {
-                        var response = xhr.responseText;
-                        var jsonData = JSON.parse(response);
-                        console.log(jsonData)
-                        updateDataToTable(jsonData.add_purchase_order);
-                        updateProductDropdown(jsonData.add_purchase_order);
-                        // Initialize DataTables if it hasn't been initialized already
-                        if (!dataTableInitialized) {
-                            initDataTable();
-                            dataTableInitialized = true; // Set the flag to true
-                        }
-                    }
-                    else {
-                        console.error("failed to get the data from server")
-                    }
-
-                }
-
-            }
-            xhr.open("GET", "11_add_purchase_order.json", true)
-            xhr.send();
-        }
-
-        function updateDataToTable(add_purchase_order) {
-            var tableBody = document.getElementById("prodction_plan")
-            var data = add_purchase_order;
-            for (var i = 0; i < data.length; i++) {
-                var datax = data[i];
-
-                var table_row = document.createElement("tr")
-
-                var purchase_order_no = document.createElement("td");
-                purchase_order_no.textContent = datax.po_no;
-                table_row.appendChild(purchase_order_no);
-
-                var purchase_vendor_name = document.createElement("td");
-                purchase_vendor_name.textContent = datax.po_v_name
-                table_row.appendChild(purchase_vendor_name);
-
-                var purchase_product = document.createElement("td");
-                purchase_product.textContent = datax.po_product
-                table_row.appendChild(purchase_product);
-
-                var purchase_expectedDate = document.createElement("td");
-                purchase_expectedDate.textContent = datax.po_exp_date
-                table_row.appendChild(purchase_expectedDate);
-
-                var purchase_order_total = document.createElement("td");
-                purchase_order_total.textContent = datax.po_total
-                table_row.appendChild(purchase_order_total);
-
-                var status = document.createElement("td");
-                var statusSpan = document.createElement("span");
-                statusSpan.className = "badge text-bg-warning";
-                statusSpan.textContent = datax.po_status;
-                status.appendChild(statusSpan);
-                table_row.appendChild(status);
-
-                var action = document.createElement("td");
-                action.innerHTML = `<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="border-radius: 2px; font-size:0.9em; width: 40px;"> <i class="fa fa-eye"></i></button>  <button type="button" class="btn btn-danger" style="border-radius: 2px; font-size:0.9em; width: 40px;" onclick="addRawItemData('${i} , ${datax.p_name}')">
-                   <b>X
-                                        </button>`
-                table_row.appendChild(action);
-
-                tableBody.appendChild(table_row)
-            }
-        }
-        updateTableData()
-
-        function updateProductDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectProductName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
-
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.po_product && employeeNames.indexOf(entry.po_product) === -1) {
-                    employeeNames.push(entry.po_product);
-
-                    var option = document.createElement("option");
-                    option.value = entry.po_product;
-                    option.textContent = entry.po_product;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
-        updateTableData();
-
-
-    </script>
-    <script>
-        function addRawItemData(rowIndex) {
-            var delectCellRow = rowIndex
-            console.log(delectCellRow);
+        function openPrompt() {
+            let person = prompt("Please enter the Delivered Date");
         }
     </script>
     <script>
-        function initDataTable() {
-            $('#example').DataTable({
-                language: {
-                    "searchPlaceholder": "Search records",
-                    "search": ""
-                },
-                lengthMenu: [10, 25, 50, 100],
-                fnDrawCallback: function () {
-                    $("input[type='search']").attr("class", "searchBox");
-                    $('div.dataTables_length select').attr("class", "selectBox");
+        function searchTable() {
+            var inputx = document
+                .getElementById("myInputx")
+                .value
+                .toLowerCase();
+            var rowsx = document.querySelectorAll("#so-table tbody tr");
+
+            var found = false; // Variable to track if any matching rows are found
+
+            for (var i = 0; i < rowsx.length; i++) {
+                var rowx = rowsx[i];
+                var rollNumberCellx = rowx.cells[1]
+                    ? rowx
+                        .cells[1]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+                var customerNameCell = rowx.cells[3]
+                    ? rowx
+                        .cells[3]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+
+                var selectDeviceCellx = rowx.cells[2]
+                    ? rowx
+                        .cells[2]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+
+                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                    rowx.style.display = "";
+                    // displayTableRows();
+                    found = true;
+                } else {
+                    rowx.style.display = "none";
+
                 }
+            }
+            if (inputx === '') {
+                currentPage = 1;
+                displayTableRows();
+            }
+
+            var existingNoDataRow = document.getElementById("noDataRow");
+            if (existingNoDataRow) {
+                existingNoDataRow.remove();
+            }
+
+            // Create a new row for the "No data found" message
+            if (!found) {
+
+                var tableBody = document.querySelector("#so-table tbody");
+                var noDataRow = tableBody.insertRow();
+                var cell = noDataRow.insertCell(0);
+                cell.colSpan = 7;
+                cell.textContent = "No data found.";
+                noDataRow.id = "noDataRow";
+            }
+
+        }
+        var searchInput = document.getElementById("myInputx");
+        searchInput.addEventListener("keyup", searchTable);
+    </script>
+    <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
+    <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
+
+    <script>
+        $(function () {
+            $('input[name="birthday"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'), 10)
+            }, function (start, end, label) {
+                var years = moment().diff(start, 'years');
             });
-        }
+        });
     </script>
+    <script>
+        $(function () {
+            $('input[name="selectYear"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'), 10)
+            }, function (start, end, label) {
+                var years = moment().diff(start, 'years');
+            });
+        });
+    </script>
+
+    <script>
+        // Get the screen width and height
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+        // Set the table width and height to the screen width and height
+        document
+            .getElementById("responsiveTable")
+            .style
+            .width = screenWidth + "px";
+        document
+            .getElementById("responsiveTable")
+            .style
+            .height = screenHeight + "px";
+    </script>
+
+    <script src="assets/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
     </script>
+    <script>
+        var currentPage = 1;
+        var rowsPerPage = 10;
+        var pagesToShow = 5; // Number of pages to display in the pagination
 
-    <script type="text/javascript">
-        $(function () {
+        function displayTableRows() {
+            var tableRows = document.querySelectorAll('#so-table tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
 
-            var start = moment().subtract(29, 'days');
-            var end = moment();
+            // Update the pagination based on the total number of pages
+            var paginationList = document.querySelector('.pagination');
+            paginationList.innerHTML = ''; // Clear existing items
 
-            function cb(start, end) {
-                $('#reportrange span').html(
-                    start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
-                );
+            // Add Previous button
+            var previousButton = document.createElement('li');
+            previousButton.className = 'page-item';
+            previousButton.id = 'previousButton';
+            previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+            previousButton.addEventListener('click', previousPage); // Add event listener
+            paginationList.appendChild(previousButton);
+
+            // Calculate the start and end page numbers to display
+            var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+            var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
+
+            // Add page items dynamically
+            for (var i = startPage; i <= endPage; i++) {
+                var pageItem = document.createElement('li');
+                pageItem.className = 'page-item';
+                if (i === currentPage) {
+                    pageItem
+                        .classList
+                        .add('active');
+                }
+                var pageLink = document.createElement('a');
+                pageLink.className = 'page-link';
+                pageLink.href = '#';
+                pageLink.textContent = i;
+                pageLink.onclick = function () {
+                    goToPage(parseInt(this.textContent));
+                };
+                pageItem.appendChild(pageLink);
+                paginationList.appendChild(pageItem);
             }
 
-            $('#reportrange').daterangepicker({
-                startDate: start,
-                endDate: end,
-                ranges: {
-                    'Today': [
-                        moment(), moment()
-                    ],
-                    'Last 7 Days': [
-                        moment().subtract(6, 'days'),
-                        moment()
-                    ],
-                    'Last 30 Days': [
-                        moment().subtract(29, 'days'),
-                        moment()
-                    ]
+            // Add Next button
+            var nextButton = document.createElement('li');
+            nextButton.className = 'page-item';
+            nextButton.id = 'nextButton';
+            nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
+            nextButton.addEventListener('click', nextPage); // Add event listener
+            paginationList.appendChild(nextButton);
+
+            // Show/hide table rows based on current page
+            var startIndex = (currentPage - 1) * rowsPerPage;
+            var endIndex = startIndex + rowsPerPage;
+            for (var i = 0; i < tableRows.length; i++) {
+                if (i >= startIndex && i < endIndex) {
+                    tableRows[i].style.display = 'table-row';
+                } else {
+                    tableRows[i].style.display = 'none';
                 }
-            }, cb);
+            }
+        }
 
-            cb(start, end);
+        function goToPage(pageNumber) {
+            currentPage = pageNumber;
+            displayTableRows();
+        }
 
-        });
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayTableRows();
+            }
+        }
+
+        function nextPage() {
+            var tableRows = document.querySelectorAll('#so-table tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayTableRows();
+            }
+        }
+
+        // Call displayTableRows() after defining the functions
+        displayTableRows();
     </script>
 </body>
 

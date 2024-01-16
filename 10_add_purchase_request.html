@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Purchase Request</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -43,6 +43,7 @@
         margin: auto;
         /* padding: 20px; */
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        padding: 10px;
     }
 
     .main-container {
@@ -159,116 +160,112 @@
 
     }
 
-    .form-check-input
-    {
+    .form-check-input {
         border-color: #000000;
     }
 </style>
 
 <body>
     <div class="main-container">
-      
-        <br>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Request Quotation
-            </button>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+        <br>
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Request Quotation | Select Vendor</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Request Quotation | Select Vendor</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="selectProductName">Select Vendor</label>
-                                <select style="width:100%" id="selectProductName" multiple="multiple" class="js-example-basic-single">
-                                </select>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="selectProductName">Select Vendor</label>
+                                    <select style="width:100%" id="selectProductName" multiple="multiple"
+                                        class="js-example-basic-single">
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                     <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="button" class="btn btn-primary">Request Quotation</button>
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                        <button type="button" class="btn btn-primary">Request Quotation</button>
                     </div>
                 </div>
-                </div>
             </div>
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <div class="offcanvas-overlay"></div>
+        </div>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
+            aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-overlay"></div>
 
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Request Quotation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <hr>
-                <div class="offcanvas-body">
-                    
-
-
-                </div>
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Request Quotation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+            <hr>
+            <div class="offcanvas-body">
+
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-4 col-sm-6 mt-3 mt-md-0">
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Request Quotation
+                </button>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mt-3 mt-md-0"></div>
+            <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search" aria-label="Search "
+                    name="search">
+            </div>
+            <div class="col-lg-1 col-md-4 mt-3 mt-md-0" style="padding-left: 0px;">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
         <br>
-            <div class="row">
-                <div class="col-lg-9 col-md-4 col-sm-6 mt-3 mt-md-0" ></div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
-                    <input
-                        class="form-control mr-sm-2"
-                        type="text"
-                        id="myInputx"
-                        placeholder="Search"
-                        aria-label="Search "
-                        name="search">
-                </div>
-                <div
-                    class="col-lg-1 col-md-4 mt-3 mt-md-0"
-                    style="padding-left: 0px;padding-top: 25px;">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-md-12">
-                    <table id="add_pr" class="table table-responsive table-hover">
-                        <thead class="bg-gradient">
 
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Item Name</th>
-                                <th class="text-center">Item no</th>
-                                <th class="text-center">Requested date</th>
-                                <th class="text-center">Quantity</th>
-                                <th class="text-center">Reject PR</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center" id="prodction_plan">
-                        </tbody>
-                    </table>
-                    
-                    <br>
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="add_pr" class="table table-responsive table-hover">
+                    <thead class="bg-gradient">
+
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th class="text-center">Item Name</th>
+                            <th class="text-center">Item no</th>
+                            <th class="text-center">Requested date</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Reject PR</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="prodction_plan">
+                    </tbody>
+                </table>
+
+                <br>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 mb-2"></div>
-                    <div class="col-lg-4 col-md-12 mb-2">
-                        <nav aria-label="..." id="page1">
-                            <ul class="pagination justify-content-center" id="pagination1"></ul>
-                        </nav>
-                    </div>
-                    <div class="col-lg-4 col-md-12 mb-2"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-2"></div>
+                <div class="col-lg-4 col-md-12 mb-2">
+                    <nav aria-label="..." id="page1">
+                        <ul class="pagination justify-content-center" id="pagination1"></ul>
+                    </nav>
                 </div>
+                <div class="col-lg-4 col-md-12 mb-2"></div>
             </div>
+        </div>
     </div>
 
     <!-- model for create production plan -->
@@ -287,52 +284,52 @@
     </div>
 
     <script>
-         function searchTable() {
-                var inputx = document.getElementById("myInputx").value.toLowerCase();
-                var rowsx = document.querySelectorAll("#add_pr tbody tr");
+        function searchTable() {
+            var inputx = document.getElementById("myInputx").value.toLowerCase();
+            var rowsx = document.querySelectorAll("#add_pr tbody tr");
 
-                var found = false; // Variable to track if any matching rows are found
+            var found = false; // Variable to track if any matching rows are found
 
-                for (var i = 0; i < rowsx.length; i++) {
-                    var rowx = rowsx[i];
-                    var rollNumberCellx = rowx.cells[1]? rowx.cells[1].textContent.toLowerCase(): '';
-                    var customerNameCell = rowx.cells[3]? rowx.cells[3].textContent.toLowerCase(): '';
+            for (var i = 0; i < rowsx.length; i++) {
+                var rowx = rowsx[i];
+                var rollNumberCellx = rowx.cells[1] ? rowx.cells[1].textContent.toLowerCase() : '';
+                var customerNameCell = rowx.cells[3] ? rowx.cells[3].textContent.toLowerCase() : '';
 
-                    var selectDeviceCellx = rowx.cells[2]? rowx.cells[2].textContent.toLowerCase(): '';
+                var selectDeviceCellx = rowx.cells[2] ? rowx.cells[2].textContent.toLowerCase() : '';
 
-                    if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
-                        rowx.style.display = "";
-                        // displayTableRows();
-                        found = true;
-                    } else {
-                        rowx.style.display = "none";
+                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                    rowx.style.display = "";
+                    // displayTableRows();
+                    found = true;
+                } else {
+                    rowx.style.display = "none";
 
-                    }
                 }
-                if (inputx === '') {
-                    currentPage = 1;
-                    displayTableRows();
-                }
-
-                var existingNoDataRow = document.getElementById("noDataRow");
-                if (existingNoDataRow) {
-                    existingNoDataRow.remove();
-                }
-
-                // Create a new row for the "No data found" message
-                if (!found) {
-
-                    var tableBody = document.querySelector("#add_pr tbody");
-                    var noDataRow = tableBody.insertRow();
-                    var cell = noDataRow.insertCell(0);
-                    cell.colSpan = 7;
-                    cell.textContent = "No data found.";
-                    noDataRow.id = "noDataRow";
-                }
-
             }
-            var searchInput = document.getElementById("myInputx");
-            searchInput.addEventListener("keyup", searchTable);
+            if (inputx === '') {
+                currentPage = 1;
+                displayTableRows();
+            }
+
+            var existingNoDataRow = document.getElementById("noDataRow");
+            if (existingNoDataRow) {
+                existingNoDataRow.remove();
+            }
+
+            // Create a new row for the "No data found" message
+            if (!found) {
+
+                var tableBody = document.querySelector("#add_pr tbody");
+                var noDataRow = tableBody.insertRow();
+                var cell = noDataRow.insertCell(0);
+                cell.colSpan = 7;
+                cell.textContent = "No data found.";
+                noDataRow.id = "noDataRow";
+            }
+
+        }
+        var searchInput = document.getElementById("myInputx");
+        searchInput.addEventListener("keyup", searchTable);
     </script>
     <script>
         function addPurchaseRequestrData() {
@@ -441,7 +438,7 @@
                 var table_row = document.createElement("tr");
 
                 var checkBox = document.createElement("td");
-                checkBox.innerHTML =  ` <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">`
+                checkBox.innerHTML = ` <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">`
                 table_row.appendChild(checkBox)
 
                 var purchaserquest_no = document.createElement("td");

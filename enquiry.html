@@ -20,7 +20,7 @@
         }
 
         #table002 td,
-        th {
+        #table002 th {
             border: 1px solid rgb(235, 235, 235);
         }
 
@@ -32,17 +32,36 @@
 
 <body>
     <div class="row">
-        <div class="row justify-content-end">
-            <div class="col-lg-4 col-md-4 mb-2">
-                <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search" aria-label="Search"
-                    name="search">
-            </div>
-            <div class="col-lg-1 col-md-1">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
+        <div class="col lg-4">
+            <div class="form-group">
+                <label for="selectcustomerName1">Select Plant</label>
+                <select id="selectcustomerName1" class="selectpicker">
+                    <option>
+                        Select Plant</option>
+                    <option>Plant 1</option>
+
+                    <option>Plant 2</option>
+
+                    <option>Plant 3</option>
+
+                    <option>Plant 4</option>
+
+                </select>
             </div>
         </div>
+        <div class="col lg-4"></div>
+        <div class="col-lg-2">
+            <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search" aria-label="Search"
+                name="search">
+        </div>
+        <div class="col-lg-1 ">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+
 
     </div>
     <div class="row">
@@ -210,7 +229,7 @@
                                 <th>Item Name</th>
                                 <th>Item No</th>
                                 <th style="width: 102px;">Quantity</th>
-                                <th>Expected Delivery Date</th>
+                                <th>Requested Date</th>
                             </tr>
                         </thead>
                         <tr style="text-align: center;">
