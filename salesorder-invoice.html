@@ -100,19 +100,27 @@
 
 <body>
     <div class="main-container">
-        <a href="home.html" style="text-decoration: none;">
-            <h5 style="float: left;">Home/
-        </a> Sales Invoice</h5>
-        <br>
         <hr>
-        <br>
-
-      
         <br>
         <div class="container">
             <div class="row">
+                <div class="col lg-2">
+                </div>
+                <div class="col lg 8"></div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
+                        aria-label="Search " name="search">
+                </div>
+                <div class="col-lg-1 col-md-4 mt-3 mt-md-0" style="padding-left: 0px;">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
                 <div class="col-md-12">
-                    <table id="example" class="table table-striped table-bordered table-responsive table-hover">
+                    <table id="example" class="table table-responsive table-hover">
                         <thead class="bg-gradient">
 
                             <tr>
@@ -121,116 +129,112 @@
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Customer</th>
                                 <th class="text-center">Delivery Date</th>
+                                <th class="text-center">Status</th>
                                 <th class="text-center">Grand Total</th>
-                                <!-- <th class="text-center">Process Name</th> -->
-                                <th class="text-center">Details</th>
-                                <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
-                                    date</th> <th class="text-center">To date</th> <th
-                                    class="text-center">Production history</th> -->
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center" id="prodction_plan">
-                            <tr class="odd">
-                                <td class="sorting_1">23843</td>
-                                <td>xxxxx</td>
-                                <td>23</td>
-                                <td>yyyyy</td>
-                                <td>12/09/2023</td>
-
-                                <td>2340</td>
-                                <td><button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
-                                        style="border-radius: 2px;">View</button></td>
-                                <td>
-                                    <button type="button" class="btn btn-success" style="border-radius: 5px;">
-                                        <i class="fa fa-envelope" style=" font-size: smaller;" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd">
-                                <td class="sorting_1">23843</td>
-                                <td>xxxxx</td>
-                                <td>23</td>
-                                <td>yyyyy</td>
-                                <td>12/09/2023</td>
-
-                                <td>2340</td>
-                                <td><button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
-                                        style="border-radius: 2px;">View</button></td>
-                                <td>
-                                    <button type="button" class="btn btn-success" style="border-radius: 5px;">
-                                        <i class="fa fa-envelope" style=" font-size: smaller;" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd">
-                                <td class="sorting_1">23843</td>
-                                <td>xxxxx</td>
-                                <td>23</td>
-                                <td>yyyyy</td>
-                                <td>12/09/2023</td>
-
-                                <td>2340</td>
-                                <td><button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
-                                        style="border-radius: 2px;">View</button></td>
-                                <td>
-                                    <button type="button" class="btn btn-success" style="border-radius: 5px;">
-                                        <i class="fa fa-envelope" style=" font-size: smaller;" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="odd">
-                                <td class="sorting_1">23843</td>
-                                <td>xxxxx</td>
-                                <td>23</td>
-                                <td>yyyyy</td>
-                                <td>12/09/2023</td>
-
-                                <td>2340</td>
-                                <td><button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
-                                        style="border-radius: 2px;">View</button></td>
-                                <td>
-                                    <button type="button" class="btn btn-success" style="border-radius: 5px;">
-                                        <i class="fa fa-envelope" style=" font-size: smaller;" aria-hidden="true"></i>
-                                    </button>
-                                </td>
-                            </tr>
-
-                         
-                      
-                        </tbody>
+                        <tbody id="prodction_plan" style="text-align: center;"></tbody>
                     </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 mb-2"></div>
+                            <div class="col-lg-4 col-md-12 mb-2">
+                                <nav aria-label="..." id="page1">
+                                    <ul class="pagination justify-content-center" id="pagination1"></ul>
+                                </nav>
+                            </div>
+                            <div class="col-lg-4 col-md-12 mb-2"></div>
+                        </div>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- model for create production plan -->
-
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-
-        <div class="offcanvas-body">
-            ...
-        </div>
-    </div>
     <script>
-        $(document).ready(function () {
-            $('.js-example-basic-single').select2();
-        });
+
+        var dataTableInitialized = false;
+
+        function updateTableData() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        var response = xhr.responseText;
+                        var jsonData = JSON.parse(response);
+                        console.log(jsonData)
+                        updateDataToTable(jsonData.add_quotation);
+                        updateDropdownOption01(jsonData.add_quotation);
+                        updateDropdownOption02(jsonData.add_quotation);
+                        // Initialize DataTables if it hasn't been initialized already
+                        displayTableRows();
+                    }
+                    else {
+                        console.error("failed to get the data from server")
+                    }
+
+                }
+
+            }
+            xhr.open("GET", "09_add_quotation.json", true)
+            xhr.send();
+        }
+
+        function updateDataToTable(add_quotation) {
+            var tableBody = document.getElementById("prodction_plan")
+            var data = add_quotation;
+            for (var i = 0; i < data.length; i++) {
+                var datax = data[i];
+
+                var table_row = document.createElement("tr")
+
+                var quotation_number = document.createElement("td");
+                quotation_number.textContent = datax.q_no;
+                table_row.appendChild(quotation_number);
+
+                var quotation_product = document.createElement("td");
+                quotation_product.textContent = datax.q_product
+                table_row.appendChild(quotation_product);
+
+                var quotation_quantity = document.createElement("td");
+                quotation_quantity.textContent = datax.q_quantity
+                table_row.appendChild(quotation_quantity);
+
+                var quotation_customer = document.createElement("td");
+                quotation_customer.textContent = datax.q_c_name
+                table_row.appendChild(quotation_customer);
+
+                var quotation_dly_date = document.createElement("td");
+                quotation_dly_date.textContent = datax.q_dly_date
+                table_row.appendChild(quotation_dly_date);
+
+                var status = document.createElement("td");
+                var statusSpan = document.createElement("span");
+                statusSpan.className = "badge text-bg-warning";
+                statusSpan.textContent = datax.q_status;
+                status.appendChild(statusSpan);
+                table_row.appendChild(status);
+
+                var quotation_total = document.createElement("td");
+                quotation_total.textContent = datax.q_total
+                table_row.appendChild(quotation_total);
+
+                var action = document.createElement("td");
+                action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
+                table_row.appendChild(action);
+
+                tableBody.appendChild(table_row)
+            }
+        }
+        updateTableData()
+
+
     </script>
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('.js-example-basic-single').select2();
         });
     </script>
     <script type="text/javascript">
@@ -244,7 +248,6 @@
                     start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY')
                 );
             }
-
             $('#reportrange').daterangepicker({
                 startDate: start,
                 endDate: end,
@@ -262,11 +265,167 @@
                     ]
                 }
             }, cb);
-
             cb(start, end);
-
         });
     </script>
+
+    <script>
+        function searchTable() {
+            var inputx = document
+                .getElementById("myInputx")
+                .value
+                .toLowerCase();
+            var rowsx = document.querySelectorAll("#example tbody tr");
+
+            var found = false; // Variable to track if any matching rows are found
+
+            for (var i = 0; i < rowsx.length; i++) {
+                var rowx = rowsx[i];
+                var rollNumberCellx = rowx.cells[1]
+                    ? rowx
+                        .cells[1]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+                var customerNameCell = rowx.cells[3]
+                    ? rowx
+                        .cells[3]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+
+                var selectDeviceCellx = rowx.cells[2]
+                    ? rowx
+                        .cells[2]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+
+                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                    rowx.style.display = "";
+                    // displayTableRows();
+                    found = true;
+                } else {
+                    rowx.style.display = "none";
+
+                }
+            }
+            if (inputx === '') {
+                currentPage = 1;
+                displayTableRows();
+            }
+
+            var existingNoDataRow = document.getElementById("noDataRow");
+            if (existingNoDataRow) {
+                existingNoDataRow.remove();
+            }
+
+            // Create a new row for the "No data found" message
+            if (!found) {
+
+                var tableBody = document.querySelector("#example tbody");
+                var noDataRow = tableBody.insertRow();
+                var cell = noDataRow.insertCell(0);
+                cell.colSpan = 7;
+                cell.textContent = "No data found.";
+                noDataRow.id = "noDataRow";
+            }
+
+        }
+        var searchInput = document.getElementById("myInputx");
+        searchInput.addEventListener("keyup", searchTable);
+    </script>
+    <script>
+        var currentPage = 1;
+        var rowsPerPage = 10;
+        var pagesToShow = 5; // Number of pages to display in the pagination
+
+        function displayTableRows() {
+            var tableRows = document.querySelectorAll('#prodction_plan tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+            // Update the pagination based on the total number of pages
+            var paginationList = document.querySelector('.pagination');
+            paginationList.innerHTML = ''; // Clear existing items
+
+            // Add Previous button
+            var previousButton = document.createElement('li');
+            previousButton.className = 'page-item';
+            previousButton.id = 'previousButton';
+            previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+            previousButton.addEventListener('click', previousPage); // Add event listener
+            paginationList.appendChild(previousButton);
+
+            // Calculate the start and end page numbers to display
+            var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+            var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
+
+            // Add page items dynamically
+            for (var i = startPage; i <= endPage; i++) {
+                var pageItem = document.createElement('li');
+                pageItem.className = 'page-item';
+                if (i === currentPage) {
+                    pageItem
+                        .classList
+                        .add('active');
+                }
+                var pageLink = document.createElement('a');
+                pageLink.className = 'page-link';
+                pageLink.href = '#';
+                pageLink.textContent = i;
+                pageLink.onclick = function () {
+                    goToPage(parseInt(this.textContent));
+                };
+                pageItem.appendChild(pageLink);
+                paginationList.appendChild(pageItem);
+            }
+
+            // Add Next button
+            var nextButton = document.createElement('li');
+            nextButton.className = 'page-item';
+            nextButton.id = 'nextButton';
+            nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
+            nextButton.addEventListener('click', nextPage); // Add event listener
+            paginationList.appendChild(nextButton);
+
+            // Show/hide table rows based on current page
+            var startIndex = (currentPage - 1) * rowsPerPage;
+            var endIndex = startIndex + rowsPerPage;
+            for (var i = 0; i < tableRows.length; i++) {
+                if (i >= startIndex && i < endIndex) {
+                    tableRows[i].style.display = 'table-row';
+                } else {
+                    tableRows[i].style.display = 'none';
+                }
+            }
+        }
+
+        function goToPage(pageNumber) {
+            currentPage = pageNumber;
+            displayTableRows();
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                displayTableRows();
+            }
+        }
+
+        function nextPage() {
+            var tableRows = document.querySelectorAll('#prodction_plan tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayTableRows();
+            }
+        }
+
+        // Call displayTableRows() after defining the functions
+        displayTableRows();
+    </script>
+
 </body>
 
 </html>

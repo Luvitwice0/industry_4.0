@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quotation Managenment</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -160,131 +159,6 @@
                     </button>
                 </div>
             </div>
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <div class="offcanvas-overlay"></div>
-
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Quotation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <hr>
-                <div class="offcanvas-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
-                                class="form-control" id="prodId"></input> </div> -->
-                            <div class="input-field">
-                                <input type="text" required="required" id="q_no" spellcheck="false">
-                                <label>Quotation No</label>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectCustomerName">Choose Customer</label>
-                                    <select style="width:100%" id="selectCustomerName" class="js-example-basic-single">
-                                        <option>Chooose Product</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectProductName">Choose Product</label>
-                                    <select style="width:100%" id="selectProductName" class="js-example-basic-single">
-                                        <option>Chooose Product</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_quantity" spellcheck="false">
-                                    <label>Quantity</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_price" spellcheck="false">
-                                    <label>Price</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_hsn" spellcheck="false">
-                                    <label>HSN code</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_gst" spellcheck="false">
-                                    <label>GST %</label>
-                                </div>
-                            </div>
-                            <br>
-                            <label class="form-label" for="formControlDisabled">Created Date</label>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="date" required="required" id="q_crt_date" spellcheck="false">
-                                </div>
-                            </div>
-                            <br>
-                            <label class="form-label" for="formControlDisabled">Delivery Date</label>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="date" required="required" id="q_dly_date" spellcheck="false">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_sh_ads" spellcheck="false">
-                                    <label>Ship to Address</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_bl_ads" spellcheck="false">
-                                    <label>Bill to Address</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="q_total" spellcheck="false">
-                                    <label>Grand Total</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="form-outline">
-                                    <label>Terms of Payment</label>
-                                    <textarea class="form-control" id="q_tp" rows="2"></textarea>
-                                </div>
-                            </div>
-                            <br>
-                            <!-- Textarea 2 rows height -->
-                            <div class="md-12">
-                                <div class="form-outline">
-                                    <label>Terms of Delivery</label>
-                                    <textarea class="form-control" id="q_td" rows="2"></textarea>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                        <div class="row">
-                            <button type="button" style="margin-left: 12px;" class="btn btn-primary"
-                                onclick="addQuotationData()"><i class="fa fa-check"></i> <b>Save</b> </button>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <br>
@@ -328,13 +202,125 @@
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">Add Quotation</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
 
 
             <div class="offcanvas-body">
-                ...
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                            class="form-control" id="prodId"></input> </div> -->
+                        <div class="input-field">
+                            <input type="text" required="required" id="q_no" spellcheck="false">
+                            <label>Quotation No</label>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="selectCustomerName">Choose Customer</label>
+                                <select style="width:100%" id="selectCustomerName" class="js-example-basic-single">
+                                    <option>Chooose Product</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="selectProductName">Choose Product</label>
+                                <select style="width:100%" id="selectProductName" class="js-example-basic-single">
+                                    <option>Chooose Product</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="q_quantity" spellcheck="false">
+                                <label>Quantity</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="q_price" spellcheck="false">
+                                <label>Price</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="q_hsn" spellcheck="false">
+                                <label>HSN code</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="q_gst" spellcheck="false">
+                                <label>GST %</label>
+                            </div>
+                        </div>
+                        <br>
+                        <label class="form-label" for="formControlDisabled">Created Date</label>
+                        <div class="col-md-12">
+                            <div class="input-field">
+                                <input type="date" required="required" id="q_crt_date" spellcheck="false">
+                            </div>
+                        </div>
+                        <br>
+                        <label class="form-label" for="formControlDisabled">Delivery Date</label>
+                        <div class="col-md-12">
+                            <div class="input-field">
+                                <input type="date" required="required" id="q_dly_date" spellcheck="false">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="q_sh_ads" spellcheck="false">
+                                <label>Ship to Address</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="q_bl_ads" spellcheck="false">
+                                <label>Bill to Address</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="input-field">
+                                <input type="text" required="required" id="q_total" spellcheck="false">
+                                <label>Grand Total</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="md-12">
+                            <div class="form-outline">
+                                <label>Terms of Payment</label>
+                                <textarea class="form-control" id="q_tp" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Textarea 2 rows height -->
+                        <div class="md-12">
+                            <div class="form-outline">
+                                <label>Terms of Delivery</label>
+                                <textarea class="form-control" id="q_td" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="row">
+                        <button type="button" style="margin-left: 12px;" class="btn btn-primary"
+                            onclick="addQuotationData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                    </div>
+                    <br>
+                </div>
             </div>
         </div>
         <script>

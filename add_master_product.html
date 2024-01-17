@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Master Product Management</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -172,135 +172,7 @@
                 </div>
                 <hr>
                 <div class="offcanvas-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
-                            class="form-control" id="prodId"></input> </div> -->
-                            <div class="input-field">
-                                <input type="text" required="required" id="i_name" spellcheck="false">
-                                <label>Product Name</label>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                class="form-control" id="orderNo"></input> </div> -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="i_no" spellcheck="false">
-                                    <label>Product No</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectMachineName">Machine Name</label>
-                                    <select style="width:100%" id="selectMachineName" class="js-example-basic-single">
-                                        <option>Select Drop Machine</option>
 
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectProcessName">Process Name</label>
-                                    <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
-                                        <option>Select Drop Process</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="prodQuantity">Production
-                                Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
-                                -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="i_hsn" spellcheck="false">
-                                    <label>HSN Code</label>
-                                </div>
-                            </div> <br>
-                            <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="prodQuantity">Production
-                                Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
-                                -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="i_gst" spellcheck="false">
-                                    <label>GST %</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>UoM (Unit of Measure)</p>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="s_uom" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Kg</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="s_uom" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">Liter</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="s_uom" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">mm</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="s_uom" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">cm</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectCategoryName">Choose Category</label>
-                                    <select style="width:100%" id="selectCategoryName" class="js-example-basic-single">
-                                        <option>Select Drop Category</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectSubitemName"> Choose SubItem</label>
-                                    <select style="width:100%" id="selectSubitemName" class="js-example-basic-single">
-                                        <option>Select Drop SubItem</option>
-
-                                    </select>
-                                </div>
-                            </div> <br>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="selectItemName">Choose Item</label>
-                                    <select style="width:100%" id="selectItemName" class="js-example-basic-single">
-                                        <option>Select Drop Item</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" id="i_total" spellcheck="false">
-                                    <label>Grand Total</label>
-                                </div>
-                            </div>
-                            <br>
-
-                        </div>
-                        <br>
-                        <div class="row">
-
-                            <button type="button" style="margin-left: 12px;" class=" btn btn-primary " onclick="
-                                addMasterProductData()"><i class="fa fa-check"></i> <b>Save</b> </button>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -344,13 +216,141 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Add Master Product</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
 
         <div class="offcanvas-body">
-            ...
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
+                    class="form-control" id="prodId"></input> </div> -->
+                    <div class="input-field">
+                        <input type="text" required="required" id="i_name" spellcheck="false">
+                        <label>Product Name</label>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                        class="form-control" id="orderNo"></input> </div> -->
+                        <div class="input-field">
+                            <input type="text" required="required" id="i_no" spellcheck="false">
+                            <label>Product No</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="selectMachineName">Machine Name</label>
+                            <select style="width:100%" id="selectMachineName" class="js-example-basic-single">
+                                <option>Select Drop Machine</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="selectProcessName">Process Name</label>
+                            <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
+                                <option>Select Drop Process</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <!-- <div class="form-group"> <label for="prodQuantity">Production
+                        Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
+                        -->
+                        <div class="input-field">
+                            <input type="text" required="required" id="i_hsn" spellcheck="false">
+                            <label>HSN Code</label>
+                        </div>
+                    </div> <br>
+                    <div class="col-md-12">
+                        <!-- <div class="form-group"> <label for="prodQuantity">Production
+                        Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
+                        -->
+                        <div class="input-field">
+                            <input type="text" required="required" id="i_gst" spellcheck="false">
+                            <label>GST %</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>UoM (Unit of Measure)</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="s_uom" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Kg</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="s_uom" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Liter</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="s_uom" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">mm</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="s_uom" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">cm</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="selectCategoryName">Choose Category</label>
+                            <select style="width:100%" id="selectCategoryName" class="js-example-basic-single">
+                                <option>Select Drop Category</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="selectSubitemName"> Choose SubItem</label>
+                            <select style="width:100%" id="selectSubitemName" class="js-example-basic-single">
+                                <option>Select Drop SubItem</option>
+
+                            </select>
+                        </div>
+                    </div> <br>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="selectItemName">Choose Item</label>
+                            <select style="width:100%" id="selectItemName" class="js-example-basic-single">
+                                <option>Select Drop Item</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+
+                        <div class="input-field">
+                            <input type="text" required="required" id="i_total" spellcheck="false">
+                            <label>Grand Total</label>
+                        </div>
+                    </div>
+                    <br>
+
+                </div>
+                <br>
+                <div class="row">
+
+                    <button type="button" style="margin-left: 12px;" class=" btn btn-primary " onclick="
+                        addMasterProductData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+
+                </div>
+            </div>
         </div>
     </div>
     <script>

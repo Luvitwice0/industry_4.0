@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Process Management</title>
 
-    <!-- Bootstrap CSS  -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
 
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
     <!-- Select2 CSS -->
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
-
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -26,14 +27,16 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
     <!-- Select2 JS -->
     <script src="assets/dist/js/select2.min.js"></script>
 
     <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
     <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <style>
     body {
@@ -46,9 +49,9 @@
         padding: 10px;
     }
 
-    .select2-container {
+    /* .select2-container {
         z-index: 3060;
-    }
+    } */
 
     .input-field {
         position: relative;
@@ -85,17 +88,13 @@
         color: #0d6efd;
     }
 
-
+    input:focus~label,
     input:valid~label {
         top: 0;
         left: 15px;
         font-size: 16px;
         padding: 0 2px;
         background-color: white;
-    }
-
-    .required-field {
-        border: 2px solid #f80000 !important;
     }
 
     body.offcanvas-active {
@@ -133,31 +132,21 @@
         font-weight: bolder;
     }
 
-    /* table,
-    tr,
-    td{
-        
-                border: 1px solid rgb(136, 136, 136);
-                border-collapse: collapse;
-                width: fit-content;
-                text-align: center;
-
-            
-    } */
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
 </style>
 
 <body>
     <div class="main-container">
 
         <br>
-
         <div class="container">
             <div class="row">
                 <div class="col lg-2">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
-                        <b>Add
-                            Plant</b>
+                        <b>Add Process </b>
                     </button>
                 </div>
                 <div class="col lg 8"></div>
@@ -171,85 +160,6 @@
                     </button>
                 </div>
             </div>
-
-
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <div class="offcanvas-overlay"></div>
-
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add Unit</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <hr>
-                <div class=" offcanvas-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="input-field">
-                                <input type="text" required="required" spellcheck="false" id="p_name">
-                                <label for="p_name">Unit Name</label>
-                            </div>
-                            <br>
-
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_ph_no">
-                                    <label for="p_ph_no">Phone Number</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_email">
-                                    <label for="p_email">Email Id</label>
-                                </div>
-                            </div> <br>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_tax_id">
-                                    <label for="p_tax_id">GST No</label>
-                                </div>
-                            </div>
-                            <br>
-
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_city">
-                                    <label for="p_city">City</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_state">
-                                    <label for="p_state">State</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_addrs">
-                                    <label for="p_addrs">Address</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" id="p_pin_code">
-                                    <label for="p_pin_code">Pin Code</label>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                        <div class="row">
-                            <button type="button" style="margin-left: 12px;" class="btn btn-primary "
-                                onclick="addPlantData()"><i class="fa fa-check"></i> <b>Save</b> </button>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-            </div>
         </div>
         <br>
         <div class="container">
@@ -258,10 +168,8 @@
                     <table id="example" class="table  table-responsive table-hover">
                         <thead class="bg-gradient">
                             <tr>
-                                <th class="text-center">Unit Name</th>
-                                <th class="text-center">Phone no</th>
-                                <th class="text-center">State</th>
-                                <th class="text-center">Tax Id</th>
+
+                                <th class="text-center">Process Name</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -284,59 +192,34 @@
             </div>
         </div>
     </div>
-
     <!-- model for create production plan -->
-
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Plant Details</h5>
-
+            <h5 class="offcanvas-title" id="offcanvasRightLabel"> Add Process</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+
         <hr>
         <div class="offcanvas-body">
-            <table style="width: 100%; height: 50%;">
-                <tbody>
-                    <tr>
-                        <td>Unit Name:</td>
-                        <td>Unit001</td>
-                    </tr>
-                    <tr>
-                        <td>Phone Number:</td>
-                        <td>997978864</td>
-                    </tr>
-                    <tr>
-                        <td>Email Id:</td>
-                        <td>abc@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>GST No:</td>
-                        <td>5678999975</td>
-                    </tr>
-                    <tr>
-                        <td>City:</td>
-                        <td>Hosur</td>
-                    </tr>
-                    <tr>
-                        <td>State:</td>
-                        <td>TamilNadu</td>
-                    </tr>
-                    <tr>
-                        <td>Address:</td>
-                        <td>2/122,abc nagar, Hosur.</td>
-                    </tr>
-                    <tr>
-                        <td>Pin Code:</td>
-                        <td>645111</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-field">
+                        <input type="text" required="required" id="pr_name" spellcheck="false">
+                        <label>Process Name</label>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <button type="button" style="margin-left: 12px;" class="btn btn-primary " onclick="addProcess()"><i
+                            class="fa fa-check"></i> <b>Save</b> </button>
+                </div>
+                <br>
+            </div>
         </div>
     </div>
-
     <script>
-        function addPlantData() {
-            var fields = ["p_name", "p_tax_id", "p_pin_code", "p_city", "p_addrs", "p_ph_no", "p_email", "p_state"];
+        function addProcess() {
+            var fields = ["pr_name"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -358,43 +241,26 @@
                 return;
             }
 
-            var p_name = document.getElementById("p_name").value;
-            var p_tax_id = document.getElementById("p_tax_id").value;
-            var p_pin_code = document.getElementById("p_pin_code").value;
-            var p_city = document.getElementById("p_city").value;
-            var p_addrs = document.getElementById("p_addrs").value;
-            var p_ph_no = document.getElementById("p_ph_no").value;
-            var p_email = document.getElementById("p_email").value;
-            var p_state = document.getElementById("p_state").value;
+            var pr_name = document.getElementById("pr_name").value;
 
-            var JsonDataAddPlant =
+
+
+            var JsonDataAddprocess =
             {
-                plant_name: p_name,
-                plant_taxID: p_tax_id,
-                plant_pinCode: p_pin_code,
-                plant_city: p_city,
-                plant_address: p_addrs,
-                plant_phoneNo: p_ph_no,
-                plant_email: p_email,
-                plant_state: p_state
+                process_name: pr_name,
+
             };
 
-            console.log(JsonDataAddPlant);
+            console.log(JsonDataAddprocess);
 
-            document.getElementById("p_name").value = "";
-            document.getElementById("p_tax_id").value = "";
-            document.getElementById("p_pin_code").value = "";
-            document.getElementById("p_city").value = "";
-            document.getElementById("p_addrs").value = "";
-            document.getElementById("p_ph_no").value = "";
-            document.getElementById("p_email").value = "";
-            document.getElementById("p_state").value = "";
+            document.getElementById("pr_name").value = "";
+
         }
 
     </script>
 
-    <script>
 
+    <script>
         var dataTableInitialized = false;
 
         function updateTableData() {
@@ -406,60 +272,59 @@
                         var response = xhr.responseText;
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
-                        updateDataToTable(jsonData.add_plant);
+                        updateDataToTable(jsonData.add_process);
                         displayTableRows();
-                        // Initialize DataTables if it hasn't been initialized already
-                    }
 
+                        // Initialize DataTables if it hasn't been initialized already
+
+                    }
+                    else {
+                        console.error("failed to get the data from server")
+                    }
 
                 }
 
             }
-            xhr.open("GET", "01_add_plant.json", true)
+            xhr.open("GET", "03_add_process.json", true)
             xhr.send();
         }
 
-        function updateDataToTable(add_plant) {
-            var tableBody = document.getElementById("prodction_plan")
-            var data = add_plant;
+        function updateDataToTable(jsonDatax) {
+            var data = jsonDatax
             for (var i = 0; i < data.length; i++) {
+                var taleBody = document.getElementById("prodction_plan");
+
                 var datax = data[i];
+                // var uomx = datax.p_uom;
+                // console.log(uomx)
 
-                var p_add_plant = document.createElement("tr")
+                var tableRow = document.createElement("tr");
 
-                var p_name = document.createElement("td");
-                p_name.textContent = datax.p_name;
-                p_add_plant.appendChild(p_name);
+                var process_name = document.createElement("td");
+                process_name.textContent = datax.pr_name;
+                tableRow.appendChild(process_name);
 
-                var p_phone_no = document.createElement("td");
-                p_phone_no.textContent = datax.p_ph;
-                p_add_plant.appendChild(p_phone_no);
-
-                var p_state = document.createElement("td");
-                p_state.textContent = datax.p_state;
-                p_add_plant.appendChild(p_state);
-
-                var tax_id = document.createElement("td");
-                tax_id.textContent = datax.p_tax_id
-                p_add_plant.appendChild(tax_id);
 
                 var action = document.createElement("td");
-                action.innerHTML =
-                    `<i class="fa fa-trash" style="cursor:pointer"></i>`;
-                p_add_plant.appendChild(action);
+                action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
+                tableRow.appendChild(action);
 
-                tableBody.appendChild(p_add_plant)
+                taleBody.appendChild(tableRow);
+
             }
         }
-        updateTableData()
+
+        updateTableData();
+
+
     </script>
     <script>
-        function addRawItemData(rowIndex) {
-            var delectCellRow = rowIndex
-            console.log(delectCellRow);
+        function deleteRow(rowIndex) {
+            var clickedRow = rowIndex;
+
+            console.log(clickedRow)
         }
     </script>
-
     <script>
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
@@ -656,7 +521,6 @@
         // Call displayTableRows() after defining the functions
         displayTableRows();
     </script>
-
 </body>
 
 </html>

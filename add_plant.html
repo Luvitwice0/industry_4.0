@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Unit Management</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
 
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
     <!-- Select2 CSS -->
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -27,16 +26,14 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
     <!-- Select2 JS -->
     <script src="assets/dist/js/select2.min.js"></script>
 
     <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
     <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <style>
     body {
@@ -88,7 +85,7 @@
         color: #0d6efd;
     }
 
-    input:focus~label,
+
     input:valid~label {
         top: 0;
         left: 15px;
@@ -135,12 +132,25 @@
         margin-right: 5px;
         font-weight: bolder;
     }
+
+    /* table,
+    tr,
+    td{
+        
+                border: 1px solid rgb(136, 136, 136);
+                border-collapse: collapse;
+                width: fit-content;
+                text-align: center;
+
+            
+    } */
 </style>
 
 <body>
     <div class="main-container">
 
         <br>
+
         <div class="container">
             <div class="row">
                 <div class="col lg-2">
@@ -161,126 +171,18 @@
                     </button>
                 </div>
             </div>
-
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <div class="offcanvas-overlay"></div>
-
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Add SalesInvoice</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <hr>
-                <div class="offcanvas-body">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="input-field">
-                                <input type="text" required="required" spellcheck="false" value="1234565CS" id="si_no">
-                                <label>Sales Invoice No</label>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" value="1234565SDFS"
-                                        id="so_no">
-                                    <label>SalesOrder No</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" value="1234565SDFS"
-                                        id="si_v_name">
-                                    <label>Customer Name</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-md-12">
-
-                                <div class="input-field">
-                                    <input type="text" required="required" spellcheck="false" value="1234565SDFS"
-                                        id="si_product">
-                                    <label>Product Name</label>
-                                </div>
-                            </div><br>
-
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="si_quantity" value="DFDJJXBVHD"
-                                        spellcheck="false">
-                                    <label>Quantity</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="si_price" value="123" spellcheck="false">
-                                    <label>Price</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="si_adress" value="SFFHDJIFIWDVB"
-                                        spellcheck=" false">
-                                    <label>Address</label>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="si_branch" value="XVNDJVNDJ"
-                                        spellcheck="false">
-                                    <label>Branch</label>
-                                </div>
-                            </div>
-                            <br>
-                            <label class="form-label" for="formControlDisabled">Expected Delivery Date</label>
-                            <div class="col-md-12">
-                                <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
-                                class="form-control" id="orderNo"></input> </div> -->
-                                <div class="input-field">
-                                    <input type="text" required="required" id="si_dly_date" value="12/2/2023"
-                                        spellcheck="false" value="12/02/20323">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="md-12">
-                                <div class="input-field">
-                                    <input type="text" required="required" id="si_total" value="XVNDJVNDJ"
-                                        spellcheck="false">
-                                    <label>Grand Total</label>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                        <div class="row">
-                            <button type="button" style="margin-left: 12px;" class="btn btn-primary "
-                                onclick="addSalesInvoiceData()"><i class="fa fa-check"></i> <b>Save</b> </button>
-                        </div>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
         </div>
-
         <br>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <table id="example" class="table table-responsive table-hover">
+                    <table id="example" class="table  table-responsive table-hover">
                         <thead class="bg-gradient">
                             <tr>
-                                <th class="text-center">SalesOrder No</th>
-                                <th class="text-center">Customer</th>
-                                <th class="text-center">Product</th>
-                                <th class="text-center">Quantity</th>
-                                <th class="text-center">Total</th>
-                                <th class="text-center">Delivery Date</th>
+                                <th class="text-center">Unit Name</th>
+                                <th class="text-center">Phone no</th>
+                                <th class="text-center">State</th>
+                                <th class="text-center">Tax Id</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -306,21 +208,84 @@
 
     <!-- model for create production plan -->
 
-
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Add Plant</h5>
+
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-
-
+        <hr>
         <div class="offcanvas-body">
-            ...
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-field">
+                        <input type="text" required="required" spellcheck="false" id="p_name">
+                        <label for="p_name">Unit Name</label>
+                    </div>
+                    <br>
+
+                    <div class="md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_ph_no">
+                            <label for="p_ph_no">Phone Number</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_email">
+                            <label for="p_email">Email Id</label>
+                        </div>
+                    </div> <br>
+                    <div class="col-md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_tax_id">
+                            <label for="p_tax_id">GST No</label>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="col-md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_city">
+                            <label for="p_city">City</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_state">
+                            <label for="p_state">State</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_addrs">
+                            <label for="p_addrs">Address</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_pin_code">
+                            <label for="p_pin_code">Pin Code</label>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="row">
+                    <button type="button" style="margin-left: 12px;" class="btn btn-primary "
+                        onclick="addPlantData()"><i class="fa fa-check"></i> <b>Save</b> </button>
+                </div>
+                <br>
+            </div>
         </div>
     </div>
+
     <script>
-        function addSalesInvoiceData() {
-            var fields = ["si_no", "so_no", "si_v_name", "si_product", "si_quantity", "si_price", "si_adress", "si_branch", "si_dly_date", "si_total"];
+        function addPlantData() {
+            var fields = ["p_name", "p_tax_id", "p_pin_code", "p_city", "p_addrs", "p_ph_no", "p_email", "p_state"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -342,50 +307,40 @@
                 return;
             }
 
+            var p_name = document.getElementById("p_name").value;
+            var p_tax_id = document.getElementById("p_tax_id").value;
+            var p_pin_code = document.getElementById("p_pin_code").value;
+            var p_city = document.getElementById("p_city").value;
+            var p_addrs = document.getElementById("p_addrs").value;
+            var p_ph_no = document.getElementById("p_ph_no").value;
+            var p_email = document.getElementById("p_email").value;
+            var p_state = document.getElementById("p_state").value;
 
-            var si_no = document.getElementById("si_no").value;
-            var so_no = document.getElementById("so_no").value;
-            var si_v_name = document.getElementById("si_v_name").value;
-            var si_product = document.getElementById("si_product").value;
-            var si_quantity = document.getElementById("si_quantity").value;
-            var si_price = document.getElementById("si_price").value;
-            var si_branch = document.getElementById("si_branch").value;
-            var si_dly_date = document.getElementById("si_dly_date").value;
-            var si_adress = document.getElementById("si_adress").value;
-            var si_total = document.getElementById("si_total").value;
-
-            var JsonDataAddSalesInvoice =
+            var JsonDataAddPlant =
             {
-                salesinvoice_number: si_no,
-                salesorder_no: so_no,
-                salesinvoice_vendor_name: si_v_name,
-                salesinvoice_product: si_product,
-                salesinvoice_quantity: si_quantity,
-                salesinvoice_price: si_price,
-                salesinvoice_adress: si_adress,
-                salesinvoice_branch: si_branch,
-                salesinvoice_exp_date: si_dly_date,
-                salesinvoice_total: si_total,
-
+                plant_name: p_name,
+                plant_taxID: p_tax_id,
+                plant_pinCode: p_pin_code,
+                plant_city: p_city,
+                plant_address: p_addrs,
+                plant_phoneNo: p_ph_no,
+                plant_email: p_email,
+                plant_state: p_state
             };
 
-            console.log(JsonDataAddSalesInvoice);
+            console.log(JsonDataAddPlant);
 
-            document.getElementById("si_no").value = "";
-            document.getElementById("so_no").value = "";
-            document.getElementById("si_v_name").value = "";
-            document.getElementById("si_product").value = "";
-            document.getElementById("si_quantity").value = "";
-            document.getElementById("si_price").value = "";
-            document.getElementById("si_adress").value = "";
-            document.getElementById("si_branch").value = "";
-            document.getElementById("si_dly_date").value = "";
-            document.getElementById("si_total").value = "";
+            document.getElementById("p_name").value = "";
+            document.getElementById("p_tax_id").value = "";
+            document.getElementById("p_pin_code").value = "";
+            document.getElementById("p_city").value = "";
+            document.getElementById("p_addrs").value = "";
+            document.getElementById("p_ph_no").value = "";
+            document.getElementById("p_email").value = "";
+            document.getElementById("p_state").value = "";
         }
 
     </script>
-
-
 
     <script>
 
@@ -400,57 +355,49 @@
                         var response = xhr.responseText;
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
-                        updateDataToTable(jsonData.add_sales_invoice);
+                        updateDataToTable(jsonData.add_plant);
                         displayTableRows();
+                        // Initialize DataTables if it hasn't been initialized already
                     }
-                    else {
-                        console.error("failed to get the data from server")
-                    }
+
 
                 }
 
             }
-            xhr.open("GET", "15_salesorder_invoice.json", true)
+            xhr.open("GET", "01_add_plant.json", true)
             xhr.send();
         }
 
-        function updateDataToTable(add_sales_invoice) {
+        function updateDataToTable(add_plant) {
             var tableBody = document.getElementById("prodction_plan")
-            var data = add_sales_invoice;
+            var data = add_plant;
             for (var i = 0; i < data.length; i++) {
                 var datax = data[i];
 
-                var table_row = document.createElement("tr")
+                var p_add_plant = document.createElement("tr")
 
-                var purchase_order_no = document.createElement("td");
-                purchase_order_no.textContent = datax.si_no;
-                table_row.appendChild(purchase_order_no);
+                var p_name = document.createElement("td");
+                p_name.textContent = datax.p_name;
+                p_add_plant.appendChild(p_name);
 
-                var purchase_vendor_name = document.createElement("td");
-                purchase_vendor_name.textContent = datax.si_v_name
-                table_row.appendChild(purchase_vendor_name);
+                var p_phone_no = document.createElement("td");
+                p_phone_no.textContent = datax.p_ph;
+                p_add_plant.appendChild(p_phone_no);
 
-                var purchase_product = document.createElement("td");
-                purchase_product.textContent = datax.si_product
-                table_row.appendChild(purchase_product);
+                var p_state = document.createElement("td");
+                p_state.textContent = datax.p_state;
+                p_add_plant.appendChild(p_state);
 
-                var purchase_invoice_total = document.createElement("td");
-                purchase_invoice_total.textContent = datax.si_quantity
-                table_row.appendChild(purchase_invoice_total);
-
-                var purchase_invoice_total = document.createElement("td");
-                purchase_invoice_total.textContent = datax.si_total
-                table_row.appendChild(purchase_invoice_total);
-
-                var purchase_invoice_total = document.createElement("td");
-                purchase_invoice_total.textContent = datax.si_dly_date
-                table_row.appendChild(purchase_invoice_total);
+                var tax_id = document.createElement("td");
+                tax_id.textContent = datax.p_tax_id
+                p_add_plant.appendChild(tax_id);
 
                 var action = document.createElement("td");
-                action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
-                table_row.appendChild(action);
+                action.innerHTML =
+                    `<i class="fa fa-trash" style="cursor:pointer"></i>`;
+                p_add_plant.appendChild(action);
 
-                tableBody.appendChild(table_row)
+                tableBody.appendChild(p_add_plant)
             }
         }
         updateTableData()
@@ -658,6 +605,7 @@
         // Call displayTableRows() after defining the functions
         displayTableRows();
     </script>
+
 </body>
 
 </html>

@@ -46,21 +46,11 @@
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 8px;">
             <div class="form-group">
-                <label for="selectcustomerName">Select Plant</label>
-                <select style="width: 100%;" id="selectcustomerName" class="js-example-basic-single">
+                <label for="selectProductName">Select Plant</label>
+                <select style="width: 100%;" id="selectProductName" class="js-example-basic-single">
                     <option>
                         Select </option>
-                    <option>Select Drop Customer</option>
-
-                    <option>Select Drop Customer</option>
-
-                    <option>Select Drop Customer</option>
-
-                    <option>Select Drop Customer</option>
-
-                    <option>Select Drop Customer</option>
-
-                    <option>Select Drop Customer</option>
+                  
 
                 </select>
             </div>
@@ -95,7 +85,7 @@
 
     <br>
 
-    <table class="table table-hover text-center" id="main_table">
+    <table class="table table-hover text-center" id="example">
         <thead>
             <tr>
                 <th>PurchaseOrder No</th>
@@ -107,128 +97,21 @@
             </tr>
         </thead>
         <tbody id="prodction_plan">
-            <!-- <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr>
-            <tr>
-
-                <td>PO001</td>
-                <td>Enquiry001</td>
-                <td>12/03/2023</td>
-                <td>Vendor001</td>
-
-                <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
-                        class="btn btn-primary">Create Purchase Invoice
-
-                    </button>
-                </td>
-
-            </tr> -->
+           
         </tbody>
     </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-2"></div>
+            <div class="col-lg-4 col-md-12 mb-2">
+                <nav aria-label="..." id="page1">
+                    <ul class="pagination justify-content-center" id="pagination1"></ul>
+                </nav>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-2"></div>
+        </div>
+    </div>
+    <br>
     <!--Modal Master product details-->
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop002" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -344,12 +227,107 @@
         }
     </script>
     <script>
+
+        var dataTableInitialized = false;
+
+        function updateTableData() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        var response = xhr.responseText;
+                        var jsonData = JSON.parse(response);
+                        console.log(jsonData)
+                        
+                        updateDataToTable(jsonData.add_purchase_order);
+                        updateProductDropdown(jsonData.add_purchase_order);
+                        displayTableRows();
+                    }
+                    else {
+                        console.error("failed to get the data from server")
+                    }
+
+                }
+
+            }
+            xhr.open("GET", "11_add_purchase_order.json", true)
+            xhr.send();
+        }
+
+        function updateDataToTable(add_purchase_order) {
+            var tableBody = document.getElementById("prodction_plan")
+            var data = add_purchase_order;
+            for (var i = 0; i < data.length; i++) {
+                var datax = data[i];
+
+                var table_row = document.createElement("tr")
+
+                var purchase_order_no = document.createElement("td");
+                purchase_order_no.textContent = datax.po_no;
+                table_row.appendChild(purchase_order_no);
+
+                var purchase_vendor_name = document.createElement("td");
+                purchase_vendor_name.textContent = datax.po_v_name
+                table_row.appendChild(purchase_vendor_name);
+
+                var purchase_product = document.createElement("td");
+                purchase_product.textContent = datax.po_product
+                table_row.appendChild(purchase_product);
+
+                var purchase_expectedDate = document.createElement("td");
+                purchase_expectedDate.textContent = datax.po_exp_date
+                table_row.appendChild(purchase_expectedDate);
+
+
+
+
+                var action = document.createElement("td");
+                action.innerHTML = `<button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                        class="btn btn-primary">Create Purchase Invoice
+
+                    </button>`
+                table_row.appendChild(action);
+
+                tableBody.appendChild(table_row)
+            }
+        }
+        updateTableData()
+
+        function updateProductDropdown(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectProductName");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.po_product && employeeNames.indexOf(entry.po_product) === -1) {
+                    employeeNames.push(entry.po_product);
+
+                    var option = document.createElement("option");
+                    option.value = entry.po_product;
+                    option.textContent = entry.po_product;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+        updateTableData();
+
+
+    </script>
+
+    <script>
         function searchTable() {
             var inputx = document
                 .getElementById("myInputx")
                 .value
                 .toLowerCase();
-            var rowsx = document.querySelectorAll("#so-table tbody tr");
+            var rowsx = document.querySelectorAll("#example tbody tr");
 
             var found = false; // Variable to track if any matching rows are found
 
@@ -397,7 +375,7 @@
             // Create a new row for the "No data found" message
             if (!found) {
 
-                var tableBody = document.querySelector("#so-table tbody");
+                var tableBody = document.querySelector("#example tbody");
                 var noDataRow = tableBody.insertRow();
                 var cell = noDataRow.insertCell(0);
                 cell.colSpan = 7;
@@ -465,7 +443,7 @@
         var pagesToShow = 5; // Number of pages to display in the pagination
 
         function displayTableRows() {
-            var tableRows = document.querySelectorAll('#so-table tr');
+            var tableRows = document.querySelectorAll('#prodction_plan tr');
             var totalPages = Math.ceil(tableRows.length / rowsPerPage);
 
             // Update the pagination based on the total number of pages
@@ -537,7 +515,7 @@
         }
 
         function nextPage() {
-            var tableRows = document.querySelectorAll('#so-table tr');
+            var tableRows = document.querySelectorAll('#prodction_plan tr');
             var totalPages = Math.ceil(tableRows.length / rowsPerPage);
 
             if (currentPage < totalPages) {
