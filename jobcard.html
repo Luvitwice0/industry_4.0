@@ -251,7 +251,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create PO</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create JobCard</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -314,16 +314,7 @@
                             <br>
 
                         </div>
-                        <!-- <div class="row">
-                <button
-                    type="button"
-                    style="margin-left: 12px;"
-                    class="btn btn-primary "
-                    onclick="addJobCardData()">
-                    <i class="fa fa-check"></i>
-                    <b>Save</b>
-                </button>
-            </div> -->
+                       
                         <br>
                     </div>
                 </div>
@@ -405,9 +396,9 @@
                 "jc_number",
                 "o_name",
                 "mac_no",
-                "p_name",
-                "quantity",
-                "shift"
+                "selectcustomerName1",
+                "shift",
+                "quantity"
             ];
             var hasEmptyField = false;
 
@@ -415,19 +406,12 @@
                 var fieldId = fields[i];
                 var input = document.getElementById(fieldId);
 
-                var value = input
-                    .value
-                    .trim();
-
+                var value = input.value.trim()
                 if (value === "") {
-                    input
-                        .classList
-                        .add("required-field");
+                    input.classList.add("required-field");
                     hasEmptyField = true;
                 } else {
-                    input
-                        .classList
-                        .remove("required-field");
+                    input.classList.remove("required-field");
                 }
             }
 
@@ -435,29 +419,17 @@
                 return;
             }
 
-            var o_name = document
-                .getElementById("jc_number")
-                .value;
-            var o_name = document
-                .getElementById("o_name")
-                .value;
-            var machine_name = document
-                .getElementById("mac_no")
-                .value;
-            var plant_name = document
-                .getElementById("p_name")
-                .value;
-            var quantity = document
-                .getElementById("quantity")
-                .value;
-            var shift = document
-                .getElementById("shift")
-                .value;
+            var jc_num = document.getElementById("jc_number").value;
+            var o_name = document.getElementById("o_name").value;
+            var machine_name = document.getElementById("mac_no").value;
+            var plant_name = document.getElementById("selectcustomerName1").value;
+            var quantity = document.getElementById("shift").value;
+            var shift = document.getElementById("quantity").value;
             var JsonDataAddGRN = {
-                jobcard_no: jc_number,
+                jobcard_no: jc_num,
                 operator_name: o_name,
-                machine_name: mac_no,
-                plant_name: p_name,
+                machine_name: machine_name,
+                plant_name: plant_name,
                 quantity: quantity,
                 shift: shift
             };
@@ -474,13 +446,13 @@
                 .getElementById("mac_no")
                 .value = "";
             document
-                .getElementById("p_name")
-                .value = "";
-            document
-                .getElementById("quantity")
+                .getElementById("selectcustomerName1")
                 .value = "";
             document
                 .getElementById("shift")
+                .value = "";
+            document
+                .getElementById("quantity")
                 .value = "";
         }
     </script>
