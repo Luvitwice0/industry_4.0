@@ -274,27 +274,24 @@
                         <div class="col-md-12">
                             <p>UoM (Unit of Measure)</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Kg</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_kg" value="Kg">
+                                <label class="form-check-label" for="s_uom_kg">Kg</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Liter</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_liter" value="Liter">
+                                <label class="form-check-label" for="s_uom_liter">Liter</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">mm</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_mm" value="mm">
+                                <label class="form-check-label" for="s_uom_mm">mm</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">cm</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_cm" value="cm">
+                                <label class="form-check-label" for="s_uom_cm">cm</label>
                             </div>
                         </div>
                     </div>
+                    
                     <br>
                     <div class="col-md-12">
                         <div class="form-group">
@@ -345,7 +342,7 @@
     </div>
     <script>
         function addsubItemData() {
-            var fields = ["s_name", "s_no", "s_hsn", "s_gst", "s_uom", "s_total"];
+            var fields = ["s_name", "s_no", "s_hsn", "s_gst", "s_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -371,8 +368,16 @@
             var s_no = document.getElementById("s_no").value;
             var s_hsn = document.getElementById("s_hsn").value;
             var s_gst = document.getElementById("s_gst").value;
-            var s_uom = document.getElementById("s_uom").value;
+            var radioButtons = document.getElementsByName('inlineRadioOptions');
             var s_total = document.getElementById("s_total").value;
+
+            for (var i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                console.log(radioButtons[i].value);
+                var umo = radioButtons[i].values;
+                break; 
+            }
+        }
 
 
             var JsonDataAddSubItem =
@@ -381,7 +386,7 @@
                 sub_item_number: s_no,
                 sub_item_hsn: s_hsn,
                 sub_item_gst: s_gst,
-                sub_item_uom: s_uom,
+                uom:umo,
                 sub_item_total: s_total,
 
 
@@ -397,7 +402,6 @@
             document.getElementById("s_no").value = "";
             document.getElementById("s_hsn").value = "";
             document.getElementById("s_gst").value = "";
-            document.getElementById("s_uom").value = "";
             document.getElementById("s_total").value = "";
         }
 
