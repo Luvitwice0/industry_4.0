@@ -1,81 +1,81 @@
 {
     "add_machine": [
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Cutting Machine 1",
+            "m_no": "001",
+            "m_process": "Cutting",
+            "m_eff_hrs": "120",
+            "m_branch": "Chennai"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Welding Machine 2",
+            "m_no": "002",
+            "m_process": "Welding",
+            "m_eff_hrs": "90",
+            "m_branch": "Hosur"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Polishing Machine 3",
+            "m_no": "003",
+            "m_process": "Polishing",
+            "m_eff_hrs": "110",
+            "m_branch": "Chennai"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Assembly Machine 4",
+            "m_no": "004",
+            "m_process": "Assembling",
+            "m_eff_hrs": "95",
+            "m_branch": "Hosur"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Painting Machine 5",
+            "m_no": "005",
+            "m_process": "Painting",
+            "m_eff_hrs": "80",
+            "m_branch": "Chennai"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Testing Machine 6",
+            "m_no": "006",
+            "m_process": "Testing",
+            "m_eff_hrs": "130",
+            "m_branch": "Hosur"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
+            "m_name": "Packaging Machine 7",
+            "m_no": "007",
+            "m_process": "Packaging",
             "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_branch": "Chennai"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Labeling Machine 8",
+            "m_no": "008",
+            "m_process": "Labeling",
+            "m_eff_hrs": "85",
+            "m_branch": "Hosur"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Machining Center 9",
+            "m_no": "009",
+            "m_process": "Machining",
+            "m_eff_hrs": "110",
+            "m_branch": "Chennai"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Quality Check Machine 10",
+            "m_no": "010",
+            "m_process": "Quality Check",
+            "m_eff_hrs": "120",
+            "m_branch": "Hosur"
         },
         {
-            "m_name": "01_x_item",
-            "m_no": "0000",
-            "m_process": "x_kg",
-            "m_eff_hrs": "100",
-            "m_branch": "x_metal"
+            "m_name": "Shipping Machine 11",
+            "m_no": "011",
+            "m_process": "Shipping",
+            "m_eff_hrs": "95",
+            "m_branch": "Chennai"
         }
     ]
 }

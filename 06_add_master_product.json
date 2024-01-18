@@ -1,87 +1,87 @@
 {
     "add_master_product": [
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "High Strength Steel Plate",
+            "i_no": "SP001",
+            "i_uom": "kg",
+            "i_hsn": "7210",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Conductive Copper Wire",
+            "i_no": "CW002",
+            "i_uom": "kg",
+            "i_hsn": "7408",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Lightweight Aluminum Sheet",
+            "i_no": "AS003",
+            "i_uom": "kg",
+            "i_hsn": "7606",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Corrosion Resistant Stainless Steel Bolt",
+            "i_no": "SSB004",
+            "i_uom": "piece",
+            "i_hsn": "7318",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Durable Brass Tube",
+            "i_no": "BT005",
+            "i_uom": "meter",
+            "i_hsn": "7411",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "High Temperature Resistant Titanium Rod",
+            "i_no": "TR006",
+            "i_uom": "kg",
+            "i_hsn": "8108",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Weatherproof Galvanized Nail",
+            "i_no": "GN007",
+            "i_uom": "piece",
+            "i_hsn": "7317",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Decorative Bronze Plate",
+            "i_no": "BP008",
+            "i_uom": "kg",
+            "i_hsn": "7409",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "High Strength Nickel Alloy Bolt",
+            "i_no": "NAB009",
+            "i_uom": "piece",
+            "i_hsn": "7318",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Conductive Cobalt Wire",
+            "i_no": "CW010",
+            "i_uom": "meter",
+            "i_hsn": "7505",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Corrosion Resistant Zinc Coated Sheet",
+            "i_no": "ZCS011",
+            "i_uom": "kg",
+            "i_hsn": "7210",
             "i_total": "1000"
         },
         {
-            "i_name": "01_x_item",
-            "i_no": "0000",
-            "i_uom": "x_kg",
-            "i_hsn": "100",
+            "i_name": "Heavy Duty Lead Pipe",
+            "i_no": "LP012",
+            "i_uom": "meter",
+            "i_hsn": "7806",
             "i_total": "1000"
         }
     ]

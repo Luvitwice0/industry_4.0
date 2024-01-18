@@ -1,148 +1,144 @@
 {
     "add_item": [
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Steel Plate",
+            "s_sub_name": "High Strength",
+            "s_no": "001",
+            "s_price": "120",
+            "s_uom": "kg"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Copper Wire",
+            "s_sub_name": "Conductive",
+            "s_no": "002",
+            "s_price": "150",
+            "s_uom": "meter"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Aluminum Sheet",
+            "s_sub_name": "Lightweight",
+            "s_no": "003",
+            "s_price": "90",
+            "s_uom": "kg"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Stainless Steel Bolt",
+            "s_sub_name": "Corrosion Resistant",
+            "s_no": "004",
+            "s_price": "2",
+            "s_uom": "piece"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Brass Tube",
+            "s_sub_name": "Durable",
+            "s_no": "005",
+            "s_price": "180",
+            "s_uom": "meter"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Titanium Rod",
+            "s_sub_name": "High Temperature Resistance",
+            "s_no": "006",
+            "s_price": "250",
+            "s_uom": "kg"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Galvanized Nail",
+            "s_sub_name": "Weatherproof",
+            "s_no": "007",
+            "s_price": "1",
+            "s_uom": "piece"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Bronze Plate",
+            "s_sub_name": "Decorative",
+            "s_no": "008",
+            "s_price": "200",
+            "s_uom": "kg"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Nickel Alloy Bolt",
+            "s_sub_name": "High Strength",
+            "s_no": "009",
+            "s_price": "3",
+            "s_uom": "piece"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Cobalt Wire",
+            "s_sub_name": "Conductive",
+            "s_no": "010",
+            "s_price": "300",
+            "s_uom": "meter"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Zinc Coated Sheet",
+            "s_sub_name": "Corrosion Resistant",
+            "s_no": "011",
+            "s_price": "80",
+            "s_uom": "kg"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Lead Pipe",
+            "s_sub_name": "Heavy Duty",
+            "s_no": "012",
+            "s_price": "120",
+            "s_uom": "meter"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Steel Plate",
+            "s_sub_name": "High Strength",
+            "s_no": "013",
+            "s_price": "120",
+            "s_uom": "kg"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Copper Wire",
+            "s_sub_name": "Conductive",
+            "s_no": "014",
+            "s_price": "150",
+            "s_uom": "meter"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Aluminum Sheet",
+            "s_sub_name": "Lightweight",
+            "s_no": "015",
+            "s_price": "90",
+            "s_uom": "kg"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Stainless Steel Bolt",
+            "s_sub_name": "Corrosion Resistant",
+            "s_no": "016",
+            "s_price": "2",
+            "s_uom": "piece"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Brass Tube",
+            "s_sub_name": "Durable",
+            "s_no": "017",
+            "s_price": "180",
+            "s_uom": "meter"
         },
         {
-            "s_name": "1_x_item",
-            "s_no": "1278900",
-            "s_price": "2345",
-            "s_uom": "kg",
-            "s_subitem": "x_id",
-            "s_item": "x_id"
+            "s_name": "Titanium Rod",
+            "s_sub_name": "High Temperature Resistance",
+            "s_no": "018",
+            "s_price": "250",
+            "s_uom": "kg"
+        },
+        {
+            "s_name": "Galvanized Nail",
+            "s_sub_name": "Weatherproof",
+            "s_no": "019",
+            "s_price": "1",
+            "s_uom": "piece"
+        },
+        {
+            "s_name": "Bronze Plate",
+            "s_sub_name": "Decorative",
+            "s_no": "020",
+            "s_price": "200",
+            "s_uom": "kg"
         }
     ]
 }

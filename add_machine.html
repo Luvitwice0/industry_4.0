@@ -240,7 +240,7 @@
                         </div>
                         <br>
                         <div class="col-md-12">
-                            <label for="selectBranchName">Plant Name</label>
+                            <label for="selectBranchName">Branch Name</label>
                             <select style="width:100%" id="selectBranchName" class="js-example-basic-single">
                                 <option>Select Drop Customer</option>
                             </select>
@@ -259,7 +259,7 @@
 
         <script>
             function addMachineData() {
-                var fields = ["m_name", "m_no", "m_eff_hrs","selectProcessName", "selectBranchName"];
+                var fields = ["m_name", "m_no", "m_eff_hrs", "selectProcessName", "selectBranchName"];
                 var hasEmptyField = false;
 
                 for (var i = 0; i < fields.length; i++) {
@@ -292,9 +292,9 @@
                 {
                     machine_name: m_name,
                     machine_no: m_no,
-                    process_name : p_name,
+                    process_name: p_name,
                     machine_efficient_runnning_hours: m_eff_hrs,
-                    unit_name : u_name
+                    unit_name: u_name
 
                 };
 
@@ -305,7 +305,7 @@
                 document.getElementById("m_no").value = "";
                 var p_name = document.getElementById("selectProcessName").value = '';
                 document.getElementById("m_eff_hrs").value = "";
-                var u_name = document.getElementById("selectBranchName").value='';
+                var u_name = document.getElementById("selectBranchName").value = '';
 
 
             }

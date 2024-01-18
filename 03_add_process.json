@@ -1,40 +1,40 @@
 {
     "add_process": [
         {
-            "pr_name": "01_x_item"
+            "pr_name": "Cutting"
         },
         {
-            "pr_name": "02_x_item"
+            "pr_name": "Welding"
         },
         {
-            "pr_name": "03_x_item"
+            "pr_name": "Polishing"
         },
         {
-            "pr_name": "04_x_item"
+            "pr_name": "Assembling"
         },
         {
-            "pr_name": "05_x_item"
+            "pr_name": "Painting"
         },
         {
-            "pr_name": "06_x_item"
+            "pr_name": "Quality Check"
         },
         {
-            "pr_name": "07_x_item"
+            "pr_name": "Packaging"
         },
         {
-            "pr_name": "08_x_item"
+            "pr_name": "Labeling"
         },
         {
-            "pr_name": "09_x_item"
+            "pr_name": "Testing"
         },
         {
-            "pr_name": "10_x_item"
+            "pr_name": "Shipping"
         },
         {
-            "pr_name": "01_x_item"
+            "pr_name": "Cutting"
         },
         {
-            "pr_name": "11_x_item"
+            "pr_name": "Inspecting"
         }
     ]
 }

@@ -1,88 +1,88 @@
 {
     "add_raw_items": [
         {
-            "p_item_name": "01_x_item",
-            "p_item_no": "0000",
-            "p_uom": "x_kg",
-            "p_price": "100",
-            "type": "x_metal"
+            "p_item_name": "Steel Sheet",
+            "p_item_no": "001",
+            "p_uom": "kg",
+            "p_price": "120",
+            "type": "carbon_steel"
         },
         {
-            "p_item_name": "02_x_item",
-            "p_item_no": "0000",
-            "p_uom": "y_kg",
-            "p_price": "100",
-            "type": "y_metal"
+            "p_item_name": "Copper Wire",
+            "p_item_no": "002",
+            "p_uom": "meter",
+            "p_price": "150",
+            "type": "copper"
         },
         {
-            "p_item_name": "03_x_item",
-            "p_item_no": "0000",
-            "p_uom": "z_kg",
-            "p_price": "100",
-            "type": "z_metal"
+            "p_item_name": "Aluminum Plate",
+            "p_item_no": "003",
+            "p_uom": "kg",
+            "p_price": "90",
+            "type": "aluminum"
         },
         {
-            "p_item_name": "04_x_item",
-            "p_item_no": "0000",
-            "p_uom": "x_kg",
-            "p_price": "100",
-            "type": "x_metal"
+            "p_item_name": "Stainless Bolt",
+            "p_item_no": "004",
+            "p_uom": "piece",
+            "p_price": "2",
+            "type": "stainless_steel"
         },
         {
-            "p_item_name": "05_x_item",
-            "p_item_no": "0000",
-            "p_uom": "y_kg",
-            "p_price": "100",
-            "type": "y_metal"
+            "p_item_name": "Brass Tube",
+            "p_item_no": "005",
+            "p_uom": "meter",
+            "p_price": "180",
+            "type": "brass"
         },
         {
-            "p_item_name": "06_x_item",
-            "p_item_no": "0000",
-            "p_uom": "z_kg",
-            "p_price": "100",
-            "type": "z_metal"
+            "p_item_name": "Titanium Rod",
+            "p_item_no": "006",
+            "p_uom": "kg",
+            "p_price": "250",
+            "type": "titanium"
         },
         {
-            "p_item_name": "07_x_item",
-            "p_item_no": "0000",
-            "p_uom": "x_kg",
-            "p_price": "100",
-            "type": "x_metal"
+            "p_item_name": "Galvanized Nail",
+            "p_item_no": "007",
+            "p_uom": "piece",
+            "p_price": "1",
+            "type": "galvanized_steel"
         },
         {
-            "p_item_name": "08_x_item",
-            "p_item_no": "0000",
-            "p_uom": "y_kg",
-            "p_price": "100",
-            "type": "y_metal"
+            "p_item_name": "Bronze Plate",
+            "p_item_no": "008",
+            "p_uom": "kg",
+            "p_price": "200",
+            "type": "bronze"
         },
         {
-            "p_item_name": "09_x_item",
-            "p_item_no": "0000",
-            "p_uom": "z_kg",
-            "p_price": "100",
-            "type": "z_metal"
+            "p_item_name": "Nickel Bolt",
+            "p_item_no": "009",
+            "p_uom": "piece",
+            "p_price": "3",
+            "type": "nickel_alloy"
         },
         {
-            "p_item_name": "10_x_item",
-            "p_item_no": "0000",
-            "p_uom": "x_kg",
-            "p_price": "100",
-            "type": "x_metal"
+            "p_item_name": "Cobalt Wire",
+            "p_item_no": "010",
+            "p_uom": "meter",
+            "p_price": "300",
+            "type": "cobalt"
         },
         {
-            "p_item_name": "11_x_item",
-            "p_item_no": "0000",
-            "p_uom": "y_kg",
-            "p_price": "100",
-            "type": "y_metal"
+            "p_item_name": "Zinc Sheet",
+            "p_item_no": "011",
+            "p_uom": "kg",
+            "p_price": "80",
+            "type": "zinc"
         },
         {
-            "p_item_name": "12_x_item",
-            "p_item_no": "0000",
-            "p_uom": "z_kg",
-            "p_price": "100",
-            "type": "z_metal"
+            "p_item_name": "Lead Pipe",
+            "p_item_no": "012",
+            "p_uom": "meter",
+            "p_price": "120",
+            "type": "lead"
         }
     ]
 }
