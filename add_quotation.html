@@ -251,7 +251,7 @@
                             </div>
                             <br>
                             <button type="button" class="btn btn-primary" id="addSubItemButton"
-                                style="width: 25%; float: right; margin-left: 12px; margin-top: 10px;">Add</button>
+                                style="width: 15%; float: right; margin-left: 12px; margin-top: 10px;">Add</button>
                         </div>
                         <br>
                         <div class="row">
@@ -260,10 +260,10 @@
                                     style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
                                     <thead>
                                         <tr style="text-align: center;">
-                                            <th>Product</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Delete</th>
+                                            <th style="border: 1px solid black;">Product</th>
+                                            <th style="border: 1px solid black;">Quantity</th>
+                                            <th style="border: 1px solid black;">Price</th>
+                                            <th style="border: 1px solid black;">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody style="text-align: center;"></tbody>
@@ -321,6 +321,61 @@
                             onclick="addQuotationData()"><i class="fa fa-check"></i> <b>Save</b> </button>
                     </div>
                     <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="view_product001" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Item Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-hover text-center"
+                                        style="width:100%; border: 1px solid black; ">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-md-2">Product</th>
+                                                <th class="col-md-2">Quantity</th>
+                                                <th class="col-md-2">Price</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody style="vertical-align: middle;">
+                                            <tr>
+                                                <td>Aluminium Foil</td>
+                                                <td>12</td>
+                                                <td>1200</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>wood Table</td>
+                                                <td>50</td>
+                                                <td>5000</td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>Titanium Cupboard</td>
+                                                <td>50</td>
+                                                <td>12000</td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -458,7 +513,8 @@
 
 
                     var action = document.createElement("td");
-                    action.innerHTML = `<button class="btn btn-secondary">View Products</button>`;
+                    action.innerHTML = `<button class="btn btn-secondary"  data-bs-toggle="modal"
+                        data-bs-target="#view_product001">View Products</button>`;
                     table_row.appendChild(action);
 
                     var status = document.createElement("td");
