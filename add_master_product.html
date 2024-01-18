@@ -284,18 +284,18 @@
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addSubItemButton"
-                            style="width: 25%; float: right;">Add</button>
+                            style="width: 25%; float: right; margin-left: 12px; margin-top: 10px;">Add</button>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-12">
                             <table id="productTable" class="response"
-                                style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
+                                style="width: 100%; border: 1px solid black; border: 1px solid black;">
                                 <thead>
-                                    <tr style="text-align: center;">
-                                        <th>Sub Items</th>
-                                        <th>Quantity</th>
-                                        <th>Delete</th>
+                                    <tr style="text-align: center; border: 1px solid black;">
+                                        <th style="border: 1px solid black;">Sub Items</th>
+                                        <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center;"></tbody>
@@ -318,7 +318,7 @@
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addItemButton"
-                            style="width: 25%; float: right;">Add</button>
+                            style="width: 25%; float: right;margin-left: 12px; margin-top: 10px;">Add</button>
                     </div>
                     <br>
                     <div class="row">
@@ -777,7 +777,7 @@
                 newRow.innerHTML = `
             <td style="border: 1px solid #000000;">${quantity}</td>
             <td style="border: 1px solid #000000;">${date}</td>
-            <td><i class="fa fa-trash"></i></td>
+            <td style="border: 1px solid #000000; text-align:center;"><i class="fa fa-trash"></i></td>
         `;
 
                 productTableBody.appendChild(newRow);
