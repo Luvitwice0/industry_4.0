@@ -240,7 +240,7 @@
                         </div>
                     </div>
                     <br>
-                   
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="selectProcessName">Process Name</label>
@@ -415,10 +415,9 @@
                 product_hsn.textContent = datax.i_hsn
                 table_row.appendChild(product_hsn);
 
-                var product_total = document.createElement("td");
-                product_total.textContent = datax.i_total
-                table_row.appendChild(product_total);
-
+                var action = document.createElement("td");
+                action.innerHTML = `<button class="btn btn-secondary">View Items</button>`;
+                table_row.appendChild(action);
 
                 var action = document.createElement("td");
                 action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
