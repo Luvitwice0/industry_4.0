@@ -119,7 +119,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Item Name</th>
-                                <th>Item No</th>
+                                <th>Part No</th>
                                 <th style="width: 102px;">Quantity</th>
                                 <th>Requested Date</th>
                             </tr>
@@ -230,7 +230,6 @@
                         console.log(jsonData)
 
                         updateDataToTable(jsonData.add_purchase_order);
-                        updateProductDropdown(jsonData.add_purchase_order);
                         displayTableRows();
                     }
                     else {
@@ -283,28 +282,6 @@
         }
         updateTableData()
 
-        function updateProductDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectProductName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
-
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.po_product && employeeNames.indexOf(entry.po_product) === -1) {
-                    employeeNames.push(entry.po_product);
-
-                    var option = document.createElement("option");
-                    option.value = entry.po_product;
-                    option.textContent = entry.po_product;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
         updateTableData();
 
 
@@ -447,7 +424,7 @@
             previousButton.addEventListener('click', previousPage); // Add event listener
             paginationList.appendChild(previousButton);
 
-            // Calculate the start and end page numbers to display
+            
             var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
             var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
 

@@ -173,7 +173,6 @@
                                 <th class="text-center">Delivery date</th>
                                 <th class="text-center">Total</th>
                                 <th class="text-center">Details</th>
-                                <th class="text-center">Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -517,12 +516,7 @@
                         data-bs-target="#view_product001">View Products</button>`;
                     table_row.appendChild(action);
 
-                    var status = document.createElement("td");
-                    var statusSpan = document.createElement("span");
-                    statusSpan.className = "badge text-bg-warning";
-                    statusSpan.textContent = datax.q_status;
-                    status.appendChild(statusSpan);
-                    table_row.appendChild(status);
+
 
 
                     var action = document.createElement("td");
