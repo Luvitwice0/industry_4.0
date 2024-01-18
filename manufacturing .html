@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Management</title>
+    <title>Plant Management</title>
 
     <!-- Bootstrap CSS  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,6 +28,9 @@
 
     <!-- Select2 JS -->
     <script src="assets/dist/js/select2.min.js"></script>
+    <!-- Add this line to include the Indian States library -->
+    <script src="https://cdn.jsdelivr.net/npm/indian-states@1.0.0/dist/indian-states.min.js"></script>
+
 
     <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
     <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
@@ -156,8 +159,7 @@
                 <div class="col lg-2">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
-                        <b>Add
-                            Plant</b>
+                        <b>Manage Plant</b>
                     </button>
                 </div>
                 <div class="col lg 8"></div>
@@ -179,9 +181,10 @@
                     <table id="example" class="table  table-responsive table-hover">
                         <thead class="bg-gradient">
                             <tr>
-                                <th class="text-center">Unit Name</th>
-                                <th class="text-center">Phone no</th>
+                                <th class="text-center">Plant Name</th>
                                 <th class="text-center">State</th>
+                                <th class="text-center">Phone no</th>
+                                <th class="text-center">Email Id</th>
                                 <th class="text-center">Tax Id</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -220,10 +223,47 @@
                 <div class="col-md-12">
                     <div class="input-field">
                         <input type="text" required="required" spellcheck="false" id="p_name">
-                        <label for="p_name">Unit Name</label>
+                        <label for="p_name">Plant Name</label>
                     </div>
                     <br>
+                    <div class="col-md-12">
+                        <div class="input-field">
+                            <select class="form-select select2" id="p_state" required="required">
+                                <option value="" disabled selected>Select State</option>
+                                <!-- List of states in India -->
+                                <script>
+                                    var indianStates = [
+                                        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana",
+                                        "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+                                        "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
+                                        "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh",
+                                        "Dadra and Nagar Haveli", "Daman and Diu", "Lakshadweep", "Delhi", "Puducherry"
+                                    ];
 
+                                    indianStates.forEach(function (state) {
+                                        document.write('<option value="' + state + '">' + state + '</option>');
+                                    });
+                                </script>
+                            </select>
+                            <label for="p_state">State</label>
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(function () {
+                            // Initialize Select2
+                            $('.select2').select2();
+                        });
+                    </script>
+                    <br>
+
+                    <div class="col-md-12">
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="p_pin_code">
+                            <label for="p_pin_code">Pin Code</label>
+                        </div>
+                    </div>
+                    <br>
                     <div class="md-12">
                         <div class="input-field">
                             <input type="text" required="required" spellcheck="false" id="p_ph_no">
@@ -245,34 +285,6 @@
                     </div>
                     <br>
 
-                    <div class="col-md-12">
-                        <div class="input-field">
-                            <input type="text" required="required" spellcheck="false" id="p_city">
-                            <label for="p_city">City</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="md-12">
-                        <div class="input-field">
-                            <input type="text" required="required" spellcheck="false" id="p_state">
-                            <label for="p_state">State</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <div class="input-field">
-                            <input type="text" required="required" spellcheck="false" id="p_addrs">
-                            <label for="p_addrs">Address</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <div class="input-field">
-                            <input type="text" required="required" spellcheck="false" id="p_pin_code">
-                            <label for="p_pin_code">Pin Code</label>
-                        </div>
-                    </div>
-                    <br>
                 </div>
                 <div class="row">
                     <button type="button" style="margin-left: 12px;" class="btn btn-primary "
@@ -285,7 +297,7 @@
 
     <script>
         function addPlantData() {
-            var fields = ["p_name", "p_tax_id", "p_pin_code", "p_city", "p_addrs", "p_ph_no", "p_email", "p_state"];
+            var fields = ["p_name", "p_tax_id", "p_pin_code", "p_ph_no", "p_email", "p_state"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -310,8 +322,6 @@
             var p_name = document.getElementById("p_name").value;
             var p_tax_id = document.getElementById("p_tax_id").value;
             var p_pin_code = document.getElementById("p_pin_code").value;
-            var p_city = document.getElementById("p_city").value;
-            var p_addrs = document.getElementById("p_addrs").value;
             var p_ph_no = document.getElementById("p_ph_no").value;
             var p_email = document.getElementById("p_email").value;
             var p_state = document.getElementById("p_state").value;
@@ -321,23 +331,19 @@
                 plant_name: p_name,
                 plant_taxID: p_tax_id,
                 plant_pinCode: p_pin_code,
-                plant_city: p_city,
-                plant_address: p_addrs,
                 plant_phoneNo: p_ph_no,
                 plant_email: p_email,
                 plant_state: p_state
             };
 
             console.log(JsonDataAddPlant);
+            $('#p_state').val(null).trigger('change');
 
             document.getElementById("p_name").value = "";
             document.getElementById("p_tax_id").value = "";
             document.getElementById("p_pin_code").value = "";
-            document.getElementById("p_city").value = "";
-            document.getElementById("p_addrs").value = "";
             document.getElementById("p_ph_no").value = "";
             document.getElementById("p_email").value = "";
-            document.getElementById("p_state").value = "";
         }
 
     </script>
@@ -387,6 +393,10 @@
                 var p_state = document.createElement("td");
                 p_state.textContent = datax.p_state;
                 p_add_plant.appendChild(p_state);
+
+                var tax_id = document.createElement("td");
+                tax_id.textContent = datax.p_tax_id
+                p_add_plant.appendChild(tax_id);
 
                 var tax_id = document.createElement("td");
                 tax_id.textContent = datax.p_tax_id

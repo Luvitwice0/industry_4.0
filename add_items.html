@@ -145,7 +145,7 @@
                 <div class="col lg-2">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
-                        <b>Add Item </b>
+                        <b>Manage Item </b>
                     </button>
                 </div>
                 <div class="col lg 8"></div>
@@ -167,18 +167,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <table id="example" class="table  table-responsive table-hover">
+                <table id="example" class="table text-center  table-responsive table-hover">
                     <thead class="bg-gradient">
                         <tr>
                             <th class="text-center">Item Name</th>
-                            <th>Item no</th>
-                            <th>UoM</th>
-                            <th class="text-center">HSN Code</th>
-                            <th class="text-center">Sub Items</th>
-                            <th class="text-center">Items</th>
+                            <th>Part no</th>
                             <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
                                     date</th> <th class="text-center">To date</th> <th
                                     class="text-center">Production history</th> -->
+                            <th class="text-center">Details</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -233,72 +230,9 @@
                     <br>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="selectMachineName">Machine Name</label>
-                            <select style="width:100%" id="selectMachineName" class="js-example-basic-single">
-                                <option>Select Drop Machine</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <div class="form-group">
                             <label for="selectProcessName">Process Name</label>
                             <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
                                 <option>Select Drop Process</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="col-md-12">
-                        <!-- <div class="form-group"> <label for="prodQuantity">Production
-                        Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
-                        -->
-                        <div class="input-field">
-                            <input type="text" required="required" id="s_hsn" spellcheck="false">
-                            <label>HSN Code</label>
-                        </div>
-                    </div> <br>
-                    <div class="col-md-12">
-                        <!-- <div class="form-group"> <label for="prodQuantity">Production
-                        Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
-                        -->
-                        <div class="input-field">
-                            <input type="text" required="required" id="s_gst" spellcheck="false">
-                            <label>GST %</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>UoM (Unit of Measure)</p>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_kg" value="Kg">
-                                <label class="form-check-label" for="s_uom_kg">Kg</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_liter" value="Liter">
-                                <label class="form-check-label" for="s_uom_liter">Liter</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_mm" value="mm">
-                                <label class="form-check-label" for="s_uom_mm">mm</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="s_uom_cm" value="cm">
-                                <label class="form-check-label" for="s_uom_cm">cm</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <br>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectCategoryName">Choose Category</label>
-                            <select style="width:100%" id="selectCategoryName" class="js-example-basic-single">
-                                <option>Select Drop Category</option>
-
                             </select>
                         </div>
                     </div>
@@ -321,14 +255,6 @@
                         </div>
                     </div>
                     <br>
-                    <div class="col-md-12">
-
-                        <div class="input-field">
-                            <input type="text" required="required" id="s_total" spellcheck="false">
-                            <label>Grand Total</label>
-                        </div>
-                    </div>
-                    <br>
                 </div>
 
                 <div class="row">
@@ -342,7 +268,7 @@
     </div>
     <script>
         function addsubItemData() {
-            var fields = ["s_name", "s_no", "s_hsn", "s_gst", "s_total"];
+            var fields = ["s_name", "s_no", "selectProcessName", "s_hsn", "selectSubitemName", "selectItemName"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -366,43 +292,28 @@
 
             var s_name = document.getElementById("s_name").value;
             var s_no = document.getElementById("s_no").value;
-            var s_hsn = document.getElementById("s_hsn").value;
-            var s_gst = document.getElementById("s_gst").value;
-            var radioButtons = document.getElementsByName('inlineRadioOptions');
-            var s_total = document.getElementById("s_total").value;
-
-            for (var i = 0; i < radioButtons.length; i++) {
-            if (radioButtons[i].checked) {
-                console.log(radioButtons[i].value);
-                var umo = radioButtons[i].values;
-                break; 
-            }
-        }
-
+            var p_namex = document.getElementById("selectProcessName").value
+            var c_subItem = document.getElementById("selectSubitemName").value;
+            var c_item = document.getElementById("selectItemName").value
 
             var JsonDataAddSubItem =
             {
                 sub_item_name: s_name,
                 sub_item_number: s_no,
-                sub_item_hsn: s_hsn,
-                sub_item_gst: s_gst,
-                uom:umo,
-                sub_item_total: s_total,
+                process_Name: p_namex,
+                choose_subItem: c_subItem,
+                choos_item: c_item,
 
 
             };
 
             console.log(JsonDataAddSubItem);
-            $('#selectMachineName').val(null).trigger('change');
             $('#selectProcessName').val(null).trigger('change');
-            $('#selectCategoryName').val(null).trigger('change');
             $('#selectSubitemName').val(null).trigger('change');
             $('#selectItemName').val(null).trigger('change');
             document.getElementById("s_name").value = "";
             document.getElementById("s_no").value = "";
-            document.getElementById("s_hsn").value = "";
-            document.getElementById("s_gst").value = "";
-            document.getElementById("s_total").value = "";
+
         }
 
     </script>
@@ -419,9 +330,7 @@
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
                         updateDataToTable(jsonData.add_item);
-                        updateMachineDropdown(jsonData.add_item)
                         updateProcessDropdown(jsonData.add_item)
-                        updateCategoryDropdown(jsonData.add_item)
                         updateSubitemDropdown(jsonData.add_item)
                         updateItemDropdown(jsonData.add_item)
                         displayTableRows();
@@ -462,22 +371,14 @@
                 item_no.textContent = datax.s_no;
                 tableRow.appendChild(item_no);
 
-                var item_price = document.createElement("td");
-                item_price.textContent = datax.s_price;
-                tableRow.appendChild(item_price);
 
-                var item_uom = document.createElement("td");
-                item_uom.textContent = datax.s_uom;
-                tableRow.append(item_uom);
-
-                var item_subitem = document.createElement("td");
-                item_subitem.textContent = datax.s_subitem;
-                tableRow.append(item_subitem);
 
                 var item_item = document.createElement("td");
                 item_item.textContent = datax.s_item;
                 tableRow.append(item_item);
-
+                var action = document.createElement("td");
+                action.innerHTML = `<button class="btn btn-secondary">View Subitems</button>`;
+                tableRow.appendChild(action);
                 var action = document.createElement("td");
                 action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
                 tableRow.appendChild(action);
@@ -489,55 +390,9 @@
 
         updateTableData();
 
-        function updateMachineDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectMachineName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
-
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.s_name && employeeNames.indexOf(entry.s_name) === -1) {
-                    employeeNames.push(entry.s_name);
-
-                    var option = document.createElement("option");
-                    option.value = entry.s_name;
-                    option.textContent = entry.s_name;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
-
         function updateProcessDropdown(data) {
             console.log(1);
             var employeeSelect = document.getElementById("selectProcessName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
-
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.s_name && employeeNames.indexOf(entry.s_name) === -1) {
-                    employeeNames.push(entry.s_name);
-
-                    var option = document.createElement("option");
-                    option.value = entry.s_name;
-                    option.textContent = entry.s_name;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
-
-        function updateCategoryDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectCategoryName");
             employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
 
             var employeeNames = [];

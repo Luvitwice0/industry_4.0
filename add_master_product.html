@@ -185,9 +185,9 @@
                             <tr>
                                 <th class="text-center">Product Name</th>
                                 <th class="text-center">Product no</th>
-                                <th class="text-center">UoM</th>
                                 <th class="text-center">HSN Code</th>
-                                <th class="text-center">Total Price</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Details</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -240,16 +240,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectMachineName">Machine Name</label>
-                            <select style="width:100%" id="selectMachineName" class="js-example-basic-single">
-                                <option>Select Drop Machine</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <br>
+                   
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="selectProcessName">Process Name</label>
@@ -269,52 +260,7 @@
                             <label>HSN Code</label>
                         </div>
                     </div> <br>
-                    <div class="col-md-12">
-                        <!-- <div class="form-group"> <label for="prodQuantity">Production
-                        Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
-                        -->
-                        <div class="input-field">
-                            <input type="text" required="required" id="i_gst" spellcheck="false">
-                            <label>GST %</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>UoM (Unit of Measure)</p>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="s_uom" value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Kg</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="s_uom" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">Liter</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="s_uom" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">mm</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                    id="s_uom" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">cm</label>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectCategoryName">Choose Category</label>
-                            <select style="width:100%" id="selectCategoryName" class="js-example-basic-single">
-                                <option>Select Drop Category</option>
 
-                            </select>
-                        </div>
-                    </div>
-                    <br>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="selectSubitemName"> Choose SubItem</label>
@@ -337,7 +283,7 @@
 
                         <div class="input-field">
                             <input type="text" required="required" id="i_total" spellcheck="false">
-                            <label>Grand Total</label>
+                            <label>Total</label>
                         </div>
                     </div>
                     <br>
@@ -355,7 +301,7 @@
     </div>
     <script>
         function addMasterProductData() {
-            var fields = ["i_name", "i_no", "i_gst", "i_hsn", "i_total"];
+            var fields = ["i_name", "i_no", "i_hsn", "i_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -379,29 +325,35 @@
 
             var i_name = document.getElementById("i_name").value;
             var i_no = document.getElementById("i_no").value;
-            var i_gst = document.getElementById("i_gst").value;
+
+            var p_name = document.getElementById("selectProcessName").value;
+            var c_subItemx = document.getElementById("selectSubitemName").value;
+            var c_item = document.getElementById("selectItemName").value;
+
             var i_hsn = document.getElementById("i_hsn").value;
             var i_total = document.getElementById("i_total").value;
+
 
             var JsonDataAddItem =
             {
                 item_name: i_name,
                 item_number: i_no,
-                item_process: i_gst,
+                process_name: p_name,
+                choose_subItem: c_subItemx,
+                choose_item: c_item,
                 item_hsn: i_hsn,
                 item_grand_total: i_total,
 
             };
 
             console.log(JsonDataAddItem);
-            $('#selectMachineName').val(null).trigger('change');
+
             $('#selectProcessName').val(null).trigger('change');
-            $('#selectCategoryName').val(null).trigger('change');
             $('#selectSubitemName').val(null).trigger('change');
             $('#selectItemName').val(null).trigger('change');
             document.getElementById("i_name").value = "";
             document.getElementById("i_no").value = "";
-            document.getElementById("i_gst").value = "";
+
             document.getElementById("i_hsn").value = "";
             document.getElementById("i_total").value = "";
         }
@@ -422,9 +374,7 @@
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
                         updateDataToTable(jsonData.add_master_product);
-                        updateMachineDropdown(jsonData.add_master_product)
                         updateProcessDropdown(jsonData.add_master_product)
-                        updateCategoryDropdown(jsonData.add_master_product)
                         updateSubitemDropdown(jsonData.add_master_product)
                         updateItemDropdown(jsonData.add_master_product)
                         displayTableRows();
@@ -478,28 +428,7 @@
             }
         }
         updateTableData()
-        function updateMachineDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectMachineName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
 
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
-                    employeeNames.push(entry.i_name);
-
-                    var option = document.createElement("option");
-                    option.value = entry.i_name;
-                    option.textContent = entry.i_name;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
 
         function updateProcessDropdown(data) {
             console.log(1);
@@ -524,28 +453,7 @@
             }
         }
 
-        function updateCategoryDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectCategoryName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
 
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
-                    employeeNames.push(entry.i_name);
-
-                    var option = document.createElement("option");
-                    option.value = entry.i_name;
-                    option.textContent = entry.i_name;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
 
         function updateSubitemDropdown(data) {
             console.log(1);

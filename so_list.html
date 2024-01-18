@@ -11,7 +11,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
     <!-- BOOTSTRAP CSS -->
@@ -24,162 +26,173 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.2.0/css/tabulator.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha384-d56yE0tfrqxxqj5j9K3tgNQA9R2eHgHg9N6pKI3PmAK6gYUpGG3jYFJF3aCb7bZv" crossorigin="anonymous">
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                /* background: linear-gradient(109.6deg, rgb(180, 214, 242) 11.2%, rgba(72, 67, 221, 0.72) 100.2%); */
-                /* background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%); */
-                /* background: radial-gradient(circle at 10% 20%, rgb(145, 217, 243) 0%, rgb(147, 164, 243) 90%); */
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* background: linear-gradient(109.6deg, rgb(180, 214, 242) 11.2%, rgba(72, 67, 221, 0.72) 100.2%); */
+            /* background: radial-gradient(592px at 48.2% 50%, rgba(255, 255, 249, 0.6) 0%, rgb(160, 199, 254) 74.6%); */
+            /* background: radial-gradient(circle at 10% 20%, rgb(145, 217, 243) 0%, rgb(147, 164, 243) 90%); */
 
 
 
-            }
-        
-            #example-table {
-                margin: 10px;
-                max-width: 100vw;
-                background-color: #fff;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                /* overflow: auto; */
-                
+        }
+
+        #example-table {
+            margin: 10px;
+            max-width: 100vw;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* overflow: auto; */
+
+        }
+
+        .table-container {
+            /* max-height: 1000px; */
+            overflow-y: auto;
+
+        }
+
+        .tabulator-row {
+            border-bottom: 1px solid lightgray;
+            min-height: 40px;
+        }
+
+        .tabulator-col {
+            height: 40px;
+
+        }
+
+        .tabulator-col-title {
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .nested-row {
+            cursor: pointer;
+            color: black;
+            text-decoration: underline;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .workorder-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .jobcard {
+            padding: 5px;
+            margin-left: 20px;
+        }
+
+        /* Add this style for table borders in the modal */
+        #vertically-centered table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #vertically-centered th,
+        #vertically-centered td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .tabulator-pagination .tabulator-page[data-page="first"],
+        .tabulator-pagination .tabulator-page[data-page="last"],
+        .tabulator-pagination .tabulator-page[data-page="first"]+.tabulator-page,
+        .tabulator-pagination .tabulator-page[data-page="last"]+.tabulator-page {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container-fluid select {
+                margin-left: 40px;
             }
 
-            .table-container {
-                /* max-height: 1000px; */
-                overflow-y: auto;
-                
-            }
-        
-            .tabulator-row {
-                border-bottom: 1px solid lightgray;
-                min-height: 40px;
-            }
-        
-            .tabulator-col {
-                height: 40px;
-                
-            }
-        
-            .tabulator-col-title {
-                line-height: 40px;
-                text-align: center;
-            }
-        
-            .nested-row {
-                cursor: pointer;
-                color: black;
-                text-decoration: underline;
-            }
-        
-            .primary-btn {
-                display: inline-block;
-                padding: 8px 12px;
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-        
-            .workorder-card {
-                border: 1px solid #ccc;
-                padding: 10px;
-                margin-bottom: 10px;
-                cursor: pointer;
-            }
-        
-            .jobcard {
-                padding: 5px;
-                margin-left: 20px;
-            }
-        
-            /* Add this style for table borders in the modal */
-            #vertically-centered table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-        
-            #vertically-centered th,
-            #vertically-centered td {
-                border: 1px solid black;
-                padding: 10px;
-            }
-        
-            .tabulator-pagination .tabulator-page[data-page="first"],
-            .tabulator-pagination .tabulator-page[data-page="last"],
-            .tabulator-pagination .tabulator-page[data-page="first"] + .tabulator-page,
-            .tabulator-pagination .tabulator-page[data-page="last"] + .tabulator-page {
-                display: none;
+            .container-fluid .nav-item {
+                width: 34%;
             }
 
-            @media (max-width: 768px) {
-                .container-fluid select{ 
-                    margin-left: 40px;
-                 }
-                 .container-fluid .nav-item{
-                    width: 34%;
-                 }
-                 .container-fluid .d-flex{
-                    margin-top: 20px;
-                 }
+            .container-fluid .d-flex {
+                margin-top: 20px;
             }
-            
-        </style>
-        
-        
-        
-        
+        }
+    </style>
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.2.0/js/tabulator.min.js"></script>
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <i style="font-size: larger; padding-top: 11px; margin-left: 12px;" class="fa-solid fa-user"></i>
         <div class="container-fluid" style="margin-top: 12px;">
             <div>
-                <select style="width: 100%; height: 36px; color: gray; border-radius: 4px;" id="customerFilter" onchange="filterByCustomer()" >
+                <select style="width: 100%; height: 36px; color: gray; border-radius: 4px;" id="customerFilter"
+                    onchange="filterByCustomer()">
                     <option value="">Fiter by Customers</option>
                 </select>
-                
-            </div>
-          <a class="navbar-brand" href="#"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <i  style="font-size: larger;     margin-left: 2px; margin-right: 10px;" class="fa-solid fa-rotate"></i>
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <select style="width: 110%; height: 36px; color: gray; border-radius: 4px;" id="processFilter" onchange="filterByProcess()">
-                    <option value="">Filter by Process </option>
-                </select>
-              </li>
-            </ul>
-            <form class="d-flex">
-                <input style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px; width: 50%;" type="text" name="daterange" value="01/01/2024 - 01/15/2024" />
-                <i style="margin-right: 20px; border: none; font-size: larger; margin-top: 12px; margin-left: 6px" class="fas fa-filter"></i>
-                
-                <input type="text" id="table-search" placeholder="Search" class="form-control me-2" style="width: 50%;" >
-                <button style="background-color: white; color: black;" class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-          </div>
+            </div>
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <i style="font-size: larger;     margin-left: 2px; margin-right: 10px;" class="fa-solid fa-rotate"></i>
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <select style="width: 110%; height: 36px; color: gray; border-radius: 4px;" id="processFilter"
+                            onchange="filterByProcess()">
+                            <option value="">Filter by Process </option>
+                        </select>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input
+                        style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px; width: 50%;"
+                        type="text" name="daterange" value="01/01/2024 - 01/15/2024" />
+                    <i style="margin-right: 20px; border: none; font-size: larger; margin-top: 12px; margin-left: 6px"
+                        class="fas fa-filter"></i>
+
+                    <input type="text" id="table-search" placeholder="Search" class="form-control me-2"
+                        style="width: 50%;">
+                    <button style="background-color: white; color: black;" class="btn btn-outline-success"
+                        type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
         </div>
-      </nav>
+    </nav>
     <div id="example-table"></div>
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-           <div class="modal-content">
-              <div class="modal-header">
-                 <h5 class="modal-title">Modal Title</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body ">
-                <p>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    <p>
                     <table class="table table-striped">
                         <tr>
                             <th>WorkOrderID</th>
@@ -222,14 +235,14 @@
                             <td><i style="cursor: pointer;" class="fas fa-eye" onclick="openPopup()"></i></td>
                         </tr>
                     </table>
-                </p>
+                    </p>
                 </div>
-              <div class="modal-footer">
-                 <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-              </div>
-           </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                </div>
+            </div>
         </div>
-     </div>
+    </div>
     <!-- JC DETAILS -->
     <div tabindex="-1" class="modal pmd-modal fade" id="vertically-centered" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -260,7 +273,9 @@
                                 <td>Shift1</td>
                                 <td>200</td>
                                 <td>100</td>
-                                <td><div class="badge bg-primary" style="padding: 5px;">In-Progress</div></td>
+                                <td>
+                                    <div class="badge bg-primary" style="padding: 5px;">In-Progress</div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>NA7016AS</td>
@@ -270,7 +285,9 @@
                                 <td>Shift1</td>
                                 <td>300</td>
                                 <td>100</td>
-                                <td><div class="badge bg-primary" style="padding: 5px;">In-Progress</div></td>
+                                <td>
+                                    <div class="badge bg-primary" style="padding: 5px;">In-Progress</div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>AN7160SA</td>
@@ -280,7 +297,9 @@
                                 <td>Shift2</td>
                                 <td>400</td>
                                 <td>100</td>
-                                <td><div class="badge bg-primary" style="padding: 5px;">In-Progress</div></td>
+                                <td>
+                                    <div class="badge bg-primary" style="padding: 5px;">In-Progress</div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>AN7160AS</td>
@@ -290,7 +309,9 @@
                                 <td>Shift3</td>
                                 <td>400</td>
                                 <td>0</td>
-                                <td><div class="badge bg-success" style="padding: 5px;">Completed</div></td>
+                                <td>
+                                    <div class="badge bg-success" style="padding: 5px;">Completed</div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -326,7 +347,7 @@
                 dropdown.add(newOption);
             });
         }
-        
+
     </script>
 
     <script>
@@ -335,12 +356,12 @@
         }
     </script>
     <script>
-        $(function() {
-          $('input[name="daterange"]').daterangepicker({
-            opens: 'left'
-          }, function(start, end, label) {
-            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-          });
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            }, function (start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
         });
     </script>
     <script>
@@ -350,7 +371,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer001", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -366,7 +387,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -382,7 +403,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer003", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer003", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer003", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -398,7 +419,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -414,7 +435,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -430,7 +451,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -446,7 +467,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -462,7 +483,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -478,7 +499,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -494,7 +515,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -510,7 +531,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -526,7 +547,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -542,7 +563,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -558,7 +579,7 @@
                     {
                         salesorder: "MasterProduct001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting","Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                salesorder: "Item001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
                                     { salesorder: "SubItem001", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["Powder Coating",] },
                                     { salesorder: "SubItem002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["cutting"] }
                                 ]
@@ -569,79 +590,75 @@
                     { salesorder: "MasterProduct002", customer: "customer002", deliveryDate: "20/10/2024", quantity: 450, processes: ["assembly", "Powder coating"] }
                 ]
             }
-            
+
         ];
 
-        
+
         var table = new Tabulator("#example-table", {
-        height: "571px",
-        data: tableDataNested,
-        dataTree: true,
-        dataTreeStartExpanded: false,
-        layout: "fitColumns",
-        pagination: "local",
-        // paginationSize:7,
-        // paginationSizeSelector:[7, 11, 23], 
-        paginationButtonSource: ["<<", "<", ">", ">>"],
-        columns: [
-            
-            { title: "SalesOrder ID", field: "salesorder", hozAlign: "left", width: 350 },
-            { title: "Customer Name", field: "customer", hozAlign: "left", width: 220 },
-            { title: "Delivery Date", field: "deliveryDate", hozAlign: "center", width: 220 },
-            { title: "Quantity", field: "quantity", hozAlign: "center", width: 220 },
-            { title: "Processes", field: "processes", hozAlign: "left", width: "550", widthShrink: 1, formatter: processFormatter },
-        ],
-        rowFormatter: function (row) {
-            var data = row.getData();
+            height: "571px",
+            data: tableDataNested,
+            dataTree: true,
+            dataTreeStartExpanded: false,
+            layout: "fitColumns",
+            pagination: "local",
+            // paginationSize:7,
+            // paginationSizeSelector:[7, 11, 23], 
+            paginationButtonSource: ["<<", "<", ">", ">>"],
+            columns: [
 
-            if (data._children) {
-                row.getElement().classList.add("nested-row");
-            }
-        },
-        rowClick: function (e, row) {
-            var data = row.getData();
+                { title: "SalesOrder ID", field: "salesorder", hozAlign: "left", width: 350 },
+                { title: "Customer Name", field: "customer", hozAlign: "left", width: 220 },
+                { title: "Delivery Date", field: "deliveryDate", hozAlign: "center", width: 220 },
+                { title: "Quantity", field: "quantity", hozAlign: "center", width: 220 },
+                { title: "Processes", field: "processes", hozAlign: "left", width: "550", widthShrink: 1, formatter: processFormatter },
+            ],
+            rowFormatter: function (row) {
+                var data = row.getData();
 
-            if (data._children) {
-                row.toggleData();
-            }
-        },
-        dataLoaded: function () {
-            var rows = table.getRows();
-        },
-        
-    });
-    
+                if (data._children) {
+                    row.getElement().classList.add("nested-row");
+                }
+            },
+            rowClick: function (e, row) {
+                var data = row.getData();
 
-    
+                if (data._children) {
+                    row.toggleData();
+                }
+            },
+            dataLoaded: function () {
+                var rows = table.getRows();
+            },
 
-    function processFormatter(cell, formatterParams, onRendered) {
-        var processes = cell.getValue();
-        var buttons = processes.map(process => `<button class="primary-btn" onclick="processClicked('${process}')">${process}</button>`);
-        var el = document.createElement("div");
-        el.innerHTML = buttons.join(" ");
-        return el;
-    }
-
-    function processClicked(process) {
-        var modal = new bootstrap.Modal(document.querySelector('.modal'), {
-            centered: true
         });
+        function processFormatter(cell, formatterParams, onRendered) {
+            var processes = cell.getValue();
+            var buttons = processes.map(process => `<button class="primary-btn" onclick="processClicked('${process}')">${process}</button>`);
+            var el = document.createElement("div");
+            el.innerHTML = buttons.join(" ");
+            return el;
+        }
 
-        document.querySelector('.modal-title').innerText = 'Process Clicked: ' + process;
+        function processClicked(process) {
+            var modal = new bootstrap.Modal(document.querySelector('.modal'), {
+                centered: true
+            });
 
-        modal.show();
-    }
-    function filterByCustomer() {
-        var filterValue = document.getElementById('customerFilter').value;
-        table.setFilter('customer', 'like', filterValue);
-    }
+            document.querySelector('.modal-title').innerText = 'Process: ' + process;
 
-    
+            modal.show();
+        }
+        function filterByCustomer() {
+            var filterValue = document.getElementById('customerFilter').value;
+            table.setFilter('customer', 'like', filterValue);
+        }
 
 
-        
-        
-        
+
+
+
+
+
     </script>
 </body>
 

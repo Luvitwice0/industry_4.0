@@ -325,7 +325,7 @@
         </div>
         <script>
             function addQuotationData() {
-                var fields = ["q_no", "q_quantity", "q_price", "q_hsn", "q_gst", "q_crt_date", "q_dly_date", "q_sh_ads", "q_bl_ads", "q_total", "q_tp", "q_td"];
+                var fields = ["q_no", "q_quantity", "q_price", "q_hsn", "q_gst", "selectCustomerName", "selectProductName", "q_crt_date", "q_dly_date", "q_sh_ads", "q_bl_ads", "q_total", "q_tp", "q_td"];
                 var hasEmptyField = false;
 
                 for (var i = 0; i < fields.length; i++) {
@@ -360,6 +360,9 @@
                 var q_total = document.getElementById("q_total").value;
                 var q_tp = document.getElementById("q_tp").value;
                 var q_td = document.getElementById("q_td").value;
+                var c_name = document.getElementById("selectCustomerName").value;
+                var p_name = document.getElementById("selectProductName").value;
+
 
 
                 var JsonDataAddQuotation =
@@ -376,6 +379,8 @@
                     quotation_total: q_total,
                     quotation_payment: q_tp,
                     quotation_delivery: q_td,
+                    c_customer: c_name,
+                    c_product: p_name,
 
 
                 };
@@ -395,6 +400,8 @@
                 document.getElementById("q_sh_ads").value = "";
                 document.getElementById("q_bl_ads").value = "";
                 document.getElementById("q_total").value = "";
+                var c_name = document.getElementById("selectCustomerName").value = "";
+                var p_name = document.getElementById("selectProductName").value = "";
                 document.getElementById("q_tp").value = "";
                 document.getElementById("q_td").value = "";
 

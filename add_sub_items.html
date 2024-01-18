@@ -143,13 +143,29 @@
 
         <div class="container">
             <div class="row">
-                <div class="col lg-2">
+                <div class="col lg-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
                         <b>Add SubItem</b>
                     </button>
                 </div>
-                <div class="col lg 8"></div>
+                <div class="col lg 1">
+                    <div class="form-group">
+                        <select id="selectcustomerName02" class="js-example-basic-single">
+                            <option>
+                                Choose Type</option>
+                            <option>Metal</option>
+
+                            <option>Wood</option>
+
+                            <option>Stainless Steel</option>
+
+                            <option>Liquid</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col lg 5"></div>
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0">
                     <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
                         aria-label="Search " name="search">
@@ -213,7 +229,7 @@
                 class="form-control" id="prodId"></input> </div> -->
                     <div class="input-field">
                         <input type="text" required="required" spellcheck="false" id="R_iname">
-                        <label for="R_iname">Item Name</label>
+                        <label for="R_iname">Sub Item Name</label>
                     </div>
                     <br>
                     <div class="col-md-12">
@@ -221,16 +237,14 @@
                     class="form-control" id="orderNo"></input> </div> -->
                         <div class="input-field">
                             <input type="text" required="required" spellcheck="false" id="R_ino">
-                            <label for="R_ino">Item No</label>
+                            <label for="R_ino">Part No</label>
                         </div>
                     </div>
                     <br>
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectcustomerName">Choose a Type</label>
-                            <select style="width:100%" id="selectcustomerName" class="js-example-basic-single">
-                                <option>Select Drop Customer</option>
-                            </select>
+                        <div class="input-field">
+                            <input type="text" required="required" spellcheck="false" id="R_gst">
+                            <label for="R_gst">HSN Code</label>
                         </div>
                     </div>
                     <br>
@@ -240,14 +254,6 @@
                             <label for="R_iprice">Price</label>
                         </div>
                     </div>
-                    <br>
-                    <div class="col-md-12">
-                        <div class="input-field">
-                            <input type="text" required="required" spellcheck="false" id="R_gst">
-                            <label for="R_gst">GST %</label>
-                        </div>
-                    </div>
-
                     <br>
                     <div class="row">
                         <div class="col-md-12">
@@ -278,7 +284,7 @@
                     <div class="col-md-12">
                         <div class="input-field">
                             <input type="text" spellcheck="false" required="required" id="R_total">
-                            <label for="R_total">Grand Total</label>
+                            <label for="R_total">Total</label>
                         </div>
                     </div>
                     <br>
@@ -297,7 +303,7 @@
 
     <script>
         function addSubItemData() {
-            var rawItemsData = ["R_iname", "R_ino", "selectcustomerName", "R_iprice", "R_gst", "R_total"]
+            var rawItemsData = ["R_iname", "R_ino", "R_iprice", "R_gst", "R_total"]
             var emptyData = false
 
             for (var i = 0; i < rawItemsData.length; i++) {
@@ -327,7 +333,6 @@
 
             var R_iname = document.getElementById("R_iname").value;
             var R_ino = document.getElementById("R_ino").value;
-            var selectcustomerName = document.getElementById("selectcustomerName").value;
             var R_iprice = document.getElementById("R_iprice").value;
             var R_gst = document.getElementById("R_gst").value;
             var R_total = document.getElementById("R_total").value;
@@ -346,7 +351,6 @@
             console.log(JsonDatax)
             document.getElementById("R_iname").value = "";
             document.getElementById("R_ino").value = "";
-            document.getElementById("selectcustomerName").value = "";
             document.getElementById("R_iprice").value = "";
             document.getElementById("R_gst").value = "";
             document.getElementById("R_total").value = "";
@@ -365,7 +369,6 @@
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
                         updateDataToTable(jsonData.add_raw_items);
-                        updateDropdownOptions(jsonData.add_raw_items)
                         displayTableRows();
                         // Initialize DataTables if it hasn't been initialized already
                         // if (!dataTableInitialized) {
@@ -409,11 +412,6 @@
                 price.textContent = datax.p_price;
                 tableRow.appendChild(price);
 
-                var type = document.createElement("td");
-                type.textContent = datax.type;
-                tableRow.append(type);
-
-
                 var action = document.createElement("td");
                 action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
                 tableRow.appendChild(action);
@@ -424,29 +422,6 @@
         }
 
         updateTableData();
-
-        function updateDropdownOptions(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectcustomerName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
-
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.p_item_name && employeeNames.indexOf(entry.p_item_name) === -1) {
-                    employeeNames.push(entry.p_item_name);
-
-                    var option = document.createElement("option");
-                    option.value = entry.p_item_name;
-                    option.textContent = entry.p_item_name;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
     </script>
     <script>
         function deleteRow(rowIndex) {
