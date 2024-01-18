@@ -237,7 +237,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class="col-md-12">
+                    <!-- <div class="col-md-12">
                         <div class="form-group">
                             <label for="selectSubitemName"> Choose SubItem</label>
                             <select style="width:100%" id="selectSubitemName" class="js-example-basic-single">
@@ -245,16 +245,42 @@
 
                             </select>
                         </div>
-                    </div> <br>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectItemName">Choose Item</label>
-                            <select style="width:100%" id="selectItemName" class="js-example-basic-single">
-                                <option>Select Drop Item</option>
+                    </div> <br> -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="selectSubitemName">Choose SubItem</label>
+                            <select id="selectSubitemName" class="js-example-basic-single">
+                                <option>Select Drop SubItem</option>
+                                <!-- Add other options here -->
                             </select>
                         </div>
+
+                        <div class="col-lg-6">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" class="form-control" id="quantity" placeholder="Enter quantity">
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-primary" id="addSubItemButton"
+                            style="width: 15%; float: right;">Add</button>
                     </div>
                     <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <table id="productTable" class="response"
+                                style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th>Sub Items</th>
+                                        <th>Quantity</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+
                 </div>
 
                 <div class="row">
@@ -268,7 +294,7 @@
     </div>
     <script>
         function addsubItemData() {
-            var fields = ["s_name", "s_no", "selectProcessName", "s_hsn", "selectSubitemName", "selectItemName"];
+            var fields = ["s_name", "s_no", "selectProcessName", "s_hsn", "selectSubitemName"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -293,8 +319,6 @@
             var s_name = document.getElementById("s_name").value;
             var s_no = document.getElementById("s_no").value;
             var p_namex = document.getElementById("selectProcessName").value
-            var c_subItem = document.getElementById("selectSubitemName").value;
-            var c_item = document.getElementById("selectItemName").value
 
             var JsonDataAddSubItem =
             {
@@ -302,7 +326,6 @@
                 sub_item_number: s_no,
                 process_Name: p_namex,
                 choose_subItem: c_subItem,
-                choos_item: c_item,
 
 
             };
@@ -310,7 +333,6 @@
             console.log(JsonDataAddSubItem);
             $('#selectProcessName').val(null).trigger('change');
             $('#selectSubitemName').val(null).trigger('change');
-            $('#selectItemName').val(null).trigger('change');
             document.getElementById("s_name").value = "";
             document.getElementById("s_no").value = "";
 
@@ -332,7 +354,6 @@
                         updateDataToTable(jsonData.add_item);
                         updateProcessDropdown(jsonData.add_item)
                         updateSubitemDropdown(jsonData.add_item)
-                        updateItemDropdown(jsonData.add_item)
                         displayTableRows();
 
                         // Initialize DataTables if it hasn't been initialized already
@@ -431,28 +452,6 @@
             }
         }
 
-        function updateItemDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectItemName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
-
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.s_name && employeeNames.indexOf(entry.s_name) === -1) {
-                    employeeNames.push(entry.s_name);
-
-                    var option = document.createElement("option");
-                    option.value = entry.s_name;
-                    option.textContent = entry.s_name;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
     </script>
     <script>
         function deleteRow(rowIndex) {
@@ -656,6 +655,43 @@
 
         // Call displayTableRows() after defining the functions
         displayTableRows();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var addProductButton = document.getElementById("addSubItemButton");
+            var productTableBody = document.querySelector("#productTable tbody");
+
+            addProductButton.addEventListener("click", function () {
+                // Update the following lines to use the correct IDs
+                var quantity = document.getElementById("selectSubitemName").value;
+                var date = document.getElementById("quantity").value;
+
+                var newRow = document.createElement("tr");
+                newRow.innerHTML = `
+            <td style="border: 1px solid #000000;">${quantity}</td>
+            <td style="border: 1px solid #000000;">${date}</td>
+            <td><i class="fa fa-trash"></i></td>
+        `;
+
+                productTableBody.appendChild(newRow);
+
+                // Attach a click event listener to the document
+                document.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("fa-trash")) {
+                        deleteRow(event);
+                        // Update summary after row deletion (if needed)
+                    }
+                });
+
+                function deleteRow(event) {
+                    var row = event.target.closest("tr");
+                    if (row) {
+                        row.remove();
+                    }
+                }
+            });
+        });
     </script>
 
 </body>
