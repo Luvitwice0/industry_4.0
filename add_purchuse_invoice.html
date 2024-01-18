@@ -102,8 +102,8 @@
                     <thead class="bg-gradient">
 
                         <tr>
-                            <th class="text-center">Purchuse Invoice</th>
-                            <th class="text-center">Purchase No</th>
+                            <th class="text-center">Purchuse Invoice No</th>
+                            <th class="text-center">Purchase Order No</th>
                             <th class="text-center">Delivery date</th>
                             <th class="text-center">Vendor Name</th>
                         </tr>
@@ -250,11 +250,11 @@
                 table_row.appendChild(master_product);
 
                 var vendor = document.createElement("td");
-                vendor.textContent = datax.pr_v_name
+                vendor.textContent = datax.pr_exp_date
                 table_row.appendChild(vendor);
 
                 var delivery_date = document.createElement("td");
-                delivery_date.textContent = datax.pr_exp_date
+                delivery_date.textContent = datax.pr_v_name
                 table_row.appendChild(delivery_date);
 
 
