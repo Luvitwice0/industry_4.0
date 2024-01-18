@@ -1,88 +1,88 @@
 {
     "add_vendor": [
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "ABC Traders",
+            "v_gst_no": "GST1234567X",
+            "v_email_id": "abc.traders@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "XYZ Suppliers",
+            "v_gst_no": "GST2345678Y",
+            "v_email_id": "xyz.suppliers@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "PQR Distributors",
+            "v_gst_no": "GST3456789Z",
+            "v_email_id": "pqr.distributors@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "LMN Enterprises",
+            "v_gst_no": "GST4567890A",
+            "v_email_id": "lmn.enterprises@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "JKL Manufacturers",
+            "v_gst_no": "GST5678901B",
+            "v_email_id": "jkl.manufacturers@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "EFG Exporters",
+            "v_gst_no": "GST6789012C",
+            "v_email_id": "efg.exporters@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "MNO Importers",
+            "v_gst_no": "GST7890123D",
+            "v_email_id": "mno.importers@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "QRS Wholesalers",
+            "v_gst_no": "GST8901234E",
+            "v_email_id": "qrs.wholesalers@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "UVW Retailers",
+            "v_gst_no": "GST9012345F",
+            "v_email_id": "uvw.retailers@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "GHI Suppliers",
+            "v_gst_no": "GST0123456G",
+            "v_email_id": "ghi.suppliers@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "RST Distributors",
+            "v_gst_no": "GST1234567H",
+            "v_email_id": "rst.distributors@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "LMN Traders",
+            "v_gst_no": "GST2345678I",
+            "v_email_id": "lmn.traders@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "JKL Enterprises",
+            "v_gst_no": "GST3456789J",
+            "v_email_id": "jkl.enterprises@gmail.com",
+            "v_state": "Tamil Nadu"
         },
         {
-            "v_name": "ljvjefv",
-            "v_gst_no": "2345678",
-            "v_email_id": "testQ@gmail.com",
-            "v_state": "Tamilnadu"
+            "v_name": "ABC Merchants",
+            "v_gst_no": "GST4567890K",
+            "v_email_id": "abc.merchants@gmail.com",
+            "v_state": "Tamil Nadu"
         }
     ]
 }

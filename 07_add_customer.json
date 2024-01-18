@@ -1,76 +1,76 @@
 {
     "add_customer": [
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "John Doe",
+            "c_email": "john.doe@gmail.com",
+            "c_state": "Tamil Nadu",
+            "c_ph_no": "9876543210"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Alice Johnson",
+            "c_email": "alice.j@yahoo.com",
+            "c_state": "Karnataka",
+            "c_ph_no": "9765432109"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Bob Smith",
+            "c_email": "bob.smith@hotmail.com",
+            "c_state": "Maharashtra",
+            "c_ph_no": "9654321098"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Eva Martinez",
+            "c_email": "eva.m@yahoo.net",
+            "c_state": "Uttar Pradesh",
+            "c_ph_no": "9543210987"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Michael Wilson",
+            "c_email": "michael.w@yahoo.com",
+            "c_state": "Andhra Pradesh",
+            "c_ph_no": "9432109876"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Sophia Brown",
+            "c_email": "sophia.b@gmail.com",
+            "c_state": "Gujarat",
+            "c_ph_no": "9321098765"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Daniel Lee",
+            "c_email": "daniel.lee@yahoo.org",
+            "c_state": "Rajasthan",
+            "c_ph_no": "9210987654"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Olivia Miller",
+            "c_email": "olivia.m@gmail.com",
+            "c_state": "Madhya Pradesh",
+            "c_ph_no": "9109876543"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "William Garcia",
+            "c_email": "william.g@yahoo.com",
+            "c_state": "Bihar",
+            "c_ph_no": "9098765432"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Ava Davis",
+            "c_email": "ava.d@yahoo.com",
+            "c_state": "West Bengal",
+            "c_ph_no": "9987654321"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "James Hernandez",
+            "c_email": "james.h@yahoo.net",
+            "c_state": "Telangana",
+            "c_ph_no": "9876543210"
         },
         {
-            "c_name": "ljvjefv",
-            "c_email": "testQ@gmail.com",
-            "c_state": "Tamilnadu",
-            "c_ph_no": "123456789"
+            "c_name": "Mia Jackson",
+            "c_email": "mia.j@hotmail.com",
+            "c_state": "Punjab",
+            "c_ph_no": "9765432109"
         }
     ]
 }

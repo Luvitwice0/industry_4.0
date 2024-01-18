@@ -1,83 +1,38 @@
 {
     "add_quotation": [
         {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
+            "q_no": "CB-QU-0012",
+            "q_product": "Wood Stand",
             "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
+            "q_c_name": "John Doe",
+            "q_dly_date": "12/22/2024",
             "q_status": "Pending",
             "q_total": "50000"
         },
         {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
+            "q_no": "CB-QU-0013",
+            "q_product": "Wood Stand",
             "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
+            "q_c_name": "Jane Smith",
+            "q_dly_date": "12/23/2024",
             "q_status": "Pending",
             "q_total": "50000"
         },
         {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
+            "q_no": "CB-QU-0014",
+            "q_product": "Wood Stand",
             "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
+            "q_c_name": "Robert Johnson",
+            "q_dly_date": "12/24/2024",
             "q_status": "Pending",
             "q_total": "50000"
         },
         {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
+            "q_no": "CB-QU-0015",
+            "q_product": "Metal Stand",
             "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
-            "q_status": "Pending",
-            "q_total": "50000"
-        },
-        {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
-            "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
-            "q_status": "Pending",
-            "q_total": "50000"
-        },
-        {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
-            "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
-            "q_status": "Pending",
-            "q_total": "50000"
-        },
-        {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
-            "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
-            "q_status": "Pending",
-            "q_total": "50000"
-        },
-        {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
-            "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
-            "q_status": "Pending",
-            "q_total": "50000"
-        },
-        {
-            "q_no": "ljvjefv",
-            "q_product": "New Product",
-            "q_quantity": "100",
-            "q_c_name": "Prasanth",
-            "q_dly_date": "12/4/2024",
+            "q_c_name": "Emily Davis",
+            "q_dly_date": "12/25/2024",
             "q_status": "Pending",
             "q_total": "50000"
         }

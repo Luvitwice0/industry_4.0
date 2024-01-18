@@ -2,91 +2,93 @@
     "add_purchase_request": [
         {
             "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
+            "pr_product": "Wood Table",
+            "pr_v_name": "ABC Traders",
             "pr_exp_date": "12/02/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "20000",
+            "pr_q": "50"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "dfgdfgdfg",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345679",
+            "pr_product": "Metal Stand",
+            "pr_v_name": "XYZ Suppliers",
+            "pr_exp_date": "15/03/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "25000",
+            "pr_q": "75"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asddcvxcfghj",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345680",
+            "pr_product": "Wood Table",
+            "pr_v_name": "PQR Distributors",
+            "pr_exp_date": "20/04/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "30000",
+            "pr_q": "100"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "sdfsd",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345681",
+            "pr_product": "Metal Stand",
+            "pr_v_name": "LMN Suppliers",
+            "pr_exp_date": "25/05/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "35000",
+            "pr_q": "60"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345682",
+            "pr_product": "Wood Table",
+            "pr_v_name": "EFG Merchants",
+            "pr_exp_date": "30/06/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "40000",
+            "pr_q": "80"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345683",
+            "pr_product": "Metal Stand",
+            "pr_v_name": "OPQ Enterprises",
+            "pr_exp_date": "05/07/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "45000",
+            "pr_q": "90"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345684",
+            "pr_product": "Wood Table",
+            "pr_v_name": "RST Wholesalers",
+            "pr_exp_date": "10/08/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "50000",
+            "pr_q": "120"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345685",
+            "pr_product": "Metal Stand",
+            "pr_v_name": "JKL Suppliers",
+            "pr_exp_date": "15/09/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "55000",
+            "pr_q": "70"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345686",
+            "pr_product": "Metal Stand",
+            "pr_v_name": "MNO Traders",
+            "pr_exp_date": "20/10/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "60000",
+            "pr_q": "110"
         },
         {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
-            "pr_exp_date": "12/02/2023",
+            "pr_no": "12345687",
+            "pr_product": "Metal Stand",
+            "pr_v_name": "UVW Distributors",
+            "pr_exp_date": "25/11/2023",
             "pr_status": "completed",
-            "pr_total": "20000"
-        },
-        {
-            "pr_no": "12345678",
-            "pr_product": "qqqq",
-            "pr_v_name": "asdfghj",
-            "pr_exp_date": "12/02/2023",
-            "pr_status": "completed",
-            "pr_total": "20000"
+            "pr_total": "65000",
+            "pr_q": "85"
         }
     ]
 }
