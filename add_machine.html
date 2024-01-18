@@ -223,6 +223,13 @@
                         </div>
                         <br>
                         <div class="col-md-12">
+                            <label for="selectBranchName">Plant Name</label>
+                            <select style="width:100%" id="selectBranchName" class="js-example-basic-single">
+                                <option>Select Drop Customer</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
                             <label for="selectProcessName">Process Name</label>
                             <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
                                 <option>Select Drop Customer</option>
@@ -239,13 +246,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="col-md-12">
-                            <label for="selectBranchName">Branch Name</label>
-                            <select style="width:100%" id="selectBranchName" class="js-example-basic-single">
-                                <option>Select Drop Customer</option>
-                            </select>
-                        </div>
-                        <br>
+
                     </div>
                     <div class="row">
 
@@ -396,12 +397,12 @@
                 for (var i = 0; i < data.length; i++) {
                     var entry = data[i];
 
-                    if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
-                        employeeNames.push(entry.m_name);
+                    if (entry.m_branch && employeeNames.indexOf(entry.m_branch) === -1) {
+                        employeeNames.push(entry.m_branch);
 
                         var option = document.createElement("option");
-                        option.value = entry.m_name;
-                        option.textContent = entry.m_name;
+                        option.value = entry.m_branch;
+                        option.textContent = entry.m_branch;
                         employeeSelect.appendChild(option);
 
                         console.log(employeeSelect.appendChild(option))
@@ -419,12 +420,12 @@
                 for (var i = 0; i < data.length; i++) {
                     var entry = data[i];
 
-                    if (entry.m_name && employeeNames.indexOf(entry.m_name) === -1) {
-                        employeeNames.push(entry.m_name);
+                    if (entry.m_process && employeeNames.indexOf(entry.m_process) === -1) {
+                        employeeNames.push(entry.m_process);
 
                         var option = document.createElement("option");
-                        option.value = entry.m_name;
-                        option.textContent = entry.m_name;
+                        option.value = entry.m_process;
+                        option.textContent = entry.m_process;
                         employeeSelect.appendChild(option);
 
                         console.log(employeeSelect.appendChild(option))

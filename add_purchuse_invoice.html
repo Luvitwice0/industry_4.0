@@ -60,83 +60,42 @@
         <div class="row">
             <div class="col-lg-2 col-md-4 col-sm-6">
                 <label for="f_date">From Date</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Select Month"
-                    value=""
-                    id="f_date"
-                    required="required"
-                    name="selectYear">
+                <input type="text" class="form-control" placeholder="Select Month" value="" id="f_date"
+                    required="required" name="selectYear">
             </div>
             <div class="col-lg-2 col-md-4 col-sm-6">
                 <label for="t_date">To date</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Select Month"
-                    value=""
-                    id="t_date"
-                    required="required"
-                    name="selectYear">
+                <input type="text" class="form-control" placeholder="Select Month" value="" id="t_date"
+                    required="required" name="selectYear">
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 8px;">
-                <div class="form-group">
-                    <label for="selectProductName">Select Plant</label>
-                    <select
-                        id="selectProductName"
-                        class="js-example-basic-single">
-                        <option>Select Plant</option>
-
-                    </select>
-                </div>
-            </div>
-            <div
-                class="col-lg-2 col-md-4 col-sm-6"
-                style="padding-top: 30px;border-color: black;">
-                <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault1"
+            <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 30px;border-color: black;">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
                     checked="checked">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Payment Pending
                 </label>
                 <br>
             </div>
-            <div
-                class="col-lg-2 col-md-4 col-sm-6"
-                style="padding-top: 30px;border-color: black;">
-                <input
-                    class="form-check-input"
-                    type="radio"
-                    name="flexRadioDefault"
-                    id="flexRadioDefault1">
+            <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 30px;border-color: black;">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Payment Completed
                 </label>
                 <br>
             </div>
-            
-            <div class="col-lg-1 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
-                <input
-                    class="form-control mr-sm-2"
-                    type="text"
-                    id="myInputx"
-                    placeholder="Search"
-                    aria-label="Search "
+
+            <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
+                <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search" aria-label="Search "
                     name="search">
             </div>
-            <div
-                class="col-lg-1 col-md-4 mt-3 mt-md-0"
-                style="padding-left: 0px;padding-top: 25px;">
+            <div class="col-lg-1 col-md-4 mt-3 mt-md-0" style="padding-left: 0px;padding-top: 25px;">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
             </div>
 
         </div>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <table id="add_pr" class="table table-responsive table-hover">
@@ -171,18 +130,6 @@
 
     <!-- model for create production plan -->
 
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-
-        <div class="offcanvas-body">
-            ...
-        </div>
-    </div>
     <script>
         $(function () {
             $('input[name="birthday"]').daterangepicker({
@@ -271,7 +218,6 @@
                         var jsonData = JSON.parse(response);
                         console.log(jsonData)
                         updateDataToTable(jsonData.add_purchase_request);
-                        updateProductDropdown(jsonData.add_purchase_request);
                         displayTableRows();
                     }
                     else {
@@ -317,28 +263,6 @@
         }
         updateTableData()
 
-        function updateProductDropdown(data) {
-            console.log(1);
-            var employeeSelect = document.getElementById("selectProductName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
-
-            var employeeNames = [];
-
-            for (var i = 0; i < data.length; i++) {
-                var entry = data[i];
-
-                if (entry.pr_v_name && employeeNames.indexOf(entry.pr_v_name) === -1) {
-                    employeeNames.push(entry.pr_v_name);
-
-                    var option = document.createElement("option");
-                    option.value = entry.pr_v_name;
-                    option.textContent = entry.pr_v_name;
-                    employeeSelect.appendChild(option);
-
-                    console.log(employeeSelect.appendChild(option))
-                }
-            }
-        }
 
 
     </script>

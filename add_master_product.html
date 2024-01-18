@@ -327,9 +327,9 @@
                                 style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
                                 <thead>
                                     <tr style="text-align: center;">
-                                        <th>Items</th>
-                                        <th>Quantity</th>
-                                        <th>Delete</th>
+                                        <th style="border: 1px solid black;">Items</th>
+                                        <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center;"></tbody>
@@ -898,15 +898,19 @@
 
             addProductButton.addEventListener("click", function () {
                 // Update the following lines to use the correct IDs
-                var quantity = document.getElementById("selectItemName").value;
-                var date = document.getElementById("quantity01").value;
+                var itemName = document.getElementById("selectItemName").value;
+                var quantity = document.getElementById("quantity01").value;
+
 
                 var newRow = document.createElement("tr");
+
                 newRow.innerHTML = `
-                <td style="border: 1px solid #000000;">${quantity01}</td>
-                <td style="border: 1px solid #000000;">${date}</td>
-                <td><i class="fa fa-trash"></i></td>
-            `;
+    <td style="border: 1px solid #000000;">${itemName}</td>
+    <td style="border: 1px solid #000000;">${quantity}</td>
+    <td><i class="fa fa-trash"></i></td>
+`;
+
+
 
                 productTableBody.appendChild(newRow);
 
