@@ -135,6 +135,14 @@
         margin-right: 5px;
         font-weight: bolder;
     }
+
+    .table-bordered {
+        border: 1px solid black;
+    }
+
+    .table-cell {
+        border: 1px solid black;
+    }
 </style>
 
 <body>
@@ -261,24 +269,74 @@
                         </div>
                     </div> <br>
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectSubitemName"> Choose SubItem</label>
-                            <select style="width:100%" id="selectSubitemName" class="js-example-basic-single">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="selectSubitemName">Choose SubItem</label>
+                            <select id="selectSubitemName" class="js-example-basic-single">
                                 <option>Select Drop SubItem</option>
+                                <!-- Add other options here -->
+                            </select>
+                        </div>
 
-                            </select>
+                        <div class="col-lg-6">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" class="form-control" id="quantity" placeholder="Enter quantity">
                         </div>
-                    </div> <br>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectItemName">Choose Item</label>
-                            <select style="width:100%" id="selectItemName" class="js-example-basic-single">
-                                <option>Select Drop Item</option>
-                            </select>
-                        </div>
+                        <br>
+                        <button type="button" class="btn btn-primary" id="addSubItemButton"
+                            style="width: 25%; float: right;">Add</button>
                     </div>
                     <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <table id="productTable" class="response"
+                                style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th>Sub Items</th>
+                                        <th>Quantity</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="selectItemName">Choose Item</label>
+                            <select id="selectItemName" class="js-example-basic-single">
+                                <option>Select Drop Item</option>
+                                <!-- Add other options here -->
+                            </select>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" class="form-control" id="quantity01" placeholder="Enter quantity">
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-primary" id="addItemButton"
+                            style="width: 25%; float: right;">Add</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <table id="productTable02" class="response"
+                                style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th>Items</th>
+                                        <th>Quantity</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="col-md-12">
 
                         <div class="input-field">
@@ -703,6 +761,79 @@
 
         // Call displayTableRows() after defining the functions
         displayTableRows();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var addProductButton = document.getElementById("addSubItemButton");
+            var productTableBody = document.querySelector("#productTable tbody");
+
+            addProductButton.addEventListener("click", function () {
+                // Update the following lines to use the correct IDs
+                var quantity = document.getElementById("selectSubitemName").value;
+                var date = document.getElementById("quantity").value;
+
+                var newRow = document.createElement("tr");
+                newRow.innerHTML = `
+            <td style="border: 1px solid #000000;">${quantity}</td>
+            <td style="border: 1px solid #000000;">${date}</td>
+            <td><i class="fa fa-trash"></i></td>
+        `;
+
+                productTableBody.appendChild(newRow);
+
+                // Attach a click event listener to the document
+                document.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("fa-trash")) {
+                        deleteRow(event);
+                        // Update summary after row deletion (if needed)
+                    }
+                });
+
+                function deleteRow(event) {
+                    var row = event.target.closest("tr");
+                    if (row) {
+                        row.remove();
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var addProductButton = document.getElementById("addItemButton");
+            var productTableBody = document.querySelector("#productTable02 tbody");
+
+            addProductButton.addEventListener("click", function () {
+                // Update the following lines to use the correct IDs
+                var quantity = document.getElementById("selectItemName").value;
+                var date = document.getElementById("quantity01").value;
+
+                var newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                <td style="border: 1px solid #000000;">${quantity01}</td>
+                <td style="border: 1px solid #000000;">${date}</td>
+                <td><i class="fa fa-trash"></i></td>
+            `;
+
+                productTableBody.appendChild(newRow);
+
+                // Attach a click event listener to the document
+                document.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("fa-trash")) {
+                        deleteRow(event);
+                        // Update summary after row deletion (if needed)
+                    }
+                });
+
+                function deleteRow(event) {
+                    var row = event.target.closest("tr");
+                    if (row) {
+                        row.remove();
+                    }
+                }
+            });
+        });
     </script>
 </body>
 
