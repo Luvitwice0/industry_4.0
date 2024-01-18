@@ -169,12 +169,11 @@
                         <thead class="bg-gradient">
                             <tr>
                                 <th class="text-center">Quotation No</th>
-                                <th class="text-center">Product Name</th>
-                                <th class="text-center">Quantity</th>
                                 <th class="text-center">Customer</th>
                                 <th class="text-center">Delivery date</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Details</th>
                                 <th class="text-center">Status</th>
-                                <th class="text-center">Grand Total</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -226,7 +225,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <div class="form-group">
                                 <label for="selectProductName">Choose Product</label>
                                 <select style="width:100%" id="selectProductName" class="js-example-basic-single">
@@ -234,7 +233,44 @@
                                 </select>
                             </div>
                         </div>
+                        <br> -->
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="selectProductName">Choose Product</label>
+                                <select id="selectProductName" class="js-example-basic-single">
+                                    <option>Select Drop Product</option>
+                                    <!-- Add other options here -->
+                                </select>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="quantity">Quantity</label>
+                                <input type="text" class="form-control" id="quantity" placeholder="Enter quantity">
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-primary" id="addSubItemButton"
+                                style="width: 25%; float: right; margin-left: 12px; margin-top: 10px;">Add</button>
+                        </div>
                         <br>
+                        <div class="row">
+                            <div class="col-12">
+                                <table id="productTable" class="response"
+                                    style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
+                                    <thead>
+                                        <tr style="text-align: center;">
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="text-align: center;"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
 
                         <div class="md-12">
                             <div class="input-field">
@@ -252,41 +288,6 @@
                         <br>
                         <div class="md-12">
                             <div class="input-field">
-                                <input type="text" required="required" id="q_hsn" spellcheck="false">
-                                <label>HSN code</label>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="md-12">
-                            <div class="input-field">
-                                <input type="text" required="required" id="q_gst" spellcheck="false">
-                                <label>GST %</label>
-                            </div>
-                        </div>
-                        <br>
-                        <label class="form-label" for="formControlDisabled">Created Date</label>
-                        <div class="col-md-12">
-                            <div class="input-field">
-                                <input type="date" required="required" id="q_crt_date" spellcheck="false">
-                            </div>
-                        </div>
-                        <br>
-                        <label class="form-label" for="formControlDisabled">Delivery Date</label>
-                        <div class="col-md-12">
-                            <div class="input-field">
-                                <input type="date" required="required" id="q_dly_date" spellcheck="false">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="md-12">
-                            <div class="input-field">
-                                <input type="text" required="required" id="q_sh_ads" spellcheck="false">
-                                <label>Ship to Address</label>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="md-12">
-                            <div class="input-field">
                                 <input type="text" required="required" id="q_bl_ads" spellcheck="false">
                                 <label>Bill to Address</label>
                             </div>
@@ -295,7 +296,7 @@
                         <div class="md-12">
                             <div class="input-field">
                                 <input type="text" required="required" id="q_total" spellcheck="false">
-                                <label>Grand Total</label>
+                                <label>Total</label>
                             </div>
                         </div>
                         <br>
@@ -325,7 +326,7 @@
         </div>
         <script>
             function addQuotationData() {
-                var fields = ["q_no", "q_quantity", "q_price", "q_hsn", "q_gst", "selectCustomerName", "selectProductName", "q_crt_date", "q_dly_date", "q_sh_ads", "q_bl_ads", "q_total", "q_tp", "q_td"];
+                var fields = ["q_no", "q_quantity", "q_price", "selectCustomerName", "selectProductName", "q_bl_ads", "q_total", "q_tp", "q_td"];
                 var hasEmptyField = false;
 
                 for (var i = 0; i < fields.length; i++) {
@@ -351,11 +352,6 @@
                 var q_no = document.getElementById("q_no").value;
                 var q_quantity = document.getElementById("q_quantity").value;
                 var q_price = document.getElementById("q_price").value;
-                var q_hsn = document.getElementById("q_hsn").value;
-                var q_gst = document.getElementById("q_gst").value;
-                var q_crt_date = document.getElementById("q_crt_date").value;
-                var q_dly_date = document.getElementById("q_dly_date").value;
-                var q_sh_ads = document.getElementById("q_sh_ads").value;
                 var q_bl_ads = document.getElementById("q_bl_ads").value;
                 var q_total = document.getElementById("q_total").value;
                 var q_tp = document.getElementById("q_tp").value;
@@ -370,11 +366,9 @@
                     quotation_number: q_no,
                     quotation_quantity: q_quantity,
                     quotation_pric: q_price,
-                    quotation_hsn: q_hsn,
-                    quotation_gst: q_gst,
-                    quotation_crt_date: q_crt_date,
-                    quotation_dly_date: q_dly_date,
-                    quotation_ship_address: q_sh_ads,
+
+
+
                     quotation_bill_address: q_bl_ads,
                     quotation_total: q_total,
                     quotation_payment: q_tp,
@@ -393,11 +387,7 @@
                 document.getElementById("q_no").value = "";
                 document.getElementById("q_quantity").value = "";
                 document.getElementById("q_price").value = "";
-                document.getElementById("q_hsn").value = "";
-                document.getElementById("q_gst").value = "";
-                document.getElementById("q_crt_date").value = "";
-                document.getElementById("q_dly_date").value = "";
-                document.getElementById("q_sh_ads").value = "";
+
                 document.getElementById("q_bl_ads").value = "";
                 document.getElementById("q_total").value = "";
                 var c_name = document.getElementById("selectCustomerName").value = "";
@@ -460,13 +450,16 @@
                     quotation_quantity.textContent = datax.q_quantity
                     table_row.appendChild(quotation_quantity);
 
-                    var quotation_customer = document.createElement("td");
-                    quotation_customer.textContent = datax.q_c_name
-                    table_row.appendChild(quotation_customer);
+
 
                     var quotation_dly_date = document.createElement("td");
                     quotation_dly_date.textContent = datax.q_dly_date
                     table_row.appendChild(quotation_dly_date);
+
+
+                    var action = document.createElement("td");
+                    action.innerHTML = `<button class="btn btn-secondary">View Products</button>`;
+                    table_row.appendChild(action);
 
                     var status = document.createElement("td");
                     var statusSpan = document.createElement("span");
@@ -475,9 +468,6 @@
                     status.appendChild(statusSpan);
                     table_row.appendChild(status);
 
-                    var quotation_total = document.createElement("td");
-                    quotation_total.textContent = datax.q_total
-                    table_row.appendChild(quotation_total);
 
                     var action = document.createElement("td");
                     action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
@@ -522,11 +512,11 @@
                     var entry = data[i];
 
                     if (entry.q_product && employeeNames.indexOf(entry.q_product) === -1) {
-                        employeeNames.push(entry.q_product);
+                        employeeNames.push(entry.q_cu);
 
                         var option = document.createElement("option");
                         option.value = entry.q_product;
-                        option.textContent = entry.q_product;
+                        option.textContent = entry.q_c_name;
                         employeeSelect.appendChild(option);
 
                         console.log(employeeSelect.appendChild(option))
@@ -756,6 +746,70 @@
             // Call displayTableRows() after defining the functions
             displayTableRows();
         </script>
+
+        <!-- Add a script block to calculate price -->
+        <script>
+            function calculatePrice(product, quantity) {
+                // Replace this with your logic to generate a random price
+                var minPrice = 5; // Minimum price
+                var maxPrice = 200; // Maximum price
+
+                // Generate a random price within the specified range
+                var price = Math.floor(Math.random() * (maxPrice - minPrice + 1)) + minPrice;
+
+                return price * quantity;
+            }
+
+            function addProductToTable() {
+                var productSelect = document.getElementById("selectProductName");
+                var quantityInput = document.getElementById("quantity");
+
+                var product = productSelect.value;
+                var quantity = quantityInput.value;
+
+                // Calculate the price
+                var price = calculatePrice(product, quantity);
+
+                // Add the product to the table
+                var productTableBody = document.querySelector("#productTable tbody");
+                var newRow = document.createElement("tr");
+                newRow.innerHTML = `
+            <td style="border: 1px solid #000000;">${product}</td>
+            <td style="border: 1px solid #000000;">${quantity}</td>
+            <td style="border: 1px solid #000000;">${price}</td>
+            <td><i class="fa fa-trash"></i></td>
+        `;
+
+                productTableBody.appendChild(newRow);
+
+                // Clear the quantity input
+                quantityInput.value = "";
+
+                // Attach a click event listener to the document
+                document.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("fa-trash")) {
+                        deleteRow(event);
+                        // Update summary after row deletion (if needed)
+                    }
+                });
+
+                function deleteRow(event) {
+                    var row = event.target.closest("tr");
+                    if (row) {
+                        row.remove();
+                    }
+                }
+            }
+        </script>
+
+        <!-- Update the button click event to call the addProductToTable function -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var addProductButton = document.getElementById("addSubItemButton");
+                addProductButton.addEventListener("click", addProductToTable);
+            });
+        </script>
+
 </body>
 
 </html>
