@@ -1,701 +1,619 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Monthly Production Schedular</title>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Bootstrap Library -->
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
-        <script src="assets/lib/jquery/jquery.min.js"></script>
-        <style>
-            table,
-            td,
-            th {
-                border: 1px solid rgb(136, 136, 136);
-                border-collapse: collapse;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="row">
-            <!-- Select Month and Add Button -->
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-                <div class="row" style="padding: 15px;">
-                    <div class="col-lg-6 col-md-6 col-sm-6 mb-2">
-                        <label for="validationDefault04">Select Month</label>
-                        <input
-                            style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;"
-                            type="text"
-                            name="daterange"
-                            value="01/01/2024 - 01/15/2024"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Production Schedular</title>
 
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <button
-                            type="button"
-                            class="btn btn-primary btn-block"
-                            data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                            <i class="fa fa-plus"></i>&nbsp;Create</button>
-                    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap Library -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+    <script src="assets/lib/jquery/jquery.min.js"></script>
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid rgb(136, 136, 136);
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <!-- Select Month and Add Button -->
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="row" style="padding: 15px;">
+                <div class="col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <label for="validationDefault04">Select Month</label>
+                    <input
+                        style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;"
+                        type="text" name="daterange" value="01/01/2024 - 01/15/2024" />
+
                 </div>
-            </div>
-
-            <!-- Search Input and Search Icon -->
-            <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top: 15px;">
-                <div class="row justify-content-end">
-                    <div class="col-lg-6 col-md-6 mb-2">
-                        <input
-                            class="form-control mr-sm-2"
-                            type="text"
-                            id="myInputx"
-                            placeholder="Search"
-                            aria-label="Search"
-                            name="search">
-                    </div>
-                    <div class="col-lg-1 col-md-1" style="padding-left: 0px;">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                    </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        <i class="fa fa-plus"></i>&nbsp;Create</button>
                 </div>
             </div>
         </div>
 
-        <br>
-        <div class="row">
-            <div class="col-lg-12">
-                <table class="table table-hover text-center" id="main_table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>SO Number</th>
-                            <th>Customer Name</th>
-                            <th>Delivery Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="main_pp">
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 002</td>
-                            <td>ACB Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 002</td>
-                            <td>ACB Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 001</td>
-                            <td>ACB Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 002</td>
-                            <td>ACB Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 002</td>
-                            <td>ACB Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 002</td>
-                            <td>ACB Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 002</td>
-                            <td>ACB Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                        <tr>
-                            <td
-                                style="cursor: pointer;"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Monthly_PP"><img src="assets/img/checklist.png" width="25px" alt=""></td>
-                            <td>SO - 002</td>
-                            <td>ACD Pvt Ltd</td>
-                            <td>10-02-2024</td>
-
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12 mb-2"></div>
-                        <div class="col-lg-4 col-md-12 mb-2">
-                            <nav aria-label="..." id="page1">
-                                <ul class="pagination justify-content-center" id="pagination1"></ul>
-                            </nav>
-                        </div>
-                        <div class="col-lg-4 col-md-12 mb-2"></div>
-                    </div>
+        <!-- Search Input and Search Icon -->
+        <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top: 15px;">
+            <div class="row justify-content-end">
+                <div class="col-lg-6 col-md-6 mb-2">
+                    <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
+                        aria-label="Search" name="search">
+                </div>
+                <div class="col-lg-1 col-md-1" style="padding-left: 0px;">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="Monthly_PP"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Monthly Production Plan | Select SO Details</h1>
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-hover text-center" id="main_table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>SO Number</th>
+                        <th>Customer Name</th>
+                        <th>Delivery Date</th>
+                    </tr>
+                </thead>
+                <tbody id="main_pp">
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_001</td>
+                        <td>John Doe</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_002</td>
+                        <td>Jane Smith</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_003</td>
+                        <td>Michael Johnson</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_004</td>
+                        <td>Emily Davis</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_005</td>
+                        <td>Christopher Brown</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_006</td>
+                        <td>Olivia Wilson</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_007</td>
+                        <td>Alexander Lee</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_008</td>
+                        <td>Isabella Martinez</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
+                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        </td>
+                        <td>SOCB_009</td>
+                        <td>Nathan Taylor</td>
+                        <td>10-02-2024</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-2"></div>
+                    <div class="col-lg-4 col-md-12 mb-2">
+                        <nav aria-label="..." id="page1">
+                            <ul class="pagination justify-content-center" id="pagination1"></ul>
+                        </nav>
                     </div>
-                    <div class="modal-body">
-                        <table class="table" style="text-align: center;" id="Monthly_PP_details">
-                            <thead>
-                                <!-- <tr> <th scope="col" class="text-center">#</th> <th scope="col"
+                    <div class="col-lg-4 col-md-12 mb-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="Monthly_PP" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Monthly Production Plan | Select SO Details
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table" style="text-align: center;" id="Monthly_PP_details">
+                        <thead>
+                            <!-- <tr> <th scope="col" class="text-center">#</th> <th scope="col"
                                 class="text-center">SO Number</th> <th scope="col" class="text-center">Customer
                                 Name</th> <th scope="col" class="text-center">Delivery Date</th> <th scope="col"
                                 class="text-center">Quantity</th> </tr> -->
-                            </thead>
-                            <tbody id="tableBodyx">
-                                <tr>
-                                    <td>SO Number</td>
-                                    <td>SO - 001</td>
-                                </tr>
-                                <tr>
-                                    <td>Customer Name</td>
-                                    <td>ACB Pvt Ltd</td>
-                                </tr>
-                                <tr>
-                                    <td>Part Number</td>
-                                    <td>PS501</td>
-                                </tr>
-                                <tr>
-                                    <td>Delivary Date</td>
-                                    <td>10-02-2024</td>
-                                </tr>
+                        </thead>
+                        <tbody id="tableBodyx">
+                            <tr>
+                                <td>SO Number</td>
+                                <td>SOCB_001</td>
+                            </tr>
+                            <tr>
+                                <td>Customer Name</td>
+                                <td>John Doe</td>
+                            </tr>
+                            <tr>
+                                <td>Part Number</td>
+                                <td>PS501</td>
+                            </tr>
+                            <tr>
+                                <td>Delivary Date</td>
+                                <td>10-02-2024</td>
+                            </tr>
 
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Monthly Production Plan | Select SO</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                            <div class="col-lg-5 col-md-12 mb-2">
+                                <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Search"
+                                    aria-label="Search" name="search">
+                            </div>
+                            <div class="col-lg-1 col-md-12" style="padding-left: 0px;">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <table class="table table-hover" style="text-align: center;" id="so_details">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">#</th>
+                                <th scope="col" class="text-center">SO Number</th>
+                                <th scope="col" class="text-center">Customer Name</th>
+                                <th scope="col" class="text-center">Delivery Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_001</td>
+                                <td>John Doe</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_002</td>
+                                <td>Jane Smith</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_003</td>
+                                <td>Michael Johnson</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_004</td>
+                                <td>Emily Davis</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_005</td>
+                                <td>Christopher Brown</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_006</td>
+                                <td>Olivia Wilson</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_007</td>
+                                <td>Alexander Lee</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_008</td>
+                                <td>Isabella Martinez</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                </th>
+                                <td>SOCB_009</td>
+                                <td>Nathan Taylor</td>
+                                <td>10-02-2024</td>
+                            </tr>
+                        </tbody>
+
+                        <tbody id="noDataRow" style="display: none;">
+                            <tr>
+                                <td colspan="7" style="text-align: center;">No data found.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 mb-2"></div>
+                            <div class="col-lg-4 col-md-12 mb-2">
+                                <nav aria-label="..." id="page2">
+                                    <ul class="pagination justify-content-center" id="pagination2"></ul>
+                                </nav>
+                            </div>
+                            <div class="col-lg-4 col-md-12 mb-2"></div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button> -->
+                        <button type="button" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="staticBackdrop"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Monthly Production Plan | Select SO</h1>
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row justify-content-end">
-                                <div class="col-lg-5 col-md-12 mb-2">
-                                    <input
-                                        class="form-control mr-sm-2"
-                                        type="text"
-                                        id="myInput"
-                                        placeholder="Search"
-                                        aria-label="Search"
-                                        name="search">
-                                </div>
-                                <div class="col-lg-1 col-md-12" style="padding-left: 0px;">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <table class="table table-hover" style="text-align: center;" id="so_details">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="text-center">#</th>
-                                    <th scope="col" class="text-center">SO Number</th>
-                                    <th scope="col" class="text-center">Customer Name</th>
-                                    <th scope="col" class="text-center">Delivery Date</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <tr>
-                                    <th scope="row">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    </th>
-                                    <td>SO - 001</td>
-                                    <td>ACB Pvt Ltd</td>
-                                    <td>10-02-2024</td>
 
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <td>SO - 001</td>
-                                        <td>ACB Pvt Ltd</td>
-                                        <td>10-02-2024</td>
+        <!--DATE PICKER-->
+        <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
+        <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
+        <script>
+            $(function () {
+                $('input[name="daterange"]').daterangepicker({
+                    opens: 'left'
+                }, function (start, end, label) {
+                    console.log(
+                        "A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
+                    );
+                });
+            });
+        </script>
+        <!-- pop-up search function -->
+        <script>
+            function searchTable() {
+                var input = document
+                    .getElementById("myInput")
+                    .value
+                    .toLowerCase();
+                var rows = document.querySelectorAll("#so_details tbody tr");
 
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                            <td>SO - 001</td>
-                                            <td>ACB Pvt Ltd</td>
-                                            <td>10-02-2024</td>
+                var found = false; // Variable to track if any matching rows are found
 
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                <td>SO - 001</td>
-                                                <td>ACB Pvt Ltd</td>
-                                                <td>10-02-2024</td>
+                for (var i = 0; i < rows.length; i++) {
+                    var row = rows[i];
+                    var rollNumberCell = row.cells[1]
+                        ? row
+                            .cells[1]
+                            .textContent
+                            .toLowerCase()
+                        : '';
+                    var selectDeviceCell = row.cells[5]
+                        ? row
+                            .cells[5]
+                            .textContent
+                            .toLowerCase()
+                        : '';
 
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <td>SO - 001</td>
-                                                    <td>ACB Pvt Ltd</td>
-                                                    <td>10-02-2024</td>
+                    if (rollNumberCell.includes(input) || selectDeviceCell.includes(input)) {
+                        row.style.display = "";
+                        // displayTableRows();
+                        found = true;
+                    } else {
+                        row.style.display = "none";
 
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <td>SO - 002</td>
-                                                        <td>ACB Pvt Ltd</td>
-                                                        <td>10-02-2024</td>
+                    }
+                }
+                if (input === '') {
+                    currentPage = 1;
+                    displayTableRows(
+                        'so_details',
+                        'pagination2',
+                        currentPageTable2,
+                        rowsPerPageTable2
+                    );
+                }
 
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">
-                                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                            <td>SO - 002</td>
-                                                            <td>ACB Pvt Ltd</td>
-                                                            <td>10-02-2024</td>
+                var existingNoDataRow = document.getElementById("noDataRow");
+                if (existingNoDataRow) {
+                    existingNoDataRow.remove();
+                }
 
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                <td>SO - 002</td>
-                                                                <td>ACB Pvt Ltd</td>
-                                                                <td>10-02-2024</td>
+                // Create a new row for the "No data found" message
+                if (!found) {
 
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                    <td>SO - 002</td>
-                                                                    <td>ACB Pvt Ltd</td>
-                                                                    <td>10-02-2024</td>
+                    var tableBody = document.querySelector("#so_details tbody");
+                    var noDataRow = tableBody.insertRow();
+                    var cell = noDataRow.insertCell(0);
+                    cell.colSpan = 7;
+                    cell.textContent = "No data found.";
+                    noDataRow.id = "noDataRow";
+                }
 
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">
-                                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                        <td>SO - 002</td>
-                                                                        <td>ACB Pvt Ltd</td>
-                                                                        <td>10-02-2024</td>
+            }
+            var searchInput = document.getElementById("myInput");
+            searchInput.addEventListener("keyup", searchTable);
+        </script>
 
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">
-                                                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                            <td>SO - 002</td>
-                                                                            <td>ACB Pvt Ltd</td>
-                                                                            <td>10-02-2024</td>
+        <!-- main table search -->
+        <script>
+            function searchTablex() {
+                var inputx = document
+                    .getElementById("myInputx")
+                    .value
+                    .toLowerCase();
+                var rowsx = document.querySelectorAll("#main_table tbody tr");
 
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th scope="row">
-                                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                                <td>SO - 002</td>
-                                                                                <td>ACB Pvt Ltd</td>
-                                                                                <td>10-02-2024</td>
+                var found = false; // Variable to track if any matching rows are found
 
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <th scope="row">
-                                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                                    <td>SO - 001</td>
-                                                                                    <td>ACD Pvt Ltd</td>
-                                                                                    <td>10-02-2024</td>
+                for (var i = 0; i < rowsx.length; i++) {
+                    var rowx = rowsx[i];
+                    var rollNumberCellx = rowx.cells[1]
+                        ? rowx
+                            .cells[1]
+                            .textContent
+                            .toLowerCase()
+                        : '';
+                    var customerNameCell = rowx.cells[3]
+                        ? rowx
+                            .cells[3]
+                            .textContent
+                            .toLowerCase()
+                        : '';
 
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">
-                                                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                                        <td>SO - 002</td>
-                                                                                        <td>ACB Pvt Ltd</td>
-                                                                                        <td>10-02-2024</td>
+                    var selectDeviceCellx = rowx.cells[2]
+                        ? rowx
+                            .cells[2]
+                            .textContent
+                            .toLowerCase()
+                        : '';
 
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                                <tbody id="noDataRow" style="display: none;">
-                                                                                    <tr>
-                                                                                        <td colspan="7" style="text-align: center;">No data found.</td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                            <div class="container">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-4 col-md-12 mb-2"></div>
-                                                                                    <div class="col-lg-4 col-md-12 mb-2">
-                                                                                        <nav aria-label="..." id="page2">
-                                                                                            <ul class="pagination justify-content-center" id="pagination2"></ul>
-                                                                                        </nav>
-                                                                                    </div>
-                                                                                    <div class="col-lg-4 col-md-12 mb-2"></div>
-                                                                                </div>
+                    if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                        rowx.style.display = "";
+                        // displayTableRows();
+                        found = true;
+                    } else {
+                        rowx.style.display = "none";
 
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <!-- <button type="button" class="btn btn-secondary"
-                                                                                data-bs-dismiss="modal">Close</button> -->
-                                                                                <button type="button" class="btn btn-primary">Save</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                    }
+                }
+                if (inputx === '') {
+                    currentPage = 1;
+                    displayTableRows(
+                        'main_table',
+                        'pagination1',
+                        currentPageTable1,
+                        rowsPerPageTable1
+                    );
+                }
 
-                                                                <!--DATE PICKER-->
-                                                                <script
-                                                                    type="text/javascript"
-                                                                    src="assets/daterangepicker-master/moment.min.js"></script>
-                                                                <script
-                                                                    type="text/javascript"
-                                                                    src="assets/daterangepicker-master/daterangepicker.js"></script>
-                                                                <script>
-                                                                    $(function () {
-                                                                        $('input[name="daterange"]').daterangepicker({
-                                                                            opens: 'left'
-                                                                        }, function (start, end, label) {
-                                                                            console.log(
-                                                                                "A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
-                                                                            );
-                                                                        });
-                                                                    });
-                                                                </script>
-                                                                <!-- pop-up search function -->
-                                                                <script>
-                                                                    function searchTable() {
-                                                                        var input = document
-                                                                            .getElementById("myInput")
-                                                                            .value
-                                                                            .toLowerCase();
-                                                                        var rows = document.querySelectorAll("#so_details tbody tr");
+                var existingNoDataRow = document.getElementById("noDataRow");
+                if (existingNoDataRow) {
+                    existingNoDataRow.remove();
+                }
 
-                                                                        var found = false; // Variable to track if any matching rows are found
+                // Create a new row for the "No data found" message
+                if (!found) {
 
-                                                                        for (var i = 0; i < rows.length; i++) {
-                                                                            var row = rows[i];
-                                                                            var rollNumberCell = row.cells[1]
-                                                                                ? row
-                                                                                    .cells[1]
-                                                                                    .textContent
-                                                                                    .toLowerCase()
-                                                                                : '';
-                                                                            var selectDeviceCell = row.cells[5]
-                                                                                ? row
-                                                                                    .cells[5]
-                                                                                    .textContent
-                                                                                    .toLowerCase()
-                                                                                : '';
+                    var tableBody = document.querySelector("#main_table tbody");
+                    var noDataRow = tableBody.insertRow();
+                    var cell = noDataRow.insertCell(0);
+                    cell.colSpan = 7;
+                    cell.textContent = "No data found.";
+                    noDataRow.id = "noDataRow";
+                }
 
-                                                                            if (rollNumberCell.includes(input) || selectDeviceCell.includes(input)) {
-                                                                                row.style.display = "";
-                                                                                // displayTableRows();
-                                                                                found = true;
-                                                                            } else {
-                                                                                row.style.display = "none";
+            }
+            var searchInput = document.getElementById("myInputx");
+            searchInput.addEventListener("keyup", searchTablex);
+        </script>
+        <script>
+            var currentPageTable1 = 1;
+            var currentPageTable2 = 1;
+            var rowsPerPageTable1 = 10;
+            var rowsPerPageTable2 = 5;
+            var pagesToShow = 5;
 
-                                                                            }
-                                                                        }
-                                                                        if (input === '') {
-                                                                            currentPage = 1;
-                                                                            displayTableRows(
-                                                                                'so_details',
-                                                                                'pagination2',
-                                                                                currentPageTable2,
-                                                                                rowsPerPageTable2
-                                                                            );
-                                                                        }
+            function displayTableRows(tableId, paginationId, currentPage, rowsPerPage) {
+                var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
+                var totalPages = Math.ceil(tableRows.length / rowsPerPage);
 
-                                                                        var existingNoDataRow = document.getElementById("noDataRow");
-                                                                        if (existingNoDataRow) {
-                                                                            existingNoDataRow.remove();
-                                                                        }
+                var paginationList = document.querySelector('#' + paginationId);
+                paginationList.innerHTML = '';
 
-                                                                        // Create a new row for the "No data found" message
-                                                                        if (!found) {
+                var previousButton = document.createElement('li');
+                previousButton.className = 'page-item';
+                previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+                previousButton.addEventListener('click', function () {
+                    previousPage(tableId, paginationId, rowsPerPage);
+                });
+                paginationList.appendChild(previousButton);
 
-                                                                            var tableBody = document.querySelector("#so_details tbody");
-                                                                            var noDataRow = tableBody.insertRow();
-                                                                            var cell = noDataRow.insertCell(0);
-                                                                            cell.colSpan = 7;
-                                                                            cell.textContent = "No data found.";
-                                                                            noDataRow.id = "noDataRow";
-                                                                        }
+                var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+                var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
 
-                                                                    }
-                                                                    var searchInput = document.getElementById("myInput");
-                                                                    searchInput.addEventListener("keyup", searchTable);
-                                                                </script>
+                for (var i = startPage; i <= endPage; i++) {
+                    var pageItem = document.createElement('li');
+                    pageItem.className = 'page-item';
+                    if (i === currentPage) {
+                        pageItem
+                            .classList
+                            .add('active');
+                    }
+                    var pageLink = document.createElement('a');
+                    pageLink.className = 'page-link';
+                    pageLink.href = '#';
+                    pageLink.textContent = i;
+                    pageLink.onclick = function () {
+                        goToPage(tableId, paginationId, parseInt(this.textContent), rowsPerPage);
+                    };
+                    pageItem.appendChild(pageLink);
+                    paginationList.appendChild(pageItem);
+                }
 
-                                                                <!-- main table search -->
-                                                                <script>
-                                                                    function searchTablex() {
-                                                                        var inputx = document
-                                                                            .getElementById("myInputx")
-                                                                            .value
-                                                                            .toLowerCase();
-                                                                        var rowsx = document.querySelectorAll("#main_table tbody tr");
+                var nextButton = document.createElement('li');
+                nextButton.className = 'page-item';
+                nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
+                nextButton.addEventListener('click', function () {
+                    nextPage(tableId, paginationId, rowsPerPage);
+                });
+                paginationList.appendChild(nextButton);
 
-                                                                        var found = false; // Variable to track if any matching rows are found
+                var startIndex = (currentPage - 1) * rowsPerPage;
+                var endIndex = startIndex + rowsPerPage;
+                for (var i = 0; i < tableRows.length; i++) {
+                    if (i >= startIndex && i < endIndex) {
+                        tableRows[i].style.display = 'table-row';
+                    } else {
+                        tableRows[i].style.display = 'none';
+                    }
+                }
+            }
 
-                                                                        for (var i = 0; i < rowsx.length; i++) {
-                                                                            var rowx = rowsx[i];
-                                                                            var rollNumberCellx = rowx.cells[1]
-                                                                                ? rowx
-                                                                                    .cells[1]
-                                                                                    .textContent
-                                                                                    .toLowerCase()
-                                                                                : '';
-                                                                            var customerNameCell = rowx.cells[3]
-                                                                                ? rowx
-                                                                                    .cells[3]
-                                                                                    .textContent
-                                                                                    .toLowerCase()
-                                                                                : '';
+            function goToPage(tableId, paginationId, pageNumber, rowsPerPage) {
+                if (tableId === 'main_table') {
+                    currentPageTable1 = pageNumber;
+                } else if (tableId === 'so_details') {
+                    currentPageTable2 = pageNumber;
+                }
+                displayTableRows(tableId, paginationId, pageNumber, rowsPerPage);
+            }
 
-                                                                            var selectDeviceCellx = rowx.cells[2]
-                                                                                ? rowx
-                                                                                    .cells[2]
-                                                                                    .textContent
-                                                                                    .toLowerCase()
-                                                                                : '';
+            function previousPage(tableId, paginationId, rowsPerPage) {
+                if (tableId === 'main_table' && currentPageTable1 > 1) {
+                    currentPageTable1--;
+                } else if (tableId === 'so_details' && currentPageTable2 > 1) {
+                    currentPageTable2--;
+                }
+                displayTableRows(
+                    tableId,
+                    paginationId,
+                    tableId === 'main_table'
+                        ? currentPageTable1
+                        : currentPageTable2,
+                    rowsPerPage
+                );
+            }
 
-                                                                            if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
-                                                                                rowx.style.display = "";
-                                                                                // displayTableRows();
-                                                                                found = true;
-                                                                            } else {
-                                                                                rowx.style.display = "none";
+            function nextPage(tableId, paginationId, rowsPerPage) {
+                var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
+                var totalPages = Math.ceil(tableRows.length / rowsPerPage);
 
-                                                                            }
-                                                                        }
-                                                                        if (inputx === '') {
-                                                                            currentPage = 1;
-                                                                            displayTableRows(
-                                                                                'main_table',
-                                                                                'pagination1',
-                                                                                currentPageTable1,
-                                                                                rowsPerPageTable1
-                                                                            );
-                                                                        }
+                if (tableId === 'main_table' && currentPageTable1 < totalPages) {
+                    currentPageTable1++;
+                } else if (tableId === 'so_details' && currentPageTable2 < totalPages) {
+                    currentPageTable2++;
+                }
 
-                                                                        var existingNoDataRow = document.getElementById("noDataRow");
-                                                                        if (existingNoDataRow) {
-                                                                            existingNoDataRow.remove();
-                                                                        }
+                displayTableRows(
+                    tableId,
+                    paginationId,
+                    tableId === 'main_table'
+                        ? currentPageTable1
+                        : currentPageTable2,
+                    rowsPerPage
+                );
+            }
 
-                                                                        // Create a new row for the "No data found" message
-                                                                        if (!found) {
+            // Call displayTableRows for both tables after defining the functions
+            displayTableRows(
+                'main_table',
+                'pagination1',
+                currentPageTable1,
+                rowsPerPageTable1
+            );
+            displayTableRows(
+                'so_details',
+                'pagination2',
+                currentPageTable2,
+                rowsPerPageTable2
+            );
+        </script>
 
-                                                                            var tableBody = document.querySelector("#main_table tbody");
-                                                                            var noDataRow = tableBody.insertRow();
-                                                                            var cell = noDataRow.insertCell(0);
-                                                                            cell.colSpan = 7;
-                                                                            cell.textContent = "No data found.";
-                                                                            noDataRow.id = "noDataRow";
-                                                                        }
+        </script>
+</body>
 
-                                                                    }
-                                                                    var searchInput = document.getElementById("myInputx");
-                                                                    searchInput.addEventListener("keyup", searchTablex);
-                                                                </script>
-                                                                <script>
-                                                                    var currentPageTable1 = 1;
-                                                                    var currentPageTable2 = 1;
-                                                                    var rowsPerPageTable1 = 10;
-                                                                    var rowsPerPageTable2 = 5;
-                                                                    var pagesToShow = 5;
-
-                                                                    function displayTableRows(tableId, paginationId, currentPage, rowsPerPage) {
-                                                                        var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
-                                                                        var totalPages = Math.ceil(tableRows.length / rowsPerPage);
-
-                                                                        var paginationList = document.querySelector('#' + paginationId);
-                                                                        paginationList.innerHTML = '';
-
-                                                                        var previousButton = document.createElement('li');
-                                                                        previousButton.className = 'page-item';
-                                                                        previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
-                                                                        previousButton.addEventListener('click', function () {
-                                                                            previousPage(tableId, paginationId, rowsPerPage);
-                                                                        });
-                                                                        paginationList.appendChild(previousButton);
-
-                                                                        var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
-                                                                        var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
-
-                                                                        for (var i = startPage; i <= endPage; i++) {
-                                                                            var pageItem = document.createElement('li');
-                                                                            pageItem.className = 'page-item';
-                                                                            if (i === currentPage) {
-                                                                                pageItem
-                                                                                    .classList
-                                                                                    .add('active');
-                                                                            }
-                                                                            var pageLink = document.createElement('a');
-                                                                            pageLink.className = 'page-link';
-                                                                            pageLink.href = '#';
-                                                                            pageLink.textContent = i;
-                                                                            pageLink.onclick = function () {
-                                                                                goToPage(tableId, paginationId, parseInt(this.textContent), rowsPerPage);
-                                                                            };
-                                                                            pageItem.appendChild(pageLink);
-                                                                            paginationList.appendChild(pageItem);
-                                                                        }
-
-                                                                        var nextButton = document.createElement('li');
-                                                                        nextButton.className = 'page-item';
-                                                                        nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
-                                                                        nextButton.addEventListener('click', function () {
-                                                                            nextPage(tableId, paginationId, rowsPerPage);
-                                                                        });
-                                                                        paginationList.appendChild(nextButton);
-
-                                                                        var startIndex = (currentPage - 1) * rowsPerPage;
-                                                                        var endIndex = startIndex + rowsPerPage;
-                                                                        for (var i = 0; i < tableRows.length; i++) {
-                                                                            if (i >= startIndex && i < endIndex) {
-                                                                                tableRows[i].style.display = 'table-row';
-                                                                            } else {
-                                                                                tableRows[i].style.display = 'none';
-                                                                            }
-                                                                        }
-                                                                    }
-
-                                                                    function goToPage(tableId, paginationId, pageNumber, rowsPerPage) {
-                                                                        if (tableId === 'main_table') {
-                                                                            currentPageTable1 = pageNumber;
-                                                                        } else if (tableId === 'so_details') {
-                                                                            currentPageTable2 = pageNumber;
-                                                                        }
-                                                                        displayTableRows(tableId, paginationId, pageNumber, rowsPerPage);
-                                                                    }
-
-                                                                    function previousPage(tableId, paginationId, rowsPerPage) {
-                                                                        if (tableId === 'main_table' && currentPageTable1 > 1) {
-                                                                            currentPageTable1--;
-                                                                        } else if (tableId === 'so_details' && currentPageTable2 > 1) {
-                                                                            currentPageTable2--;
-                                                                        }
-                                                                        displayTableRows(
-                                                                            tableId,
-                                                                            paginationId,
-                                                                            tableId === 'main_table'
-                                                                                ? currentPageTable1
-                                                                                : currentPageTable2,
-                                                                            rowsPerPage
-                                                                        );
-                                                                    }
-
-                                                                    function nextPage(tableId, paginationId, rowsPerPage) {
-                                                                        var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
-                                                                        var totalPages = Math.ceil(tableRows.length / rowsPerPage);
-
-                                                                        if (tableId === 'main_table' && currentPageTable1 < totalPages) {
-                                                                            currentPageTable1++;
-                                                                        } else if (tableId === 'so_details' && currentPageTable2 < totalPages) {
-                                                                            currentPageTable2++;
-                                                                        }
-
-                                                                        displayTableRows(
-                                                                            tableId,
-                                                                            paginationId,
-                                                                            tableId === 'main_table'
-                                                                                ? currentPageTable1
-                                                                                : currentPageTable2,
-                                                                            rowsPerPage
-                                                                        );
-                                                                    }
-
-                                                                    // Call displayTableRows for both tables after defining the functions
-                                                                    displayTableRows(
-                                                                        'main_table',
-                                                                        'pagination1',
-                                                                        currentPageTable1,
-                                                                        rowsPerPageTable1
-                                                                    );
-                                                                    displayTableRows(
-                                                                        'so_details',
-                                                                        'pagination2',
-                                                                        currentPageTable2,
-                                                                        rowsPerPageTable2
-                                                                    );
-                                                                </script>
-
-                                                            </script>
-                                                        </body>
-                                                    </html>
+</html>
