@@ -449,13 +449,16 @@
                 master_product.textContent = datax.pr_product
                 table_row.appendChild(master_product);
 
-                var vendor = document.createElement("td");
-                vendor.textContent = datax.pr_v_name
-                table_row.appendChild(vendor);
 
                 var delivery_date = document.createElement("td");
                 delivery_date.textContent = datax.pr_exp_date
                 table_row.appendChild(delivery_date);
+
+                var vendor = document.createElement("td");
+                vendor.textContent = datax.pr_q
+                table_row.appendChild(vendor);
+
+
 
                 var status = document.createElement("td");
                 status.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
