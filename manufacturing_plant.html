@@ -370,7 +370,7 @@
                 }
 
             }
-            xhr.open("GET", "01_add_plant.json", true)
+            xhr.open("GET", "17_manufacturing_plant.json", true)
             xhr.send();
         }
 
@@ -387,15 +387,15 @@
                 p_add_plant.appendChild(p_name);
 
                 var p_phone_no = document.createElement("td");
-                p_phone_no.textContent = datax.p_ph;
+                p_phone_no.textContent = datax.p_state;
                 p_add_plant.appendChild(p_phone_no);
 
                 var p_state = document.createElement("td");
-                p_state.textContent = datax.p_state;
+                p_state.textContent = datax.p_ph;
                 p_add_plant.appendChild(p_state);
 
                 var tax_id = document.createElement("td");
-                tax_id.textContent = datax.p_tax_id
+                tax_id.textContent = datax.p_email
                 p_add_plant.appendChild(tax_id);
 
                 var tax_id = document.createElement("td");

@@ -284,7 +284,7 @@
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addSubItemButton"
-                            style="width: 25%; float: right; margin-left: 12px; margin-top: 10px;">Add</button>
+                            style="width: 15%; float: right; margin-left: 12px; margin-top: 10px;">Add</button>
                     </div>
                     <br>
                     <div class="row">
@@ -318,7 +318,7 @@
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addItemButton"
-                            style="width: 25%; float: right;margin-left: 12px; margin-top: 10px;">Add</button>
+                            style="width: 15%; float: right;margin-left: 12px; margin-top: 10px;">Add</button>
                     </div>
                     <br>
                     <div class="row">
@@ -326,10 +326,10 @@
                             <table id="productTable02" class="response"
                                 style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
                                 <thead>
-                                    <tr style="text-align: center;">
-                                        <th>Items</th>
-                                        <th>Quantity</th>
-                                        <th>Delete</th>
+                                    <tr style="text-align: center;  border: 1px solid black;">
+                                        <th style="border: 1px solid black;">Items</th>
+                                        <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center;"></tbody>
@@ -353,6 +353,97 @@
                     <button type="button" style="margin-left: 12px;" class=" btn btn-primary " onclick="
                         addMasterProductData()"><i class="fa fa-check"></i> <b>Save</b> </button>
 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="view_product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Item Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-hover text-center"
+                                    style="width:100%; border: 1px solid black; ">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2">Items</th>
+                                            <th class="col-md-2">Quantity</th>
+                                            <th class="col-md-2">Process</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody style="vertical-align: middle;">
+                                        <tr>
+                                            <td>Copper mold</td>
+                                            <td>112</td>
+                                            <td>Soldering</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Steel rod</td>
+                                            <td>50</td>
+                                            <td>Cutting,Bending</td>
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Titanium Plate</td>
+                                            <td>120</td>
+                                            <td>Punching,cutting</td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                                <br>
+                                <h5>Sub Item Details</h2>
+                                    <hr>
+                                    <table class="table table-hover text-center"
+                                        style="width:100%; border: 1px solid black; ">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-md-2">SubItems</th>
+                                                <th class="col-md-2">Quantity</th>
+                                                <th class="col-md-2">Process</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody style="vertical-align: middle;">
+                                            <tr>
+                                                <td>metal plate</td>
+                                                <td>12</td>
+                                                <td>Welding</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>wood</td>
+                                                <td>50</td>
+                                                <td>Cutting</td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>Bolt and Nuts</td>
+                                                <td>120</td>
+                                                <td>Punching</td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -474,7 +565,8 @@
                 table_row.appendChild(product_hsn);
 
                 var action = document.createElement("td");
-                action.innerHTML = `<button class="btn btn-secondary">View Items</button>`;
+                action.innerHTML = `<button class="btn btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#view_product">View Items</button>`;
                 table_row.appendChild(action);
 
                 var action = document.createElement("td");
@@ -806,15 +898,19 @@
 
             addProductButton.addEventListener("click", function () {
                 // Update the following lines to use the correct IDs
-                var quantity = document.getElementById("selectItemName").value;
-                var date = document.getElementById("quantity01").value;
+                var itemName = document.getElementById("selectItemName").value;
+                var quantity = document.getElementById("quantity01").value;
+
 
                 var newRow = document.createElement("tr");
+
                 newRow.innerHTML = `
-                <td style="border: 1px solid #000000;">${quantity01}</td>
-                <td style="border: 1px solid #000000;">${date}</td>
-                <td><i class="fa fa-trash"></i></td>
-            `;
+    <td style="border: 1px solid #000000;">${itemName}</td>
+    <td style="border: 1px solid #000000;">${quantity}</td>
+    <td><i class="fa fa-trash"></i></td>
+`;
+
+
 
                 productTableBody.appendChild(newRow);
 

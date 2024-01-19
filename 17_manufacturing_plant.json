@@ -1,0 +1,18 @@
+{
+    "add_plant": [
+        {
+            "p_name": "Chennai Plant",
+            "p_ph": "9655502131",
+            "p_state": "TamilNadu",
+            "p_email": "nenotrader.chennai@gmail.com",
+            "p_tax_id": "FAA5602160A167"
+        },
+        {
+            "p_name": "Hosusr Plant",
+            "p_ph": "9585745911",
+            "p_state": "TamilNadu",
+            "p_email": "nenotrader.hosur@gmail.com",
+            "p_tax_id": "29ATUA0056A1ZA"
+        }
+    ]
+}

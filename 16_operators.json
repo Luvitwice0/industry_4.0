@@ -1,102 +1,102 @@
 {
     "add_operator": [
         {
-            "o_name": "John Doe",
+            "o_name": "Arvind Kumar",
             "o_ph_no": "9123456780",
             "o_state": "Tamil Nadu"
         },
         {
-            "o_name": "Jane Smith",
+            "o_name": "Gowtham Raja",
             "o_ph_no": "9123456781",
             "o_state": "Karnataka"
         },
         {
-            "o_name": "Alex Johnson",
+            "o_name": "Senthil Vel",
             "o_ph_no": "9123456782",
             "o_state": "Maharashtra"
         },
         {
-            "o_name": "Emily Davis",
+            "o_name": "Deepak Raj",
             "o_ph_no": "9123456783",
             "o_state": "Uttar Pradesh"
         },
         {
-            "o_name": "Michael Brown",
+            "o_name": "Manikandan S",
             "o_ph_no": "9123456784",
             "o_state": "Andhra Pradesh"
         },
         {
-            "o_name": "Olivia Wilson",
+            "o_name": "Priyadarshan K",
             "o_ph_no": "9123456785",
             "o_state": "Gujarat"
         },
         {
-            "o_name": "William Miller",
+            "o_name": "Vikramaditya R",
             "o_ph_no": "9123456786",
             "o_state": "Rajasthan"
         },
         {
-            "o_name": "Sophia Moore",
+            "o_name": "Rajesh Kumar",
             "o_ph_no": "9123456787",
             "o_state": "West Bengal"
         },
         {
-            "o_name": "Daniel Lee",
+            "o_name": "Vignesh V",
             "o_ph_no": "9123456788",
             "o_state": "Madhya Pradesh"
         },
         {
-            "o_name": "Ava Harris",
+            "o_name": "Suresh M",
             "o_ph_no": "9123456789",
             "o_state": "Bihar"
         },
         {
-            "o_name": "Ethan Clark",
+            "o_name": "Ramesh N",
             "o_ph_no": "9123456780",
             "o_state": "Punjab"
         },
         {
-            "o_name": "Emma Taylor",
+            "o_name": "Karthik R",
             "o_ph_no": "9123456781",
             "o_state": "Haryana"
         },
         {
-            "o_name": "Christopher Wright",
+            "o_name": "Arjun V",
             "o_ph_no": "9123456782",
             "o_state": "Telangana"
         },
         {
-            "o_name": "Lily King",
+            "o_name": "Vijay Kumar",
             "o_ph_no": "9123456783",
             "o_state": "Odisha"
         },
         {
-            "o_name": "Matthew Young",
+            "o_name": "Saravanan M",
             "o_ph_no": "9123456784",
             "o_state": "Kerala"
         },
         {
-            "o_name": "Nora Turner",
+            "o_name": "Dinesh Kumar",
             "o_ph_no": "9123456785",
             "o_state": "Assam"
         },
         {
-            "o_name": "James Martin",
+            "o_name": "Kannan R",
             "o_ph_no": "9123456786",
             "o_state": "Jharkhand"
         },
         {
-            "o_name": "Grace Moore",
+            "o_name": "Muthu Kumar",
             "o_ph_no": "9123456787",
             "o_state": "Chhattisgarh"
         },
         {
-            "o_name": "Andrew Stewart",
+            "o_name": "Prabhu S",
             "o_ph_no": "9123456788",
             "o_state": "Uttarakhand"
         },
         {
-            "o_name": "Sophie Evans",
+            "o_name": "Kumaravel T",
             "o_ph_no": "9123456789",
             "o_state": "Goa"
         }
