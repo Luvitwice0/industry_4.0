@@ -253,7 +253,7 @@
                         <form>
                             <label for="port-select">Select port:</label>
                             <select id="port-select"></select>
-                            <button type="button" onclick="connect()">Connect</button>
+                            <button type="button" class="btn btn-primary" onclick="connect()">Connect</button>
                         </form>
                         <br><br>
 
@@ -261,7 +261,7 @@
                             <!-- <div class="form-group"> <label for="prodId">Production ID</label> <input
                 class="form-control" id="prodId"></input> </div> -->
                             <div class="input-field">
-                                <input type="text" required="required" id="jc_number" spellcheck="false">
+                                <input type="text" required="required" id="jobcard-number" spellcheck="false">
                                 <label>Jobcard Number</label>
                             </div>
                             <br>
@@ -269,8 +269,8 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="selectcustomerName2_modal">Select Operator</label>
-                                    <select style="width: 100%;" id="selectcustomerName1" class="selectpicker">
+                                    <label for="operator-name">Select Operator</label>
+                                    <select style="width: 100%;" id="operator-name" class="selectpicker">
                                         <option>
                                             Select Operator</option>
                                         <option>Ramesh</option>
@@ -287,15 +287,15 @@
                             <div class="col-md-12">
 
                                 <div class="input-field">
-                                    <input type="text" required="required" id="mac_no" spellcheck="false">
+                                    <input type="text" required="required" id="machine-name" spellcheck="false">
                                     <label>Machine Number</label>
                                 </div>
                             </div>
                             <br>
                             <div class="md-12">
                                 <div class="form-group">
-                                    <label for="selectcustomerName1">Select Plant</label>
-                                    <select style="width: 100%;" id="selectcustomerName1" class="selectpicker">
+                                    <label for="select-plant">Select Plant</label>
+                                    <select style="width: 100%;" id="select-plant" class="selectpicker">
                                         <option>
                                             Select Plant</option>
                                         <option>Chennai</option>
@@ -306,7 +306,7 @@
                             <br>
                             <div class="md-12">
                                 <div class="input-field">
-                                    <input type="text" required="required" id="shift" spellcheck="false">
+                                    <input type="text" required="required" id="part-name" spellcheck="false">
                                     <label>Part Name</label>
                                 </div>
                             </div>
@@ -398,7 +398,7 @@
 
     <script>
         const portSelect = document.getElementById('port-select');
-        const operatorNameInput = document.getElementById('selectcustomerName2');
+        const operatorNameInput = document.getElementById('selectcustomerName1');
         const sendButton = document.getElementById('send-button');
         const log = document.getElementById('log');
         let port;
@@ -448,35 +448,30 @@
         }
         async function send() {
             try {
-                const operatorName = document.getElementById('selectcustomerName2').value;
-                const jobCardNumber = document.getElementById('jc_number').value;
-                const machineName = document.getElementById('mac_no').value;
-                const selectPlant = document.getElementById('selectcustomerName1').value;
-                const partName = document.getElementById('shift').value;
-                const quantity = document.getElementById('quantity').value;
+                const operatorName = document.getElementById('operator-name').value;
+        const jobCardNumber = document.getElementById('jobcard-number').value;
+        const machineName = document.getElementById('machine-name').value;
+        const selectPlant = document.getElementById('select-plant').value;
+        const partName = document.getElementById('part-name').value;
+        const quantity = document.getElementById('quantity').value;
 
-                const formattedMessage = `
-            Operator Name  : ${operatorName}
-            Job Card Number: ${jobCardNumber}
-            Machine Name   : ${machineName}
-            Plant          : ${selectPlant}
-            Part Name      : ${partName} 
-            Quantity       : ${quantity}`;
+const formattedMessage = `
+Operator Name  : ${operatorName}
+Job Card Number: ${jobCardNumber}
+Machine Name   : ${machineName}
+Plant          : ${selectPlant}
+Part Name      : ${partName} 
+Quantity       : ${quantity}`;
 
-                const bytes = new TextEncoder().encode(formattedMessage);
+            const bytes = new TextEncoder().encode(formattedMessage);
+        await writer.write(bytes);
 
-                // Check if the 'log' element and 'writer' are defined before further actions
-                const log = document.getElementById('log');
-                if (log && writer) {
-                    await writer.write(bytes);
-                    log.textContent = `${bytes.length} bytes sent:\n${formattedMessage}`;
-                } else {
-                    console.error("Error: 'log' element or 'writer' not found.");
-                }
-            } catch (error) {
-                console.error("An error occurred:", error);
-            }
-        }
+        log.textContent = `${bytes.length} bytes sent:\n${formattedMessage}`;
+      } catch (error) {
+        log.textContent = error.message;
+      }
+    }
+    listPorts();
     </script>
 
 
