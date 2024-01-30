@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
     <!-- Select2 CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/indian-states@1.0.0/dist/indian-states.min.js"></script>
 
 
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
@@ -275,7 +274,7 @@
     </div>
     <script>
         function addOperator() {
-            var fields = ["o_name", "o_ph_no", "o_state", "o_adress"];
+            var fields = ["o_name", "o_ph_no", "p_state", "o_adress"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -299,7 +298,7 @@
 
             var o_name = document.getElementById("o_name").value;
             var o_ph_no = document.getElementById("o_ph_no").value;
-            var o_state = document.getElementById("o_state").value;
+            var p_state = document.getElementById("p_state").value;
             var o_adress = document.getElementById("o_adress").value;
 
 
@@ -308,7 +307,7 @@
             {
                 vendor_name: o_name,
                 vendor_phone_no: o_ph_no,
-                vendor_state: o_state,
+                vendor_state: p_state,
                 vendor_adress: o_adress,
 
             };
@@ -317,7 +316,7 @@
 
             document.getElementById("o_name").value = "";
             document.getElementById("o_ph_no").value = "";
-            document.getElementById("o_state").value = "";
+            $('#p_state').val(null).trigger('change');
             document.getElementById("o_adress").value = "";
 
         }
