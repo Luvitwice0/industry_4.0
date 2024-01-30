@@ -229,12 +229,11 @@
                     </div>
                     <br>
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectProcessName">Process Name</label>
-                            <select style="width:100%" id="selectProcessName" multiple="multiple"
-                                class="js-example-basic-single">
-                                <option>Select Drop Process</option>
-                            </select>
+                        <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                        class="form-control" id="orderNo"></input> </div> -->
+                        <div class="input-field">
+                            <input type="text" required="required" id="s_hsn" spellcheck="false">
+                            <label>HSN Code</label>
                         </div>
                     </div>
                     <br>
@@ -248,7 +247,7 @@
                         </div>
                     </div> <br> -->
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <label for="selectSubitemName">Choose SubItem</label>
                             <select id="selectSubitemName" class="js-example-basic-single">
                                 <option>Select Drop SubItem</option>
@@ -256,9 +255,16 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <label for="quantity">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" placeholder="Enter quantity">
+                            <input type="text" class="form-control" id="i_quantity">
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="selectProcessName">Process</label>
+                            <select style="width:100%" id="selectProcessName" multiple="multiple"
+                                class="js-example-basic-single">
+                                <option>Select Drop Process</option>
+                            </select>
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addSubItemButton"
@@ -273,6 +279,7 @@
                                     <tr style="text-align: center; border: 1px solid black;">
                                         <th style="border: 1px solid black;">Sub Items</th>
                                         <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Process</th>
                                         <th style="border: 1px solid black;">Delete</th>
                                     </tr>
                                 </thead>
@@ -281,7 +288,15 @@
                         </div>
                     </div>
                     <hr>
-
+                    <div class="col-md-12">
+                        <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
+                        class="form-control" id="orderNo"></input> </div> -->
+                        <div class="input-field">
+                            <input type="text" required="required" id="s_total" spellcheck="false">
+                            <label>Total</label>
+                        </div>
+                    </div>
+                    <br>
                 </div>
 
                 <div class="row">
@@ -352,7 +367,7 @@
 
     <script>
         function addsubItemData() {
-            var fields = ["s_name", "s_no", "selectProcessName", "s_hsn", "selectSubitemName"];
+            var fields = ["s_name", "s_no", "s_hsn", "s_total"];
             var hasEmptyField = false;
 
             for (var i = 0; i < fields.length; i++) {
@@ -376,23 +391,36 @@
 
             var s_name = document.getElementById("s_name").value;
             var s_no = document.getElementById("s_no").value;
-            var p_namex = document.getElementById("selectProcessName").value
+            var s_total = document.getElementById("s_total").value;
+            var s_hsn = document.getElementById("s_hsn").value;
+
+            var itemsDataArray = [];
+
+            // Iterate over the productsData array and add each product data to productsDataArray
+            for (var i = 0; i < subItemsData.length; i++) {
+                var itemData = subItemsData[i];
+                itemsDataArray.push({
+                    itemName: itemData.subitemName,
+                    quantity: itemData.quantity,
+                    process: itemData.process
+                });
+            }
+
 
             var JsonDataAddSubItem =
             {
                 sub_item_name: s_name,
                 sub_item_number: s_no,
-                process_Name: p_namex,
-                choose_subItem: c_subItem,
-
-
+                sub_item_total: s_total,
+                sub_item_hsn: s_hsn,
+                subItemsData: itemsDataArray
             };
 
             console.log(JsonDataAddSubItem);
-            $('#selectProcessName').val(null).trigger('change');
-            $('#selectSubitemName').val(null).trigger('change');
             document.getElementById("s_name").value = "";
             document.getElementById("s_no").value = "";
+            document.getElementById("s_total").value = "";
+            document.getElementById("s_hsn").value = "";
 
         }
 
@@ -716,22 +744,46 @@
         displayTableRows();
     </script>
 
+    <!-- Add this at the top of your script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
+            subItemsData = [];
+
             var addProductButton = document.getElementById("addSubItemButton");
             var productTableBody = document.querySelector("#productTable tbody");
 
+
+
             addProductButton.addEventListener("click", function () {
                 // Update the following lines to use the correct IDs
-                var quantity = document.getElementById("selectSubitemName").value;
-                var date = document.getElementById("quantity").value;
+                var subItem = document.getElementById("selectSubitemName").value;
+                var quantity = document.getElementById("i_quantity").value;
+                var processes = Array.from(document.querySelectorAll("#selectProcessName option:checked")).map(option => option.value);
+
+
+
+                // Ensure that at least one process is selected
+                if (processes.length === 0) {
+                    alert("Please select at least one process.");
+                    return;
+                }
+
+                var itemData = {
+                    subitemName: subItem,
+                    quantity: quantity,
+                    process: processes
+                }
+
+                subItemsData.push(itemData);
 
                 var newRow = document.createElement("tr");
                 newRow.innerHTML = `
-            <td style="border: 1px solid #000000;">${quantity}</td>
-            <td style="border: 1px solid #000000;">${date}</td>
-            <td><i class="fa fa-trash"></i></td>
-        `;
+                <td style="border: 1px solid #000000;">${subItem}</td>
+                <td style="border: 1px solid #000000;">${quantity}</td>
+                <td style="border: 1px solid #000000;">${processes.join(', ')}</td>
+                <td><i class="fa fa-trash"></i></td>
+            `;
 
                 productTableBody.appendChild(newRow);
 
@@ -751,7 +803,11 @@
                 }
             });
         });
+        function displayProductsData() {
+            console.log("Products Data:", subItemsData);
+        }
     </script>
+
 
 </body>
 

@@ -246,7 +246,7 @@
 
                             <div class="col-lg-6">
                                 <label for="quantity">Quantity</label>
-                                <input type="text" class="form-control" id="quantity" placeholder="Enter quantity">
+                                <input type="text" class="form-control" id="q_quantity" placeholder="Enter quantity">
                             </div>
                             <br>
                             <button type="button" class="btn btn-primary" id="addSubItemButton"
@@ -270,21 +270,6 @@
                             </div>
                         </div>
                         <hr>
-
-                        <div class="md-12">
-                            <div class="input-field">
-                                <input type="text" required="required" id="q_quantity" spellcheck="false">
-                                <label>Quantity</label>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="md-12">
-                            <div class="input-field">
-                                <input type="text" required="required" id="q_price" spellcheck="false">
-                                <label>Price</label>
-                            </div>
-                        </div>
-                        <br>
                         <div class="md-12">
                             <div class="input-field">
                                 <input type="text" required="required" id="q_bl_ads" spellcheck="false">
@@ -317,10 +302,11 @@
                     </div>
 
                     <div class="row">
-                        <button type="button" style="margin-left: 12px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                            onclick=""><i class="fas fa-hand-pointer"></i> <b>Choose Template</b> </button>
+                        <button type="button" style="margin-left: 12px;" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" onclick=""><i class="fas fa-hand-pointer"></i> <b>Choose
+                                Template</b> </button>
                     </div>
-                    
+
 
                     <div class="row">
                         <br><button type="button" style="margin-left: 12px;" class="btn btn-primary"
@@ -332,92 +318,98 @@
             </div>
         </div>
 
-  
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="margin-left: 180px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Templates</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-1</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Templates</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card" style="width: 12rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Template-1</h5>
+                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
+                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
+                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-2</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                <div class="col">
+                                    <div class="card" style="width: 12rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Template-2</h5>
+                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
+                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
+                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-3</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                            </div><br><br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card" style="width: 12rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Template-3</h5>
+                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
+                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
+                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-4</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                <div class="col">
+                                    <div class="card" style="width: 12rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Template-4</h5>
+                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
+                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
+                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-5</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                            </div><br><br>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card" style="width: 12rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Template-5</h5>
+                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
+                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
+                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-6</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                <div class="col">
+                                    <div class="card" style="width: 12rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Template-6</h5>
+                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
+                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
+                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
 
@@ -482,7 +474,7 @@
 
         <script>
             function addQuotationData() {
-                var fields = ["q_no", "q_quantity", "q_price", "selectCustomerName", "selectProductName", "q_bl_ads", "q_total", "q_tp", "q_td"];
+                var fields = ["q_no", "selectCustomerName", "q_bl_ads", "q_total", "q_tp", "q_td"];
                 var hasEmptyField = false;
 
                 for (var i = 0; i < fields.length; i++) {
@@ -494,8 +486,7 @@
                     if (value === "") {
                         input.classList.add("required-field");
                         hasEmptyField = true;
-                    }
-                    else {
+                    } else {
                         input.classList.remove("required-field");
                     }
                 }
@@ -504,55 +495,47 @@
                     return;
                 }
 
-
                 var q_no = document.getElementById("q_no").value;
-                var q_quantity = document.getElementById("q_quantity").value;
-                var q_price = document.getElementById("q_price").value;
                 var q_bl_ads = document.getElementById("q_bl_ads").value;
                 var q_total = document.getElementById("q_total").value;
                 var q_tp = document.getElementById("q_tp").value;
                 var q_td = document.getElementById("q_td").value;
                 var c_name = document.getElementById("selectCustomerName").value;
-                var p_name = document.getElementById("selectProductName").value;
 
+                // Create an array to store the product data
+                var productsDataArray = [];
 
+                // Iterate over the productsData array and add each product data to productsDataArray
+                for (var i = 0; i < productsData.length; i++) {
+                    var productData = productsData[i];
+                    productsDataArray.push({
+                        productName: productData.productName,
+                        quantity: productData.quantity,
+                        price: productData.price
+                    });
+                }
 
-                var JsonDataAddQuotation =
-                {
+                var JsonDataAddQuotation = {
                     quotation_number: q_no,
-                    quotation_quantity: q_quantity,
-                    quotation_pric: q_price,
-
-
-
                     quotation_bill_address: q_bl_ads,
                     quotation_total: q_total,
                     quotation_payment: q_tp,
                     quotation_delivery: q_td,
                     c_customer: c_name,
-                    c_product: p_name,
-
-
+                    productsData: productsDataArray // Add the array of product data
                 };
 
                 console.log(JsonDataAddQuotation);
                 $('#selectCustomerName').val(null).trigger('change');
                 $('#selectProductName').val(null).trigger('change');
 
-
+                // Clear the input fields
                 document.getElementById("q_no").value = "";
-                document.getElementById("q_quantity").value = "";
-                document.getElementById("q_price").value = "";
-
                 document.getElementById("q_bl_ads").value = "";
                 document.getElementById("q_total").value = "";
-                var c_name = document.getElementById("selectCustomerName").value = "";
-                var p_name = document.getElementById("selectProductName").value = "";
                 document.getElementById("q_tp").value = "";
                 document.getElementById("q_td").value = "";
-
             }
-
         </script>
 
 
@@ -663,11 +646,11 @@
                 for (var i = 0; i < data.length; i++) {
                     var entry = data[i];
 
-                    if (entry.q_product && employeeNames.indexOf(entry.q_product) === -1) {
+                    if (entry.q_c_name && employeeNames.indexOf(entry.q_c_name) === -1) {
                         employeeNames.push(entry.q_cu);
 
                         var option = document.createElement("option");
-                        option.value = entry.q_product;
+                        option.value = entry.q_c_name;
                         option.textContent = entry.q_c_name;
                         employeeSelect.appendChild(option);
 
@@ -912,15 +895,28 @@
                 return price * quantity;
             }
 
+
+            // Initialize an array to store product data
+            var productsData = [];
+
             function addProductToTable() {
                 var productSelect = document.getElementById("selectProductName");
-                var quantityInput = document.getElementById("quantity");
+                var quantityInput = document.getElementById("q_quantity");
 
                 var product = productSelect.value;
                 var quantity = quantityInput.value;
 
                 // Calculate the price
                 var price = calculatePrice(product, quantity);
+
+                // Store product data in the array
+                var productData = {
+                    productName: product,
+                    quantity: quantity,
+                    price: price
+                };
+
+                productsData.push(productData); // Add the data to the array
 
                 // Add the product to the table
                 var productTableBody = document.querySelector("#productTable tbody");
@@ -948,10 +944,20 @@
                 function deleteRow(event) {
                     var row = event.target.closest("tr");
                     if (row) {
+                        // Remove the corresponding data from the array
+                        var index = Array.from(productTableBody.children).indexOf(row);
+                        productsData.splice(index, 1);
+
                         row.remove();
                     }
                 }
             }
+
+            // Function to display the stored product data
+            function displayProductsData() {
+                console.log("Products Data:", productsData);
+            }
+
         </script>
 
         <!-- Update the button click event to call the addProductToTable function -->
