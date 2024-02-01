@@ -248,17 +248,6 @@
                         </div>
                     </div>
                     <br>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="selectProcessName">Process Name</label>
-                            <select style="width:100%" id="selectProcessName" class="js-example-basic-single">
-                                <option>Select Drop Process</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <br>
                     <div class="col-md-12">
                         <!-- <div class="form-group"> <label for="prodQuantity">Production
                         Quantity</label> <input class="form-control" id="prodQuantity"></input> </div>
@@ -270,7 +259,7 @@
                     </div> <br>
 
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <label for="selectSubitemName">Choose SubItem</label>
                             <select id="selectSubitemName" class="js-example-basic-single">
                                 <option>Select Drop SubItem</option>
@@ -278,9 +267,16 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <label for="quantity">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" placeholder="Enter quantity">
+                            <input type="text" class="form-control" id="quantity01">
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="selectProcess01Name">Process</label>
+                            <select style="width:100%" id="selectProcess01Name" multiple="multiple"
+                                class="js-example-basic-single">
+                                <option>Select Drop Process</option>
+                            </select>
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addSubItemButton"
@@ -295,6 +291,7 @@
                                     <tr style="text-align: center; border: 1px solid black;">
                                         <th style="border: 1px solid black;">Sub Items</th>
                                         <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Process</th>
                                         <th style="border: 1px solid black;">Delete</th>
                                     </tr>
                                 </thead>
@@ -304,7 +301,7 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <label for="selectItemName">Choose Item</label>
                             <select id="selectItemName" class="js-example-basic-single">
                                 <option>Select Drop Item</option>
@@ -312,9 +309,17 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <label for="quantity">Quantity</label>
-                            <input type="text" class="form-control" id="quantity01" placeholder="Enter quantity">
+                            <input type="text" class="form-control" id="quantity02">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <label for="selectProcess02Name">Process</label>
+                            <select style="width:100%" id="selectProcess02Name" multiple="multiple"
+                                class="js-example-basic-single">
+                                <option>Select Drop Process</option>
+                            </select>
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addItemButton"
@@ -329,6 +334,7 @@
                                     <tr style="text-align: center;  border: 1px solid black;">
                                         <th style="border: 1px solid black;">Items</th>
                                         <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Process</th>
                                         <th style="border: 1px solid black;">Delete</th>
                                     </tr>
                                 </thead>
@@ -440,8 +446,6 @@
                                         </tbody>
                                     </table>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -472,37 +476,47 @@
                 return;
             }
 
+            var subItemsDataArray = [];
+            var itemsDataArray = [];
+
             var i_name = document.getElementById("i_name").value;
             var i_no = document.getElementById("i_no").value;
-
-            var p_name = document.getElementById("selectProcessName").value;
-            var c_subItemx = document.getElementById("selectSubitemName").value;
-            var c_item = document.getElementById("selectItemName").value;
-
             var i_hsn = document.getElementById("i_hsn").value;
             var i_total = document.getElementById("i_total").value;
 
+            for (var i = 0; i < subItemsData.length; i++) {
+                var subItemData = subItemsData[i];
+                subItemsDataArray.push({
+                    itemName: subItemData.subitemName,
+                    quantity: subItemData.quantity,
+                    process: subItemData.process
+                });
+            }
+
+            for (var i = 0; i < itemsData.length; i++) {
+                var itemData = itemsData[i];
+                itemsDataArray.push({
+                    itemName: itemData.itemName,
+                    quantity: itemData.quantity,
+                    process: itemData.process
+                });
+            }
 
             var JsonDataAddItem =
             {
                 item_name: i_name,
                 item_number: i_no,
-                process_name: p_name,
-                choose_subItem: c_subItemx,
-                choose_item: c_item,
                 item_hsn: i_hsn,
                 item_grand_total: i_total,
+                subItemsData: subItemsDataArray,
+                itemsData: itemsDataArray
 
             };
 
             console.log(JsonDataAddItem);
 
-            $('#selectProcessName').val(null).trigger('change');
-            $('#selectSubitemName').val(null).trigger('change');
-            $('#selectItemName').val(null).trigger('change');
             document.getElementById("i_name").value = "";
             document.getElementById("i_no").value = "";
-
             document.getElementById("i_hsn").value = "";
             document.getElementById("i_total").value = "";
         }
@@ -524,6 +538,7 @@
                         console.log(jsonData)
                         updateDataToTable(jsonData.add_master_product);
                         updateProcessDropdown(jsonData.add_master_product)
+                        updateProcessDropdown01(jsonData.add_master_product)
                         updateSubitemDropdown(jsonData.add_master_product)
                         updateItemDropdown(jsonData.add_master_product)
                         displayTableRows();
@@ -579,9 +594,32 @@
         updateTableData()
 
 
+        function updateProcessDropdown01(data) {
+            console.log(1);
+            var employeeSelect = document.getElementById("selectProcess01Name");
+            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+            var employeeNames = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var entry = data[i];
+
+                if (entry.i_name && employeeNames.indexOf(entry.i_name) === -1) {
+                    employeeNames.push(entry.i_name);
+
+                    var option = document.createElement("option");
+                    option.value = entry.i_name;
+                    option.textContent = entry.i_name;
+                    employeeSelect.appendChild(option);
+
+                    console.log(employeeSelect.appendChild(option))
+                }
+            }
+        }
+
         function updateProcessDropdown(data) {
             console.log(1);
-            var employeeSelect = document.getElementById("selectProcessName");
+            var employeeSelect = document.getElementById("selectProcess02Name");
             employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
 
             var employeeNames = [];
@@ -663,6 +701,12 @@
             $('.js-example-basic-single').select2();
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example01-basic-single').select2();
+        });
+    </script>
+
 
     <script type="text/javascript">
         $(function () {
@@ -857,18 +901,33 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
+            subItemsData = [];
+
             var addProductButton = document.getElementById("addSubItemButton");
             var productTableBody = document.querySelector("#productTable tbody");
 
             addProductButton.addEventListener("click", function () {
                 // Update the following lines to use the correct IDs
-                var quantity = document.getElementById("selectSubitemName").value;
-                var date = document.getElementById("quantity").value;
+                var subItem = document.getElementById("selectSubitemName").value;
+                var quantity = document.getElementById("quantity01").value;
+                var processes = Array.from(document.querySelectorAll("#selectProcess01Name option:checked")).map(option => option.value);
+
+
+                var subItemData = {
+                    subitemName: subItem,
+                    quantity: quantity,
+                    process: processes
+                }
+
+                subItemsData.push(subItemData);
+
 
                 var newRow = document.createElement("tr");
                 newRow.innerHTML = `
+            <td style="border: 1px solid #000000;">${subItem}</td>
             <td style="border: 1px solid #000000;">${quantity}</td>
-            <td style="border: 1px solid #000000;">${date}</td>
+            <td style="border: 1px solid #000000;">${processes.join(', ')}</td>
             <td style="border: 1px solid #000000; text-align:center;"><i class="fa fa-trash"></i></td>
         `;
 
@@ -893,20 +952,31 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
+            itemsData = [];
+
             var addProductButton = document.getElementById("addItemButton");
             var productTableBody = document.querySelector("#productTable02 tbody");
 
             addProductButton.addEventListener("click", function () {
                 // Update the following lines to use the correct IDs
                 var itemName = document.getElementById("selectItemName").value;
-                var quantity = document.getElementById("quantity01").value;
+                var quantity = document.getElementById("quantity02").value;
+                var processes = Array.from(document.querySelectorAll("#selectProcess02Name option:checked")).map(option => option.value);
 
+                var itemData = {
+                    itemName: itemName,
+                    quantity: quantity,
+                    process: processes
+                }
+                itemsData.push(itemData);
 
                 var newRow = document.createElement("tr");
 
                 newRow.innerHTML = `
     <td style="border: 1px solid #000000;">${itemName}</td>
     <td style="border: 1px solid #000000;">${quantity}</td>
+    <td style="border: 1px solid #000000;">${processes.join(', ')}</td>
     <td><i class="fa fa-trash"></i></td>
 `;
 

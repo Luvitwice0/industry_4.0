@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+    <script src="assets/lib/jquery/jquery.min.js"></script>
+    <title>Jobcard Management</title>
+</head>
+<style>
+    body {
+        padding: 30px;
+    }
+
+    
+
+    /* .offcanvas .offcanvas-body #myForm input{
+
+    } */
+    
+</style>
+</head>
+
+<body>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="form-group">
+                <label for="selectcustomerName02">Select Plant</label>
+                <select style="width: 100%;" id="selectcustomerName02" class="js-example-basic-single">
+                    <option>
+                        Select Plant</option>
+                    <option>Chennai</option>
+                    <option>Hosur</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-2">
+
+            <div class="form-group">
+                <label for="selectcustomerName">Select Process</label>
+                <select style="width: 100%;" id="selectcustomerName" class="js-example-basic-single">
+                    <option>
+                        Select Process</option>
+                    <option>Bending</option>
+
+                    <option>Welding</option>
+
+                    <option>Cutting</option>
+
+                    <option>Powder Coating</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-hover text-center" style="width:100%; ">
+                            <th class="col-md-2">WorkOrder Details</th>
+                            <th class="col-md-2">Completed Quantity</th>
+                            <th class="col-md-2">Pending Quantity</th>
+                            <th class="col-md-2">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody style="vertical-align: middle;">
+                        <tr>
+                            <td>
+                                <div
+                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="margin: 1px;">WO-001</h5>
+                                        <p class="card-text" style="margin: 1px;">Wood Table</p>
+                                        <p class="card-text" style="margin: 1px;">1500</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>100</td>
+                            <td>113</td>
+                            <td>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                    <i class="fa fa-plus"></i> Create JobCard
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#view_jc">
+                                    view JobCard
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div
+                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="margin: 1px;">WO-002</h5>
+                                        <p class="card-text" style="margin: 1px;">Wood Table</p>
+                                        <p class="card-text" style="margin: 1px;">1501</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>100</td>
+                            <td>113</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop002">
+                                    <i class="fa fa-plus"></i> Create JobCard
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#view_jc">
+                                    view JobCard
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div
+                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="margin: 1px;">WO-003</h5>
+                                        <p class="card-text" style="margin: 1px;">Metal Bottle</p>
+                                        <p class="card-text" style="margin: 1px;">1503</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>100</td>
+                            <td>113</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop002">
+                                    <i class="fa fa-plus"></i> Create JobCard
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#view_jc">
+                                    view JobCard
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div
+                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="margin: 1px;">WO-004</h5>
+                                        <p class="card-text" style="margin: 1px;">Wood Table</p>
+                                        <p class="card-text" style="margin: 1px;">1504</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>100</td>
+                            <td>113</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop002">
+                                    <i class="fa fa-plus"></i> Create JobCard
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#view_jc">
+                                    view JobCard
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+    
+    <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- <textarea id="log" cols="50" rows="10"></textarea> -->
+            <form>
+                <label for="port-select">Select port:</label>
+                <select id="port-select" class="form-control"></select><br>
+                <button type="button" class="btn btn-primary btn-sm" onclick="connect()">Connect</button><br>
+            </form><br>
+
+            <form id="myForm" class="input-field">
+                <!-- <label for="operator-name"></label> -->
+                <input type="text" class="form-control" id="operator-name" placeholder="Operator Name"/><br>
+
+                <!-- <label for="jobcard-number"></label> -->
+                <input type="text" class="form-control" id="jobcard-number" placeholder="Job Card Number"/><br>
+
+                <!-- <label for="machine-name"></label> -->
+                <input type="text" class="form-control"  id="machine-name" placeholder="Machine Name"/><br>
+
+                <!-- <label for="select-plant">Select Plant:</label> -->
+                <select id="select-plant"  class="form-control">
+                <option value="plant1">Plant 1</option>
+                <option value="plant2">Plant 2</option>
+                </select><br>
+
+                <!-- <label for="part-name"></label> -->
+                <input type="text" class="form-control" id="part-name" placeholder="Part Name"/><br>
+
+                <!-- <label for="quantity"></label> -->
+                <input type="number" class="form-control" id="quantity" placeholder="Quantity"/><br>
+
+                <button type="button" class="btn btn-primary btn-sm" id="send-button" onclick="send()">Send</button>
+            </form>
+        </div>
+    </div>
+
+
+    
+
+
+
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="staticBackdrop002" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create JobCard</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form>
+                            <label for="port-select">Select port:</label>
+                            <select id="port-select"></select>
+                            <button type="button" class="btn btn-primary" onclick="connect()">Connect</button>
+                        </form>
+                        <br><br>
+
+                        <div class="col-md-12"  id="myForm">
+                            <div class="input-field">
+                                <input type="text" required="required" id="jobcard-number" spellcheck="false">
+                                <label>Jobcard Number</label>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="operator-name">Select Operator</label>
+                                    <select style="width: 100%;" id="operator-name" class="selectpicker">
+                                        <option>
+                                            Select Operator</option>
+                                        <option>Ramesh</option>
+                                        <option>Gopal</option>
+                                        <option>Srini</option>
+                                        <option>Manoj</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="col-md-12">
+
+                                <div class="input-field">
+                                    <input type="text" required="required" id="machine-name" spellcheck="false">
+                                    <label>Machine Number</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="form-group">
+                                    <label for="select-plant">Select Plant</label>
+                                    <select style="width: 100%;" id="select-plant" class="selectpicker">
+                                        <option>
+                                            Select Plant</option>
+                                        <option>Chennai</option>
+                                        <option>Hosur</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="part-name" spellcheck="false">
+                                    <label>Part Name</label>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="md-12">
+                                <div class="input-field">
+                                    <input type="text" required="required" id="quantity" spellcheck="false">
+                                    <label>Quantity</label>
+                                </div>
+                            </div>
+                            <br>
+
+                        </div>
+
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="send()"> Create JC</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="modal fade" id="view_jc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">JobCard Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-hover text-center" style="width:100%; ">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2">JobCard No</th>
+                                            <th class="col-md-2">Operator Name</th>
+                                            <th class="col-md-2">Part No</th>
+                                            <th class="col-md-2">Quantity</th>
+                                            <th class="col-md-2">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="vertical-align: middle;">
+                                        <tr>
+                                            <td>JC001</td>
+                                            <td>Siva</td>
+                                            <td>1056</td>
+                                            <td>289</td>
+                                            <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>JC002</td>
+                                            <td>Arun</td>
+                                            <td>1526</td>
+                                            <td>50</td>
+                                            <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>JC003</td>
+                                            <td>Manoj</td>
+                                            <td>1885</td>
+                                            <td>100</td>
+                                            <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="send-button" onclick="addJobCardData()">
+                        save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <script>
+        const portSelect = document.getElementById('port-select');
+        const operatorNameInput = document.getElementById('operator-name');
+        const sendButton = document.getElementById('send-button');
+        const log = document.getElementById('log');
+        let port;
+        let writer;
+    
+        async function listPorts() {
+          portSelect.innerHTML = '';
+          const ports = await navigator.serial.getPorts();
+          if (ports.length === 0) {
+            log.textContent = 'No serial ports available.';
+          } else {
+            ports.forEach(port => {
+              const option = document.createElement('option');
+              option.value = port.path;
+              option.text = port.path;
+              portSelect.appendChild(option);
+            });
+          }
+        }
+    
+        let receivedData = '';
+    
+        async function connect() {
+          try {
+            const portPath = portSelect.value;
+            port = await navigator.serial.requestPort({ path: portPath });
+            await port.open({ baudRate: 9600 });
+            writer = port.writable.getWriter();
+            const reader = port.readable.getReader();
+    
+            while (true) {
+              const { value, done } = await reader.read();
+              if (done) {
+                reader.releaseLock();
+                console.log("Break");
+                break;
+              }
+              const textValue = new TextDecoder().decode(value);
+              receivedData += textValue;
+            }
+            log.textContent = receivedData;
+            console.log(receivedData);
+          } catch (error) {
+            log.textContent = error.message;
+          }
+        }
+    
+        async function send() {
+          try {
+    
+            const operatorName = document.getElementById('operator-name').value;
+            const jobCardNumber = document.getElementById('jobcard-number').value;
+            const machineName = document.getElementById('machine-name').value;
+            const selectPlant = document.getElementById('select-plant').value;
+            const partName = document.getElementById('part-name').value;
+            const quantity = document.getElementById('quantity').value;
+    
+            const formattedMessage = `
+Operator Name  : ${operatorName}
+Job Card Number: ${jobCardNumber}
+Machine Name   : ${machineName}
+Plant          : ${selectPlant}
+Part Name      : ${partName}
+Quantity       : ${quantity}
+`;
+            console.log(formattedMessage);
+    
+            const bytes = new TextEncoder().encode(formattedMessage);
+            await writer.write(bytes);
+    
+            log.textContent = `${bytes.length} bytes sent:\n${formattedMessage}`;
+            // document.getElementById("myForm").reset();
+            console.log("Resetting form...");
+            document.getElementById("myForm").reset();
+
+
+          } catch (error) {
+            log.textContent = error.message;
+          }
+        }
+        listPorts();
+        
+      </script>
+
+    
+
+    <!-- <script>
+        const portSelect = document.getElementById('port-select');
+        const operatorNameInput = document.getElementById('selectcustomerName1');
+        const sendButton = document.getElementById('send-button');
+        const log = document.getElementById('log');
+        let port;
+        let writer;
+
+        async function listPorts() {
+            portSelect.innerHTML = '';
+            const ports = await navigator.serial.getPorts();
+            if (ports.length === 0) {
+                log.textContent = 'No serial ports available.';
+            } else {
+                ports.forEach(port => {
+                    const option = document.createElement('option');
+                    option.value = port.path;
+                    option.text = port.path;
+                    portSelect.appendChild(option);
+                });
+            }
+        }
+
+        let receivedData = '';
+
+        async function connect() {
+            try {
+                const portPath = portSelect.value;
+                port = await navigator.serial.requestPort({ path: portPath });
+                await port.open({ baudRate: 9600 });
+                writer = port.writable.getWriter();
+                const reader = port.readable.getReader();
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) {
+                        reader.releaseLock();
+                        console.log("Break");
+                        break;
+                    }
+                    const textValue = new TextDecoder().decode(value);
+                    console.log(textValue);
+                    receivedData += textValue;
+                }
+                console.log(receivedData);
+                log.textContent = receivedData;
+            } catch (error) {
+                log.textContent = error.message;
+            }
+        }
+        async function send() {
+            try {
+        const operatorName = document.getElementById('operator-name').value;
+        const jobCardNumber = document.getElementById('jobcard-number').value;
+        const machineName = document.getElementById('machine-name').value;
+        const selectPlant = document.getElementById('select-plant').value;
+        const partName = document.getElementById('part-name').value;
+        const quantity = document.getElementById('quantity').value;
+
+const formattedMessage = `
+Job Card Number: ${jobCardNumber}
+Operator Name  : ${operatorName}
+Machine Name   : ${machineName}
+Plant          : ${selectPlant}
+Part Name      : ${partName} 
+Quantity       : ${quantity}`;
+
+        console.log(formattedMessage);
+        const bytes = new TextEncoder().encode(formattedMessage);
+        await writer.write(bytes);
+        log.textContent = `${bytes.length} bytes sent:\n${formattedMessage}`;
+        document.getElementById("myForm").reset();
+        document.querySelectorAll("div input").forEach(function(element) {
+  element.value = "";
+});
+document.querySelectorAll("div select").forEach(function(element) { element.value = ""; }); 
+
+
+      } catch (error) {
+        log.textContent = error.message;
+      }
+    }
+    listPorts();
+    </script> -->
+
+
+    <script src="assets/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+
+            $('#staticBackdrop002').on('shown.bs.modal', function () {
+                // Initialize Select2 for the modal dropdown when the modal is shown
+                $('#selectcustomerName2_modal').select2();
+            });
+        });
+    </script>
+
+
+
+    <!-- <script> $(document).ready(function () {
+    $('.js-example-basic-single001').select2({ }); }); </script> -->
+
+</body>
+
+</html>
