@@ -19,12 +19,23 @@
         padding: 30px;
     }
 
-    
+    input:focus~label,
+    input:valid~label {
+        top: 0;
+        left: 15px;
+        font-size: 16px;
+        padding: 0 2px;
+        background-color: white;
+    }
+
+    .required-field {
+        border: 2px solid #f80000 !important;
+    }
+
 
     /* .offcanvas .offcanvas-body #myForm input{
 
     } */
-    
 </style>
 </head>
 
@@ -69,12 +80,12 @@
         <div class="col-lg-12">
             <div class="table-responsive">
                 <table class="table table-hover text-center" style="width:100%; ">
-                            <th class="col-md-2">WorkOrder Details</th>
-                            <th class="col-md-2">Completed Quantity</th>
-                            <th class="col-md-2">Pending Quantity</th>
-                            <th class="col-md-2">Action</th>
+                    <th class="col-md-2">WorkOrder Details</th>
+                    <th class="col-md-2">Completed Quantity</th>
+                    <th class="col-md-2">Pending Quantity</th>
+                    <th class="col-md-2">Action</th>
 
-                        </tr>
+                    </tr>
                     </thead>
                     <tbody style="vertical-align: middle;">
                         <tr>
@@ -91,7 +102,8 @@
                             <td>100</td>
                             <td>113</td>
                             <td>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                     <i class="fa fa-plus"></i> Create JobCard
                                 </button>
                                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
@@ -183,7 +195,7 @@
 
 
 
-    
+
     <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -201,25 +213,30 @@
 
             <form id="myForm" class="input-field">
                 <!-- <label for="operator-name"></label> -->
-                <input type="text" class="form-control" id="operator-name" placeholder="Operator Name"/><br>
+                <input type="text" class="form-control" required="required" id="operator-name"
+                    placeholder="Operator Name" /><br>
 
                 <!-- <label for="jobcard-number"></label> -->
-                <input type="text" class="form-control" id="jobcard-number" placeholder="Job Card Number"/><br>
+                <input type="text" class="form-control" required="required" id="jobcard-number"
+                    placeholder="Job Card Number" /><br>
 
                 <!-- <label for="machine-name"></label> -->
-                <input type="text" class="form-control"  id="machine-name" placeholder="Machine Name"/><br>
+                <input type="text" class="form-control" required="required" id="machine-name"
+                    placeholder="Machine Name" /><br>
 
                 <!-- <label for="select-plant">Select Plant:</label> -->
-                <select id="select-plant"  class="form-control">
-                <option value="plant1">Plant 1</option>
-                <option value="plant2">Plant 2</option>
+                <select id="select-plant" required="required" class="form-control" placeholder="Choose Plant">
+                    <option value="plant1">Plant 1</option>
+                    <option value="plant2">Plant 2</option>
                 </select><br>
 
                 <!-- <label for="part-name"></label> -->
-                <input type="text" class="form-control" id="part-name" placeholder="Part Name"/><br>
+                <input type="text" class="form-control" required="required" id="part-name"
+                    placeholder="Part Name" /><br>
 
                 <!-- <label for="quantity"></label> -->
-                <input type="number" class="form-control" id="quantity" placeholder="Quantity"/><br>
+                <input type="number" class="form-control" required="required" id="quantity"
+                    placeholder="Quantity" /><br>
 
                 <button type="button" class="btn btn-primary btn-sm" id="send-button" onclick="send()">Send</button>
             </form>
@@ -227,7 +244,7 @@
     </div>
 
 
-    
+
 
 
 
@@ -381,7 +398,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
 
@@ -392,60 +409,80 @@
         const log = document.getElementById('log');
         let port;
         let writer;
-    
+
         async function listPorts() {
-          portSelect.innerHTML = '';
-          const ports = await navigator.serial.getPorts();
-          if (ports.length === 0) {
-            log.textContent = 'No serial ports available.';
-          } else {
-            ports.forEach(port => {
-              const option = document.createElement('option');
-              option.value = port.path;
-              option.text = port.path;
-              portSelect.appendChild(option);
-            });
-          }
-        }
-    
-        let receivedData = '';
-    
-        async function connect() {
-          try {
-            const portPath = portSelect.value;
-            port = await navigator.serial.requestPort({ path: portPath });
-            await port.open({ baudRate: 9600 });
-            writer = port.writable.getWriter();
-            const reader = port.readable.getReader();
-    
-            while (true) {
-              const { value, done } = await reader.read();
-              if (done) {
-                reader.releaseLock();
-                console.log("Break");
-                break;
-              }
-              const textValue = new TextDecoder().decode(value);
-              receivedData += textValue;
+            portSelect.innerHTML = '';
+            const ports = await navigator.serial.getPorts();
+            if (ports.length === 0) {
+                log.textContent = 'No serial ports available.';
+            } else {
+                ports.forEach(port => {
+                    const option = document.createElement('option');
+                    option.value = port.path;
+                    option.text = port.path;
+                    portSelect.appendChild(option);
+                });
             }
-            log.textContent = receivedData;
-            console.log(receivedData);
-          } catch (error) {
-            log.textContent = error.message;
-          }
         }
-    
+
+        let receivedData = '';
+
+        async function connect() {
+            try {
+                const portPath = portSelect.value;
+                port = await navigator.serial.requestPort({ path: portPath });
+                await port.open({ baudRate: 9600 });
+                writer = port.writable.getWriter();
+                const reader = port.readable.getReader();
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) {
+                        reader.releaseLock();
+                        console.log("Break");
+                        break;
+                    }
+                    const textValue = new TextDecoder().decode(value);
+                    receivedData += textValue;
+                }
+                log.textContent = receivedData;
+                console.log(receivedData);
+            } catch (error) {
+                log.textContent = error.message;
+            }
+        }
+
         async function send() {
-          try {
-    
-            const operatorName = document.getElementById('operator-name').value;
-            const jobCardNumber = document.getElementById('jobcard-number').value;
-            const machineName = document.getElementById('machine-name').value;
-            const selectPlant = document.getElementById('select-plant').value;
-            const partName = document.getElementById('part-name').value;
-            const quantity = document.getElementById('quantity').value;
-    
-            const formattedMessage = `
+            var fields = ["operator-name", "jobcard-number", "machine-name", "select-plant", "part-name", "quantity"];
+            var hasEmptyField = false;
+            for (var i = 0; i < fields.length; i++) {
+                var fieldId = fields[i];
+                var input = document.getElementById(fieldId);
+
+                var value = input.value.trim();
+
+                if (value === "") {
+                    input.classList.add("required-field");
+                    hasEmptyField = true;
+                }
+                else {
+                    input.classList.remove("required-field");
+                }
+            }
+
+            if (hasEmptyField) {
+                return;
+            }
+            try {
+
+                const operatorName = document.getElementById('operator-name').value;
+                const jobCardNumber = document.getElementById('jobcard-number').value;
+                const machineName = document.getElementById('machine-name').value;
+                const selectPlant = document.getElementById('select-plant').value;
+                const partName = document.getElementById('part-name').value;
+                const quantity = document.getElementById('quantity').value;
+
+                const formattedMessage = `
 Operator Name  : ${operatorName}
 Job Card Number: ${jobCardNumber}
 Machine Name   : ${machineName}
@@ -453,26 +490,33 @@ Plant          : ${selectPlant}
 Part Name      : ${partName}
 Quantity       : ${quantity}
 `;
-            console.log(formattedMessage);
-    
-            const bytes = new TextEncoder().encode(formattedMessage);
-            await writer.write(bytes);
-    
-            log.textContent = `${bytes.length} bytes sent:\n${formattedMessage}`;
-            // document.getElementById("myForm").reset();
-            console.log("Resetting form...");
-            document.getElementById("myForm").reset();
+                console.log(formattedMessage);
+                document.getElementById('operator-name').value = '';
+                document.getElementById('jobcard-number').value = '';
+                document.getElementById('machine-name').value = '';
+                document.getElementById('select-plant').value = '';
+                document.getElementById('part-name').value = '';
+                document.getElementById('quantity').value = '';
 
 
-          } catch (error) {
-            log.textContent = error.message;
-          }
+                const bytes = new TextEncoder().encode(formattedMessage);
+                await writer.write(bytes);
+
+                log.textContent = `${bytes.length} bytes sent:\n${formattedMessage}`;
+                // document.getElementById("myForm").reset();
+                console.log("Resetting form...");
+
+
+
+            } catch (error) {
+                log.textContent = error.message;
+            }
         }
         listPorts();
-        
-      </script>
 
-    
+    </script>
+
+
 
     <!-- <script>
         const portSelect = document.getElementById('port-select');
