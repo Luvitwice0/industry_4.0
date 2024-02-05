@@ -367,71 +367,144 @@
     <script>
         var tableDataNested = [
             {
-                salesorder: "SOCB_001", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_001", customer: "SFO Technologies", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
-                        salesorder: "Metal Bottle", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
+                        salesorder: "Metal Bottle", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"], _children: [
                             {
-                                salesorder: "Steel Plate", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "Aluminum Plate", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["Powder Coating",] },
-                                    { salesorder: "Stainless Bolt", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["cutting"] }
+                                salesorder: "Steel Plate", customer: "", deliveryDate: "", quantity: 100, processes: ["punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
                                 ]
                             },
-                            { salesorder: "Galvanized Nail", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["welding"] }
+                            {
+                                salesorder: "U-clamb", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "Aluminium nuts", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "Iron Rod", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Galvanized Nail", customer: "", deliveryDate: "", quantity: 50, processes: ["welding"] }
                         ]
                     },
-                    { salesorder: "Wood Table", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
+                    { salesorder: "Wood Table", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] },
+                    { salesorder: "Cupboard", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] }
                 ]
             },
             {
-                salesorder: "SOCB_002", customer: "varun", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_002", customer: "Pfizer", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
-                        salesorder: "Metal Bottle", customer: "varun", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
+                        salesorder: "Metal Bottle", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"], _children: [
                             {
-                                salesorder: "Steel Plate", customer: "varun", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "Aluminum Plate", customer: "varun", deliveryDate: "20/10/2024", quantity: 50, processes: ["Powder Coating",] },
-                                    { salesorder: "Stainless Bolt", customer: "varun", deliveryDate: "20/10/2024", quantity: 50, processes: ["cutting"] }
+                                salesorder: "Steel Plate", customer: "", deliveryDate: "", quantity: 100, processes: ["punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
                                 ]
                             },
-                            { salesorder: "Galvanized Nail", customer: "varun", deliveryDate: "20/10/2024", quantity: 50, processes: ["welding"] }
-                        ]
-                    },
-                    { salesorder: "Wood Table", customer: "varun", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
-                ]
-            },
-            {
-                salesorder: "SOCB_003", customer: "Vimal", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
-                    {
-                        salesorder: "Metal Bottle", customer: "Vimal", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Steel Plate", customer: "Vimal", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "Aluminum Plate", customer: "Vimal", deliveryDate: "20/10/2024", quantity: 50, processes: ["Powder Coating",] },
-                                    { salesorder: "Stainless Bolt", customer: "Vimal", deliveryDate: "20/10/2024", quantity: 50, processes: ["cutting"] }
+                                salesorder: "U-clamb", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
                                 ]
                             },
-                            { salesorder: "Galvanized Nail", customer: "Vimal", deliveryDate: "20/10/2024", quantity: 50, processes: ["welding"] }
-                        ]
-                    },
-                    { salesorder: "Wood Table", customer: "Vimal", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
-                ]
-            },
-            {
-                salesorder: "SOCB_004", customer: "Kamal", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
-                    {
-                        salesorder: "Metal Bottle", customer: "Kamal", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
-                                salesorder: "Steel Plate", customer: "Kamal", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "Aluminum Plate", customer: "Kamal", deliveryDate: "20/10/2024", quantity: 50, processes: ["Powder Coating",] },
-                                    { salesorder: "Stainless Bolt", customer: "Kamal", deliveryDate: "20/10/2024", quantity: 50, processes: ["cutting"] }
+                                salesorder: "Aluminium nuts", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
                                 ]
                             },
-                            { salesorder: "Galvanized Nail", customer: "Kamal", deliveryDate: "20/10/2024", quantity: 50, processes: ["welding"] }
+                            {
+                                salesorder: "Iron Rod", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Galvanized Nail", customer: "", deliveryDate: "", quantity: 50, processes: ["welding"] }
                         ]
                     },
-                    { salesorder: "Wood Table", customer: "Kamal", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
-                ]
+                    { salesorder: "Wood Table", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] },
+                    { salesorder: "Cupboard", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] }]
             },
             {
-                salesorder: "SOCB_005", customer: "Aswin", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_003", customer: "Amazon", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
+                    {
+                        salesorder: "Metal Bottle", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"], _children: [
+                            {
+                                salesorder: "Steel Plate", customer: "", deliveryDate: "", quantity: 100, processes: ["punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "U-clamb", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "Aluminium nuts", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "Iron Rod", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Galvanized Nail", customer: "", deliveryDate: "", quantity: 50, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "Wood Table", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] },
+                    { salesorder: "Cupboard", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] }]
+            },
+            {
+                salesorder: "SOCB_004", customer: "Flipkart", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
+                    {
+                        salesorder: "Metal Bottle", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"], _children: [
+                            {
+                                salesorder: "Steel Plate", customer: "", deliveryDate: "", quantity: 100, processes: ["punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "U-clamb", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "Aluminium nuts", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            {
+                                salesorder: "Iron Rod", customer: "", deliveryDate: "", quantity: 100, processes: ["bending", "welding", "punching", "cutting", "powder Coating", "Quality Check"], action: `<button class='succes-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
+                                    { salesorder: "Aluminum Plate", customer: "", deliveryDate: "", quantity: 500, processes: ["Powder Coating",] },
+                                    { salesorder: "Stainless Bolt", customer: "", deliveryDate: "", quantity: 300, processes: ["cutting"] }
+                                ]
+                            },
+                            { salesorder: "Galvanized Nail", customer: "", deliveryDate: "", quantity: 50, processes: ["welding"] }
+                        ]
+                    },
+                    { salesorder: "Wood Table", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] },
+                    { salesorder: "Cupboard", customer: "", deliveryDate: "", quantity: 50, processes: ["assembly"] }]
+            },
+            {
+                salesorder: "SOCB_005", customer: "Borvoner", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
                         salesorder: "Metal Bottle", customer: "Aswin", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
@@ -447,7 +520,7 @@
                 ]
             },
             {
-                salesorder: "SOCB_006", customer: "Velu", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_006", customer: "Aargee", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
                         salesorder: "Metal Bottle", customer: "Velu", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
@@ -463,7 +536,7 @@
                 ]
             },
             {
-                salesorder: "SOCB_007", customer: "Aravid", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_007", customer: "SFO Technologies", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
                         salesorder: "Metal Bottle", customer: "Aravid", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
@@ -479,7 +552,7 @@
                 ]
             },
             {
-                salesorder: "SOCB_008", customer: "Viswa", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_008", customer: "Flipkart", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
                         salesorder: "Metal Bottle", customer: "Viswa", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
@@ -495,7 +568,7 @@
                 ]
             },
             {
-                salesorder: "SOCB_009", customer: "Srinivasan", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_009", customer: "Pfizer", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
                         salesorder: "Metal Bottle", customer: "Srinivasan", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
@@ -511,7 +584,7 @@
                 ]
             },
             {
-                salesorder: "SOCB_010", customer: "Hariharan", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_010", customer: "Aargee", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
                         salesorder: "Metal Bottle", customer: "Hariharan", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
@@ -527,7 +600,7 @@
                 ]
             },
             {
-                salesorder: "SOCB_011", customer: "Rishitharan", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
+                salesorder: "SOCB_011", customer: "Borvoner", deliveryDate: "20/10/2024", quantity: '', processes: [], _children: [
                     {
                         salesorder: "Metal Bottle", customer: "Rishitharan", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
                             {
@@ -542,60 +615,11 @@
                     { salesorder: "Wood Table", customer: "Rishitharan", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
                 ]
             },
-            {
-                salesorder: "SOCB_012", customer: "Sairam", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
-                    {
-                        salesorder: "Metal Bottle", customer: "Sairam", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
-                            {
-                                salesorder: "Steel Plate", customer: "Sairam", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "Aluminum Plate", customer: "Sairam", deliveryDate: "20/10/2024", quantity: 50, processes: ["Powder Coating",] },
-                                    { salesorder: "Stainless Bolt", customer: "Sairam", deliveryDate: "20/10/2024", quantity: 50, processes: ["cutting"] }
-                                ]
-                            },
-                            { salesorder: "Galvanized Nail", customer: "Sairam", deliveryDate: "20/10/2024", quantity: 50, processes: ["welding"] }
-                        ]
-                    },
-                    { salesorder: "Wood Table", customer: "Sairam", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
-                ]
-            },
-            {
-                salesorder: "SOCB_013", customer: "Pradeep kumar", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
-                    {
-                        salesorder: "Metal Bottle", customer: "Pradeep kumar", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
-                            {
-                                salesorder: "Steel Plate", customer: "Pradeep kumar", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "Aluminum Plate", customer: "Pradeep kumar", deliveryDate: "20/10/2024", quantity: 50, processes: ["Powder Coating",] },
-                                    { salesorder: "Stainless Bolt", customer: "Pradeep kumar", deliveryDate: "20/10/2024", quantity: 50, processes: ["cutting"] }
-                                ]
-                            },
-                            { salesorder: "Galvanized Nail", customer: "Pradeep kumar", deliveryDate: "20/10/2024", quantity: 50, processes: ["welding"] }
-                        ]
-                    },
-                    { salesorder: "Wood Table", customer: "Pradeep kumar", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
-                ]
-            },
-            {
-                salesorder: "SOCB_014", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: [], _children: [
-                    {
-                        salesorder: "Metal Bottle", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "assembly"], _children: [
-                            {
-                                salesorder: "Steel Plate", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["bending", "powder Coating", "welding", "punching", "cutting", "Quality Check"], action: `<button class='primary-btn' onclick='viewAction()'>View</button> <i class='fas fa-eye'></i>`, _children: [
-                                    { salesorder: "Aluminum Plate", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["Powder Coating",] },
-                                    { salesorder: "Stainless Bolt", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["cutting"] }
-                                ]
-                            },
-                            { salesorder: "Galvanized Nail", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["welding"] }
-                        ]
-                    },
-                    { salesorder: "Wood Table", customer: "Ramesh", deliveryDate: "20/10/2024", quantity: 50, processes: ["assembly", "Powder coating"] }
-                ]
-            }
-
         ];
 
 
         var table = new Tabulator("#example-table", {
-            height: "571px",
+            height: '650px',
             data: tableDataNested,
             dataTree: true,
             dataTreeStartExpanded: false,
