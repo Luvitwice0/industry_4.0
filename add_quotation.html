@@ -134,6 +134,83 @@
         margin-right: 5px;
         font-weight: bolder;
     }
+
+    #cards_landscape_wrap-2 .card-flyer .image-box {
+
+        overflow: hidden;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.50);
+        border-radius: 5px;
+    }
+
+    #cards_landscape_wrap-2 .card-flyer .image-box img {
+
+        width: 100%;
+        height: 50%;
+
+    }
+
+    #offcanvasRight {
+        width: 450px;
+        /* Change this value to your desired width */
+    }
+
+
+
+
+    .image-box .fa-check {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: black;
+        /* You can adjust the color as needed */
+        display: none;
+    }
+
+
+    .image-box img.selected {
+        border: 4px solid rgb(57, 102, 214);
+    }
+
+    #cards_landscape_wrap-2 .card-flyer {
+        background: #FFFFFF;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
+    }
+
+    #cards_landscape_wrap-2 .card-flyer:hover {
+        background: #fff;
+        box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+    }
+
+    .image-box input:checked {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .image-box input:checked ::after {
+        content: '✔';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30px;
+        height: 30px;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 50%;
+    }
 </style>
 
 <body>
@@ -306,197 +383,121 @@
                             data-bs-target="#exampleModal" onclick=""><i class="fas fa-hand-pointer"></i> <b>Choose
                                 Template</b> </button>
                     </div>
-
-
-                    <div class="row">
-                        <br><button type="button" style="margin-left: 12px;" class="btn btn-primary"
-                            onclick="addQuotationData()"><i class="fa fa-check"></i> <b>Save</b> </button>
-                    </div>
                     <br>
-
                 </div>
             </div>
         </div>
 
 
-        <!-- Modal -->
+        <!-- Modal 1 -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-<<<<<<< HEAD
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Templates</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-1</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('https://in.pinterest.com/pin/819444094672881176/')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-2</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('https://in.pinterest.com/pin/819444094672881176/')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-3</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('https://in.pinterest.com/pin/819444094672881176/')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-4</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('https://in.pinterest.com/pin/819444094672881176/')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-5</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('https://in.pinterest.com/pin/819444094672881176/')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card" style="width: 12rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Template-6</h5>
-                                        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <button type="button" class="btn btn-secondary" style="font-size: smaller;" onclick="window.open('https://in.pinterest.com/pin/819444094672881176/')"><i class="fas fa-eye"></i> Preview</button>
-                                        <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-=======
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Templates</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Choose Templates</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="container">
+                    <div class="modal-body" style="padding: 20px;">
+                        <div id="cards_landscape_wrap-2" style="padding: 10px;">
                             <div class="row">
-                                <div class="col">
-                                    <div class="card" style="width: 12rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Template-1</h5>
-                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
-                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+
+                                    <div class="card-flyer">
+
+                                        <div class="image-box">
+                                            <img src="https://cdn.geckoandfly.com/wp-content/uploads/2019/06/sales-services-invoice-03.jpg"
+                                                alt="" />
                                         </div>
                                     </div>
+
                                 </div>
-                                <div class="col">
-                                    <div class="card" style="width: 12rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Template-2</h5>
-                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
-                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+
+                                    <div class="card-flyer">
+
+                                        <div class="image-box">
+                                            <img src="https://www.invoicesimple.com/wp-content/uploads/2018/06/Invoice-Template-Big-Margin-rent.png"
+                                                alt="" />
                                         </div>
                                     </div>
+
                                 </div>
-                            </div><br><br>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card" style="width: 12rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Template-3</h5>
-                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
-                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+
+                                    <div class="card-flyer">
+
+                                        <div class="image-box">
+                                            <img src="https://th.bing.com/th/id/OIP.rhizG0dahMpk-dr1TDINrAHaJi?pid=ImgDet&w=200&h=258&c=7&dpr=1.3"
+                                                alt="" />
                                         </div>
+
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card" style="width: 12rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Template-4</h5>
-                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
-                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><br><br>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card" style="width: 12rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Template-5</h5>
-                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
-                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card" style="width: 12rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Template-6</h5>
-                                            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                            <button type="button" class="btn btn-secondary" style="font-size: smaller;"
-                                                onclick="window.open('')"><i class="fas fa-eye"></i> Preview</button>
-                                            <!-- <a href="#" style="text-decoration: none;" class="card-link">Preview</a> -->
-                                        </div>
->>>>>>> 13f35d8e7e9aa7ff6697c5f1b00b8a4e2f456183
-                                    </div>
+
                                 </div>
                             </div>
+
                         </div>
+                        <br>
+                        <div id="cards_landscape_wrap-2" style="padding: 10px;">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+
+                                    <div class="card-flyer">
+
+                                        <div class="image-box">
+                                            <img src="https://th.bing.com/th/id/OIP.OsYlYvhcClkgkXQv83CADQHaJQ?pid=ImgDet&w=200&h=250&c=7&dpr=1.3"
+                                                alt="" />
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+
+                                    <div class="card-flyer">
+
+                                        <div class="image-box">
+                                            <img src="https://th.bing.com/th/id/OIP.OWsWV0yv8pfXWsrogUIPcQAAAA?pid=ImgDet&w=200&h=259&c=7&dpr=1.3"
+                                                alt="" />
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+
+                                    <div class="card-flyer">
+
+                                        <div class="image-box">
+                                            <img src="https://www.typecalendar.com/wp-content/uploads/2023/04/landscaping-invoice-template-google-docs.jpg?gid=22"
+                                                alt="" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary mr-auto" data-dismiss="modal">Preview
+                            Template</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Modal 1 -->
 
         <div class="modal fade" id="view_product001" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Item Details</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Item Details
+                        </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -676,7 +677,7 @@
 
                     var action = document.createElement("td");
                     action.innerHTML = `<button class="btn btn-secondary"  data-bs-toggle="modal"
-                        data-bs-target="#view_product001">View Products</button>`;
+                         data-bs-target="#view_product001">View Products</button>`;
                     table_row.appendChild(action);
 
 
@@ -886,7 +887,7 @@
                 var previousButton = document.createElement('li');
                 previousButton.className = 'page-item';
                 previousButton.id = 'previousButton';
-                previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+                previousButton.innerHTML = '<a class="page-link" href="#">Previous ';
                 previousButton.addEventListener('click', previousPage); // Add event listener
                 paginationList.appendChild(previousButton);
 
@@ -918,7 +919,7 @@
                 var nextButton = document.createElement('li');
                 nextButton.className = 'page-item';
                 nextButton.id = 'nextButton';
-                nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
+                nextButton.innerHTML = '<a class="page-link" href="#">Next ';
                 nextButton.addEventListener('click', nextPage); // Add event listener
                 paginationList.appendChild(nextButton);
 
@@ -1000,11 +1001,11 @@
                 var productTableBody = document.querySelector("#productTable tbody");
                 var newRow = document.createElement("tr");
                 newRow.innerHTML = `
-            <td style="border: 1px solid #000000;">${product}</td>
-            <td style="border: 1px solid #000000;">${quantity}</td>
-            <td style="border: 1px solid #000000;">${price}</td>
-            <td><i class="fa fa-trash"></i></td>
-        `;
+                                   <td style="border: 1px solid #000000;">${product}</td>
+                                   <td style="border: 1px solid #000000;">${quantity}</td>
+                                   <td style="border: 1px solid #000000;">${price}</td>
+                                   <td><i class="fa fa-trash" style="cursor:pointer"></i></td>
+                                    `;
 
                 productTableBody.appendChild(newRow);
 
@@ -1045,7 +1046,27 @@
                 addProductButton.addEventListener("click", addProductToTable);
             });
         </script>
+        <script>
+            $(document).ready(function () {
+                $('.image-box img').click(function () {
+                    // Remove tick mark and border from previously selected image
+                    $('.image-box img').removeClass('selected');
+                    $('.fa.fa-check').remove(); // Remove any existing checkmark icons
 
+                    // Add tick mark and border to the clicked image
+                    $(this).addClass('selected');
+                    $(this).parent().append('<i class="fa fa-check"></i>'); // Add checkmark icon to the parent of the clicked image
+
+                    // Position the checkmark icon at the center of the image
+                    var imgWidth = $(this).width();
+                    var imgHeight = $(this).height();
+                    var iconSize = 24; // Assuming the size of the checkmark icon is 24x24 pixels
+                    var leftPos = (imgWidth - iconSize) / 2;
+                    var topPos = (imgHeight - iconSize) / 2;
+                    $('.fa.fa-check').css({ 'position': 'absolute', 'left': leftPos, 'top': topPos });
+                });
+            });
+        </script>
 </body>
 
 </html>

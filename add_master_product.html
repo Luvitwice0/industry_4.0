@@ -143,6 +143,10 @@
     .table-cell {
         border: 1px solid black;
     }
+
+    #offcanvasRight {
+        width: 550px;
+    }
 </style>
 
 <body>
@@ -256,8 +260,8 @@
                             <input type="text" required="required" id="i_hsn" spellcheck="false">
                             <label>HSN Code</label>
                         </div>
-                    </div> <br>
-
+                    </div>
+                    <hr>
                     <div class="row">
                         <div class="col-lg-5">
                             <label for="selectSubitemName">Choose SubItem</label>
@@ -267,11 +271,11 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="quantity">Quantity</label>
                             <input type="text" class="form-control" id="quantity01">
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <label for="selectProcess01Name">Process</label>
                             <select style="width:100%" id="selectProcess01Name" multiple="multiple"
                                 class="js-example-basic-single">
@@ -309,12 +313,12 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="quantity">Quantity</label>
                             <input type="text" class="form-control" id="quantity02">
                         </div>
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <label for="selectProcess02Name">Process</label>
                             <select style="width:100%" id="selectProcess02Name" multiple="multiple"
                                 class="js-example-basic-single">
@@ -928,7 +932,7 @@
             <td style="border: 1px solid #000000;">${subItem}</td>
             <td style="border: 1px solid #000000;">${quantity}</td>
             <td style="border: 1px solid #000000;">${processes.join(', ')}</td>
-            <td style="border: 1px solid #000000; text-align:center;"><i class="fa fa-trash"></i></td>
+            <td style="border: 1px solid #000000; text-align:center; cursor:pointer"><i class="fa fa-trash"></i></td>
         `;
 
                 productTableBody.appendChild(newRow);
@@ -977,7 +981,7 @@
     <td style="border: 1px solid #000000;">${itemName}</td>
     <td style="border: 1px solid #000000;">${quantity}</td>
     <td style="border: 1px solid #000000;">${processes.join(', ')}</td>
-    <td><i class="fa fa-trash"></i></td>
+    <td style="border: 1px solid #000000; text-align:center; cursor:pointer"><i class="fa fa-trash"></i></td>
 `;
 
 

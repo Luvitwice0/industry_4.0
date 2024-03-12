@@ -135,6 +135,10 @@
         margin-right: 5px;
         font-weight: bolder;
     }
+
+    #offcanvasRight {
+        width: 450px;
+    }
 </style>
 
 <body>
@@ -255,11 +259,11 @@
                             </select>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <label for="quantity">Quantity</label>
                             <input type="text" class="form-control" id="i_quantity">
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <label for="selectProcessName">Process</label>
                             <select style="width:100%" id="selectProcessName" multiple="multiple"
                                 class="js-example-basic-single">
@@ -782,7 +786,7 @@
                 <td style="border: 1px solid #000000;">${subItem}</td>
                 <td style="border: 1px solid #000000;">${quantity}</td>
                 <td style="border: 1px solid #000000;">${processes.join(', ')}</td>
-                <td><i class="fa fa-trash"></i></td>
+                <td style="border: 1px solid #000000; cursor:pointer"><i class="fa fa-trash"></i></td>
             `;
 
                 productTableBody.appendChild(newRow);

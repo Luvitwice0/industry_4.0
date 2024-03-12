@@ -13,53 +13,103 @@
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
     <script src="assets/lib/jquery/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <style>
-        table,
-        td,
-        th {
-            border: 1px solid rgb(136, 136, 136);
-            border-collapse: collapse;
+        body {
+            padding: 5px;
+
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+        }
+
+        #main_table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            width: 100%;
+            border: none;
+        }
+
+        #main_table td,
+        #main_table th {
+            padding: 10px;
+            border: none;
+        }
+
+        #main_table tr {
+            background-color: #eaeefa;
+            border: none;
+        }
+
+        #main_table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #d9dff3;
+            border: none;
+        }
+
+        #main_table td:first-child,
+        #main_table th:first-child {
+            border-radius: 10px 0 0 10px;
+            border: none;
+        }
+
+        #main_table td:last-child,
+        #main_table th:last-child {
+            border-radius: 0 10px 10px 0;
+            border: none;
         }
     </style>
 </head>
 
 <body>
-    <div class="row">
+    <div class="row" style="padding-top: 10px; padding-bottom: 5px;">
         <!-- Select Month and Add Button -->
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-            <div class="row" style="padding: 15px;">
-                <div class="col-lg-6 col-md-6 col-sm-6 mb-2">
-                    <label for="validationDefault04">Select Month</label>
-                    <input
-                        style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;"
-                        type="text" name="daterange" value="01/01/2023 - 01/15/2023" />
 
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">
-                        <i class="fa fa-plus"></i>&nbsp;Create</button>
+
+        <div class=" col-lg-8 col-md-6 col-sm-6 mb-2" style="padding-top: 10px">
+            <i class="fa fa-filter" style="font-size:x-large ;color: rgb(83, 93, 107); padding-left: 10px;"></i>
+            &nbsp;
+            <input
+                style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;"
+                type="text" name="daterange" value="01/01/2023 - 01/15/2023" />
+            &nbsp; &nbsp;
+            <i class="fa fa-user" style="font-size:x-large ;color: rgb(83, 93, 107); "></i>
+            &nbsp;
+            <select
+                style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px;"
+                class="js-example-basic-single">
+                <option>Choose Customer</option>
+                <option>SFO Technologies</option>
+                <option>Pfizer</option>
+                <option>Borwarner</option>
+                <option>Aargee</option>
+                <option>Prakash Plastics</option>
+            </select>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" id="target" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#target_date" x>Auto Generate WorkOrder</button>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="col-lg-12 col-md-6 col-sm-12" style="padding-top: 10px; padding-right: 30px; float: left;">
+                <div class="row justify-content-end">
+                    <div class="col-lg-6 col-md-6 mb-2">
+                        <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
+                            aria-label="Search" name="search">
+                    </div>
+                    <div class="col-lg-1 col-md-1">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-
         <!-- Search Input and Search Icon -->
-        <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top: 15px;">
-            <div class="row justify-content-end">
-                <div class="col-lg-6 col-md-6 mb-2">
-                    <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
-                        aria-label="Search" name="search">
-                </div>
-                <div class="col-lg-1 col-md-1" style="padding-left: 0px;">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <br>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <table class="table table-hover text-center" id="main_table">
@@ -67,70 +117,106 @@
                     <tr>
                         <th>#</th>
                         <th>SO Number</th>
-                        <th>Customer Name</th>
+                        <th>Customer</th>
                         <th>Delivery Date</th>
                     </tr>
                 </thead>
                 <tbody id="main_pp">
                     <tr>
-                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
-                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
                         </td>
                         <td>SOCB_001</td>
-                        <td>Arvind Shetty</td>
+                        <td>Pfizer</td>
                         <td>10-04-2023</td>
                     </tr>
                     <tr>
-                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
-                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
                         </td>
                         <td>SOCB_002</td>
-                        <td>Badmanathan R</td>
+                        <td>Aargee</td>
                         <td>12-02-2023</td>
                     </tr>
                     <tr>
-                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
-                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
                         </td>
                         <td>SOCB_003</td>
-                        <td>Vignesh</td>
+                        <td>Borwarner</td>
                         <td>22-02-2023</td>
                     </tr>
                     <tr>
-                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
-                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
                         </td>
                         <td>SOCB_004</td>
-                        <td>Vinoth Raj</td>
+                        <td>Aargee</td>
                         <td>14-02-2023</td>
                     </tr>
                     <tr>
-                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
-                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
                         </td>
                         <td>SOCB_005</td>
-                        <td>Rajesh v </td>
+                        <td>Prakash Plastics</td>
                         <td>11-02-2023</td>
                     </tr>
                     <tr>
-                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
-                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
                         </td>
                         <td>SOCB_006</td>
-                        <td>Nitheesh</td>
+                        <td>SFO Technologies</td>
                         <td>05-02-2023</td>
                     </tr>
                     <tr>
-                        <td style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Monthly_PP">
-                            <img src="assets/img/checklist.png" width="25px" alt="">
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
                         </td>
                         <td>SOCB_007</td>
-                        <td>Lalith Anand</td>
+                        <td>Amazon</td>
                         <td>12-02-2023</td>
                     </tr>
+                    <tr>
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
+                        </td>
+                        <td>SOCB_006</td>
+                        <td>SFO Technologies</td>
+                        <td>05-02-2023</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
+                        </td>
+                        <td>SOCB_007</td>
+                        <td>Amazon</td>
+                        <td>12-02-2023</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <input class="form-check-input" type="checkbox" style="border-color: black;" value=""
+                                id="flexCheckDefault">
+                        </td>
+                        <td>SOCB_006</td>
+                        <td>SFO Technologies</td>
+                        <td>05-02-2023</td>
+                    </tr>
+
                 </tbody>
 
             </table>
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-12 mb-2"></div>
@@ -144,47 +230,26 @@
             </div>
         </div>
     </div>
+    <br>
     <!-- Modal -->
-    <div class="modal fade" id="Monthly_PP" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal fade" id="target_date" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true" style=" text-align: center;">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Monthly Production Plan | Select SO Details
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Select Target Date
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table class="table" style="text-align: center;" id="Monthly_PP_details">
-                        <thead>
-                            <!-- <tr> <th scope="col" class="text-center">#</th> <th scope="col"
-                                class="text-center">SO Number</th> <th scope="col" class="text-center">Customer
-                                Name</th> <th scope="col" class="text-center">Delivery Date</th> <th scope="col"
-                                class="text-center">Quantity</th> </tr> -->
-                        </thead>
-                        <tbody id="tableBodyx">
-                            <tr>
-                                <td>SO Number</td>
-                                <td>SOCB_001</td>
-                            </tr>
-                            <tr>
-                                <td>Customer Name</td>
-                                <td>Ravi Kishore</td>
-                            </tr>
-                            <tr>
-                                <td>Part Number</td>
-                                <td>PS501</td>
-                            </tr>
-                            <tr>
-                                <td>Delivary Date</td>
-                                <td>10-02-2023</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
+                    <input type="date" class="form-control" id="Date" placeholder="Quality " value=""
+                        required="required" autocomplete="off">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Generate WorkOrder</button>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- Modal -->
@@ -336,6 +401,18 @@
                 });
             });
         </script>
+        <script>
+
+            $(function () {
+                $('input[name="daterange"]').daterangepicker({
+                    opens: 'left'
+                }, function (start, end, label) {
+                    console.log(
+                        "A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
+                    );
+                });
+            });
+        </script>
         <!-- pop-up search function -->
         <script>
             function searchTable() {
@@ -403,6 +480,12 @@
         </script>
 
         <!-- main table search -->
+
+        <script>
+            $(document).ready(function () {
+                $('.js-example-basic-single').select2();
+            });
+        </script>
         <script>
             function searchTablex() {
                 var inputx = document
@@ -596,6 +679,81 @@
                 rowsPerPageTable2
             );
         </script>
+
+        <script>
+
+            function updateTableData() {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status == 200) {
+                            var response = xhr.responseText;
+                            var jsonData = JSON.parse(response);
+                            console.log(jsonData)
+                            updateDropdownOption02(jsonData.add_quotation);
+                            // Initialize DataTables if it hasn't been initialized already
+                            displayTableRows();
+                        }
+                        else {
+                            console.error("failed to get the data from server")
+                        }
+
+                    }
+
+                }
+                xhr.open("GET", "09_add_quotation.json", true)
+                xhr.send();
+            }
+
+            function updateDropdownOption02(data) {
+                console.log(1);
+                var employeeSelect = document.getElementById("selectCustomerName");
+                employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+
+                var employeeNames = [];
+
+                for (var i = 0; i < data.length; i++) {
+                    var entry = data[i];
+
+                    if (entry.q_c_name && employeeNames.indexOf(entry.q_c_name) === -1) {
+                        employeeNames.push(entry.q_cu);
+
+                        var option = document.createElement("option");
+                        option.value = entry.q_c_name;
+                        option.textContent = entry.q_c_name;
+                        employeeSelect.appendChild(option);
+
+                        console.log(employeeSelect.appendChild(option))
+                    }
+                }
+            }
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the checkbox elements
+                var checkboxes = document.querySelectorAll('.form-check-input');
+
+                // Get the target button
+                var targetButton = document.getElementById('target');
+
+                // Initially disable the button
+                targetButton.disabled = true;
+
+                // Add a click event listener to each checkbox
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.addEventListener('click', function () {
+                        // Check if any checkbox is checked
+                        var anyCheckboxChecked = Array.from(checkboxes).some(function (cb) {
+                            return cb.checked;
+                        });
+
+                        // Enable/disable the button based on checkbox state
+                        targetButton.disabled = !anyCheckboxChecked;
+                    });
+                });
+            });
 
         </script>
 </body>
