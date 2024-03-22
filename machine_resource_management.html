@@ -115,12 +115,7 @@
     }
 
 
-    table,
-    td,
-    th {
-        border: 1px solid rgb(136, 136, 136);
-        border-collapse: collapse;
-    }
+
 
     body {
         overflow: hidden;
@@ -172,10 +167,28 @@
         background-color: rgb(165, 165, 165);
     }
 
-    /* div.table-container 
-            {
-                overflow-y: auto;
-            } */
+    table.some_style td:hover {
+        background-color: rgb(165, 165, 165);
+    }
+
+    .table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    #ver-head {
+        position: sticky;
+        left: 0;
+        background-color: #d9dff3;
+        z-index: 1;
+        padding-left: 50px;
+        padding-right: 50px;
+        font-weight: 600;
+        vertical-align: middle;
+        font-size: large;
+
+
+    }
 </style>
 
 <body>
@@ -218,18 +231,10 @@
     </div>
     <div class="table-container" style="padding-top: 10px;">
         <table id="responsiveTable" class="table some_style">
-            <thead class="text-center">
-                <tr>
-                    <th>Machine 1</th>
-                    <th>Machine 2</th>
-                    <th>Machine 3</th>
-                    <th>Machine 4</th>
-                    <th>Machine 5</th>
-                    <th>Machine 6</th>
-                </tr>
-            </thead>
+
             <tbody>
                 <tr>
+                    <td id="ver-head">Machine&nbsp;1</td>
                     <td>
                         <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
                             style="width: 18rem;">
@@ -316,6 +321,7 @@
                 </tr>
 
                 <tr>
+                    <td id="ver-head">Machine&nbsp;2</td>
                     <td>
                         <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
                             style="width: 18rem;">
@@ -402,6 +408,8 @@
                 </tr>
 
                 <tr>
+                    <td id="ver-head">Machine&nbsp;3</td>
+
                     <td>
                         <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
                             style="width: 18rem;">
@@ -488,6 +496,8 @@
                 </tr>
 
                 <tr>
+                    <td id="ver-head">Machine&nbsp;4</td>
+
                     <td>
                         <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
                             style="width: 18rem;">
@@ -574,6 +584,8 @@
                 </tr>
 
                 <tr>
+                    <td id="ver-head">Machine&nbsp;5</td>
+
                     <td>
                         <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
                             style="width: 18rem;">
@@ -727,7 +739,7 @@
                                     Accepted Quantity
                                 </td>
                                 <td>
-                                  200
+                                    200
                                 </td>
                             </tr>
                             <tr>
