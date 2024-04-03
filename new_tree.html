@@ -7,6 +7,7 @@
     <title>Expand Table Column on Click</title>
 
     <!-- BOOTSTRAP CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- BOOTSTRAP JS -->
@@ -60,6 +61,14 @@
             border: none;
             border-radius: 5px;
         }
+
+        .table-container tbody tr:nth-child(odd) td {
+            background-color: rgb(240, 240, 240);
+        }
+
+        .table-container tbody tr.highlight td {
+            background-color: rgb(248, 239, 211);
+        }
     </style>
 </head>
 
@@ -106,8 +115,6 @@
                         <td>SalesOrder no</td>
                         <td>Customer Name</td>
                         <td>Delivery Date</td>
-
-
                     </tr>
                 </thead>
                 <tbody>
@@ -480,6 +487,21 @@
         }
 
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).on('click', '#myTable tbody tr', function () {
+            $(this).addClass('highlight').siblings().removeClass('highlight');
+        });
+        $(document).on('click', '#myTable1 tbody tr', function () {
+            $(this).addClass('highlight').siblings().removeClass('highlight');
+        });
+        $(document).on('click', '#myTable2 tbody tr', function () {
+            $(this).addClass('highlight').siblings().removeClass('highlight');
+        });
+        $(document).on('click', '#myTable3 tbody tr', function () {
+            $(this).addClass('highlight').siblings().removeClass('highlight');
+        });
+    </script>
     <script>
         // Sample data for the chart
         const chartData = {
@@ -565,6 +587,7 @@
 
         var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
         chart2.render();  </script>
+
 </body>
 
 </html>
