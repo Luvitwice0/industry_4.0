@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expand Table Column on Click</title>
-
+    <title>SalesOrder Tree</title>
     <!-- BOOTSTRAP CSS -->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- BOOTSTRAP JS -->
@@ -20,14 +18,13 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+
     <style>
         .table-container {
-            overflow-x: scroll;
             display: flex;
-            width: 98%;
+            width: 100%;
             height: 100%;
-            margin: 12px;
-
+            margin-top: 80px;
 
         }
 
@@ -36,30 +33,52 @@
             border-collapse: collapse;
             min-width: 50%;
             min-height: 100%;
-
-
-
-
         }
 
-        th,
-        td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
+        .custom-table thead,
+        .custom-table td {
+            padding: 15px;
+        }
+
+        .custom-table thead {
+            background-color: #007bff;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        .custom-table tbody td {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .custom-table tbody td:last-child {
+            border-bottom: none;
+        }
 
         .close-btn {
             float: right;
             cursor: pointer;
             padding-left: 10px;
             padding-right: 10px;
-
-            background-color: lightcoral;
-            color: white;
+            border: 1px solid red;
+            color: black;
             border: none;
-            border-radius: 5px;
+            border-radius: 50%;
         }
 
         .table-container tbody tr:nth-child(odd) td {
@@ -67,50 +86,223 @@
         }
 
         .table-container tbody tr.highlight td {
-            background-color: rgb(248, 239, 211);
+            background-color: rgb(180, 178, 178);
         }
     </style>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td,
+        #customers thead {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers thead {
+            border: 2px solid white;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #ffff00;
+            font-weight: 100;
+            color: black;
+        }
+
+        .timeline-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .timeline-steps .timeline-step {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 1rem
+        }
+
+        @media (min-width:768px) {
+            .timeline-steps .timeline-step:not(:last-child):after {
+                content: "";
+                display: block;
+                border-top: .25rem dotted #3b82f6;
+                width: 3.46rem;
+                position: absolute;
+                left: 7.5rem;
+                top: .3125rem
+            }
+
+            .timeline-steps .timeline-step:not(:first-child):before {
+                content: "";
+                display: block;
+                border-top: .25rem dotted #3b82f6;
+                width: 3.8125rem;
+                position: absolute;
+                right: 7.5rem;
+                top: .3125rem
+            }
+        }
+
+        .timeline-steps .timeline-content {
+            width: 10rem;
+            text-align: center
+        }
+
+        .timeline-steps .timeline-content .inner-circle {
+            border-radius: 1.5rem;
+            height: 1rem;
+            width: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-steps .timeline-content .inner-circle:before {
+            content: "";
+            background-color: rgb(124, 124, 243);
+            display: inline-block;
+            height: 3rem;
+            width: 3rem;
+            min-width: 3rem;
+            border-radius: 6.25rem;
+            opacity: .1
+        }
+
+        /* Change the color of the inner circle based on content */
+        /* Change the color of the inner circle and dotted border based on content */
+        .timeline-steps .timeline-step:nth-child(4) .inner-circle {
+            background-color: green;
+            border-color: green;
+            cursor: pointer;
+        }
+
+        .timeline-steps .timeline-step:nth-child(3) .inner-circle {
+            background-color: green;
+            border-color: green;
+            cursor: pointer;
+
+        }
+
+        .timeline-steps .timeline-step:nth-child(1) .inner-circle {
+            background-color: blue;
+            border-color: rgb(2, 2, 231);
+            cursor: pointer;
+
+        }
+
+        .timeline-steps .timeline-step:nth-child(2) .inner-circle {
+            background-color: blue;
+            border-color: blue;
+            cursor: pointer;
+
+        }
+
+        .timeline-steps .timeline-step:nth-child(5) .inner-circle {
+            background-color: gray;
+            border-color: gray;
+            cursor: pointer;
+
+        }
+
+        .timeline-steps .timeline-step:nth-child(6) .inner-circle {
+            background-color: gray;
+            border-color: gray;
+            cursor: pointer;
+
+        }
+
+        /* Change the color of the dotted border for all steps */
+        .timeline-steps .timeline-step:not(:last-child):after {
+            content: "";
+            display: block;
+            border-top: .25rem dotted;
+            position: absolute;
+            left: 7.5rem;
+            top: .3125rem;
+            /* Set border color based on the color of the inner circle */
+        }
+
+        .timeline-steps .timeline-step:not(:first-child):before {
+            content: "";
+            display: block;
+            border-top: .25rem dotted;
+            position: absolute;
+            right: 7.5rem;
+            top: .3125rem;
+            /* Set border color based on the color of the inner circle */
+        }
+
+        #chartData {
+            padding: 50px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+            height: 0;
+            overflow: hidden;
+        }
+
+        #chartData.visible {
+            display: flex;
+            opacity: 1;
+            height: auto;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <i style="font-size: larger; padding-top: 11px; margin-left: 12px;" class="fa-solid fa-user"></i>
         <div class="container-fluid" style="margin-top: 12px;">
-            <div>
-                <select style="width: 100%; height: 36px; color: gray; border-radius: 4px;" id="customerFilter"
-                    onchange="filterByCustomer()">
-                    <option value="">Fiter by Customers</option>
-                </select>
 
-            </div>
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <form class="d-flex">
+
+            <select style="width: 35%; height: 36px; color: gray; border-radius: 4px;" id="customerFilter"
+                onchange="filterByCustomer()">
+                <option value="">Filter by Customers</option>
+            </select>
+
+            <div class="col-lg-4" style="padding-left: 20px;">
+                <form>
+                    <i style="margin-right: 5px; border: none; font-size: larger; margin-top: 12px; margin-left: 12px"
+                        class="fas fa-filter"></i>
                     <input
                         style="margin-right: 1px; border-radius: 4px; border: 1px solid lightgray; padding: 5px;height: 40px; width: 50%;"
                         type="text" name="daterange" value="01/01/2024 - 01/15/2024" />
-                    <i style="margin-right: 20px; border: none; font-size: larger; margin-top: 12px; margin-left: 6px"
-                        class="fas fa-filter"></i>
 
-                    <input type="text" id="table-search" placeholder="Search" class="form-control me-2"
-                        style="width: 50%;">
-                    <button style="background-color: white; color: black;" class="btn btn-outline-success"
-                        type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
+            </div>
+            <div class="d-flex justify-content-end w-100">
+
+                <input type="text" id="table-search" placeholder="Search" class="form-control me-2" style="width: 50%;">
+                <button style="background-color: white; color: black;" class="btn btn-outline-success" type="submit"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
     </nav>
+
+
     <div class="row">
         <div class="table-container">
-            <table id="myTable">
-                <thead style="background-color: aqua;">
+            <table class="table table-hover custom-table text-center" id="myTable">
+                <thead>
                     <tr>
                         <td>SalesOrder no</td>
                         <td>Customer Name</td>
@@ -122,8 +314,6 @@
                         <td>SO001</td>
                         <td>Pfizer</td>
                         <td>12/08/2024</td>
-
-
                     </tr>
                     <tr onclick="toggleTables('myTable1')">
                         <td>SO002</td>
@@ -165,13 +355,17 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="myTable1" style="display: none;">
+            <table class="table table-hover custom-table text-center" id="myTable1" style="display: none;">
                 <thead>
                     <tr>
-                        <td>Master Product</td>
+                        <td><span class="badge text-bg-success"
+                                style="background-color:   #ff8400; padding: 8px; font-size: 13px; ">Product</span>
+                        </td>
                         <td>Quantity</td>
-                        <td>Process
-                            <span class="close-btn" onclick="closeTable('myTable1')">x</span>
+                        <td>Process</td>
+                        <td style="text-align: center;"> status
+                            <span class="close-btn" onclick="closeTable(['myTable1','myTable2','myTable3'])"><i
+                                    class="fa-solid fa-xmark" style="color: white;"></i></span>
                         </td>
 
                     </tr>
@@ -180,37 +374,52 @@
                     <tr onclick="toggleTables('myTable2')">
                         <td>Metal Bottle</td>
                         <td>400</td>
-                        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalToggle">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success" data-bs-target="#staticBackdrop">welding</button>&nbsp;<button
-                                type="button" class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <!-- <button type="button"class="btn btn-success" data-bs-target="#staticBackdrop">welding</button>&nbsp;
+                                <button type="button" class="btn btn-warning">powderCoating</button>&nbsp;
+                                <button type="button"class="btn btn-success">welding</button></td> -->
+                        <td><span class="badge rounded-pill text-bg-primary"
+                                style="background-color: #007bff; padding: 8px; font-size: 13px;">Completed</span></td>
                     </tr>
                     <tr onclick="toggleTables('myTable2')">
                         <td>Steel Plate</td>
                         <td>500</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <td><span class="badge rounded-pill text-bg-primary"
+                                style="background-color:#198754; padding: 8px; font-size: 13px;">Work in Progress</span>
+                        </td>
+
+                        </td>
                     </tr>
                     <tr onclick="toggleTables('myTable2')">
                         <td>Wooden Table</td>
                         <td>100</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <td><span class="badge rounded-pill text-bg-success"
+                                style="background-color:   #6C757D; padding: 8px; font-size: 13px;">Pending</span>
+                        </td>
+
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <table id="myTable2" style="display: none;">
+            <table class="table table-hover custom-table text-center" id="myTable2" style="display: none;">
                 <thead>
                     <tr>
-                        <td>Items</td>
+                        <td><span class="badge text-bg-success"
+                                style="background-color:   #ff8400; padding: 8px; font-size: 13px;">Items</span>
+                        </td>
                         <td>Quantity</td>
-                        <td>Process
-                            <span class="close-btn" onclick="closeTable('myTable2')">x</span>
+                        <td>Process</td>
+                        <td style="text-align: center;">Status
+                            <span class="close-btn" onclick="closeTable(['myTable2','myTable3'])"><i
+                                    class="fa-solid fa-xmark" style="color: white;"></i></span>
                         </td>
                     </tr>
                 </thead>
@@ -218,44 +427,63 @@
                     <tr onclick="toggleTables('myTable3')">
                         <td>Steel plate</td>
                         <td>100</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+
+                        <td><span class="badge rounded-pill text-bg-primary"
+                                style="background-color: #007bff; padding: 8px; font-size: 13px;">
+                                Completed</span></td>
+
+
+
                     </tr>
                     <tr onclick="toggleTables('myTable3')">
                         <td>U-clamb</td>
                         <td>300</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+
+                        <td><span class="badge rounded-pill text-bg-primary"
+                                style="background-color:#198754; padding: 8px; font-size: 13px;">Work in Progress</span>
+                        </td>
+
+
                     </tr>
                     <tr onclick="toggleTables('myTable3')">
                         <td>Aluminium nuts</td>
                         <td>200</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <td><span class="badge rounded-pill text-bg-success"
+                                style="background-color:   #6C757D; padding: 8px; font-size: 13px;">Pending</span>
+                        </td>
                     </tr>
                     <tr onclick="toggleTables('myTable3')">
                         <td>Iron Rod</td>
                         <td>200</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <td><span class="badge rounded-pill text-bg-success"
+                                style="background-color:   #6C757D; padding: 8px; font-size: 13px;">Pending</span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <table id="myTable3" style="display: none;">
+            <table class="table table-hover custom-table text-center" id="myTable3" style="display: none;">
                 <thead>
                     <tr onclick="toggleTables('myTable4')">
-                        <td>Sub Item</td>
+                        <td><span class="badge text-bg-success"
+                                style="background-color:   #ff8400; padding: 8px; font-size: 13px; ">Sub Items</span>
+                        </td>
                         <td>Quantity</td>
-                        <td>Process
-                            <span class="close-btn" onclick="closeTable('myTable3')">x</span>
+                        <td>Process</td>
+                        <td style="text-align: center;">Status
+                            <span class="close-btn" onclick="closeTable('myTable3')"><i class="fa-solid fa-xmark"
+                                    style="color: white;"></i></span>
                         </td>
 
                     </tr>
@@ -264,58 +492,36 @@
                     <tr onclick="toggleTables('myTable4')">
                         <td>Aluminium Plate</td>
                         <td>190</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <td><span class="badge rounded-pill text-bg-primary"
+                                style="background-color: #007bff; padding: 8px; font-size: 13px;">Completed</span></td>
                     </tr>
                     <tr onclick="toggleTables('myTable4')">
                         <td>Staunless Bolt</td>
                         <td>200</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success" data-bs-target="#staticBackdrop">welding</button>&nbsp;<button
-                                type="button" class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <td><span class="badge rounded-pill text-bg-primary"
+                                style="background-color:#198754; padding: 8px; font-size: 13px;">Work in Progress</span>
+                        </td>
+
+                        </td>
                     </tr>
                     <tr onclick="toggleTables('myTable4')">
                         <td>Staunless Bolt</td>
                         <td>200</td>
-                        <td><button type="button" class="btn btn-primary">welding</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button>&nbsp;<button type="button"
-                                class="btn btn-warning">powderCoating</button>&nbsp;<button type="button"
-                                class="btn btn-success">welding</button></td>
+                        <td style="text-align: center; "><i class="fa-solid fa-eye" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalToggle" style="size: 30px; cursor: pointer;"></i>&nbsp;
+                        </td>
+                        <td><span class="badge rounded-pill text-bg-success"
+                                style="background-color:   #6C757D; padding: 8px; font-size: 13px;">Pending</span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <!-- <table id="myTable4" style="display: none;">
-                <thead>
-                    <tr>
-                        <td>Header1</td>
-                        <td>Header2</td>
-                        <td>Header3
-                            <span class="close-btn" onclick="closeTable('myTable4')">x</span>
-                        </td>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>sample</td>
-                        <td>sample</td>
-                        <td>sample</td>
-                    </tr>
-                    <tr>
-                        <td>sample</td>
-                        <td>sample</td>
-                        <td>sample</td>
-                    </tr>
-                    <tr>
-                        <td>sample</td>
-                        <td>sample</td>
-                        <td>sample</td>
-                    </tr>
-                </tbody>
-            </table> -->
         </div>
     </div>
 
@@ -325,29 +531,142 @@
     <!--Sample Modal-->
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
         tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">WorkOrder Details</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
+                                    <div class="timeline-step" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" title="Bending" data-content="This is the bending step.">
+                                        <div class="timeline-content">
+                                            <div class="inner-circle"></div>
+                                            <p class="h6 mt-3 mb-1">Cutting</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-step" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" title="Black boc" data-content="This is the welding step.">
+                                        <div class="timeline-content">
+                                            <div class="inner-circle"></div>
+                                            <p class="h6 mt-3 mb-1">Bending</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-step" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" title="Cutting" data-content="This is the cutting step.">
+                                        <div class="timeline-content">
+                                            <div class="inner-circle"></div>
+                                            <p class="h6 mt-3 mb-1">Welding</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-step" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" title="Powder Coating"
+                                        data-content="This is the powder coating step.">
+                                        <div class="timeline-content">
+                                            <div class="inner-circle"></div>
+                                            <p class="h6 mt-3 mb-1">Powder Coating</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-step mb-0" data-toggle="popover" data-trigger="hover"
+                                        data-placement="top" title="Assembly" data-content="This is the assembly step.">
+                                        <div class="timeline-content">
+                                            <div class="inner-circle"></div>
+                                            <p class="h6 mt-3 mb-1">Assembly</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div id="chart" style="margin-bottom: 20px; align-items: center;"></div>
-                    <div id="chart2" style="align-items: center;"></div>
+                    <br>
+                    <div class="row" id="chartData" style="padding: 50px; display: none;">
+                        <div class="col-md-5 ms-auto">
+                            <div id="chart" style="margin-bottom: 20px; align-items: center; "></div>
+                        </div>
+                        <div class="col-md-4 ms-auto">
+                            <br><br><br>
+                            <table id="customers" style="border: none;">
+                                <tr>
+                                    <th style="  background-color: #ff8400;  color: white; text-align: center;">
+                                        CycleTime </th>
+                                    <th style="  background-color: #ff8400; color: white;  text-align: center;">85%
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Planned RUntime</td>
+                                    <td>23454 mins</td>
+                                </tr>
+                                <tr>
+                                    <td>Actual Runtime
+                                    </td>
+                                    <td>22266 mins</td>
+                                </tr>
+                                <tr>
+                                    <td>Unplanned downtime
+                                    </td>
+                                    <td>1234 mins</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-3 ms-auto">
+                            <br><br><br>
+                            <table id="customers" style="border: none;">
+                                <tr>
+                                    <th style="  background-color: #198754; color: white; text-align: center;">
+                                        Quality OEE</th>
+                                    <th style=" background-color: #198754; color: white;  text-align: center;">95%
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Accepted Quantity</td>
+                                    <td>40</td>
+                                </tr>
 
+                                <tr>
+                                    <td>Rejected Quantity</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <td>Completed
+                                        Quantity</td>
+                                    <td>300</td>
+                                </tr>
+
+                            </table>
+                            <br><br><br>
+                            <div class="row">
+                                <div class="d-grid gap-2 col-12 mx-auto">
+                                    <button class="btn btn-primary" data-bs-dismiss="modal"
+                                        data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                        View JobCards</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
                 </div>
-                <div class="modal-footer">
+
+            </div>
+            <!-- <div class="modal-footer">
                     <button class="btn btn-primary" data-bs-dismiss="modal" data-bs-target="#exampleModalToggle2"
                         data-bs-toggle="modal">
                         View JobCards</button>
-                </div>
-            </div>
+                </div> -->
         </div>
+    </div>
     </div>
     <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
         tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">JobCard Details</h1>
@@ -355,7 +674,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>JobCardID</th>
@@ -464,9 +783,6 @@
         </div>
     </div>
 
-
-
-
     <script>
         function toggleTables(tableId) {
             var tables = document.querySelectorAll('.table-container table');
@@ -480,10 +796,12 @@
 
         }
 
-        function closeTable(tableId) {
-            var table = document.getElementById(tableId);
-            table.style.display = 'none';
-            table.classList.remove('highlighted');
+        function closeTable(tableIds) {
+            tableIds.forEach(function (tableId) {
+                var table = document.getElementById(tableId);
+                table.style.display = 'none';
+                table.classList.remove('highlighted');
+            });
         }
 
     </script>
@@ -502,6 +820,12 @@
             $(this).addClass('highlight').siblings().removeClass('highlight');
         });
     </script>
+
+
+
+
+
+    <!-- 
     <script>
         // Sample data for the chart
         const chartData = {
@@ -561,12 +885,12 @@
 
         // Render the chart
         chart.render();
-    </script>
+    </script> -->
     <script>
         var options = {
             series: [140, 50, 90],
             chart: {
-                width: 350,
+                width: 450,
                 type: 'pie'
             },
             labels: ['Accepted Quantity', 'Rejected Quantity', 'Pending Quantity'],
@@ -585,8 +909,48 @@
             }]
         };
 
-        var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
-        chart2.render();  </script>
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();  </script>
+    <script>
+        document.querySelectorAll('.inner-circle').forEach((circle, index) => {
+            circle.addEventListener('click', () => {
+                // Update chart data based on the clicked circle
+
+
+                const chartDataElement = document.getElementById('chartData');
+                const isVisible = chartDataElement.style.display === 'flex';
+
+                // Hide the chart if it's already visible, otherwise show it
+                chartDataElement.style.display = isVisible ? 'null ' : 'flex';
+            });
+        });
+
+
+        document.querySelectorAll('.inner-circle').forEach((circle, index) => {
+            circle.addEventListener('click', () => {
+                const chartDataElement = document.getElementById('chartData');
+                const isVisible = chartDataElement.classList.contains('visible');
+
+                // Get the height of the chart content
+                const chartContentHeight = chartDataElement.scrollHeight;
+
+                // Hide the currently open chart (if any)
+                document.querySelectorAll('.inner-circle').forEach((circle) => {
+                    circle.closest('.timeline-step').classList.remove('active');
+                });
+                chartDataElement.classList.remove('visible');
+                chartDataElement.style.height = '0';
+
+
+                chartDataElement.classList.toggle('visible', !isVisible);
+                chartDataElement.style.height = isVisible ? '0' : chartContentHeight + 'px';
+                circle.closest('.timeline-step').classList.add('active');
+
+            });
+        });
+
+
+    </script>
 
 </body>
 

@@ -1,0 +1,645 @@
+    <!DOCTYPE html>
+    <html>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Generate PDF Quotation</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+        <style>
+            * 
+            {
+                box-sizing: border-box;
+            }
+
+            body 
+            {
+                background-color: #f1f1f1;
+                font-size: 15px;
+                font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            }
+            #productTable 
+            {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            #productTable td,
+            #productTable th 
+            {
+                border: 1px solid #000000;
+                padding: 8px;
+
+            }
+
+            /* Style for additionalRows table */
+            #additionalRows 
+            {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            #additionalRows td,
+            #additionalRows th 
+            {
+                
+                padding: 8px;
+
+            }
+
+            /* Style for the table with SALSPERSON, P.O. NUMBER, etc. */
+            #tableBody 
+            {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            #tableBody td,
+            #tableBody th 
+            {
+                
+                padding: 8px;
+
+                display: table-cell;
+                /* Show all cells */
+            }
+
+            /* Hide empty th elements */
+            #tableBody th:empty 
+            {
+                display: none;
+            }
+
+            /* Style for the inner tables within the products table */
+            table 
+            {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table td,
+            table th 
+            {
+                
+                padding: 8px;
+
+            }
+            td.noBorder td 
+            {
+                border: 0;
+            }
+            th 
+            {
+                text-align: center;
+            }
+            td 
+            {
+                height: 10px;
+            }
+
+            #regForm 
+            {
+                background-color: #ffffff;
+                margin: 100px auto;
+                font-family: Raleway;
+                padding: 40px;
+                width: 70%;
+                min-width: 300px;
+            }
+
+            input 
+            {
+                padding: 10px;
+                width: 100%;
+                font-size: 17px;
+                font-family: Raleway;
+                border: 1px solid #aaaaaa;
+            }
+
+            /* Mark input boxes that gets an error on validation: */
+            input.invalid 
+            {
+                background-color: #ffdddd;
+            }
+
+            /* Hide all steps by default: */
+            .tab 
+            {
+                display: none;
+            }
+
+            button 
+            {
+                background-color: #04AA6D;
+                color: #ffffff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 17px;
+                font-family: Raleway;
+                cursor: pointer;
+            }
+
+            button:hover 
+            {
+                opacity: 0.8;
+            }
+
+            #prevBtn 
+            {
+                background-color: #bbbbbb;
+            }
+
+            /* Make circles that indicate the steps of the form: */
+            .step 
+            {
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: #871515;
+                border: none;
+                border-radius: 50%;
+                display: inline-block;
+                opacity: 0.5;
+            }
+
+            .step.active 
+            {
+                opacity: 1;
+            }
+
+            /* Mark the steps that are finished and valid: */
+            .step.finish 
+            {
+                background-color: #04AA6D;
+            }
+        </style>
+        <body>
+
+            <form id="regForm">
+                <h1>QUOTATION</h1>
+                <!-- One "tab" for each step in the form: -->
+                <div class="tab">Basic info: <br><br>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="headerImage">Upload Header Image:</label>
+                            <input type="file" class="form-control" id="headerImage" accept=".jpg, .jpeg, .png">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="footerImage">Upload Footer Image:</label>
+                            <input type="file" class="form-control" id="footerImage" accept=".jpg, .jpeg, .png">
+                        </div> 
+                        <div class="form-group col-6">
+                            <label for="companyname">Company Name:</label>
+                            <input type="text" class="form-control" id="companyname" placeholder="Enter you company name">
+                        </div>
+
+                        <div class="form-group col-6">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control"  value="QUOTATION" id="title" placeholder="Enter the title of usage eg:PURCHUSE ORDER">
+                        </div>
+                        
+                        <div class="form-group col-6">
+                            <label for="quotationNo">QUOTATION NO:</label>
+                            <input type="email" class="form-control" id="quotationNo" placeholder="Enter your QUOTATION NO:">
+                        </div>
+                        
+                        <div class="form-group col-6">
+                            <label for="date">DATE:</label>
+                            <input type="date" class="form-control" id="date" placeholder="date">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="tab">Add product details: <br><br>
+                    <div class="row">
+                            <div class="col-12">
+                                <label for="quantity">QUABTITY</label>
+                                <input type="number" class="form-control" id="quantity" placeholder="Quality " value=""  autocomplete="off" ></div>
+                            <div class="col-12">
+                                <label for="Description">DESCRIPTION</label>
+                                <input type="text" class="form-control" id="Description" placeholder="Description " value=""  autocomplete="off" ></div>
+                            <div class="col-12">
+                                <label for="Unit price">UNIT PRICE</label>
+                                <input type="number" class="form-control" id="Unit price" placeholder="Unit price " value=""  autocomplete="off" ></div>
+                            <div class="col-12">
+                                <label for="gst">GST</label>
+                                <input type="number" class="form-control" id="gst" placeholder="Enter GST in number " value=""  autocomplete="off" ></div>
+                            <div class="col-12">
+                                <label for="shippingHandling">SHIPPING & HANDLING:</label>
+                                <input type="number" class="form-control" id="shippingHandling" placeholder="shippingHandling (Optional)" value="0"  autocomplete="off" ></div>
+                    </div> <br>
+                            <button class="btn btn-success" type="button" id="addProductButton" value="Add entry">Add
+                                <i class="fa fa-plus"></i>
+                            </button>
+                            <br>
+                            <br>
+                            <table id="productTable">
+                                <thead  style="border: 1px solid #000000;">
+                                    <tr style="text-align: center;">
+                                        <th style="border: 1px solid #000000;">QUANTITY</th>
+                                        <th style="border: 1px solid #000000;">DESCRIPTION</th>
+                                        <th style="border: 1px solid #000000;">UNIT PRICE</th>
+                                        <th style="border: 1px solid #000000;">TOTAL</th>
+                                        <th style="border: 1px solid #000000;">DELETE</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-6"></div>
+                                <div class="col-1"></div>
+                                <div class="col-5">
+                                    <table id="additionalRows">
+                                        <tbody>
+                                            <tr >
+                                                <td style="border: 1px solid #000000;">SUBTOTAL:</td>
+                                                <td id="subtotalValue" style="border: 1px solid #000000;">0</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #000000;">GST%:</td>
+                                                <td style="border: 1px solid #000000;" id="gstTotalValue">0</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #000000;">SHIPPING & HANDLING:</td>
+                                                <td style="border: 1px solid #000000;"id="shippingHandlingTotalValue">0</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #000000;">TOTAL:</td>
+                                                <td style="border: 1px solid #000000;"id="totalValue">0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                </div>
+                <div class="tab">Thank You Info: <br><br>
+                    <div class="form-row">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="comments">COMMENTS OR SPECIAL INSTRUCTIONS:</label>
+                                <input type="text" class="form-control" id="comments" placeholder="Special Instructions">
+                            </div>
+                            <div class="col-6">
+                                <label for="signature">Upload signature Image:</label>
+                                <input type="file" class="form-control" id="signature" accept=".jpg, .jpeg, .png">
+                            </div>
+                            <div class="col-6">
+                                <label for="thankYouMessage">Leave your Thank You Message:</label>
+                                <input type="text" class="form-control" id="thankYouMessage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+
+                    </div>
+                    <button type="button" id="generateButton" style="display:none ;">Generate Quotation</button>
+                </div>
+                <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+
+                </div>
+            </form>
+
+            <script>
+                var currentTab = 0; // Current tab is set to be the first tab (0)
+                showTab(currentTab); // Display the current tab
+
+                function showTab(n) 
+                {
+                    var x = document.getElementsByClassName("tab");
+                    x[n].style.display = "block";
+                    //... and fix the Previous/Next buttons:
+                    if (n == 0) {
+                        document.getElementById("prevBtn").style.display = "none";
+                    } else {
+                        document.getElementById("prevBtn").style.display = "inline";
+                    }
+                    if (n == (x.length - 1)) {
+                        document.getElementById("nextBtn").style.display = "none";
+                        document.getElementById("generateButton").style.display = "block";
+                    } else {
+                        document.getElementById("nextBtn").innerHTML = "Next";
+                    }
+                    fixStepIndicator(n)
+                }
+
+            
+                function nextPrev(n) {
+                // This function will figure out which tab to display
+                var x = document.getElementsByClassName("tab");
+                // Exit the function if any field in the current tab is invalid:
+                // Hide the current tab:
+                x[currentTab].style.display = "none";
+                // Increase or decrease the current tab by 1:
+                currentTab = currentTab + n;
+                // if you have reached the end of the form...
+                if (currentTab >= x.length) {
+                    // ... the form gets submitted:
+                    document.getElementById("regForm").submit();
+                    return false;
+                }
+                // Otherwise, display the correct tab:
+                showTab(currentTab);
+                }
+
+            
+                
+
+                function fixStepIndicator(n) 
+                {
+                    // This function removes the "active" class of all steps...
+                    var i,x = document.getElementsByClassName("step");
+                    for (i = 0; i < x.length; i++) 
+                    {
+                        x[i].className = x[i].className.replace(" active", "");
+                    }
+                    //... and adds the "active" class on the current step:
+                    x[n].className += " active";
+                }
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var addProductButton = document.getElementById("addProductButton");
+                    var productTableBody = document.querySelector("#productTable tbody");
+                    var generateButton = document.getElementById("generateButton");
+        
+                    addProductButton.addEventListener("click", function () {
+                        var quantity = document.getElementById("quantity").value;
+                        var description = document.getElementById("Description").value;
+                        var unitPrice = document.getElementById("Unit price").value;
+                        var gst = parseFloat(document.getElementById("gst").value);
+                        var shippingHandling = parseFloat(document.getElementById("shippingHandling").value);
+        
+                        var total = quantity * unitPrice;
+        
+                        var newRow = document.createElement("tr");
+                        newRow.innerHTML = `
+                            <td>${quantity}</td>
+                            <td>${description}</td>
+                            <td>${unitPrice}</td>
+                            <td>${total}</td>
+                            <td><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                        `;
+        
+                        productTableBody.appendChild(newRow);
+        
+                        // Attach a click event listener to the document
+                        document.addEventListener("click", function (event) {
+                            if (event.target.classList.contains("fa-trash")) {
+                                deleteRow(event);
+                                updateInvoiceSummary(gst, shippingHandling); // Update summary after row deletion
+                            }
+                        });
+                        function deleteRow(event) {
+                        var row = event.target.closest("tr");
+                        if (row) {
+                            row.remove();
+                        }
+                    }
+                        // document.getElementById("stopname").value = "";
+                        // document.getElementById("Latitude").value = "";
+                        // document.getElementById("Longitude").value = "";
+        
+                        updateInvoiceSummary(gst, shippingHandling);
+                    });
+        
+                    function updateInvoiceSummary(gst, shippingHandling) {
+                        var productRows = document.querySelectorAll("#productTable tbody tr");
+                        var subtotal = 0;
+        
+                        productRows.forEach((row) => {
+                            var columns = row.querySelectorAll("td");
+                            var total = parseFloat(columns[3].textContent);
+                            subtotal += total;
+                        });
+        
+                        var gstTotal = (subtotal * (gst / 100)).toFixed(2);
+                        var shippingHandlingTotal = shippingHandling.toFixed(2);
+                        var total = (subtotal + parseFloat(gstTotal) + parseFloat(shippingHandlingTotal)).toFixed(2);
+        
+                        document.getElementById("subtotalValue").textContent = subtotal.toFixed(2);
+                        document.getElementById("gstTotalValue").textContent = gstTotal;
+                        document.getElementById("shippingHandlingTotalValue").textContent = shippingHandlingTotal;
+                        document.getElementById("totalValue").textContent = total;
+                    }
+        
+                    generateButton.addEventListener("click", function () {
+
+                        fetch('demo.json')
+                        .then(response => response.json())
+                        .then(data =>{
+                            var products = [];
+        
+        var productRows = document.querySelectorAll("#productTable tbody tr");
+        productRows.forEach((row) => {
+            var columns = row.querySelectorAll("td");
+            var product = {
+                quantity: columns[0].textContent,
+                description: columns[1].textContent,
+                unitPrice: columns[2].textContent,
+                total: columns[3].textContent,
+            };
+            products.push(product);
+        });
+
+        var gst = parseFloat(document.getElementById("gst").value);
+        var shippingHandling = parseFloat(document.getElementById("shippingHandling").value);
+        var subtotalValue = parseFloat(document.getElementById("subtotalValue").textContent);
+        var gstTotalValue = parseFloat(document.getElementById("gstTotalValue").textContent);
+        var shippingHandlingTotalValue = parseFloat(document.getElementById("shippingHandlingTotalValue").textContent);
+        var totalValue = parseFloat(document.getElementById("totalValue").textContent);
+        var headerImageInput = document.getElementById("headerImage");
+        var footerImageInput = document.getElementById("footerImage");
+        var signatureImageInput = document.getElementById("signature");
+        var companyNameInput =data.companyName;
+        var titleInput = document.getElementById("title").value;
+        var quotationNo = document.getElementById("quotationNo").value;
+        var date = document.getElementById("date").value;
+        var comments =  document.getElementById("comments").value;
+        var thankYouMessageInput = document.getElementById("thankYouMessage").value;
+
+        var headerImage = headerImageInput.files[0]; // Get the selected header image file
+        var footerImage = footerImageInput.files[0]; // Get the selected footer image file
+        var signatureImage = signatureImageInput.files[0];
+
+        var tableContent = `
+        <div class="Main-contect" style="font-size: 9px;">
+    <img src="${URL.createObjectURL(headerImage)}" alt="" width="100%">
+    <br>
+    <br>
+    <div class="row">
+    <div class="col-1"></div>
+    <div class="col-6">
+        <p>
+        <b style="font-size: large;">${companyNameInput}</b> <br>
+        <i>Efficiency in customization</i>
+        </p>
+    </div>
+    <div class="col-5">
+        <p style="font-size: xx-large; font-family: Arial, Helvetica, sans-serif;"> 
+            <b>
+                ${titleInput}
+            </b>
+        </p>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-1"></div>
+    <div class="col-5">
+        <p>
+            Quotation NO #: ${quotationNo}
+            <br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDATE: ${date}
+        </p>
+    </div>
+    </div>
+    <br>
+
+    <br><br>
+    <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <p style="text-align: justify;">
+            <b>COMMENTS OR SPECIAL INSTRUCTIONS:</b>
+            <br>
+            ${comments}
+        </p>
+    </div>
+    <div class="col-1"></div>
+    </div>
+    <br>
+    <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <table style="text-align: center;">
+            <thead style="border: 1px solid #000000;">
+                <tr>
+                    <th scope="col" style="border: 1px solid #000000;">
+                        <b>SALSPERSON</b>
+                    </th>
+                    <th scope="col" style="border: 1px solid #000000;">
+                        <b>P. O. NUMBER</b>
+                    </th>
+                    <th scope="col" style="border: 1px solid #000000;">
+                        <b>REQUISITIONER</b>
+                    </th>
+                    <th scope="col" style="border: 1px solid #000000;">
+                        <b>SHIPPED VIA</b>
+                    </th>
+                    <th scope="col" style="border: 1px solid #000000;">
+                        <b>F. O. B. POINT</b>
+                    </th>
+                    <th scope="col" style="border: 1px solid #000000;">TERMS</th>
+                </tr>
+            </thead>
+        
+        </table>
+    </div>
+    <div class="col-1"></div>
+    </div>
+    <br><br>
+    <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <table style="text-align: center;">
+            <thead style="border: 1px solid #000000;">
+                <tr >
+                    <th style="border: 1px solid #000000;">QUANTITY</th>
+                    <th style="border: 1px solid #000000;">DESCRIPTION</th>
+                    <th style="border: 1px solid #000000;">UNIT PRICE</th>
+                    <th style="border: 1px solid #000000;">TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${products.map((product) => `
+                <tr> 
+                    <td style="border: 1px solid #000000;">${product.quantity}</td>
+                    <td style="border: 1px solid #000000;">${product.description}</td>
+                    <td style="border: 1px solid #000000;">${product.unitPrice}</td>
+                    <td style="border: 1px solid #000000;">${product.total}</td>
+                </tr>
+                `).join('')}
+                <tr style="border: none;">
+                    <td colspan="2" class="noBorder"></td>
+                    <td style="border: 1px solid #000000;">SUBTOTAL:</td>
+                    <td style="border: 1px solid #000000;">${subtotalValue.toFixed(2)}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="noBorder"></td>
+                    <td style="border: 1px solid #000000;" >GST (${gst}%):</td>
+                    <td style="border: 1px solid #000000;">${gstTotalValue.toFixed(2)}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="noBorder"></td>
+                    <td style="border: 1px solid #000000;" >SHIPPING & HANDLING:</td>
+                    <td style="border: 1px solid #000000;">${shippingHandlingTotalValue.toFixed(2)}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="noBorder"></td>
+                    <td style="border: 1px solid #000000;" >TOTAL:</td>
+                    <td style="border: 1px solid #000000;">${totalValue.toFixed(2)}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-1"></div>
+    </div> <br><br>
+    <div class="row">
+    <div class="col-1">
+
+    </div>
+    <div class="col-1">
+
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-8">
+
+    </div>
+    <div class="col-4">
+        <p>For ${companyNameInput}</p>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="${URL.createObjectURL(signatureImage)}" alt="">
+    </div>
+    <div class="col-2">
+
+    </div>
+    </div> <br> <br>
+    <div class="test-center" style="text-align: center;">
+    <p><b>${thankYouMessageInput}</p></p>
+    </div> 
+
+    <img src="${URL.createObjectURL(footerImage)}" alt="" width="100%">
+    </div>
+
+        `;
+
+        var element = document.createElement('div');
+        element.innerHTML = tableContent;
+        const pdfOptions = {
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        };
+        html2pdf().set(pdfOptions).from(element).save('Quotation.pdf');
+    });
+
+    });
+                        })
+                    
+            </script>
+    </body>
+    </html>
