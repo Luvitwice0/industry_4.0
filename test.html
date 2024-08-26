@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Filter Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-end">
+            <div class="col-lg-3 col-md-3 mb-2">
+                <input class="form-control" type="text" id="myInputx" placeholder="Search" aria-label="Search"
+                    name="search">
+            </div>
+            <div class="col-lg-3 col-md-3 mb-2">
+                <input class="form-control" type="number" id="quantityFilter" placeholder="Filter by Quantity"
+                    aria-label="Quantity Filter">
+            </div>
+            <div class="col-lg-1 col-md-1">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="filterButton">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-hover text-center" id="main_table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Unit of Measure</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="main_pp">
+                        <!-- Rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Sample JSON data
+        const jsonData = [
+            { "item": "Item001", "unit": "Kg", "quantity": 456 },
+            { "item": "Item002", "unit": "Mm", "quantity": 467 },
+            { "item": "Item003", "unit": "Cm", "quantity": 367 },
+            { "item": "Item004", "unit": "Ltr", "quantity": 123 },
+            { "item": "Item005", "unit": "Kg", "quantity": 150 },
+            { "item": "Item006", "unit": "Mm", "quantity": 200 }
+        ];
+
+        // Function to populate the table with JSON data
+        function populateTable(data) {
+            const tableBody = document.getElementById('main_pp');
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+
+                tr.innerHTML = `
+                    <td>${row.item}</td>
+                    <td>${row.unit}</td>
+                    <td>${row.quantity}</td>
+                    <td><button type="button" class="btn btn-primary">Create Production Request</button></td>
+                `;
+
+                tableBody.appendChild(tr);
+            });
+        }
+
+        // Filter function
+        function filterTable() {
+            const filterValue = parseInt(document.getElementById('quantityFilter').value);
+            const filteredData = jsonData.filter(row => isNaN(filterValue) || row.quantity < filterValue);
+            populateTable(filteredData);
+        }
+
+        // Populate the table initially
+        populateTable(jsonData);
+
+        // Add event listener to the filter input
+        document.getElementById('filterButton').addEventListener('click', filterTable);
+    </script>
+
+</body>
+
+</html>

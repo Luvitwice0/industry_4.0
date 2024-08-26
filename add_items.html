@@ -149,7 +149,7 @@
                 <div class="col lg-2">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
-                        <b>Manage Item </b>
+                        <b>Add Item </b>
                     </button>
                 </div>
                 <div class="col lg 8"></div>
@@ -176,11 +176,14 @@
                         <tr>
                             <th class="text-center">Item Name</th>
                             <th>Part no</th>
+                            <th>Price</th>
+                            
                             <!-- <th class="text-center">Target quantity</th> <th class="text-center">From
                                     date</th> <th class="text-center">To date</th> <th
                                     class="text-center">Production history</th> -->
                             <th class="text-center">Details</th>
                             <th class="text-center">Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody class="text-center" id="prodction_plan">
@@ -232,6 +235,7 @@
                         </div>
                     </div>
                     <br>
+                    
                     <div class="col-md-12">
                         <!-- <div class="form-group"> <label for="orderNo">Order No</label> <input
                         class="form-control" id="orderNo"></input> </div> -->
@@ -297,7 +301,7 @@
                         class="form-control" id="orderNo"></input> </div> -->
                         <div class="input-field">
                             <input type="text" required="required" id="s_total" spellcheck="false">
-                            <label>Total</label>
+                            <label>Total Price</label>
                         </div>
                     </div>
                     <br>
@@ -417,6 +421,7 @@
                 sub_item_number: s_no,
                 sub_item_total: s_total,
                 sub_item_hsn: s_hsn,
+                sub_item_price: s_price,
                 subItemsData: itemsDataArray
             };
 
@@ -482,13 +487,20 @@
                 item_no.textContent = datax.s_no;
                 tableRow.appendChild(item_no);
 
+                var item_price = document.createElement("td");
+                item_price.textContent = datax.s_price;
+                tableRow.appendChild(item_price);
+
                 var action = document.createElement("td");
                 action.innerHTML = `<button class="btn btn-secondary" data-bs-toggle="modal"
                         data-bs-target="#view_jc">View Subitems</button>`;
                 tableRow.appendChild(action);
+
                 var action = document.createElement("td");
                 action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
                 tableRow.appendChild(action);
+
+                
 
                 taleBody.appendChild(tableRow);
 
