@@ -68,7 +68,12 @@
 
 <body>
     <div class="row">
-        
+        <div class="col-lg-3 col-md-4 mb-2">
+            <input class="form-control" type="number" id="quantityFilter" placeholder="Enter quantity" aria-label="Quantity">
+        </div>
+        <div class="col-lg-2 col-md-2 mb-2">
+            <button class="btn btn-outline-success" id="applyFilter" type="button">Filter</button>
+        </div>
         <div class="col-lg-4 col-md-4 mb-3 ms-auto" style="width: 25%;">
             <input class="form-control" type="text" id="myInputx" placeholder="Search" aria-label="Search" name="search">
         </div>
@@ -573,6 +578,32 @@
 
 
     </script>
+    <script>
+        document.getElementById('applyFilter').addEventListener('click', filterTable);
+
+        function filterTable() {
+
+            const filterValue = Number(document.getElementById('quantityFilter').value.trim());
+            
+            const table = document.getElementById('main_table');
+            const tr = table.getElementsByTagName('tr');
+
+            
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td')[2]; 
+
+                if (td) {
+            const quantity = Number(td.textContent.trim());
+
+                    if (quantity <= filterValue || isNaN(filterValue)) {
+                        tr[i].style.display = ''; 
+                    } else {
+                        tr[i].style.display = 'none';
+                    }
+                }
+            }
+        }
+  </script>
 </body>
 
 </html>
