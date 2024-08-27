@@ -178,7 +178,7 @@
         <br>  
         <div class="row">
             <div class="col lg-2">
-                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
                     <b>Create Vendor </b>
                 </button>
@@ -187,6 +187,12 @@
             <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="width: 25%;">
                 <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
                     aria-label="Search " name="search">
+            </div>
+            <div class="col-lg-3">
+                <select class="form-select" id="categoryFilter" aria-label="Filter by Category">
+                    <option value="">All Categories</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
             </div>
         </div>
         
@@ -270,22 +276,50 @@
                                 <li style="margin-left: 8px;"> 
                                     <label> 
                                         <input type="checkbox"
-                                            value="Category1"> 
-                                        Category1 
+                                            value="Electronics"> 
+                                            Electronics 
                                     </label> 
                                 </li> 
                                 <li  style="margin-left: 8px;"> 
                                     <label> 
                                         <input type="checkbox"
-                                            value="Category2"> 
-                                        Category2
+                                            value="Tools"> 
+                                            Tools
                                     </label> 
                                 </li> 
                                 <li style="margin-left: 8px;"> 
                                     <label> 
                                         <input type="checkbox"
-                                            value="Category3"> 
-                                        Category3 
+                                            value="Metal fabrication"> 
+                                            Metal fabrication 
+                                    </label> 
+                                </li>
+                                <li style="margin-left: 8px;"> 
+                                    <label> 
+                                        <input type="checkbox"
+                                            value="3D printing"> 
+                                            3D printing 
+                                    </label> 
+                                </li> 
+                                <li style="margin-left: 8px;"> 
+                                    <label> 
+                                        <input type="checkbox"
+                                            value="Industrial equipment"> 
+                                            Industrial equipment	 
+                                    </label> 
+                                </li> 
+                                <li style="margin-left: 8px;"> 
+                                    <label> 
+                                        <input type="checkbox"
+                                            value="Agriculture based industries"> 
+                                            Agriculture based industries	 
+                                    </label> 
+                                </li> 
+                                <li style="margin-left: 8px;"> 
+                                    <label> 
+                                        <input type="checkbox"
+                                            value="Pharmaceutical industry"> 
+                                            Pharmaceutical industry	 
                                     </label> 
                                 </li> 
                             </ul> 
@@ -394,69 +428,104 @@
     </script>
 
 
-    <script>
+<script>
+    var dataTableInitialized = false;
+    var jsonDataGlobal = [];
 
-        var dataTableInitialized = false;
+    function updateTableData() {
+        var xhr = new XMLHttpRequest();
 
-        function updateTableData() {
-            var xhr = new XMLHttpRequest();
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status == 200) {
-                        var response = xhr.responseText;
-                        var jsonData = JSON.parse(response);
-                        console.log(jsonData)
-                        updateDataToTable(jsonData.add_vendor);
-                        // Initialize DataTables if it hasn't been initialized already
-                        displayTableRows();
-
-                    }
-
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status == 200) {
+                    var response = xhr.responseText;
+                    jsonDataGlobal = JSON.parse(response).add_vendor;
+                    populateCategoryFilter(jsonDataGlobal);
+                    updateDataToTable(jsonDataGlobal);
+                } else {
+                    console.error("Failed to get the data from server");
                 }
-
             }
-            xhr.open("GET", "08_add_vendor.json", true)
-            xhr.send();
+        };
+        xhr.open("GET", "08_add_vendor.json", true);
+        xhr.send();
+    }
+
+    function populateCategoryFilter(data) {
+        var categoryFilter = document.getElementById('categoryFilter');
+        var categories = new Set(data.map(item => item.v_category));
+
+        categories.forEach(category => {
+            var option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categoryFilter.appendChild(option);
+        });
+    }
+
+    function updateDataToTable(add_vendor) {
+        var tableBody = document.getElementById("prodction_plan");
+        tableBody.innerHTML = '';
+
+        for (var i = 0; i < add_vendor.length; i++) {
+            var datax = add_vendor[i];
+            var tableRow = document.createElement("tr");
+
+            var vendor_name = document.createElement("td");
+            vendor_name.textContent = datax.v_name;
+            tableRow.appendChild(vendor_name);
+
+            var vendor_gst_no = document.createElement("td");
+            vendor_gst_no.textContent = datax.v_gst_no;
+            tableRow.appendChild(vendor_gst_no);
+
+            var vendor_category = document.createElement("td");
+            vendor_category.textContent = datax.v_category;
+            tableRow.appendChild(vendor_category);
+
+            var vendor_email = document.createElement("td");
+            vendor_email.textContent = datax.v_email_id;
+            tableRow.appendChild(vendor_email);
+
+            var vendor_state = document.createElement("td");
+            vendor_state.textContent = datax.v_state;
+            tableRow.appendChild(vendor_state);
+
+            var action = document.createElement("td");
+            action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
+            tableRow.appendChild(action);
+
+            tableBody.appendChild(tableRow);
         }
 
-        function updateDataToTable(add_vendor) {
-            var tableBody = document.getElementById("prodction_plan")
-            var data = add_vendor;
-            for (var i = 0; i < data.length; i++) {
-                var datax = data[i];
+        // Add event listeners for filtering
+        document.getElementById('categoryFilter').addEventListener('change', filterTable);
+        document.getElementById('myInputx').addEventListener('input', filterTable);
+    }
 
-                var table_row = document.createElement("tr")
+    function filterTable() {
+        var input = document.getElementById('myInputx').value.toLowerCase();
+        var categoryFilter = document.getElementById('categoryFilter').value;
+        var rows = document.getElementById('prodction_plan').getElementsByTagName('tr');
 
-                var vendor_name = document.createElement("td");
-                vendor_name.textContent = datax.v_name;
-                table_row.appendChild(vendor_name);
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName('td');
+            var vendorName = cells[0].textContent.toLowerCase();
+            var category = cells[2].textContent;
 
-                var vendor_gst_no = document.createElement("td");
-                vendor_gst_no.textContent = datax.v_gst_no
-                table_row.appendChild(vendor_gst_no);
+            var nameMatches = vendorName.includes(input);
+            var categoryMatches = categoryFilter === "" || category === categoryFilter;
 
-                var vendor_category = document.createElement("td");
-                vendor_category.textContent = datax.v_category
-                table_row.appendChild(vendor_category);
-
-                var vendor_email = document.createElement("td");
-                vendor_email.textContent = datax.v_email_id
-                table_row.appendChild(vendor_email);
-
-                var vendor_state = document.createElement("td");
-                vendor_state.textContent = datax.v_state
-                table_row.appendChild(vendor_state);
-
-                var action = document.createElement("td");
-                action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
-                table_row.appendChild(action);
-
-                tableBody.appendChild(table_row)
+            if (nameMatches && categoryMatches) {
+                rows[i].style.display = '';
+            } else {
+                rows[i].style.display = 'none';
             }
         }
-        updateTableData()
-    </script>
+    }
+
+    updateTableData();
+</script>
     <script>
         function addRawItemData(rowIndex) {
             var delectCellRow = rowIndex

@@ -179,7 +179,7 @@
         <br>
         <div class="row">
             <div class="col lg-2">
-                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
                     <b>Create Category </b>
                 </button>
@@ -198,7 +198,8 @@
                         <tr>
 
                             <th class="text-center">Category</th>
-                            <th class="text-center">Action</th>
+                            <th class="text-center">View</th>
+                            <th class="text-center">Details</th>
                         </tr>
                     </thead>
                     <tbody class="text-center" id="prodction_plan">
@@ -220,6 +221,8 @@
             </div>
         </div>
     </div>
+
+    
     <!-- model for create production plan -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
@@ -236,7 +239,14 @@
                         <label>Category Name</label>
                     </div>
                 </div>
-                <br><br>
+                <br><br><br>
+                <!-- <div class="col-md-12">
+                    <div class="input-field">
+                        <input type="text" required="required" id="v_name" spellcheck="false">
+                        <label>Vendor Name</label>
+                    </div>
+                </div>
+                <br><br><br> -->
                 <div class="row">
                     <button type="button" style="margin-left: 12px;" class="btn btn-primary " onclick="addProcess()"><i
                             class="fa fa-check"></i> <b>Save</b> </button>
@@ -245,6 +255,26 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="viewDetailsModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalBodyContent">
+                        <!-- Content will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function addProcess() {
             var fields = ["ct_name"];
@@ -288,64 +318,111 @@
     </script>
 
 
-    <script>
-        var dataTableInitialized = false;
+<script>
+    var jsonDataGlobal = [];
 
-        function updateTableData() {
-            var xhr = new XMLHttpRequest();
+    function updateTableData() {
+        var xhr = new XMLHttpRequest();
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status == 200) {
-                        var response = xhr.responseText;
-                        var jsonData = JSON.parse(response);
-                        console.log(jsonData)
-                        updateDataToTable(jsonData.create_category);
-                        displayTableRows();
-
-                        // Initialize DataTables if it hasn't been initialized already
-
-                    }
-                    else {
-                        console.error("failed to get the data from server")
-                    }
-
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status == 200) {
+                    var response = xhr.responseText;
+                    jsonDataGlobal = JSON.parse(response).create_category;
+                    console.log(jsonDataGlobal);
+                    updateDataToTable(jsonDataGlobal);
+                    displayTableRows();
+                } else {
+                    console.error("Failed to get the data from server");
                 }
-
             }
-            xhr.open("GET", "create_category.json", true)
-            xhr.send();
-        }
+        };
+        xhr.open("GET", "create_category.json", true);
+        xhr.send();
+    }
 
-        function updateDataToTable(jsonDatax) {
-            var data = jsonDatax
-            for (var i = 0; i < data.length; i++) {
-                var taleBody = document.getElementById("prodction_plan");
+    function updateDataToTable(jsonDatax) {
+        var data = jsonDatax;
+        var taleBody = document.getElementById("prodction_plan");
 
-                var datax = data[i];
-                // var uomx = datax.p_uom;
-                // console.log(uomx)
+        // Initialize Bootstrap modal
+        var viewDetailsModal = new bootstrap.Modal(document.getElementById('viewDetailsModal'));
 
-                var tableRow = document.createElement("tr");
+        // Use an object to keep track of displayed categories
+        var displayedCategories = {};
 
-                var process_name = document.createElement("td");
-                process_name.textContent = datax.ct_name;
-                tableRow.appendChild(process_name);
+        for (var i = 0; i < data.length; i++) {
+            var datax = data[i];
 
-
-                var action = document.createElement("td");
-                action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
-                tableRow.appendChild(action);
-
-                taleBody.appendChild(tableRow);
-
+            // Skip rows with categories already displayed
+            if (displayedCategories[datax.ct_name]) {
+                continue;
             }
+
+            var tableRow = document.createElement("tr");
+
+            var process_name = document.createElement("td");
+            process_name.textContent = datax.ct_name;
+            tableRow.appendChild(process_name);
+
+            var view = document.createElement("td");
+            var eyeIcon = document.createElement("i");
+            eyeIcon.className = "fa fa-eye";
+            eyeIcon.style.cursor = "pointer";
+            eyeIcon.addEventListener("click", function() {
+                // Get category name from the clicked row
+                var categoryName = this.parentNode.parentNode.children[0].textContent;
+                // Group data by category name
+                var groupedData = jsonDataGlobal.reduce((acc, item) => {
+                    if (item.ct_name === categoryName) {
+                        if (!acc[item.ct_name]) {
+                            acc[item.ct_name] = [];
+                        }
+                        acc[item.ct_name].push(item.v_name);
+                    }
+                    return acc;
+                }, {});
+
+                // Create table to show in modal
+                var tableHtml = `
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Category Name</th>
+                                <th>Vendor Names</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${Object.entries(groupedData).map(([catName, vNames]) => `
+                                <tr>
+                                    <td>${catName}</td>
+                                    <td>${vNames.join(', ')}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                `;
+                // Set the content of the modal
+                document.getElementById('modalBodyContent').innerHTML = tableHtml;
+                // Show the modal
+                viewDetailsModal.show();
+            });
+            view.appendChild(eyeIcon);
+            tableRow.appendChild(view);
+
+            var action = document.createElement("td");
+            action.innerHTML = `<i class="fa fa-trash" style="cursor:pointer"></i>`;
+            tableRow.appendChild(action);
+
+            taleBody.appendChild(tableRow);
+
+            // Mark this category as displayed
+            displayedCategories[datax.ct_name] = true;
         }
+    }
 
-        updateTableData();
-
-
-    </script>
+    updateTableData();
+</script>
     <script>
         function deleteRow(rowIndex) {
             var clickedRow = rowIndex;
@@ -395,69 +472,48 @@
     </script>
     <script>
         function searchTable() {
-            var inputx = document
-                .getElementById("myInputx")
-                .value
-                .toLowerCase();
+            var inputx = document.getElementById("myInputx").value.toLowerCase();
             var rowsx = document.querySelectorAll("#example tbody tr");
 
             var found = false; // Variable to track if any matching rows are found
 
             for (var i = 0; i < rowsx.length; i++) {
                 var rowx = rowsx[i];
-                var rollNumberCellx = rowx.cells[1]
-                    ? rowx
-                        .cells[1]
-                        .textContent
-                        .toLowerCase()
-                    : '';
-                var customerNameCell = rowx.cells[3]
-                    ? rowx
-                        .cells[3]
-                        .textContent
-                        .toLowerCase()
-                    : '';
+                var cells = rowx.querySelectorAll("td");
+                var rowText = "";
 
-                var selectDeviceCellx = rowx.cells[2]
-                    ? rowx
-                        .cells[2]
-                        .textContent
-                        .toLowerCase()
-                    : '';
+                // Concatenate the text content of all cells in the row
+                for (var j = 0; j < cells.length; j++) {
+                    rowText += cells[j].textContent.toLowerCase() + " ";
+                }
 
-                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                if (rowText.includes(inputx)) {
                     rowx.style.display = "";
-                    // displayTableRows();
                     found = true;
                 } else {
                     rowx.style.display = "none";
-
                 }
             }
-            if (inputx === '') {
-                currentPage = 1;
-                displayTableRows();
-            }
 
+            // Show a "No data found" message if no rows match the search
             var existingNoDataRow = document.getElementById("noDataRow");
             if (existingNoDataRow) {
                 existingNoDataRow.remove();
             }
 
-            // Create a new row for the "No data found" message
             if (!found) {
-
                 var tableBody = document.querySelector("#example tbody");
                 var noDataRow = tableBody.insertRow();
                 var cell = noDataRow.insertCell(0);
-                cell.colSpan = 7;
+                cell.colSpan = document.querySelectorAll("#example thead th").length;
                 cell.textContent = "No data found.";
                 noDataRow.id = "noDataRow";
             }
-
         }
+
         var searchInput = document.getElementById("myInputx");
         searchInput.addEventListener("keyup", searchTable);
+
     </script>
     <script>
         var currentPage = 1;
@@ -477,6 +533,8 @@
             previousButton.className = 'page-item';
             previousButton.id = 'previousButton';
             previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+
+
             previousButton.addEventListener('click', previousPage); // Add event listener
             paginationList.appendChild(previousButton);
 

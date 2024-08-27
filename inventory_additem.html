@@ -68,11 +68,14 @@
 
 <body>
     <div class="row">
-        <div class="col-lg-3 col-md-4 mb-2">
-            <input class="form-control" type="number" id="quantityFilter" placeholder="Enter quantity" aria-label="Quantity">
+        <div class="col-md-2">
+            <input class="form-control" type="number" id="minQuantity" placeholder="Min Quantity" aria-label="Min Quantity">
         </div>
-        <div class="col-lg-2 col-md-2 mb-2">
-            <button class="btn btn-outline-success" id="applyFilter" type="button">Filter</button>
+        <div class="col-md-2">
+            <input class="form-control"  type="number" id="maxQuantity" placeholder="Max Quantity" aria-label="Max Quantity">
+        </div>
+        <div class="col-1">
+            <button class="btn btn-outline-success" id="applyFilter" type="button"><i class="fa fa-filter"></i> Filter</button>
         </div>
         <div class="col-lg-4 col-md-4 mb-3 ms-auto" style="width: 25%;">
             <input class="form-control" type="text" id="myInputx" placeholder="Search" aria-label="Search" name="search">
@@ -580,30 +583,31 @@
     </script>
     <script>
         document.getElementById('applyFilter').addEventListener('click', filterTable);
-
+    
         function filterTable() {
-
-            const filterValue = Number(document.getElementById('quantityFilter').value.trim());
+            const minValue = Number(document.getElementById('minQuantity').value.trim());
+            const maxValue = Number(document.getElementById('maxQuantity').value.trim());
             
             const table = document.getElementById('main_table');
             const tr = table.getElementsByTagName('tr');
-
             
             for (let i = 1; i < tr.length; i++) {
-                const td = tr[i].getElementsByTagName('td')[2]; 
-
+                const td = tr[i].getElementsByTagName('td')[2]; // Quantity column
+                
                 if (td) {
-            const quantity = Number(td.textContent.trim());
-
-                    if (quantity <= filterValue || isNaN(filterValue)) {
-                        tr[i].style.display = ''; 
+                    const quantity = Number(td.textContent.trim());
+                    
+                    if ((isNaN(minValue) || quantity >= minValue) &&
+                        (isNaN(maxValue) || quantity <= maxValue)) {
+                        tr[i].style.display = ''; // Show row
                     } else {
-                        tr[i].style.display = 'none';
+                        tr[i].style.display = 'none'; // Hide row
                     }
                 }
             }
         }
-  </script>
+    </script>
+    
 </body>
 
 </html>

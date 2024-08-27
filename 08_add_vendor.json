@@ -3,98 +3,98 @@
         {
             "v_name": "Kanrnan Traders",
             "v_gst_no": "GST123456789012",
-            "v_category": "Electronics, Metals",
+            "v_category": "Electronics",
             "v_email_id": "kanrnan.traders@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "Saravanan Suppliers",
             "v_gst_no": "GST234567890123",
-            "v_category": "Electronics, Tools",
+            "v_category": "Tools",
             "v_email_id": "saravanan.suppliers@gmail.com",
             "v_state": "Goa"
         },
         {
             "v_name": "Parker Distributors",
             "v_gst_no": "GST345678901234",
-            "v_category": "Electronics, Plumbing",
+            "v_category": "Plumbing",
             "v_email_id": "parker.distributors@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "First Class Enterprises",
             "v_gst_no": "GST456789012345",
-            "v_category": "Electronics, Construction",
+            "v_category": "Construction",
             "v_email_id": "firstclass.enterprises@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "JKL Manufacturers",
             "v_gst_no": "GST567890123456",
-            "v_category": "Electronics, Tools",
+            "v_category": "Electronics",
             "v_email_id": "jkl.manufacturers@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "Vimal Exporters",
             "v_gst_no": "GST678901234567",
-            "v_category": "Paints, Tools",
+            "v_category": "Tools",
             "v_email_id": "vimal.exporters@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "KK Importers",
             "v_gst_no": "GST789012345678",
-            "v_category": "Plumbing, Tools",
+            "v_category": "Plumbing",
             "v_email_id": "k.importers@gmail.com",
             "v_state": "Andhra"
         },
         {
             "v_name": "Nemotic Wholesalers",
             "v_gst_no": "GST890123456789",
-            "v_category": "Cleaning Material, Tools",
+            "v_category": "Cleaning Material",
             "v_email_id": "nemotic.wholesalers@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "Metro Retailers",
             "v_gst_no": "GST901234567890",
-            "v_category": "Electronics, Plumbing",
+            "v_category": "Electronics",
             "v_email_id": "metro.retailers@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "Fasttime Suppliers",
             "v_gst_no": "GST012345678901",
-            "v_category": "Tools, Plumbing",
+            "v_category": "Tools",
             "v_email_id": "fasttime.suppliers@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "RST Distributors",
             "v_gst_no": "GST123456789012",
-            "v_category": "Electronics, Construction",
+            "v_category": "Construction",
             "v_email_id": "rst.distributors@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "First Class Traders",
             "v_gst_no": "GST234567890123",
-            "v_category": "Electronics, Construction",
+            "v_category": "Construction",
             "v_email_id": "firstclass.traders@gmail.com",
             "v_state": "Tamil Nadu"
         },
         {
             "v_name": "JKL Enterprises",
             "v_gst_no": "GST345678901234",
-            "v_category": "Electronics, Construction",
+            "v_category": "Construction",
             "v_email_id": "jkl.enterprises@gmail.com",
             "v_state": "Kerala"
         },
         {
             "v_name": "Kanrnan Merchants",
             "v_gst_no": "GST456789012345",
-            "v_category": "Electronics, Construction",
+            "v_category": "Smoothing",
             "v_email_id": "Kanrnan.merchants@gmail.com",
             "v_state": "Tamil Nadu"
         }
