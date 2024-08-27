@@ -147,32 +147,61 @@
     #offcanvasRight {
         width: 550px;
     }
+
+    .custom-table 
+            {
+                width: 100%;
+                border-collapse: collapse;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+            .custom-table td,
+            .custom-table th 
+            {
+                padding: 15px;
+            }
+            .custom-table th 
+            {
+                background-color: #007bff;
+                color: #fff;
+                text-transform: uppercase;
+            }
+            .custom-table tbody tr:nth-child(even) 
+            {
+                background-color: #f2f2f2;
+            }
+            .custom-table tbody tr:hover 
+            {
+                background-color: #e0e0e0;
+            }
+            .custom-table tbody td 
+            {
+                border-bottom: 1px solid #ddd;
+            }
+            .custom-table tbody td:last-child 
+            {
+                border-bottom: none;
+            }
 </style>
 
 <body>
     <div class="main-container">
-
         <br>
-
-        <div class="container">
-            <div class="row">
-                <div class="col lg-2">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
-                        <b>Add Master Product</b>
-                    </button>
-                </div>
-                <div class="col lg 8"></div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
-                        aria-label="Search " name="search">
-                </div>
-                <div class="col-lg-1 col-md-4 mt-3 mt-md-0" style="padding-left: 0px;">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </div>
+        <div class="row">
+            <div class="col lg-2">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
+                    <b>Add Master Product</b>
+                </button>
             </div>
+            <div class="col lg 8"></div>
+            <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="width: 25%;">
+                <input class="form-control mr-sm-2" type="text" id="myInputx" placeholder="Search"
+                    aria-label="Search " name="search">
+            </div>
+            
+            
 
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasScrolling"
                 aria-labelledby="offcanvasScrollingLabel">
@@ -189,38 +218,39 @@
             </div>
         </div>
         <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <table id="example" class="table table-responsive table-hover">
-                        <thead class="bg-gradient">
-                            <tr>
-                                <th class="text-center">Product Name</th>
-                                <th class="text-center">Product no</th>
-                                <th class="text-center">HSN Code</th>
-                                <th class="text-center">Price</th>
-                                <th class="text-center">Details</th>
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center" id="prodction_plan">
-                        </tbody>
-                    </table>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12 mb-2"></div>
-                            <div class="col-lg-4 col-md-12 mb-2">
-                                <nav aria-label="..." id="page1">
-                                    <ul class="pagination justify-content-center" id="pagination1"></ul>
-                                </nav>
-                            </div>
-                            <div class="col-lg-4 col-md-12 mb-2"></div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <table id="example" class="custom-table table-responsive table-hover">
+                    <thead class="bg-gradient">
+                        <tr>
+                            <th class="text-center">Product Name</th>
+                            <th class="text-center">Product no</th>
+                            <th class="text-center">HSN Code</th>
+                            <th class="text-center">Price</th>
+                            <th class="text-center">Details</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="prodction_plan">
+                    </tbody>
+                </table>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 mb-2"></div>
+                        <div class="col-lg-4 col-md-12 mb-2">
+                            <nav aria-label="..." id="page1">
+                                <ul class="pagination justify-content-center" id="pagination1"></ul>
+                            </nav>
                         </div>
+                        <div class="col-lg-4 col-md-12 mb-2"></div>
                     </div>
-                    <br>
                 </div>
+                <br>
             </div>
         </div>
+        
     </div>
 
     <!-- model for create production plan -->
@@ -351,7 +381,7 @@
 
                         <div class="input-field">
                             <input type="text" required="required" id="i_total" spellcheck="false">
-                            <label>Total</label>
+                            <label>Total Price</label>
                         </div>
                     </div>
                     <br>
