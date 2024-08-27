@@ -1,0 +1,25 @@
+{
+    "create_category": [
+        {
+            "ct_name": "Electronics"
+        },
+        {
+            "ct_name": "Toosl"
+        },
+        {
+            "ct_name": "Metal fabrication"
+        },
+        {
+            "ct_name": "3D printing"
+        },
+        {
+            "ct_name": "Industrial equipment"
+        },
+        {
+            "ct_name": "Agriculture based industries"
+        },
+        {
+            "ct_name": "Pharmaceutical industry"
+        }
+    ]
+}
