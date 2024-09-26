@@ -1,110 +1,929 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantity Filter</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="Create Purchase Requestport" content="width=device-width, initial-scale=1.0">
+    <title>Add SubItemInventory Management</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap Library -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
+    <script src="assets/lib/jquery/jquery.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <style>
-        .filter-container {
+        body {
+            /* padding: 20px; */
+        }
+
+        /* #table002 td,
+        #table002 th {
+            border: 1px solid black;
+        } */
+
+        /* .response table, th,td{
+            border: 1px solid black;
+        } */
+        .custom-table 
+            {
+                width: 100%;
+                border-collapse: collapse;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+            .custom-table td,
+            .custom-table th 
+            {
+                padding: 15px;
+            }
+            .custom-table th 
+            {
+                background-color: #007bff;
+                color: #fff;
+                text-transform: uppercase;
+            }
+            .custom-table tbody tr:nth-child(even) 
+            {
+                background-color: #f2f2f2;
+            }
+            .custom-table tbody tr:hover 
+            {
+                background-color: #e0e0e0;
+            }
+            .custom-table tbody td 
+            {
+                border-bottom: 1px solid #ddd;
+            }
+            .custom-table tbody td:last-child 
+            {
+                border-bottom: none;
+            }
+
+
+            
+
+
+        .search-bar {
             display: flex;
+            margin-top: 2px;
+            height: 30px;
             align-items: center;
-            justify-content: space-between;
+            border: 1px solid #ccc;
+            /* border-right: none; */
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #fff;
+
         }
-        .filter-container input[type="number"] {
-            width: 100px;
-            margin-right: 10px;
+
+        .search-bar select {
+            background-color: white;
+            /* border: none; */
+            border-left: none;
+            padding: 10px;
+            font-size: 16px;
+            outline: none;
+            cursor: pointer;
         }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            border: none;
+            
+            font-size: 16px;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-bar button {
+            background-color: lightgray;
+            /* border: none; */
+            
+            border-width: 0px;
+            
+            border-color: rgb(255, 254, 254);
+            /* padding: 9px; */
+            height: 50px;
+            cursor: pointer;
+            margin-left: -20px;
+        }
+
+        .search-bar button:hover {
+            background-color: lightgray;
+        }
+
+        .search-bar button svg {
+            fill: #fff;
+            width: 20px;
+            height: 20px;
+        }
+
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button {  
+
+        opacity: 1;
+
+        }
+
+        .filter-container {
+    border-radius: 8px;
+    position: relative; /* Allow absolute positioning of children */
+    padding-right: 230px; /* Space for the filter elements outside the filter bar */
+}
+
+.filter-bar {
+    margin-top: 2px;
+    height: 30px;
+    border: 1px solid lightgray;
+    padding: 14px;
+    width: 130px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    position: relative; /* Position relative to allow absolute positioning of child elements */
+}
+
+.filter-dropdown {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.filter-dropdown:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.filter {
+    background-color: white;
+    width: 200px;
+    height: 40px;
+    color: black;
+    transition: all 0.2s ease;
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    display: none; /* Hidden by default */
+}
+
+.filter-remove {
+    background-color: #3A3A3A;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    display: none; /* Hidden by default */
+}
+
+.filter:hover, .filter-remove:hover {
+    color: white;
+    background-color: #585858;
+}
+
+.operator {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.edit-filter-modal {
+    background-color: #F2F3F5;
+    width: 260px;
+    position: absolute;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease, opacity 0.1s ease;
+    transform-origin: 0 0;
+    padding: 16px;
+}
+
+.filter-select, .filter-input {
+    width: 100%;
+    height: 32px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 16px;
+    border-radius: 3px;
+}
+
+.apply-button, .text-button {
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.apply-button {
+    background-color: #198754;
+    color: white;
+    height: 35px;
+    width: 70px;
+    border: none;
+}
+
+.apply-button:hover {
+    opacity: 0.8;
+}
+
+.text-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    background-color: #6c757d;
+    height: 35px;
+    width: 70px;
+}
+
+.hidden {
+    transform: scale(0.5);
+    opacity: 0;
+    display: none;
+}
+
+.filter-hidden {
+    display: none;
+}
+
+        
+
+        
     </style>
 </head>
+
 <body>
 
-<div class="container mt-4">
-    <div class="row">
-        <!-- Filter Inputs -->
-        <div class="col-lg-3 col-md-4 mb-2">
-            <input class="form-control" type="number" id="minQuantity" placeholder="Min Quantity" aria-label="Min Quantity">
-        </div>
-        <div class="col-lg-3 col-md-4 mb-2">
-            <input class="form-control" type="number" id="maxQuantity" placeholder="Max Quantity" aria-label="Max Quantity">
-        </div>
-        <div class="col-lg-2 col-md-2 mb-2">
-            <button class="btn btn-outline-success" id="applyFilter" type="button">Filter</button>
-        </div>
-        <div class="col-lg-4 col-md-4 mb-3 ms-auto" style="width: 25%;">
-            <input class="form-control" type="text" id="myInputx" placeholder="Search" aria-label="Search" name="search">
-        </div>
-    </div>
-
-    <table class="custom-table table-hover text-center" id="main_table">
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Unit of Measure</th>
-                <th>Quantity</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="main_pp">
-            <!-- Table rows will be dynamically inserted here -->
-        </tbody>
-    </table>
-
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-12 mb-2"></div>
-            <div class="col-lg-4 col-md-12 mb-2">
-                <nav aria-label="..." id="page1">
-                    <ul class="pagination justify-content-center" id="pagination1"></ul>
-                </nav>
+    
+    
+    <div class="row" style="border: 1px solid #ccc;border-radius: 3px;padding: 5px;text-align: center;box-shadow: 1px 1px 5px #ccc;">
+        <div class="col-md-4">
+            <div class="search-bar">
+                <select id="itemDropdown" style="width: 140px;">
+                    <option value="all">All Categories</option>
+                </select>
+                <input type="text" id="myInputx" placeholder="Search" aria-label="Search" name="search">
+                
+                <!-- <button>
+                    <i class="fa fa-search" style="height: 23px; padding-top: 3px;"></i>
+                </button> -->
             </div>
-            <div class="col-lg-4 col-md-12 mb-2"></div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="col-md-6">
+                <div class="filter-container">
+                    <div class="filter-bar">
+                        <a id="filter-dropdown" class="filter-dropdown">
+                            <i class="fa fa-filter" aria-hidden="true" style="color: black;"></i>
+                            <i class="fa fa-plus filter-hidden" aria-hidden="true" style="color: black;"></i>
+                            <span id="filter-dropdown-text" class="filter-dropdown-text" style="color: black;">Filter Table</span>
+                        </a>
+                    </div>
+                    <a id="filter" class="filter filter-hidden">
+                        Quantity <span id="filter-operator" class="operator">=</span>
+                        <span id="filter-values">100</span>
+                    </a>
+                    <a id="filter-remove" class="filter-remove filter-hidden">&times;</a>
+            
+                    <div id="edit-filter-modal" class="edit-filter-modal hidden">
+                        <select id="filter-type" class="filter-select">
+                            <option value="less-than">Less Than</option>
+                            <option value="greater-than">Greater Than</option>
+                            <option value="range">Range</option>
+                        </select>
+                        <input type="number" id="min-quantity" class="filter-input" placeholder="Min quantity">
+                        <input type="number" id="max-quantity" class="filter-input" placeholder="Max quantity" style="display: none;">
+                        <button id="apply-button" class="apply-button">Apply</button>
+                        <button id="cancel-button" class="text-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+                    
+            
         </div>
     </div>
-</div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="custom-table table-hover text-center" id="main_table">
+                <thead>
+                    <tr>
+                        <th>Sub Item</th>
+                        <th>Unit of Measure</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody id="main_pp">
+                    <tr>
+
+                        <td>Subitem001</td>
+                        <td>Kg</td>
+                        <td>456</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Request
+
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Subitem001</td>
+                        <td>Mm</td>
+                        <td>467</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Request
+
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Subitem001</td>
+                        <td>Cm</td>
+                        <td>
+                            467</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Request
+
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Subitem001</td>
+                        <td>ltr</td>
+                        <td>
+                            467</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Request
+
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Subitem001</td>
+                        <td>Kg</td>
+                        <td>
+                            467</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Request
+
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Subitem001</td>
+                        <td>Mm</td>
+                        <td>
+                            467</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Request
+
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>Subitem001</td>
+                        <td>ltr</td>
+                        <td>
+                            467</td>
+                        <td>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002"
+                                class="btn btn-primary">Create Purchase Request
+
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-2"></div>
+                    <div class="col-lg-4 col-md-12 mb-2">
+                        <nav aria-label="..." id="page1">
+                            <ul class="pagination justify-content-center" id="pagination1"></ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-4 col-md-12 mb-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop002" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Pending Purchase Request History
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="padding: 30px;">
+                    <div class="col-md-4 mb-3">
+                        <label for="stopname">Date</label>
+                        <input type="date" class="form-control" id="Date" placeholder="Quality " value=""
+                            required="required" autocomplete="off" style="width: 300%;">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="gst">Quantity</label>
+                        <input type="number" class="form-control" id="Quantity" placeholder="Enter Quantity" value=""
+                            required="required" autocomplete="off" style="width: 300%;">
+                    </div>
+                    <button class="btn btn-success" type="button" id="addProductButton" value="Add entry">Add
+                        <i class="fa fa-plus"></i>
+                    </button> <br> <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <table id="productTable" class="response" style="width: 100%; border: 1px solid black;">
+                                <thead>
+                                    <tr style="text-align: center; border: 1px solid black;">
+                                        <th style="border: 1px solid black;">Date</th>
+                                        <th style="border: 1px solid black;">Quantity</th>
+                                        <th style="border: 1px solid black;">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="border: 1px solid black; text-align: center;"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">
+                        <i class="fa fa-paper-plane"></i>
+                        &nbsp;
+                        Send Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--DATE PICKER-->
+    <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
+    <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
+    <script>
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            }, function (start, end, label) {
+                console.log(
+                    "A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
+                );
+            });
+        });
+    </script>
+
+    
 
 <script>
-    const jsonData = [
-        { item: 'Item001', unit: 'Kg', quantity: 456 },
-        { item: 'Item001', unit: 'Mm', quantity: 467 },
-        { item: 'Item001', unit: 'Cm', quantity: 467 },
-        { item: 'Item001', unit: 'ltr', quantity: 467 },
-        { item: 'Item001', unit: 'Kg', quantity: 467 },
-        { item: 'Item001', unit: 'Mm', quantity: 467 },
-        { item: 'Item001', unit: 'ltr', quantity: 467 }
-    ];
+    $(document).ready(function () {
+        // Fetch JSON data from external file
+        $.getJSON('02_sub_items.json', function (data) {
+            const dropdown = $('#itemDropdown');
+            const items = data.add_raw_items;
+            const uniqueItems = new Set(items.map(item => item.p_item_name));
 
-    const minQuantity = document.getElementById('minQuantity');
-    const maxQuantity = document.getElementById('maxQuantity');
-    const applyFilter = document.getElementById('applyFilter');
-    const itemTable = document.getElementById('main_pp');
-
-    function updateTable() {
-        const min = parseInt(minQuantity.value) || 0;
-        const max = parseInt(maxQuantity.value) || Number.MAX_SAFE_INTEGER;
-
-        itemTable.innerHTML = '';
-
-        const filteredData = jsonData.filter(item => item.quantity >= min && item.quantity <= max);
-        filteredData.forEach(item => {
-            const row = itemTable.insertRow();
-            const cell1 = row.insertCell(0);
-            const cell2 = row.insertCell(1);
-            const cell3 = row.insertCell(2);
-            const cell4 = row.insertCell(3);
-            cell1.textContent = item.item;
-            cell2.textContent = item.unit;
-            cell3.textContent = item.quantity;
-            cell4.innerHTML = `<button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop002" class="btn btn-primary">Create Production Request</button>`;
+            uniqueItems.forEach(itemName => {
+                dropdown.append(new Option(itemName, itemName));
+            });
+        }).fail(function () {
+            console.error('Failed to load JSON data.');
         });
-    }
-
-    applyFilter.addEventListener('click', updateTable);
-
-    // Initial table population
-    updateTable();
+    });
 </script>
 
+
+
+    <script>
+
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            }, function (start, end, label) {
+                console.log(
+                    "A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
+                );
+            });
+        });
+    </script>
+    <!-- pop-up search function -->
+    <script>
+        function searchTable() {
+            var input = document
+                .getElementById("myInput")
+                .value
+                .toLowerCase();
+            var rows = document.querySelectorAll("#so_details tbody tr");
+
+            var found = false; // Variable to track if any matching rows are found
+
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var rollNumberCell = row.cells[1]
+                    ? row
+                        .cells[1]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+                var selectDeviceCell = row.cells[5]
+                    ? row
+                        .cells[5]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+
+                if (rollNumberCell.includes(input) || selectDeviceCell.includes(input)) {
+                    row.style.display = "";
+                    // displayTableRows();
+                    found = true;
+                } else {
+                    row.style.display = "none";
+
+                }
+            }
+            if (input === '') {
+                currentPage = 1;
+                displayTableRows(
+                    'so_details',
+                    'pagination2',
+                    currentPageTable2,
+                    rowsPerPageTable2
+                );
+            }
+
+            var existingNoDataRow = document.getElementById("noDataRow");
+            if (existingNoDataRow) {
+                existingNoDataRow.remove();
+            }
+
+            // Create a new row for the "No data found" message
+            if (!found) {
+
+                var tableBody = document.querySelector("#so_details tbody");
+                var noDataRow = tableBody.insertRow();
+                var cell = noDataRow.insertCell(0);
+                cell.colSpan = 7;
+                cell.textContent = "No data found.";
+                noDataRow.id = "noDataRow";
+            }
+
+        }
+        var searchInput = document.getElementById("myInput");
+        searchInput.addEventListener("keyup", searchTable);
+    </script>
+
+    <!-- main table search -->
+    <script>
+        function searchTablex() {
+            var inputx = document
+                .getElementById("myInputx")
+                .value
+                .toLowerCase();
+            var rowsx = document.querySelectorAll("#main_table tbody tr");
+
+            var found = false; // Variable to track if any matching rows are found
+
+            for (var i = 0; i < rowsx.length; i++) {
+                var rowx = rowsx[i];
+                var rollNumberCellx = rowx.cells[1]
+                    ? rowx
+                        .cells[1]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+                var customerNameCell = rowx.cells[3]
+                    ? rowx
+                        .cells[3]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+
+                var selectDeviceCellx = rowx.cells[2]
+                    ? rowx
+                        .cells[2]
+                        .textContent
+                        .toLowerCase()
+                    : '';
+
+                if (rollNumberCellx.includes(inputx) || selectDeviceCellx.includes(inputx) || customerNameCell.includes(inputx)) {
+                    rowx.style.display = "";
+                    // displayTableRows();
+                    found = true;
+                } else {
+                    rowx.style.display = "none";
+
+                }
+            }
+            if (inputx === '') {
+                currentPage = 1;
+                displayTableRows(
+                    'main_table',
+                    'pagination1',
+                    currentPageTable1,
+                    rowsPerPageTable1
+                );
+            }
+
+            var existingNoDataRow = document.getElementById("noDataRow");
+            if (existingNoDataRow) {
+                existingNoDataRow.remove();
+            }
+
+            // Create a new row for the "No data found" message
+            if (!found) {
+
+                var tableBody = document.querySelector("#main_table tbody");
+                var noDataRow = tableBody.insertRow();
+                var cell = noDataRow.insertCell(0);
+                cell.colSpan = 7;
+                cell.textContent = "No data found.";
+                noDataRow.id = "noDataRow";
+            }
+
+        }
+        var searchInput = document.getElementById("myInputx");
+        searchInput.addEventListener("keyup", searchTablex);
+    </script>
+    <script>
+        var currentPageTable1 = 1;
+        var currentPageTable2 = 1;
+        var rowsPerPageTable1 = 10;
+        var rowsPerPageTable2 = 5;
+        var pagesToShow = 5;
+
+        function displayTableRows(tableId, paginationId, currentPage, rowsPerPage) {
+            var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+            var paginationList = document.querySelector('#' + paginationId);
+            paginationList.innerHTML = '';
+
+            var previousButton = document.createElement('li');
+            previousButton.className = 'page-item';
+            previousButton.innerHTML = '<a class="page-link" href="#">Previous</a>';
+            previousButton.addEventListener('click', function () {
+                previousPage(tableId, paginationId, rowsPerPage);
+            });
+            paginationList.appendChild(previousButton);
+
+            var startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+            var endPage = Math.min(startPage + pagesToShow - 1, totalPages);
+
+            for (var i = startPage; i <= endPage; i++) {
+                var pageItem = document.createElement('li');
+                pageItem.className = 'page-item';
+                if (i === currentPage) {
+                    pageItem
+                        .classList
+                        .add('active');
+                }
+                var pageLink = document.createElement('a');
+                pageLink.className = 'page-link';
+                pageLink.href = '#';
+                pageLink.textContent = i;
+                pageLink.onclick = function () {
+                    goToPage(tableId, paginationId, parseInt(this.textContent), rowsPerPage);
+                };
+                pageItem.appendChild(pageLink);
+                paginationList.appendChild(pageItem);
+            }
+
+            var nextButton = document.createElement('li');
+            nextButton.className = 'page-item';
+            nextButton.innerHTML = '<a class="page-link" href="#">Next</a>';
+            nextButton.addEventListener('click', function () {
+                nextPage(tableId, paginationId, rowsPerPage);
+            });
+            paginationList.appendChild(nextButton);
+
+            var startIndex = (currentPage - 1) * rowsPerPage;
+            var endIndex = startIndex + rowsPerPage;
+            for (var i = 0; i < tableRows.length; i++) {
+                if (i >= startIndex && i < endIndex) {
+                    tableRows[i].style.display = 'table-row';
+                } else {
+                    tableRows[i].style.display = 'none';
+                }
+            }
+        }
+
+        function goToPage(tableId, paginationId, pageNumber, rowsPerPage) {
+            if (tableId === 'main_table') {
+                currentPageTable1 = pageNumber;
+            } else if (tableId === 'so_details') {
+                currentPageTable2 = pageNumber;
+            }
+            displayTableRows(tableId, paginationId, pageNumber, rowsPerPage);
+        }
+
+        function previousPage(tableId, paginationId, rowsPerPage) {
+            if (tableId === 'main_table' && currentPageTable1 > 1) {
+                currentPageTable1--;
+            } else if (tableId === 'so_details' && currentPageTable2 > 1) {
+                currentPageTable2--;
+            }
+            displayTableRows(
+                tableId,
+                paginationId,
+                tableId === 'main_table'
+                    ? currentPageTable1
+                    : currentPageTable2,
+                rowsPerPage
+            );
+        }
+
+        function nextPage(tableId, paginationId, rowsPerPage) {
+            var tableRows = document.querySelectorAll('#' + tableId + ' tbody tr');
+            var totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+            if (tableId === 'main_table' && currentPageTable1 < totalPages) {
+                currentPageTable1++;
+            } else if (tableId === 'so_details' && currentPageTable2 < totalPages) {
+                currentPageTable2++;
+            }
+
+            displayTableRows(
+                tableId,
+                paginationId,
+                tableId === 'main_table'
+                    ? currentPageTable1
+                    : currentPageTable2,
+                rowsPerPage
+            );
+        }
+
+        // Call displayTableRows for both tables after defining the functions
+        displayTableRows(
+            'main_table',
+            'pagination1',
+            currentPageTable1,
+            rowsPerPageTable1
+        );
+        displayTableRows(
+            'so_details',
+            'pagination2',
+            currentPageTable2,
+            rowsPerPageTable2
+        );
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var addProductButton = document.getElementById("addProductButton");
+            var productTableBody = document.querySelector("#productTable tbody");
+
+            addProductButton.addEventListener("click", function () {
+                // Update the following lines to use the correct IDs
+                var quantity = document.getElementById("Date").value;
+                var date = document.getElementById("Quantity").value;
+
+                var newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                <td style="border: 1px solid #000000;">${quantity}</td>
+                <td style="border: 1px solid #000000;">${date}</td>
+                <td style="border: 1px solid #000000; text-align:center;"><i class="fa fa-trash"></i></td>
+            `;
+
+                productTableBody.appendChild(newRow);
+
+                // Attach a click event listener to the document
+                document.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("fa-trash")) {
+                        deleteRow(event);
+                        // Update summary after row deletion (if needed)
+                    }
+                });
+
+                function deleteRow(event) {
+                    var row = event.target.closest("tr");
+                    if (row) {
+                        row.remove();
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const editFilterModal = document.getElementById('edit-filter-modal');
+            const filterDropdown = document.getElementById('filter-dropdown');
+            const filter = document.getElementById('filter');
+            const filterRemove = document.getElementById('filter-remove');
+            const filterDropdownText = document.getElementById('filter-dropdown-text');
+            const filterOperator = document.getElementById('filter-operator');
+            const filterValues = document.getElementById('filter-values');
+            const filterType = document.getElementById('filter-type');
+            const minQuantity = document.getElementById('min-quantity');
+            const maxQuantity = document.getElementById('max-quantity');
+            const applyButton = document.getElementById('apply-button');
+            const cancelButton = document.getElementById('cancel-button');
+    
+            filterDropdown.addEventListener('click', function () {
+                editFilterModal.classList.toggle('hidden');
+            });
+    
+            cancelButton.addEventListener('click', function () {
+                editFilterModal.classList.toggle('hidden');
+            });
+    
+            filterType.addEventListener('change', function () {
+                const selectedFilterType = filterType.value;
+                if (selectedFilterType === 'range') {
+                    maxQuantity.style.display = 'block';
+                    filterOperator.textContent = 'between';
+                } else {
+                    maxQuantity.style.display = 'none';
+                    filterOperator.textContent = selectedFilterType === 'less-than' ? '<' : '>';
+                }
+            });
+    
+            applyButton.addEventListener('click', function () {
+                editFilterModal.classList.toggle('hidden');
+                filter.classList.toggle('filter-hidden');
+                filterRemove.classList.toggle('filter-hidden');
+                filterDropdownText.textContent = 'Add filter';
+    
+                const selectedFilterType = filterType.value;
+                const minValue = minQuantity.value;
+                const maxValue = maxQuantity.value;
+    
+                if (selectedFilterType === 'range') {
+                    filterValues.textContent = `${minValue} - ${maxValue}`;
+                } else {
+                    filterValues.textContent = minValue;
+                }
+    
+                filterTable(selectedFilterType, minValue, maxValue);
+            });
+    
+            filterRemove.addEventListener('click', function () {
+                filter.classList.toggle('filter-hidden');
+                filterRemove.classList.toggle('filter-hidden');
+                filterDropdownText.textContent = 'Filter dataset';
+                filterTable(); // Reset the filter
+            });
+    
+            function filterTable(filterType = '', minValue = '', maxValue = '') {
+                const table = document.getElementById('main_table');
+                const tr = table.getElementsByTagName('tr');
+    
+                for (let i = 1; i < tr.length; i++) {
+                    const td = tr[i].getElementsByTagName('td')[2]; // Quantity column
+    
+                    if (td) {
+                        const quantity = Number(td.textContent.trim());
+                        let showRow = true;
+    
+                        if (filterType === 'less-than') {
+                            if (quantity >= Number(minValue)) {
+                                showRow = false;
+                            }
+                        } else if (filterType === 'greater-than') {
+                            if (quantity <= Number(minValue)) {
+                                showRow = false;
+                            }
+                        } else if (filterType === 'range') {
+                            if (quantity < Number(minValue) || quantity > Number(maxValue)) {
+                                showRow = false;
+                            }
+                        }
+    
+                        tr[i].style.display = showRow ? '' : 'none';
+                    }
+                }
+            }
+        });
+    </script>
 </body>
+
 </html>

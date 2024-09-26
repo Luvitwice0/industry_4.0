@@ -63,37 +63,16 @@
             }
 
 
-            .filter-container {
-                display: flex;
-                align-items: center;
-            }
-
-            .dropdown {
-                margin-right: 10px;
-            }
-
-            .filter-container .form-control {
-                margin-left: 10px;
-                height: 30px;
-                font-size: x-small;
-            }
-
-            .apply-filter {
-                padding: 5px 10px;
-            }
-
-
-        .search-bar {
+            .search-bar {
             display: flex;
             margin-top: 2px;
             height: 30px;
             align-items: center;
             border: 1px solid #ccc;
-            /* border-right: none; */
+            border-right: none;
             border-radius: 5px;
             overflow: hidden;
             background-color: #fff;
-
         }
 
         .search-bar select {
@@ -122,10 +101,11 @@
             border-width: 0px;
             
             border-color: rgb(255, 254, 254);
-            /* padding: 9px; */
-            height: 50px;
+            padding: 9px;
             cursor: pointer;
-            margin-left: -20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .search-bar button:hover {
@@ -144,71 +124,40 @@
         opacity: 1;
 
         }
-
-        .filter-icon {
-            /* margin-right: 10px; */
-            /* border: none; */
-            background-color: #f8f9fa;
-            cursor: pointer;
-            /* font-size: 18px; */
-            color: black;
-            height: 30px;
-            padding: 2px;
-            width: 45px;
-            margin-top: 2px;
-            margin-left: 5px;
-        }
-
-        .filter-icon:hover {
-            background-color: green;
-        }
-
-        
-
-        
     </style>
 </head>
 
 <body>
-
-    
     
     <div class="row" style="border: 1px solid #ccc;border-radius: 3px;padding: 5px;text-align: center;box-shadow: 1px 1px 5px #ccc;">
         <div class="col-md-4">
             <div class="search-bar">
-                <select id="itemDropdown" style="width: 140px;">
+                <select id="itemDropdown">
                     <option value="all">All Categories</option>
                 </select>
                 <input type="text" id="myInputx" placeholder="Search" aria-label="Search" name="search">
                 
-                <!-- <button>
+                <button>
                     <i class="fa fa-search" style="height: 23px; padding-top: 3px;"></i>
-                </button> -->
+                </button>
             </div>
         </div>
-
-        <div class="col-md-6">
-            <div class="filter-container">
-                <label for="">Quantity <i class="fa fa-filter"></i></label>
-                <button id="filter-less-than" class="btn btn-secondary filter-icon" title="Less than Quantity">
-                    <span class="filter-icon-text">&lt;</span>
-                </button>
-                <button id="filter-greater-than" class="btn btn-secondary filter-icon" title="Greater than Quantity">
-                    <span class="filter-icon-text">&gt;</span>
-                </button>
-                <button id="filter-range" class="btn btn-secondary filter-icon" title="Range Filter Quantity">
-                    <span class="filter-icon-text">&#8596;</span>
-                </button>
-
-                <input type="number" id="min-quantity" class="form-control" placeholder="Min quantity" style="display:none; width: 120px; font-size: small; color: black;">
-                <input type="number" id="max-quantity" class="form-control" placeholder="Max quantity" style="display:none; width: 120px; font-size: small; color: black;">
-                <button id="apply-filter" class="btn btn-success apply-filter" style="display:none; height: 30px; font-size: x-small; width: 30px; padding: 0; display: flex; align-items: center; justify-content: center; margin-left: 5px;">
-                    <i class="fa fa-filter" style="font-size: large;"></i>
-                </button>
-            </div>
-
-            
-            
+        <div class="col-md-2" style="margin-top: 2px; padding-left: 0px;margin-right: -114px;">
+            <input class="form-control" type="number" id="minQuantity" placeholder="Min Quantity" aria-label="Min Quantity" style="height: 30px;width: 150px;border-color: rgb(205, 197, 197);">
+        </div>
+        <div class="col-1" style="margin-top: 3px; padding-left: 1px;">
+            <i class="fa fa-arrow-right"></i>
+        </div>
+        <div class="col-md-2" style="margin-top: 2px; padding-left: 0px;margin-right: -155px;">
+            <input class="form-control"  type="number" id="maxQuantity" placeholder="Max Quantity" aria-label="Max Quantity" style="height: 30px;width: 150px;border-color: rgb(205, 197, 197);margin-left: -50px;">
+        </div>        
+        <div class="col-1" style="margin-top: 2px; padding-left: 32px;margin-bottom: 3px;">
+            <button class="btn btn-success" id="applyFilter" type="button" style="height: 30px; border-color: lightgrey; display: flex; align-items: center; justify-content: center;width: 20px;">
+                <i class="fa fa-filter" style="font-size: larger; color: white;"></i>
+            </button>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-3 ms-auto" style="width: 25%; margin-top: 8px;">
+            <!-- <input class="form-control" type="text" id="myInputx" placeholder="Search" aria-label="Search" name="search"> -->
         </div>
     </div>
     <br>
@@ -737,79 +686,42 @@
 
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const minQuantity = document.getElementById('min-quantity');
-    const maxQuantity = document.getElementById('max-quantity');
-    const applyFilter = document.getElementById('apply-filter');
-    
-    // Hide filter fields and button initially
-    minQuantity.style.display = 'none';
-    maxQuantity.style.display = 'none';
-    applyFilter.style.display = 'none';
-
-    document.getElementById('filter-less-than').addEventListener('click', function() {
-        minQuantity.style.display = 'block';
-        maxQuantity.style.display = 'none';
-        applyFilter.style.display = 'inline-block';
-        applyFilter.setAttribute('data-filter', 'less-than');
-    });
-
-    document.getElementById('filter-greater-than').addEventListener('click', function() {
-        minQuantity.style.display = 'none';
-        maxQuantity.style.display = 'block';
-        applyFilter.style.display = 'inline-block';
-        applyFilter.setAttribute('data-filter', 'greater-than');
-    });
-
-    document.getElementById('filter-range').addEventListener('click', function() {
-        minQuantity.style.display = 'block';
-        maxQuantity.style.display = 'block';
-        applyFilter.style.display = 'inline-block';
-        applyFilter.setAttribute('data-filter', 'range');
-    });
-
-    applyFilter.addEventListener('click', function() {
-        const filterType = applyFilter.getAttribute('data-filter');
-        filterTable(filterType);
-    });
-
-    function filterTable(filterType) {
-        const minValue = document.getElementById('min-quantity').value.trim();
-        const maxValue = document.getElementById('max-quantity').value.trim();
-
-        const table = document.getElementById('main_table');
-        const tr = table.getElementsByTagName('tr');
-
-        for (let i = 1; i < tr.length; i++) {
-            const td = tr[i].getElementsByTagName('td')[2]; // Quantity column
-
-            if (td) {
-                const quantity = Number(td.textContent.trim());
-                let showRow = true;
-
-                if (filterType === 'less-than') {
-                    if (quantity >= Number(minValue)) {
-                        showRow = false;
-                    }
-                } else if (filterType === 'greater-than') {
-                    if (quantity <= Number(maxValue)) {
-                        showRow = false;
-                    }
-                } else if (filterType === 'range') {
-                    if (quantity < Number(minValue) || quantity > Number(maxValue)) {
-                        showRow = false;
-                    }
-                }
-
-                tr[i].style.display = showRow ? '' : 'none';
-            }
-        }
-    }
-});
-
-
-
-    </script>
+        document.getElementById('applyFilter').addEventListener('click', filterTable);
+ 
+         function filterTable() {
+             const minValue = document.getElementById('minQuantity').value.trim();
+             const maxValue = document.getElementById('maxQuantity').value.trim();
+             
+             const table = document.getElementById('main_table');
+             const tr = table.getElementsByTagName('tr');
+ 
+             for (let i = 1; i < tr.length; i++) {
+                 const td = tr[i].getElementsByTagName('td')[2]; // Quantity column
+ 
+                 if (td) {
+                     const quantity = Number(td.textContent.trim());
+                     let showRow = true;
+ 
+                     if (minValue && !maxValue) {
+                         if (quantity >= Number(minValue)) {
+                             showRow = false;
+                         }
+                     } else if (!minValue && maxValue) {
+                         if (quantity <= Number(maxValue)) {
+                             showRow = false;
+                         }
+                     } else if (minValue && maxValue) {
+                         if (quantity < Number(minValue) || quantity > Number(maxValue)) {
+                             showRow = false;
+                         }
+                     }
+ 
+                     tr[i].style.display = showRow ? '' : 'none'; 
+                 }
+             }
+         }
+ 
+     </script>
 </body>
 
 </html>

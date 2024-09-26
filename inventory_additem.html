@@ -15,7 +15,7 @@
     <script src="assets/lib/jquery/jquery.min.js"></script>
     <style>
         body {
-            padding: 20px;
+            /* padding: 20px; */
         }
 
         /* #table002 td,
@@ -67,19 +67,25 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-md-2">
+    <div class="row" style="border: 1px solid #ccc;border-radius: 3px;padding: 5px;text-align: center;box-shadow: 1px 1px 5px #ccc;">
+        
+        <div class="col-md-2" style="margin-top: 8px; padding-right: 1px;">
             <input class="form-control" type="number" id="minQuantity" placeholder="Min Quantity" aria-label="Min Quantity">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2" style="margin-top: 8px; padding-left: 1px;padding-right: 1px;">
             <input class="form-control"  type="number" id="maxQuantity" placeholder="Max Quantity" aria-label="Max Quantity">
         </div>
-        <div class="col-1">
+        
+        <div class="col-1" style="margin-top: 8px; padding-left: 1px;">
             <button class="btn btn-outline-success" id="applyFilter" type="button"><i class="fa fa-filter"></i> Filter</button>
         </div>
-        <div class="col-lg-4 col-md-4 mb-3 ms-auto" style="width: 25%;">
+        <div class="col-lg-4 col-md-4 mb-3 ms-auto" style="width: 25%; margin-top: 8px;">
             <input class="form-control" type="text" id="myInputx" placeholder="Search" aria-label="Search" name="search">
         </div>
+    </div>
+    <br>
+    <div class="row">
+        
         <div class="col-lg-12">
             <table class="custom-table table-hover text-center" id="main_table">
                 <thead>
@@ -582,31 +588,46 @@
 
     </script>
     <script>
-        document.getElementById('applyFilter').addEventListener('click', filterTable);
-    
+       document.getElementById('applyFilter').addEventListener('click', filterTable);
+
         function filterTable() {
-            const minValue = Number(document.getElementById('minQuantity').value.trim());
-            const maxValue = Number(document.getElementById('maxQuantity').value.trim());
+            const minValue = document.getElementById('minQuantity').value.trim();
+            const maxValue = document.getElementById('maxQuantity').value.trim();
             
             const table = document.getElementById('main_table');
             const tr = table.getElementsByTagName('tr');
-            
+
             for (let i = 1; i < tr.length; i++) {
                 const td = tr[i].getElementsByTagName('td')[2]; // Quantity column
-                
+
                 if (td) {
                     const quantity = Number(td.textContent.trim());
-                    
-                    if ((isNaN(minValue) || quantity >= minValue) &&
-                        (isNaN(maxValue) || quantity <= maxValue)) {
-                        tr[i].style.display = ''; // Show row
-                    } else {
-                        tr[i].style.display = 'none'; // Hide row
+                    let showRow = true;
+
+                    if (minValue && !maxValue) {
+                        // Only minValue provided, show rows with quantity < minValue
+                        if (quantity >= Number(minValue)) {
+                            showRow = false;
+                        }
+                    } else if (!minValue && maxValue) {
+                        // Only maxValue provided, show rows with quantity > maxValue
+                        if (quantity <= Number(maxValue)) {
+                            showRow = false;
+                        }
+                    } else if (minValue && maxValue) {
+                        // Both minValue and maxValue provided
+                        if (quantity < Number(minValue) || quantity > Number(maxValue)) {
+                            showRow = false;
+                        }
                     }
+
+                    tr[i].style.display = showRow ? '' : 'none'; // Show or hide row based on filter
                 }
             }
         }
+
     </script>
+    
     
 </body>
 

@@ -4,44 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monthly Production Plan</title>
+
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      <!-- Select2 CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  
+      <!-- Select2 JS -->
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
     <!-- Bootstrap Library -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
-    <script src="assets/lib/jquery/jquery.min.js"></script>
+    <!-- <script src="assets/lib/jquery/jquery.min.js"></script> -->
     <style>
-        body {
-            overflow: auto;
-            overflow-x: hidden;
-            /* Disable body scroll */
-            padding: 10px;
-            margin: 0;
-            /* Remove default margin */
-        }
+     
+     body {
+        /* overflow: auto; */
+        overflow-x: hidden;
+    }
+
 
         .table-container {
-            overflow: auto;
-            /* Enable both horizontal and vertical scroll, without showing scrollbars */
             height: 650px;
-
+            overflow: auto;
+            overflow-y: hidden;
         }
 
-
-        /* Hide the scrollbar for webkit browsers (Chrome, Safari) */
-        /* ::-webkit-scrollbar {
-                width: 0;
-            } */
-
-        /* width */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 5px;
         }
 
         /* Track */
@@ -65,11 +69,7 @@
             background-color: rgb(165, 165, 165);
         }
 
-        .table-container {
-            overflow-x: auto;
-            width: 100%;
-        }
-
+      
         #ver-head {
             position: sticky;
             left: 0;
@@ -82,1034 +82,79 @@
             font-size: larger;
 
         }
+        .bg-dark-grey {
+    background-color: #d3d4d6; 
+}
+
     </style>
 </head>
 
 <body>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-4 col-sm-6">
-            <label for="validationDefault04">Select Month</label>
-            <input type="text" class="form-control" placeholder="Select Month" value="" id="validationDefault04"
-                required="required" name="selectYear">
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6" style="padding-top: 8px;">
-            <div class="form-group">
-                <label for="selectcustomerName">Select Plant</label>
-                <select style="width: 100%;" id="selectcustomerName" class="js-example-basic-single">
-                    <option>Select Plant</option>
-                    <option>Chennai</option>
+    <div class="row" style="border: 1px solid #ccc;border-radius: 3px;padding: 5px;text-align: center;box-shadow: 1px 1px 5px #ccc;">
+        <div class="col-lg-12">
+            <div class="row">
+                
+                <div class="col-md-4 col-lg-2">
+                    
+                    <div class="form-label" style="margin-top: 6px;">
+                        <select style="border-radius: 5px; border: 1px solid #ccc; width: 100%;height: 30px;
+                    " id="selectCustomerName" class="js-example-basic-single">
+                            
+                            <option>
+                                Select Plant</option>
+                            <option>Chennai </option>
 
-                    <option>Hosur</option>
+                            <option>Hosur</option>
 
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="form-label" style="margin-top: 5px;">
+                        <select style="border-radius: 5px; border: 1px solid #ccc;width: 100%;height: 30px; text-align: center; color: rgb(47, 43, 43);" id="selectProductName"
+                            class="js-example-basic-single">
+                            <option>
+                                Select Process</option>
+                            <option>Bending</option>
 
+                            <option>Welding</option>
 
+                            <option>Cutting</option>
 
-                </select>
+                            <option>Powder Coating</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 mt-3 mt-md-0" style="padding-top: 25px;">
-            <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Search" aria-label="Search "
-                name="search">
-        </div>
-        <div class="col-lg-1 col-md-4 mt-3 mt-md-0" style="padding-left: 0px;padding-top: 25px;">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+
         </div>
     </div>
-
-    <br>
-
-    <div class="table-container" style="padding-top: 10px;">
+<div class="table-container" style="padding-top: 10px;">
         <table id="responsiveTable" class="table some_style">
 
             <tbody>
-                <tr>
+                <tr id="cutting_id">
                     <td id="ver-head">Cutting</td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div> -->
-                        </div>
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div> -->
-                    </td>
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-005</h5>
-                                <p class="card-text" style="margin: 1px;">Durable Brass Tube</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P005</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-006</h5>
-                                <p class="card-text" style="margin: 1px;">Titanium Rod</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P006</p> 
-                            </div>
-                        </div> -->
-                    </td>
                 </tr>
-
-                <tr>
+                <tr id="bending_id">
                     <td id="ver-head">Bending</td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div> -->
-                    </td>
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div> -->
-                    </td>
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-005</h5>
-                                <p class="card-text" style="margin: 1px;">Durable Brass Tube</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P005</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-006</h5>
-                                <p class="card-text" style="margin: 1px;">Titanium Rod</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P006</p> 
-                            </div>
-                        </div> -->
-                    </td>
                 </tr>
-                <tr>
-                <td id="ver-head">welding</td>
-                <td>
-                    <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                            <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P001</p> 
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                            <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P002</p> 
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                            <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P003</p> 
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                            <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P004</p> 
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                            <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P001</p> 
-                        </div>
-                    </div> -->
-                </td>
-
-                <td>
-                    <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                            <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P002</p> 
-                        </div>
-                    </div> -->
-                </td>
-
-                <td>
-                    <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                            <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P003</p> 
-                        </div>
-                    </div> -->
-                </td>
-
-                <td>
-                    <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                            <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P004</p> 
-                        </div>
-                    </div> -->
-                </td>
-                <td>
-                    <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-005</h5>
-                            <p class="card-text" style="margin: 1px;">Durable Brass Tube</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P005</p> 
-                        </div>
-                    </div> -->
-                </td>
-
-                <td>
-                    <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                        style="width: 18rem;">
-                        <div class="card-body">
-                            <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="float: right;cursor: pointer;"></i>
-                            <h5 class="card-title" style="margin: 1px;">WO-006</h5>
-                            <p class="card-text" style="margin: 1px;">Titanium Rod</p>
-                            
-                            <p class="card-text" style="margin: 1px;">P006</p> 
-                        </div>
-                    </div> -->
-                </td>
-            </tr>
-                <tr>
+                <tr id="welding_id">
+                    <td id="ver-head">Welding</td>
+                </tr>
+                <tr id="filing_id">
                     <td id="ver-head">Filing</td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div> -->
-                    </td>
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-007</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-008</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-009</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-010</h5>
-                                <p class="card-text" style="margin: 1px;">Corrosion Resistant Stainless</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-011</h5>
-                                <p class="card-text" style="margin: 1px;">Durable Brass</p> 
-                                <p class="card-text" style="margin: 1px;">P005</p> 
-                            </div>
-                        </div> -->
-                    </td>
-
-                    <td>
-                        <!-- <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-012</h5>
-                                <p class="card-text" style="margin: 1px;">Resistant Titanium</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P006</p> 
-                            </div>
-                        </div> -->
-                    </td>
                 </tr>
-
-                <tr>
+                <tr id="bending2_id">
                     <td id="ver-head">Bending</td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-013</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P013</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-014</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P014</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-015</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P015</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-016</h5>
-                                <p class="card-text" style="margin: 1px;">Corrosion Resistant Stainless</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P016</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-017</h5>
-                                <p class="card-text" style="margin: 1px;">Durable Brass</p> 
-                                <p class="card-text" style="margin: 1px;">P017</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-018</h5>
-                                <p class="card-text" style="margin: 1px;">Resistant Titanium</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P018</p> 
-                            </div>
-                        </div>
-                    </td>
                 </tr>
-
-                <tr>
+                <tr id="powdercoating_id">
                     <td id="ver-head">Powder Coating</td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-019</h5>
-                                <p class="card-text" style="margin: 1px;">Heat Resistant Ceramic</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P019</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-020</h5>
-                                <p class="card-text" style="margin: 1px;">Flexible Rubber</p> 
-                                <p class="card-text" style="margin: 1px;">P020</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-021</h5>
-                                <p class="card-text" style="margin: 1px;">Non-Conductive Plastic</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P021</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-022</h5>
-                                <p class="card-text" style="margin: 1px;">Corrugated Cardboard</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P022</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-023</h5>
-                                <p class="card-text" style="margin: 1px;">Corrosion Resistant Plastic</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P023</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-024</h5>
-                                <p class="card-text" style="margin: 1px;">Transparent Acrylic</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P024</p> 
-                            </div>
-                        </div>
-                    </td>
                 </tr>
-
-                <tr>
+                <tr id="assembly_id">
                     <td id="ver-head">Assembly</td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                <p class="card-text" style="margin: 1px;">High Strength Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P001</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Copper Wire</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P002</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                <p class="card-text" style="margin: 1px;">Lightweight Aluminum Sheet</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P003</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Bolt</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P004</p> 
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-025</h5>
-                                <p class="card-text" style="margin: 1px;">Stainless Steel Plate</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P025</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-026</h5>
-                                <p class="card-text" style="margin: 1px;">Aluminum Alloy</p> 
-                                <p class="card-text" style="margin: 1px;">P026</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-027</h5>
-                                <p class="card-text" style="margin: 1px;">High-Strength Plastic</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P027</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-028</h5>
-                                <p class="card-text" style="margin: 1px;">Fiber-Reinforced Polymer</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P028</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-danger-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-029</h5>
-                                <p class="card-text" style="margin: 1px;">High-Temperature Alloy</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P029</p> 
-                            </div>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-success-subtle border border-primary-subtle rounded-3"
-                            style="width: 18rem;">
-                            <div class="card-body">
-                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="float: right;cursor: pointer;"></i>
-                                <h5 class="card-title" style="margin: 1px;">WO-030</h5>
-                                <p class="card-text" style="margin: 1px;">Conductive Rubber</p>
-                                
-                                <p class="card-text" style="margin: 1px;">P030</p> 
-                            </div>
-                        </div>
-                    </td>
                 </tr>
-
             </tbody>
         </table>
     </div>
@@ -1142,49 +187,19 @@
                             <td>
                                 <input type="text" class="form-control" placeholder="Select Month" value=""
                                     id="validationDefault04" required="required" name="birthday">
-
-                            </td>
+                     </td>
                         </tr>
-
-                    </table>
+              </table>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary"
-                        data-bs-dismiss="modal">Close</button> -->
+                   
                     <button type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="scrollable" style="overflow: auto;overflow-y: auto;"> <div
-        class="row"> <div class="col-lg-12"> </div> </div> </div> -->
-    <script>
-        function searchTable() {
-            var input = document.getElementById("myInput").value.toLowerCase();
-            var rows = document.querySelectorAll("#responsiveTable tbody tr");
+   
 
-            var found = false;
-
-            for (var i = 0; i < rows.length; i++) {
-                var row = rows[i];
-                var rollNumberCell = row.cells[1] ? row.cells[1].textContent.toLowerCase() : '';
-                var selectDeviceCell = row.cells[5] ? row.cells[5].textContent.toLowerCase() : '';
-
-                if (rollNumberCell.includes(input) || selectDeviceCell.includes(input)) {
-                    row.style.display = "";
-                    // displayTableRows();
-                    found = true;
-                }
-                else {
-                    row.style.display = "none";
-
-                }
-            }
-
-        }
-        var searchInput = document.getElementById("myInput");
-        searchInput.addEventListener("keyup", searchTable);
-    </script>
     <script type="text/javascript" src="assets/daterangepicker-master/moment.min.js"></script>
     <script type="text/javascript" src="assets/daterangepicker-master/daterangepicker.js"></script>
 
@@ -1213,28 +228,144 @@
         });
     </script>
 
+    
     <script>
-        // Get the screen width and height
-        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        fetch('./monthly_prob_plan.json')
+            .then(response => response.json())  
+            .then(jsonData => {
+                const tableRow = document.getElementById('cutting_id');
+                const tableRow1 = document.getElementById('bending_id');
+                const tableRow2 = document.getElementById('welding_id');
+                const tableRow3 = document.getElementById('filing_id');
+                const tableRow4 = document.getElementById('bending2_id');
+                const tableRow5 = document.getElementById('powdercoating_id');
+                const tableRow6 = document.getElementById('assembly_id');
+                
+                function getStatusColor(status) {
+    switch (status) {
+        case 'danger':
+            return 'bg-danger-subtle text-dark';  
+        case 'success':
+            return 'bg-success-subtle text-dark'; 
+        case 'warning':
+            return 'bg-warning-subtle text-dark'; 
+        case 'error':
+            return 'bg-danger-subtle text-dark';  
+        case 'result':
+            return 'bg-info-subtle text-dark';  
+            case 'grey': 
+            return 'bg-dark-grey text-dark'; 
+        default:
+            return 'bg-body-tertiary';
+    }
+}
 
-        // Set the table width and height to the screen width and height
-        document
-            .getElementById("responsiveTable")
-            .style
-            .width = screenWidth + "px";
-        document
-            .getElementById("responsiveTable")
-            .style
-            .height = screenHeight + "px";
-    </script>
 
-    <script src="assets/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.js-example-basic-single').select2();
-        });
+            function createCard(item) {
+                const statusClass = getStatusColor(item.status);
+
+                return `
+                    <td>
+                        <div class="card shadow ${statusClass} rounded"
+                            style="width: 18rem">
+                            <div class="card-body">
+                                <i class="fa fa-clipboard" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    style="float: right;cursor: pointer;"></i>
+                                <h5 class="card-title" style="margin: 1px;">${item.Name}</h5>
+                                <p class="card-text" style="margin: 1px;">${item.Description}</p>
+                                <p class="card-text" style="margin: 1px;">${item.Number}</p>
+                            </div>
+                        </div>
+                    </td>
+                `;
+            }
+
+                jsonData.forEach(category => {
+                    if (category.Category === 'Cutting') {  
+                        category.Items.forEach(item => {
+                            const cardHTML = createCard(item);
+                            tableRow.innerHTML += cardHTML;
+                        });
+                    }
+                    
+                });
+                jsonData.forEach(category => {
+                    if (category.Category === 'Bending') {  
+                        category.Items.forEach(item => {
+                            const cardHTML = createCard(item);
+                            tableRow1.innerHTML += cardHTML;
+                        });
+                    }
+                    
+                });
+                jsonData.forEach(category => {
+                    if (category.Category === 'Welding') {  
+                        category.Items.forEach(item => {
+                            const cardHTML = createCard(item);
+                            tableRow2.innerHTML += cardHTML;  
+                        });
+                    }
+                    
+                });
+                jsonData.forEach(category => {
+                    if (category.Category === 'Filing') {  
+                        category.Items.forEach(item => {
+                            const cardHTML = createCard(item);
+                            tableRow3.innerHTML += cardHTML; 
+                        });
+                    }
+                    
+                });
+                jsonData.forEach(category => {
+                    if (category.Category === 'Bending') {  
+                        category.Items.forEach(item => {
+                            const cardHTML = createCard(item);
+                            tableRow4.innerHTML += cardHTML;  
+                        });
+                    }
+                    
+                });
+                jsonData.forEach(category => {
+                    if (category.Category === 'Powder Coating') {  
+                        category.Items.forEach(item => {
+                            const cardHTML = createCard(item);
+                            tableRow5.innerHTML += cardHTML; 
+                        });
+                    }
+                    
+                });
+                jsonData.forEach(category => {
+                    if (category.Category === 'Assembly') {  
+                        category.Items.forEach(item => {
+                            const cardHTML = createCard(item);
+                            tableRow6.innerHTML += cardHTML;  
+                        });
+                    }
+                    
+                });
+            })
+            .catch(error => console.error('Error loading JSON:', error));  
     </script>
+<script>
+    $(document).ready(function() {
+      $('#selectCustomerName').select2({
+        templateResult: formatState,
+        templateSelection: formatState
+      });
+    });
+  
+    function formatState(state) {
+      if (!state.id) {
+        return state.text; // For the placeholder
+      }
+      var baseUrl = 'https://example.com/path/to/icons';
+      var $state = $(
+        '<span><i class="fa-solid fa-industry"></i> ' + state.text + '</span>'
+      );
+      return $state;
+    }
+  </script>
+  
 </body>
 
 </html>

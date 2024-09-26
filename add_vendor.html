@@ -176,7 +176,7 @@
 <body>
     <div class="main-container">
         <br>  
-        <div class="row">
+        <div class="row" >
             <div class="col lg-2">
                 <button class="btn btn-success" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-plus"></i>
@@ -355,14 +355,14 @@
                     <div class="md-12">
                         <div class="input-field">
                             <input type="text" required="required" id="v_adress" spellcheck="false">
-                            <label>Adress</label>
+                            <label>Address</label>
                         </div>
                     </div>
                     <br>
 
                 </div>
                 <div class="row">
-                    <button type="button" style="margin-left: 12px;" class="btn btn-primary " onclick="addVendor()"><i
+                    <button type="button" style="margin-left: 12px;" class="btn btn-success " onclick="addVendor()"><i
                             class="fa fa-check"></i> <b>Save</b> </button>
                 </div>
                 <br>
@@ -373,13 +373,14 @@
         function addVendor() {
             var fields = ["v_name", "v_gst_no", "v_email_id", "v_phone_no", "v_state", "v_adress"];
             var hasEmptyField = false;
-
+    
+            // Check if any fields are empty
             for (var i = 0; i < fields.length; i++) {
                 var fieldId = fields[i];
                 var input = document.getElementById(fieldId);
-
+    
                 var value = input.value.trim();
-
+    
                 if (value === "") {
                     input.classList.add("required-field");
                     hasEmptyField = true;
@@ -388,44 +389,61 @@
                     input.classList.remove("required-field");
                 }
             }
-
+    
             if (hasEmptyField) {
                 return;
             }
-
+    
             var v_name = document.getElementById("v_name").value;
+            
+            // Get selected categories from the checkboxes
+            var selectedCategories = [];
+            var checkboxes = document.querySelectorAll('.dropdown-menu input[type="checkbox"]');
+    
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    selectedCategories.push(checkbox.value);
+                }
+            });
+    
+            // Convert selected categories array to a string (optional)
+            var v_category = selectedCategories.join(", ");  // Or keep it as an array if you prefer
+    
             var v_gst_no = document.getElementById("v_gst_no").value;
             var v_email_id = document.getElementById("v_email_id").value;
             var v_phone_no = document.getElementById("v_phone_no").value;
             var v_state = document.getElementById("v_state").value;
             var v_adress = document.getElementById("v_adress").value;
-
-
-
-            var JsonDataAddvendor =
-            {
+    
+            // JSON object to store the form data
+            var JsonDataAddvendor = {
                 vendor_name: v_name,
                 vendor_gst_no: v_gst_no,
-                vendor_category: v_category,
+                vendor_category: v_category,  // Multi-selected values
                 vendor_email_id: v_email_id,
                 vendor_phone_no: v_phone_no,
                 vendor_state: v_state,
-                vendor_adress: v_adress,
-
+                vendor_adress: v_adress
             };
-
+    
+            // Log the JSON data
             console.log(JsonDataAddvendor);
-
+    
+            // Reset form fields
             document.getElementById("v_name").value = "";
             document.getElementById("v_gst_no").value = "";
             document.getElementById("v_email_id").value = "";
             document.getElementById("v_phone_no").value = "";
             document.getElementById("v_state").value = "";
             document.getElementById("v_adress").value = "";
-
+            
+            // Optional: Uncheck all checkboxes after form submission
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = false;
+            });
         }
-
     </script>
+    
 
 
 <script>

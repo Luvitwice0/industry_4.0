@@ -51,11 +51,12 @@
     <link rel="stylesheet" type="text/css" media="all" href="assets/daterangepicker-master/daterangepicker.css">
 </head>
 <style>
-    /* body {
+    body {
         margin: auto;
+        /* padding: 20px; */
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         padding: 20px;
-    } */
+    }
 
     .main-container {
         padding: 20px;
@@ -116,11 +117,19 @@
 
 
     body {
-        /* overflow: auto; */
+        overflow: auto;
         overflow-x: hidden;
+        /* Disable body scroll */
+        padding: 10px;
+        margin: 0;
+        /* Remove default margin */
     }
 
-
+    .table-container {
+        overflow: auto;
+        /* Enable both horizontal and vertical scroll, without showing scrollbars */
+        height: 655px;
+    }
 
     table {
         margin-bottom: -17px;
@@ -134,7 +143,7 @@
 
     /* width */
     ::-webkit-scrollbar {
-        width: 5px;
+        width: 10px;
     }
 
     /* Track */
@@ -160,10 +169,8 @@
 
 
     .table-container {
-        /* overflow-x: auto; */
-        overflow: auto;
+        overflow-x: auto;
         width: 100%;
-        
     }
 
     #ver-head {
@@ -176,34 +183,18 @@
         font-weight: 600;
         vertical-align: middle;
         font-size: large;
-        white-space: nowrap; 
+
+
     }
 </style>
 
 <body>
 
-    
-    <div class="row" style="border: 1px solid #ccc;border-radius: 3px;padding: 5px;text-align: center;box-shadow: 1px 1px 5px #ccc;">
+    <div class="row">
         <div class="col-lg-12">
             <div class="row">
-                
                 <div class="col-md-4 col-lg-2">
-                    
-                    <div class="form-label" style="margin-top: 5px;">
-                        <select style="border-radius: 5px; border-width: 2px;
-                    " id="selectCustomerName" class="js-example-basic-single">
-                            
-                            <option>
-                                Select Plant</option>
-                            <option>Chennai </option>
-
-                            <option>Hosur</option>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-2">
-                    <div class="form-label" style="margin-top: 5px;">
+                    <div class="form-label">
                         <select style="border-radius: 5px; border-width: 2px;" id="selectProductName"
                             class="js-example-basic-single">
                             <option>
@@ -215,6 +206,19 @@
                             <option>Cutting</option>
 
                             <option>Powder Coating</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="form-label">
+                        <select style="border-radius: 5px; border-width: 2px;
+                    " id="selectCustomerName" class="js-example-basic-single">
+                            <option>
+                                Select Plant</option>
+                            <option>Chennai</option>
+
+                            <option>Hosur</option>
+
                         </select>
                     </div>
                 </div>
@@ -233,13 +237,13 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">JobCard Details</h4>
+                    <h2 class="modal-title">JobCard Details</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <span class="glyphicon glyphicon-remove"></span>
                 </div>
                 <div class="modal-body" style="padding-top: 30px;">
 
-                    <table style="width: 100%;text-align: center; border: 1px solid black;" class="table table-bordered">
+                    <table style="width: 100%;text-align: center; ">
                         <tbody>
                             <tr>
                                 <td>
@@ -405,27 +409,6 @@
     });
 </script>
 
-<script>
-    $(document).ready(function() {
-      $('#selectCustomerName').select2({
-        templateResult: formatState,
-        templateSelection: formatState
-      });
-    });
-  
-    function formatState(state) {
-      if (!state.id) {
-        return state.text; // For the placeholder
-      }
-      var baseUrl = 'https://example.com/path/to/icons';
-      var $state = $(
-        '<span><i class="fa-solid fa-industry"></i> ' + state.text + '</span>'
-      );
-      return $state;
-    }
-  </script>
-  
-
 <script type="text/javascript">
     $(function () {
 
@@ -507,13 +490,13 @@
                 statusClass = 'bg-danger-subtle';
                 break;
             case 'running':
-                statusClass = 'bg-info-subtle';
+                statusClass = 'bg-warning-subtle';
                 break;
             case 'not started':
                 statusClass = 'bg-secondary-subtle';
                 break;
             default:
-                statusClass = 'bg-body-tertiary'; 
+                statusClass = 'bg-light'; 
                 break;
         }
         return statusClass;

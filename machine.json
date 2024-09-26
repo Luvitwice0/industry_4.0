@@ -1,0 +1,52 @@
+{
+    "machines": [
+      {
+        "id": "Machine 1",
+        "jobs": [
+          { "id": "JobCard01", "name": "Aarav", "value": 280, "status": "success" },
+          { "id": "JobCard02", "name": "Ananya", "value": 280, "status": "running" },
+          { "id": "JobCard03", "name": "Arjun", "value": 280, "status": "error" },
+          { "id": "JobCard04", "name": "Avni", "value": 280, "status": "success" },
+          { "id": "JobCard05", "name": "Deepak", "value": 280, "status": "not started" }
+        ]
+      },
+      {
+        "id": "Machine 2",
+        "jobs": [
+          { "id": "JobCard07", "name": "Rajat", "value": 280, "status": "not started" },
+          { "id": "JobCard08", "name": "Abhinav", "value": 280, "status": "success" },
+          { "id": "JobCard09", "name": "Harsh", "value": 280, "status": "running" }
+        ]
+      },
+      {
+        "id": "Machine 3",
+        "jobs": [
+          { "id": "JobCard07", "name": "Rajat", "value": 280, "status": "not started" },
+          { "id": "JobCard08", "name": "Abhinav", "value": 280, "status": "success" },
+          { "id": "JobCard09", "name": "Harsh", "value": 280, "status": "success" },
+          { "id": "JobCard09", "name": "Harsh", "value": 280, "status": "success" }
+        ]
+      },
+      {
+        "id": "Machine 4",
+        "jobs": [
+          { "id": "JobCard07", "name": "Rajat", "value": 280, "status": "success" }
+        ]
+      },
+      {
+        "id": "Machine 5",
+        "jobs": [
+          { "id": "JobCard07", "name": "Rajat", "value": 280, "status": "success" },
+          { "id": "JobCard08", "name": "Abhinav", "value": 280, "status": "success" }
+        ]
+      },
+      {
+        "id": "Machine 6",
+        "jobs": [
+          { "id": "JobCard09", "name": "Rajat", "value": 280, "status": "success" },
+          { "id": "JobCard10", "name": "Abhinav", "value": 280, "status": "success" }
+        ]
+      }
+    ]
+  }
+  

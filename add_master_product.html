@@ -226,7 +226,7 @@
                         <tr>
                             <th class="text-center">Product Name</th>
                             <th class="text-center">Product no</th>
-                            <th class="text-center">HSN Code</th>
+                            <!-- <th class="text-center">HSN Code</th> -->
                             <th class="text-center">Price</th>
                             <th class="text-center">Details</th>
                             <th class="text-center">Action</th>
@@ -294,16 +294,16 @@
                     <hr>
                     <div class="row">
                         <div class="col-lg-5">
-                            <label for="selectSubitemName">Choose SubItem</label>
+                            <label for="selectSubitemName">Choose Sub Part</label>
                             <select id="selectSubitemName" class="js-example-basic-single">
-                                <option>Select Drop SubItem</option>
+                                <option>Select Drop Sub Part</option>
                                 <!-- Add other options heree -->
                             </select>
                         </div>
 
                         <div class="col-lg-2">
                             <label for="quantity">Quantity</label>
-                            <input type="text" class="form-control" id="quantity01">
+                            <input type="text" class="form-control" id="quantity01" style="height: 58%;">
                         </div>
                         <div class="col-lg-5">
                             <label for="selectProcess01Name">Choose Process</label>
@@ -314,7 +314,7 @@
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addSubItemButton"
-                            style="width: 15%; float: right; margin-left: 12px; margin-top: 10px;">Add</button>
+                            style="width: 30%; float: right; margin-left: 12px; margin-top: 10px;">Add Sub Part</button>
                     </div>
                     <br>
                     <div class="row">
@@ -323,7 +323,7 @@
                                 style="width: 100%; border: 1px solid black; border: 1px solid black;">
                                 <thead>
                                     <tr style="text-align: center; border: 1px solid black;">
-                                        <th style="border: 1px solid black;">Sub Items</th>
+                                        <th style="border: 1px solid black;">Sub Parts</th>
                                         <th style="border: 1px solid black;">Quantity</th>
                                         <th style="border: 1px solid black;">Process</th>
                                         <th style="border: 1px solid black;">Delete</th>
@@ -336,16 +336,16 @@
                     <hr>
                     <div class="row">
                         <div class="col-lg-5">
-                            <label for="selectItemName">Choose Item</label>
+                            <label for="selectItemName">Choose Part</label>
                             <select id="selectItemName" class="js-example-basic-single">
-                                <option>Select Drop Item</option>
+                                <option>Select Drop Part</option>
                                 <!-- Add other options here -->
                             </select>
                         </div>
 
                         <div class="col-lg-2">
                             <label for="quantity">Quantity</label>
-                            <input type="text" class="form-control" id="quantity02">
+                            <input type="text" class="form-control" id="quantity02" style="height: 58%;">
                         </div>
 
                         <div class="col-lg-5">
@@ -357,7 +357,7 @@
                         </div>
                         <br>
                         <button type="button" class="btn btn-primary" id="addItemButton"
-                            style="width: 15%; float: right;margin-left: 12px; margin-top: 10px;">Add</button>
+                            style="width: 30%; float: right;margin-left: 12px; margin-top: 10px;">Add Part</button>
                     </div>
                     <br>
                     <div class="row">
@@ -366,7 +366,7 @@
                                 style="width: 100%; border: 1px solid black; border-right: 1px solid black;">
                                 <thead>
                                     <tr style="text-align: center;  border: 1px solid black;">
-                                        <th style="border: 1px solid black;">Items</th>
+                                        <th style="border: 1px solid black;">Parts</th>
                                         <th style="border: 1px solid black;">Quantity</th>
                                         <th style="border: 1px solid black;">Process</th>
                                         <th style="border: 1px solid black;">Delete</th>
@@ -390,7 +390,7 @@
                 <br>
                 <div class="row">
 
-                    <button type="button" style="margin-left: 12px;" class=" btn btn-primary " onclick="
+                    <button type="button" style="margin-left: 12px;" class=" btn btn-success " onclick="
                         addMasterProductData()"><i class="fa fa-check"></i> <b>Save</b> </button>
 
                 </div>
@@ -403,7 +403,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Item Details</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Parts Details</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -414,7 +414,7 @@
                                     style="width:100%; border: 1px solid black; ">
                                     <thead>
                                         <tr>
-                                            <th class="col-md-2">Items</th>
+                                            <th class="col-md-2">Parts</th>
                                             <th class="col-md-2">Quantity</th>
                                             <th class="col-md-2">Process</th>
 
@@ -444,13 +444,13 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                <h5>Sub Item Details</h2>
+                                <h5>Sub Parts Details</h2>
                                     <hr>
                                     <table class="table table-hover text-center"
                                         style="width:100%; border: 1px solid black; ">
                                         <thead>
                                             <tr>
-                                                <th class="col-md-2">SubItems</th>
+                                                <th class="col-md-2">Sub Parts</th>
                                                 <th class="col-md-2">Quantity</th>
                                                 <th class="col-md-2">Process</th>
 
@@ -609,13 +609,13 @@
                 product_uom.textContent = datax.i_uom
                 table_row.appendChild(product_uom);
 
-                var product_hsn = document.createElement("td");
-                product_hsn.textContent = datax.i_hsn
-                table_row.appendChild(product_hsn);
+                // var product_hsn = document.createElement("td");
+                // product_hsn.textContent = datax.i_hsn
+                // table_row.appendChild(product_hsn);
 
                 var action = document.createElement("td");
                 action.innerHTML = `<button class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#view_product">View Items</button>`;
+                        data-bs-target="#view_product">View Parts</button>`;
                 table_row.appendChild(action);
 
                 var action = document.createElement("td");
@@ -631,7 +631,7 @@
         function updateProcessDropdown01(data) {
             console.log(1);
             var employeeSelect = document.getElementById("selectProcess01Name");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+            employeeSelect.innerHTML = '<option value=""><--Select Process name --></option>';
 
             var employeeNames = [];
 
@@ -654,7 +654,7 @@
         function updateProcessDropdown(data) {
             console.log(1);
             var employeeSelect = document.getElementById("selectProcess02Name");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+            employeeSelect.innerHTML = '<option value=""><--Select Process name --></option>';
 
             var employeeNames = [];
 
@@ -679,7 +679,7 @@
         function updateSubitemDropdown(data) {
             console.log(1);
             var employeeSelect = document.getElementById("selectSubitemName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+            employeeSelect.innerHTML = '<option value=""><--Select Sub Part name --></option>';
 
             var employeeNames = [];
 
@@ -702,7 +702,7 @@
         function updateItemDropdown(data) {
             console.log(1);
             var employeeSelect = document.getElementById("selectItemName");
-            employeeSelect.innerHTML = '<option value=""><--Select File name --></option>';
+            employeeSelect.innerHTML = '<option value=""><--Select Part name --></option>';
 
             var employeeNames = [];
 

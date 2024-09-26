@@ -1,0 +1,73 @@
+[
+    {
+        "Category": "Cutting",
+        "Items": [
+            {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001", "status": "error"},
+            {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002", "status": "success"},
+            {"Name": "WO-003", "Description": "Lightweight Aluminium Sheet", "Number": "P0003", "status": "grey"},
+            {"Name": "WO-004", "Description": "Stainless Steel Bolt", "Number": "P0004", "status": "error"},
+            {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001", "status": "result"}
+            
+            
+        ]
+    },
+    {
+        "Category": "Bending",
+        "Items": [
+          {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001", "status": "error"},
+          {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002", "status": "success"},
+          {"Name": "WO-003", "Description": "Lightweight Aluminium Sheet", "Number": "P0003", "status": "grey"},
+          {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002", "status": "result"}
+           
+        ]
+    },
+    {
+        "Category": "Welding",
+        "Items": [
+          {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001" , "status": "error"},
+          {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002", "status": "success"},
+          {"Name": "WO-003", "Description": "Lightweight Aluminium Sheet", "Number": "P0003", "status": "grey"},
+          {"Name": "WO-004", "Description": "Stainless Steel Bolt", "Number": "P0004","status": "result"}
+        ]
+    },
+    
+  
+  {
+    "Category": "Filing",
+  "Items": [
+    {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001", "status": "error"},
+    {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002",  "status": "success"}
+   
+  ]
+  },
+  {
+    "Category": "Bending2",
+  "Items": [
+    {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001", "status": "error"},
+    {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002", "status": "success"},
+    {"Name": "WO-003", "Description": "Lightweight Aluminium Sheet", "Number": "P0003", "status": "grey"},
+            {"Name": "WO-0013", "Description": "Stainless Steel Bolt", "Number": "P0004", "status": "result"},
+            {"Name": "WO-0014", "Description": "Lightweight Aluminium Sheet", "Number": "P0003", "status": "success"},
+            {"Name": "WO-0015", "Description": "Stainless Steel Bolt", "Number": "P0004", "status": "success"}
+  ]
+  },
+  {
+    "Category": "Powder Coating",
+  "Items": [
+    {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001", "status": "error"},
+    {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002",  "status": "success"},
+    {"Name": "WO-003", "Description": "Lightweight Aluminium Sheet", "Number": "P0003", "status": "grey"},
+            {"Name": "WO-0013", "Description": "Stainless Steel Bolt", "Number": "P0004", "status": "success"},
+            {"Name": "WO-0014", "Description": "Lightweight Aluminium Sheet", "Number": "P0003", "status": "grey"},
+            {"Name": "WO-0015", "Description": "Stainless Steel Bolt", "Number": "P0004", "status": "success"}
+  ]
+  },
+  {
+    "Category": "Assembly",
+  "Items": [
+    {"Name": "WO-001", "Description": "High Strength Steel Plate", "Number": "P0001", "status": "error"},
+    {"Name": "WO-002", "Description": "Conductiive Copper Wire", "Number": "P0002" ,  "status": "success"}
+   
+  ]
+  }
+  ]

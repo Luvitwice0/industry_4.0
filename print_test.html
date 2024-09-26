@@ -4,6 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link href="assets/dist/css/select2.min.css" rel="stylesheet" />
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -11,13 +23,14 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/7013ed1e06.js" crossorigin="anonymous"></script>
-    <script src="assets/lib/jquery/jquery.min.js"></script>
+    <!-- <script src="assets/lib/jquery/jquery.min.js"></script> -->
+    
     <title>Jobcard Management</title>
 </head>
 <style>
-    body {
+    /* body {
         padding: 30px;
-    }
+    } */
 
     input:focus~label,
     input:valid~label {
@@ -36,41 +49,88 @@
     /* .offcanvas .offcanvas-body #myForm input{
 
     } */
+
+    .custom-table 
+            {
+                width: 100%;
+                border-collapse: collapse;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+            .custom-table td,
+            .custom-table th 
+            {
+                padding: 15px;
+            }
+            .custom-table th 
+            {
+                background-color: #007bff;
+                color: #fff;
+                text-transform: uppercase;
+            }
+            .custom-table tbody tr:nth-child(even) 
+            {
+                background-color: #f2f2f2;
+            }
+            .custom-table tbody tr:hover 
+            {
+                background-color: #e0e0e0;
+            }
+            .custom-table tbody td 
+            {
+                border-bottom: 1px solid #ddd;
+            }
+            .custom-table tbody td:last-child 
+            {
+                border-bottom: none;
+            }
+
+
+
 </style>
 </head>
 
 <body>
 
 
-    <div class="row">
-        <div class="col-lg-2">
-            <div class="form-group">
-                <label for="selectcustomerName02">Select Plant</label>
-                <select style="width: 100%;" id="selectcustomerName02" class="js-example-basic-single">
-                    <option>
-                        Select Plant</option>
-                    <option>Chennai</option>
-                    <option>Hosur</option>
-                </select>
+    <div class="row" style="border: 1px solid #ccc;border-radius: 3px;padding: 5px;text-align: center;box-shadow: 1px 1px 5px #ccc;">
+        <div class="col-lg-12">
+            <div class="row">
+                
+                <div class="col-md-4 col-lg-2">
+                    
+                    <div class="form-label" style="margin-top: 5px;">
+                        <select style="border-radius: 5px;border: 1px solid #ccc; width: 100%;height: 30px;
+                    " id="selectCustomerName" class="js-example-basic-single">
+                            
+                            <option style="text-align: center;">
+                                Select Plant</option>
+                            <option>Chennai </option>
+
+                            <option>Hosur</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="form-label" style="margin-top: 5px;">
+                        <select style="border-radius: 5px; border: 1px solid #ccc;width: 100%;height: 30px;" id="selectProductName"
+                            class="js-example-basic-single">
+                            <option style="text-align: center;">
+                                Select Process</option>
+                            <option>Bending</option>
+
+                            <option>Welding</option>
+
+                            <option>Cutting</option>
+
+                            <option>Powder Coating</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-2">
 
-            <div class="form-group">
-                <label for="selectcustomerName">Select Process</label>
-                <select style="width: 100%;" id="selectcustomerName" class="js-example-basic-single">
-                    <option>
-                        Select Process</option>
-                    <option>Bending</option>
-
-                    <option>Welding</option>
-
-                    <option>Cutting</option>
-
-                    <option>Powder Coating</option>
-
-                </select>
-            </div>
         </div>
     </div>
     <br>
@@ -78,119 +138,24 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="table-responsive">
-                <table class="table table-hover text-center" style="width:100%; ">
-                    <th class="col-md-2">WorkOrder Details</th>
-                    <th class="col-md-2">Completed Quantity</th>
-                    <th class="col-md-2">Pending Quantity</th>
-                    <th class="col-md-2">Action</th>
-
-                    </tr>
+            <div class="custom-table table-hover text-center">
+                <!-- Main table layout -->
+                <table class="table table-hover text-center" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">WorkOrder Details</th>
+                            <th class="col-md-2">Completed Quantity</th>
+                            <th class="col-md-2">Pending Quantity</th>
+                            <th class="col-md-2">Action</th>
+                        </tr>
                     </thead>
-                    <tbody style="vertical-align: middle;">
-                        <tr>
-                            <td>
-                                <div
-                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin: 1px;">WO-001</h5>
-                                        <p class="card-text" style="margin: 1px;">Wood Table</p>
-                                        <p class="card-text" style="margin: 1px;">1500</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>100</td>
-                            <td>113</td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                    <i class="fa fa-plus"></i> Create JobCard
-                                </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                    data-bs-target="#view_jc">
-                                    view JobCard
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div
-                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin: 1px;">WO-002</h5>
-                                        <p class="card-text" style="margin: 1px;">Wood Table</p>
-                                        <p class="card-text" style="margin: 1px;">1501</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>100</td>
-                            <td>113</td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop002">
-                                    <i class="fa fa-plus"></i> Create JobCard
-                                </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                    data-bs-target="#view_jc">
-                                    view JobCard
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div
-                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin: 1px;">WO-003</h5>
-                                        <p class="card-text" style="margin: 1px;">Metal Bottle</p>
-                                        <p class="card-text" style="margin: 1px;">1503</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>100</td>
-                            <td>113</td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop002">
-                                    <i class="fa fa-plus"></i> Create JobCard
-                                </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                    data-bs-target="#view_jc">
-                                    view JobCard
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div
-                                    class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="margin: 1px;">WO-004</h5>
-                                        <p class="card-text" style="margin: 1px;">Wood Table</p>
-                                        <p class="card-text" style="margin: 1px;">1504</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>100</td>
-                            <td>113</td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop002">
-                                    <i class="fa fa-plus"></i> Create JobCard
-                                </button>
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                    data-bs-target="#view_jc">
-                                    view JobCard
-                                </button>
-                            </td>
-                        </tr>
+                    <tbody id="table-body" style="vertical-align: middle;">
                     </tbody>
                 </table>
             </div>
-
-
         </div>
     </div>
+    
 
 
 
@@ -200,7 +165,7 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+            <h5 id="offcanvasRightLabel">Create JobCard</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -238,7 +203,7 @@
                 <input type="number" class="form-control" required="required" id="quantity"
                     placeholder="Quantity" /><br>
 
-                <button type="button" class="btn btn-primary btn-sm" id="send-button" onclick="send()">Send</button>
+                <button type="button" class="btn btn-success btn-sm" id="send-button" onclick="send()">Print</button>
             </form>
         </div>
     </div>
@@ -334,70 +299,93 @@
             </div>
         </div>
     </div> -->
+    <!-- <table class="table table-hover text-center" style="width:100%; ">
+        <thead>
+            <tr>
+                <th class="col-md-2">JobCard No</th>
+                <th class="col-md-2">Operator Name</th>
+                <th class="col-md-2">Part No</th>
+                <th class="col-md-2">Quantity</th>
+                <th class="col-md-2">Action</th>
+            </tr>
+        </thead>
+        <tbody style="vertical-align: middle;">
+            <tr>
+                <td>JC001</td>
+                <td>Siva</td>
+                <td>1056</td>
+                <td>289</td>
+                <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
+            </tr>
+            <tr>
+                <td>JC002</td>
+                <td>Arun</td>
+                <td>1526</td>
+                <td>50</td>
+                <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
+            </tr>
+            <tr>
+                <td>JC003</td>
+                <td>Manoj</td>
+                <td>1885</td>
+                <td>100</td>
+                <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
+            </tr>
+        </tbody>
+    </table> -->
 
-
-    <div class="modal fade" id="view_jc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">JobCard Details</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="table-responsive">
-                                <table class="table table-hover text-center" style="width:100%; ">
-                                    <thead>
-                                        <tr>
-                                            <th class="col-md-2">JobCard No</th>
-                                            <th class="col-md-2">Operator Name</th>
-                                            <th class="col-md-2">Part No</th>
-                                            <th class="col-md-2">Quantity</th>
-                                            <th class="col-md-2">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody style="vertical-align: middle;">
-                                        <tr>
-                                            <td>JC001</td>
-                                            <td>Siva</td>
-                                            <td>1056</td>
-                                            <td>289</td>
-                                            <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>JC002</td>
-                                            <td>Arun</td>
-                                            <td>1526</td>
-                                            <td>50</td>
-                                            <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>JC003</td>
-                                            <td>Manoj</td>
-                                            <td>1885</td>
-                                            <td>100</td>
-                                            <td><i class="fa fa-trash" style="cursor: pointer;"></i></td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="send-button" onclick="addJobCardData()">
-                        save</button>
-                </div>
+    <!-- Modal to view job card details with hardcoded example data -->
+<div class="modal fade" id="view_jc" tabindex="-1" aria-labelledby="view_jcLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="view_jcLabel">JobCard Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Example data table with hardcoded values -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">JobCard No</th>
+                            <th class="col-md-2">Operator Name</th>
+                            <!-- <th class="col-md-2">Part No</th> -->
+                            <th class="col-md-2">Quantity</th>
+                            <!-- <th class="col-md-2">Action</th> -->
+                        </tr>
+                    </thead>
+                    <tbody style="vertical-align: middle;">
+                        <tr>
+                            <td>JC001</td>
+                            <td>Siva</td>
+                            <!-- <td>1056</td> -->
+                            <td>289</td>
+                            <!-- <td><i class="fa fa-trash" style="cursor: pointer;"></i></td> -->
+                        </tr>
+                        <tr>
+                            <td>JC002</td>
+                            <td>Arun</td>
+                            <!-- <td>1526</td> -->
+                            <td>50</td>
+                            <!-- <td><i class="fa fa-trash" style="cursor: pointer;"></i></td> -->
+                        </tr>
+                        <tr>
+                            <td>JC003</td>
+                            <td>Manoj</td>
+                            <!-- <td>1885</td> -->
+                            <td>100</td>
+                            <!-- <td><i class="fa fa-trash" style="cursor: pointer;"></i></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="send-button" onclick="addJobCardData()">Save</button>
             </div>
         </div>
     </div>
+</div>
+    
 
 
 
@@ -602,7 +590,14 @@ document.querySelectorAll("div select").forEach(function(element) { element.valu
     }
     listPorts();
     </script> -->
-
+    <script>
+        // Example JavaScript to update modal content - make sure this is not changing the modal content unexpectedly
+    $('#view_jc').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        // Update modal content if necessary
+    });
+    </script>
+    
 
     <script src="assets/dist/js/select2.min.js"></script>
     <script>
@@ -616,7 +611,68 @@ document.querySelectorAll("div select").forEach(function(element) { element.valu
         });
     </script>
 
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: 'jobcard.json', // Path to your JSON file
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                var tbody = $('table tbody#table-body'); // Target only the main table's body
+                tbody.empty(); // Clear existing table rows
+                $.each(data, function(index, item) {
+                    var row = `<tr>
+                        <td>
+                            <div class="card shadow bg-body-tertiary rounded text-primary-emphasis bg-secondary-subtle border border-secoundary-subtle rounded-3">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="margin: 1px;">${item.workOrderId}</h5>
+                                    <p class="card-text" style="margin: 1px;">${item.description}</p>
+                                    <p class="card-text" style="margin: 1px;">${item.quantity}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${item.completedQuantity}</td>
+                        <td>${item.pendingQuantity}</td>
+                        <td>
+                           <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <i class="fa fa-plus"></i> Create JobCard
+                            </button>
 
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#view_jc">
+                            View JobCard
+                        </button> 
+                        </td>
+                    </tr>`;
+                    tbody.append(row);
+                });
+            },
+            error: function() {
+                console.log('Error loading JSON data');
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+      $('#selectCustomerName').select2({
+        templateResult: formatState,
+        templateSelection: formatState
+      });
+    });
+  
+    function formatState(state) {
+      if (!state.id) {
+        return state.text; // For the placeholder
+      }
+      var baseUrl = 'https://example.com/path/to/icons';
+      var $state = $(
+        '<span><i class="fa-solid fa-industry"></i> ' + state.text + '</span>'
+      );
+      return $state;
+    }
+  </script>
 
     <!-- <script> $(document).ready(function () {
     $('.js-example-basic-single001').select2({ }); }); </script> -->
